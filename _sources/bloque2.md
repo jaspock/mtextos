@@ -1,16 +1,103 @@
 
+(label_tecnicas)=
 Técnicas para la minería de textos
 ==================================
 
-En este bloque se aborda el estudio de algunos modelos computacionales utilizados para procesar textos. El profesor de este bloque es...
+En este bloque se aborda el estudio de algunos modelos computacionales utilizados para procesar textos. El profesor de este bloque es Juan Antonio Pérez Ortiz.
 
-```{admonition} Mi pista
-:class: tip
-<p>My content</p>
-<p>Más contenido</p>
-```
 
-```{admonition} Mi nota
+## Revisión histórica 
+
+A continuación se presenta una revisión histórica de la evolución del procesamiento del lenguaje natural desde sus inicios hasta nuestro días que sirve para hilvanar los contenidos de la asignatura. En los siguientes apartados de este bloque se entrará en detalles técnicos sobre el funcionamiento de los modelos neuronales, que son los que actualmente proporcionan los mejores resultados en las principales aplicaciones.
+
+```{admonition} Nota
 :class: note
-My content
+Hacia final de curso deberías ser capaz de leer esta revisión histórica entendiendo cada aspecto explicado.
 ```
+
+### Los inicios y la traducción automática
+
+El procesamiento del lenguaje natural ha tenido en la tarea de la traducción automática uno de sus principales catalizadores, por lo que la evolución de esta tarea concreta es un buen reflejo de la evolución de la disciplina entera. En el año 1947, el matemático e informático Warren Weaver planteaba en una carta a un colega la posibilidad de usar los computadores que comenzaban a aparecer en la época para traducir la documentación de la Unesco: «Recognizing fully, even though necessarily vaguely, the semantic difficulties because of multiple meanings, etc., I have wondered if it were unthinkable to design a computer which would translate.» Cinco años más tarde se celebraba una reunión de expertos en traducción automática en el MIT de los EUA y en 1954 se presentó un sistema desarrollado conjuntamente por la Universidad de Georgetown e IBM que traducía unas 60 frases del ruso al inglés utilizando un pequeño diccionario y seis reglas de reordenamiento y selección léxica. Pese a la euforia inicial, la mejora en la calidad de estos sistemas fue tan lenta que en 1966 un comité de expertos recomendó al gobierno de los EUA recortar el presupuesto de investigación invertido en ellos.
+
+### Los primeros sistemas conversacionales
+
+Una de las grandes pretensiones de la humanidad ha sido desde hace siglos la de disponer de ingenios parlantes. Ramón Llull en el siglo XII concibió un artilugio mecánico con el que pretendía que se pudiera probar o refutar cualquier proposición. En el capítulo 63 del segundo libro del Quijote, el Caballero de la Triste Figura queda sorprendido al entablar diálogo con una cabeza parlante, de la que nunca supo que se trataba de un engaño. Pero realmente los primeros sistemas conversacionales (*bots*) no aparecen hasta mediados de los 60, siendo ELIZA, que incluso podía adoptar diferentes personalidades o roles, o SHRDLU, que permitía interactuar con un mundo de bloques en lenguaje natural, los ejemplos más conocidos. Para construir un sistema de este tipo es necesario desarrollar técnicas de procesamiento del lenguaje natural y estas técnicas han tenido siempre un lugar privilegiado dentro del campo de la inteligencia artificial, hasta el punto de que cuando Alan Turing planteó en los años 40 su famosa prueba (*Turing's test*) consideró la capacidad de diálogo como la demostración última de que una máquina pudiera pensar.
+
+### Técnicas simbólicas y estadísticas
+
+Los años comprendidos entre la década de los 50 y la década de los 80 vieron toda una serie de avances en el campo, la mayoría de ellos dentro del terreno simbólico, es decir, con sistemas que se componían de reglas escritas por lingüistas. Las teorías acerca del lenguaje humano introducidas por Chomsky en los años 60 tuvieron una gran influencia en el desarrollo de estos formalismos. Sin embargo, hacia finales de la década de los 80 comienzan a aparecer sistemas competitivos basados en estadística y aprendizaje automático. En 1988 el investigador Frederik Jelinek enuncia su famosa frase, luego [matizada][jelineck], en relación a su sistema de reconocimiento de voz: «Every time I fire a linguist, my performance goes up». No obstante, el mismo Jelinek reconoció posteriormente que las técnicas estadísticas pueden beneficiarse del conocimiento lingüístico.
+
+[jelineck]: http://www.lrec-conf.org/lrec2004/doc/jelinek.pdf
+
+Las técnicas estadísticas (árboles de decisión, modelos ocultos de Markov, etc.) son técnicas basadas en la explotación de grandes corpus de texto y se ven propiciadas por la llegada de la web, que incrementa notablemente la cantidad de datos disponibles, y por el incremento en la capacidad de cómputo de los ordenadores. Pese a la predominancia de enfoques neuronales, las técnicas basadas en reglas o las estadísticas aún se usan en lenguas con muy pocos recursos o para el pre o postprocesamiento de los textos usados en sistemas neuronales.
+
+### Los primeros modelos neuronales
+
+Los primeros modelos neuronales que procesaban el lenguaje humano en la década de los 90 se centraron en tareas relativamente sencillas como predecir el siguiente elemento de una secuencia (por ejemplo, el siguiente carácter dado el prefijo de una frase). Aunque en la década de los 90 ya aparecieron trabajos que usaban redes neuronales con lenguaje natural, no es hasta unos años después cuando empiezan a obtenerse resultados significativos. Un artículo de [Bengio][bengio] muestra un modelo que aprende a la vez representaciones distribuidas de las palabras de la entrada (lo que luego se conocería como *word embedding*) y un modelo probabilístico de la siguiente palabra a la salida. Este trabajo de 2003 ya tiene tamaños de vocabulario aceptables (probablemente inviables unos años antes) de en torno a las 16000 palabras. El entrenamiento de un modelo con millones de parámetros llevó  varias semanas en un sistema con 40 CPUs. La perplejidad total del modelo resultante es más baja que la de modelos estadísticos consolidados como los basados en trigramas suavizados.
+
+[bengio]: https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf
+
+
+Ya en aquel trabajo se plantea que "polysemous words are probably not well served by the model presented here, which assigns to each word a single point in a continuous semantic space" y se anticipa la necesidad de que una palabra pueda tener más de una representación en base a su contexto. También se menciona la conveniencia de utilizar redes neuronales recurrentes en lugar de redes *feedforward*. Las arquitecturas recurrentes se habían usado intensamente en la década anterior para tareas sencillas. De hecho, las unidades LSTM, que sustituyen a las neuronas tradicionales en estos modelos para mitigar el problema del gradiente evanescente, se propusieron en el año 1997 por Hochreiter y Schmidhuber.
+
+### El entrenamiento no supervisado
+
+El tipo de entrenamiento del trabajo de Bengio se conoce como no supervisado, en el sentido de que no se necesitan etiquetar datos o asignar categorías durante el entrenamiento. Este tipo de aprendizaje fue defendido por [Yann LeCun en 2016][lecun] como una tarea muy importante en el camino hacia una inteligencia artificial de propósito general que pueda trabajar con el "sentido común", que él define como la capacidad de predecir el pasado, presente o futuro de cualquier información disponible.
+
+[lecun]: https://ruder.io/highlights-nips-2016/#generalartificialintelligence
+
+El entrenamiento no supervisado es una piedra angular en desarrollos como los word embeddings, los modelos preetrenados o los modelos *sequence-to-sequence* usados en tareas como la traducción automática, especialmente los usados en los sistemas de traducción automática que no requieren corpus paralelo al explotar el concepto de *back-translation*.
+
+### Aprendizaje multitarea
+
+Otro elemento fundamental en los modelos de procesamiento del lenguaje natural es el de aprendizaje multitarea (*multi-task learning*) que ya propuso Caruana en la década de los 90. En el contexto actual de las redes neuronales, esto significa que parte o la totalidad de los parámetros es compartida entre redes que resuelven problemas diferentes, pero relacionados: como caso límite, una red puede entrenarse para clasificar textos entre diferentes idiomas o para búsqueda de respuestas, resumen automático y traducción automática a la vez.
+
+### Word embeddings
+
+Aunque las representaciones distribuidas de palabras ya existían desde varios años antes, en 2013 Mikolov et al. muestran un método eficiente para su cálculo que dispara su uso. Los embeddings pueden calcularse mediante modelos complejos con grandes corpus de texto y luego emplearse en otras tareas. Existen colecciones como fastText, que incluyen embeddings para dos millones de palabras en inglés (obtenidos procesando un corpus de 16000 millones de palabras) o embeddings multilingües para más de cien idiomas. También cabe aprender los embeddings para una tarea concreta, lo que consiste en aprender los valores de la tabla de *embeddings* como cualquier otro parámetro de la red (usualmente mediante descenso por gradiente estocástico). Los embeddings suelen tener propiedades geométricas interesantes (Londres es a Reino Unido como París es a Francia), pero también reflejan los sesgos de los textos en los que son entrenados (el embedding de *nurse* suele estar cerca del de *woman* y el *doctor* cerca de *man*).
+
+### El inicio del auge de las redes neuronales
+
+A partir de 2013 aproximadamente los modelos neuronales empiezan a ser considerados como una opción seria para ciertas tareas de procesamiento del lenguaje natural, pero las técnicas tradicionales todavía tienen un mayor peso. En esos momentos, en el terreno del procesamiento de imagen, los modelos neuronales ya superan competición tras competición a los más tradicionales. Las redes neuronales convolucionales DanNet en 2011 y AlexNet en 2013, por poner dos ejemplos, superaron en varios puntos a modelos hasta entonces consolidados y obtuvieron resultados *superhumanos*  en múltiples tareas de procesamiento de imágenes. Un equivalente en el área del procesamiento del lenguaje natural no llegaría hasta aproximadamente 2018 con la aparición de Elmo y BERT.
+
+### Modelos recurrentes sequence-to-sequence
+
+En 2014, Sutskever et al. presentan el modelo neuronal sequence-to-sequence que incluye dos redes neuronales (de una o más capas cada una; a más capas, más profunda se considera la representación aprendida) en un modelo conocido como codificador-descodificador (*encoder-decoder*), que es capaz de obtener una representación intermedia de la secuencia completa de entrada y "desenrollarla" a continuación en una nueva secuencia  de longitud no necesariamente igual a la de la de entrada. Aunque hay muchas tareas que se pueden especificar de esta forma (por ejemplo, el resumen de textos o la descripción textual automática de imágenes), donde el sistema es más exprimido es en la traducción automática. En ciertos casos, el modelo supera la calidad de la traducción de los sistemas estadísticos (basados en encontrar las traducciones más probables para segmentos de varias palabras y combinarlas y reordenarlas teniendo en cuenta un modelo de lengua), que eran los dominantes hasta ese momento. 
+
+### El mecanismo de atención
+
+Si bien el modelo *sequence-to-sequence* supuso un gran avance, su principal limitación es que comprime toda la secuencia de entrada en un único vector a partir del cuál se va generando toda la secuencia de salida. En el año siguiente, Bahdanau et al. perfeccionan el modelo introduciendo el mecanismo de *atención*: en lugar de obtener un vector único para la frase de entrada combinando los vectores de cada palabra, el descodificador es capaz de utilizar las representaciones individuales de todas las palabras de la secuencia de entrada; cuando el descodificador va a generar la siguiente palabra de la secuencia de salida, decide en base a las representaciones usadas para emitir las palabras anteriores de la salida el porcentaje de influencia de cada representación de la entrada en la predicción de la siguiente palabra de la salida. La atención supone otro salto cuantitativo en el rendimiento del modelo que lleva a los grandes proveedores de sistemas de traducción automática a migrar rápidamente en los meses siguientes a tecnologías neuronales.
+
+### Redes neuronales con memoria explícita
+
+Hacia el año 2014 y siguientes comienzan a aparecer modelos neuronales que integran de forma explícita una memoria de lectura/escritura en la que la red puede decidir almacenar ciertos vectores para su uso posterior. Los *computadores diferenciables neuronales* son ejemplo de este tipo de sistemas y son capaces de aprender algoritmos sencillos (ordenación o enrutamiento, por ejemplo) o trabajar en tareas en las que cierta información debe almacenarse durante largos periodos de tiempo.
+
+### La arquitectura transformer
+
+El mecanismo de atención no solo se puede aplicar a la situación en la que el descodificador tiene que integrar con diferentes grados de atención la información aportada por el codificador. En 2017, de nuevo con un enfoque inicial en la traducción automática, aparece la arquitectura conocida como *transformer* que elimina la necesidad de utilizar redes recurrentes (que arrastran el problema del gradiente evanescente que dificulta la detección de dependencias a largo plazo, como cuando un adjetivo al final de una frase larga concuerda con un sustantivo que aparece al principio de esta, y que son difíciles de paralelizar ya que cada paso depende del anterior) al aplicar el concepto de *autoatención*: la representación de cada palabra en el codificador se obtiene integrando mediante mecanismos de atención las representaciones en la capa anterior de todas las palabras de la frase de entrada; del mismo modo, el descodificador usa la atención para determinar la influencia de las representaciones de la entrada y del prefijo de la salida generado hasta el momento en las probabilidades emitidas para la siguiente palabra de la salida.
+
+### Modelos preentrenados
+
+En el año 2018 comienza la revolución de los llamados *modelos preentrenados*, que ya habían sido propuestos unos años antes. Las representaciones vectoriales obtenidas por un codificador en sus diferentes capas pueden considerarse como *embeddings* contextuales de cada palabra. Si estos embeddings son representativos (es decir, sin son entrenados con ingentes cantidades de texto) pueden usarse para codificar la frase de entrada en redes neuronales que resuelvan tareas como detección de sentimiento, búsqueda de respuestas o inferencia en lenguaje natural. Pero los embeddings aprendidos por el codificador de un sistema de traducción automática tienen un par de inconvenientes: 
+
+1. están condicionados por la lengua meta, ya que se entrenan para generar buenas traducciones por lo que no son monolingües; por ejemplo, el embedding para español obtenido de un traductor español-inglés, por ejemplo, puede representar con embeddings similares la palabra *canal* de una oración que habla sobre televisión y la palabra *canal* en una oración que habla sobre cauces de agua, simplemente porque en ambos casos la traducción es *channel*;
+2. para obtener estos embeddings es necesario entrenar un sistema de traducción automática con grandes cantidades corpus bilingües y hay muchas lenguas para las que no existe este tipo de información supervisada en cantidad suficiente. 
+
+Por ello, los sistemas preentrenados se obtienen mediante tareas no supervisadas. Los primeros de estos modelos como ELMO entrenaban el sistema para que predijera la siguiente palabra, pero los sistemas posteriores como BERT plantean una tarea no supervisada más difícil que permite obtener representaciones más complejas y elaboradas; esta tarea, conocida como *mask filling* consiste en sustituir aleatoriamente algunas palabras de la entrada por una marca especial (*mask*) y enseñar a la red a maximizar la probabilidad de las palabras originales a la salida. Existen múltiples variaciones de esta estrategia no supervisada de entrenamiento, pero su planteamiento básico es similar a este.
+
+El uso de un modelo preentrenado en una tarea concreta de procesamiento del lenguaje natural pasa por añadir una o más capas a la salida del modelo de preentrenado y entrenar la salida del modelo ampliado para la tarea en cuestión, lo que se denomina *ajuste fino* (*fine-tuning*). Los pesos de la parte correspondiente al modelo preetrenado suelen dejarse congelados, pero también podrían ajustarse o incorporar entre las capas adaptadores, La arquitectura de un modelo preentrenado (por ejemplo, BERT) es como la del codificador de un transformer cuando el modelo resultante se va a usar para tareas de clasificación de secuencias; la arquitectura es como la de un transformer completo (por ejemplo, mBART) cuando el modelo resultante se va a usar para tareas que generan secuencias a partir de secuencias. Hay también modelos preentrenados para tareas específicas: para la continuación de secuencias la arquitectura de GPT-3 usa el descodificador de un transformer; M2M es un transformer entrenado sobre decenas de corpus bilingües de múltiples pares de idiomas.
+
+### El modelo GPT-3
+
+
+### Corpus disponibles
+
+Con el progresivo aumento del interés en el procesamiento del lenguaje natural cada vez existen corpus más 
+
+- UD
+
+- Otros mecanismos como 
+
+### Modelos de subpalabras
+
+Un cuello de botella de los modelos neuronales es el elevado tamaño de la matriz de embeddings o el cálculo de la función softmax en la capa de salida. Ambos están en función del tamaño del vocabulario. Para aligerarlo, se propuso el uso de unidades más pequeñas que la palabra. Por ejemplo, si en lugar de tener un embedding para cada forma del presente de indicativo de los *cantar*, *bailar*, *danzar* y *pintar*, usamos representaciones para *cant*, *bail*, *danz* *pint*, *o*, *as*, *a*, *amos* *áis* y *an* habremos reducido el tamaño del vocabulario de 24 a 10.

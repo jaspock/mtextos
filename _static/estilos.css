@@ -6,7 +6,7 @@
 }
 
 h1 {
-    color:rgb(15, 72, 146) !important;
+    color:rgb(11, 43, 86) !important;
 }
 
 .tablita {
@@ -19,4 +19,8 @@ h1 {
 
 .tablita p {
     margin-bottom: 0.5rem;
+}
+
+p {
+  text-align: justify;
 }
