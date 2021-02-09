@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introducción a la minería de textos &#8212; Minería de Textos</title>
+    <title>Minería de textos y procesamiento del lenguaje natural. &#8212; Minería de Textos</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -103,11 +103,6 @@
   <ul class="current collapse-ul">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Introducción a la minería de textos
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="#mineria-de-textos-y-procesamiento-del-lenguaje-natural">
      Minería de textos y procesamiento del lenguaje natural.
     </a>
    </li>
@@ -253,103 +248,91 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Introducción a la minería de textos
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mineria-de-textos-y-procesamiento-del-lenguaje-natural">
-   Minería de textos y procesamiento del lenguaje natural.
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-un-texto-y-por-que-es-dificil-su-procesamiento-automatico">
+   Qué es un texto (y por qué es difícil su procesamiento automático).
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#que-es-un-texto-y-por-que-es-dificil-su-procesamiento-automatico">
-     Qué es un texto (y por qué es difícil su procesamiento automático).
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#actividad-para-pensar">
-       Actividad para pensar:
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#niveles-de-descripcion-linguistica">
-     Niveles de descripción lingüística.
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#imagen-o-sonidos-extralinguistico">
-       Imagen o sonidos extralingüístico.
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#nivel-fono-fonologico">
-       Nivel fono-fonológico.
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#nivel-morfologico">
-       Nivel morfológico.
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#nivel-sintactico">
-       Nivel sintáctico
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#nivel-semantico">
-       Nivel semántico
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#nivel-textual">
-       Nivel textual
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#nivel-pragmatico">
-       Nivel pragmático
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#metodos-de-pln">
-     Métodos de PLN.
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#metodos-simbolicos-racionalismo">
-       Métodos simbólicos (racionalismo):
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#metodos-estadisticos-empirismo">
-       Métodos estadísticos (empirismo).
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#metodos-neuronales">
-       Métodos neuronales
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#conclusion">
-     Conclusión
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bibliografia">
-     Bibliografía
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#actividad-para-pensar">
+     Actividad para pensar:
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#niveles-de-descripcion-linguistica">
+   Niveles de descripción lingüística.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#imagen-o-sonidos-extralinguistico">
+     Imagen o sonidos extralingüístico.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nivel-fono-fonologico">
+     Nivel fono-fonológico.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nivel-morfologico">
+     Nivel morfológico.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nivel-sintactico">
+     Nivel sintáctico
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nivel-semantico">
+     Nivel semántico
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nivel-textual">
+     Nivel textual
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nivel-pragmatico">
+     Nivel pragmático
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metodos-de-pln">
+   Métodos de PLN.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metodos-simbolicos-racionalismo">
+     Métodos simbólicos (racionalismo):
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metodos-estadisticos-empirismo">
+     Métodos estadísticos (empirismo).
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metodos-neuronales">
+     Métodos neuronales
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusión
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliografia">
+   Bibliografía
+  </a>
  </li>
 </ul>
 
@@ -362,11 +345,8 @@
         
               <div>
                 
-  <div class="section" id="introduccion-a-la-mineria-de-textos">
-<span id="label-introduccion"></span><h1>Introducción a la minería de textos<a class="headerlink" href="#introduccion-a-la-mineria-de-textos" title="Permalink to this headline">¶</a></h1>
-</div>
-<div class="section" id="mineria-de-textos-y-procesamiento-del-lenguaje-natural">
-<h1>Minería de textos y procesamiento del lenguaje natural.<a class="headerlink" href="#mineria-de-textos-y-procesamiento-del-lenguaje-natural" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="mineria-de-textos-y-procesamiento-del-lenguaje-natural">
+<span id="label-introduccion"></span><h1>Minería de textos y procesamiento del lenguaje natural.<a class="headerlink" href="#mineria-de-textos-y-procesamiento-del-lenguaje-natural" title="Permalink to this headline">¶</a></h1>
 <p><em>Minería de textos</em> es el conjunto de técnicas y herramientas desarrolladas para extraer información de grandes colecciones textuales, tanto información implícita como explícita.</p>
 <p>Extracción de información de grandes volúmenes de textos. Sin estas técnicas no sería posible analizar toda esa información por un humano. Extracción de patrones / información recurrente.</p>
 <p>Esa información está codificada en textos, es decir, en un idioma o lengua. La minería de textos necesita, por tanto, interpretar (en mayor o menor medida) los textos y a partir de esa interpretación extraer el información.</p>

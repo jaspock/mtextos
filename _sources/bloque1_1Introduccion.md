@@ -1,8 +1,6 @@
 ﻿(label_introduccion)=
-Introducción a la minería de textos
+Minería de textos y procesamiento del lenguaje natural.
 ===================================
-
-# Minería de textos y procesamiento del lenguaje natural.
 
 *Minería de textos* es el conjunto de técnicas y herramientas desarrolladas para extraer información de grandes colecciones textuales, tanto información implícita como explícita.
 
