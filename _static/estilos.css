@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
+
 #site-title {
     color: #0c3a6e !important;
     font-family: 'Special Elite', cursive !important;
@@ -23,4 +25,8 @@ h1 {
 
 p {
   text-align: justify;
+}
+
+body {
+    font-family: 'PT Serif', Lato, sans-serif !important;
 }
