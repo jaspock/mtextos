@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>El raspado web &#8212; Minería de Textos</title>
+    <title>Fundamentos de PLN. Práctica 1. &#8212; Minería de Textos</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -57,8 +57,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Práctica de representaciones de palabras" href="bloque2_practica.html" />
-    <link rel="prev" title="Modelos preentrenados" href="bloque2_pretrained.html" />
+    <link rel="next" title="Técnicas para la minería de textos" href="bloque2.html" />
+    <link rel="prev" title="Introducción a la minería de textos" href="bloque1_1Introduccion.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -96,11 +96,11 @@
  </li>
 </ul>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="bloque1.html">
    Introducción a la minería de textos
   </a>
-  <ul class="collapse-ul">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="bloque1_1Introduccion.html">
      Introducción a la minería de textos
@@ -111,8 +111,8 @@
      Minería de textos y procesamiento del lenguaje natural.
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="bloque1_Practica1.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Fundamentos de PLN. Práctica 1.
     </a>
    </li>
@@ -120,11 +120,11 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 current active collapsible-parent">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="bloque2.html">
    Técnicas para la minería de textos
   </a>
-  <ul class="current collapse-ul">
+  <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="bloque2_embeddings.html">
      Representaciones de palabras y oraciones
@@ -145,8 +145,8 @@
      Modelos preentrenados
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque2_scraping.html">
      El raspado web
     </a>
    </li>
@@ -223,7 +223,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/bloque2_scraping.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/bloque1_Practica1.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -248,6 +248,42 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objeto">
+   Objeto
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#herramientas">
+   Herramientas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recursos">
+   Recursos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#por-pasos">
+     Por pasos:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#para-saber-mas">
+   Para saber más
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -255,8 +291,62 @@
         
               <div>
                 
-  <div class="section" id="el-raspado-web">
-<h1>El raspado web<a class="headerlink" href="#el-raspado-web" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="fundamentos-de-pln-practica-1">
+<h1>Fundamentos de PLN. Práctica 1.<a class="headerlink" href="#fundamentos-de-pln-practica-1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="objeto">
+<h2>Objeto<a class="headerlink" href="#objeto" title="Permalink to this headline">¶</a></h2>
+<p>Crear un <em>script</em> para anotar un pequeño corpus a diferentes niveles de descripción lingüística con SPaCy. Este tipo de pre-procesamiento del corpus es común en diferentes tareas de minería de textos.</p>
+<p>Análisis a realizar:</p>
+<ul class="simple">
+<li><p>Tokenización</p></li>
+<li><p>Lematización</p></li>
+<li><p>Análisis categorial y morfológico</p></li>
+<li><p>Análisis sintáctico de dependencias</p></li>
+<li><p>Extracción de entidades</p></li>
+</ul>
+<p>Con esta práctica aprenderás los fundamentos de SpaCy como herramienta de PLN para preprocesar corpus para minería de textos. Se asume que se conoce cómo funciona COLAB. Si no es así, consulta al profesor.</p>
+</div>
+<div class="section" id="herramientas">
+<h2>Herramientas<a class="headerlink" href="#herramientas" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Cuaderno COLAB para crear el código: https://colab.research.google.com</p></li>
+<li><p>Python (ya instalado en COLAB)</p></li>
+<li><p>SpaCy: https://spacy.io/</p></li>
+</ul>
+</div>
+<div class="section" id="recursos">
+<h2>Recursos<a class="headerlink" href="#recursos" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Corpus</p></li>
+<li><p>Documentación básica SpaCy. Aquí está explicado todo lo necesario para hacer esta páctica:</p>
+<p>https://spacy.io/usage/spacy-101</p>
+</li>
+</ul>
+<div class="section" id="por-pasos">
+<h3>Por pasos:<a class="headerlink" href="#por-pasos" title="Permalink to this headline">¶</a></h3>
+<ol>
+<li><p>Crear un cuaderno COLAB vacío.</p></li>
+<li><p>Importar SpaCy (Esto es fácil :)</p>
+<p>import spacy</p>
+</li>
+<li><p>Descargar los módulos SpaCy para español (en COLAB), importar y asignar a una variable para su uso posterior.</p></li>
+<li><p>Subir el corpus a COLAB, abrir el documento y asignarlo a una variable.</p></li>
+<li><p>Analizar el corpus entero con SpaCy.</p></li>
+<li><p>Extraer “palabra | lema | categoria_gramatical” y descargar en un fichero CSV.</p></li>
+<li><p>Extraer los grupos nominales según el análisis de dependencias y descargar en un fichero .txt</p></li>
+<li><p>Extraer las entidades nombradas y descargar en un fichero .txt</p></li>
+<li><p>(Opcional, solo si sobra tiempo en clase) Crear un gráfico en COLAB donde se muestren la cantidad de nombres, adjetivos, verbos y adverbios.</p></li>
+<li><p>Entrega: enviar enlace del cuaderno COLAB al profesor.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="para-saber-mas">
+<h2>Para saber más<a class="headerlink" href="#para-saber-mas" title="Permalink to this headline">¶</a></h2>
+<p>Curso avanzado de SpaCy (en español):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://course.spacy.io/es/
+</pre></div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -287,8 +377,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="bloque2_pretrained.html" title="previous page">Modelos preentrenados</a>
-    <a class='right-next' id="next-link" href="bloque2_practica.html" title="next page">Práctica de representaciones de palabras</a>
+    <a class='left-prev' id="prev-link" href="bloque1_1Introduccion.html" title="previous page">Introducción a la minería de textos</a>
+    <a class='right-next' id="next-link" href="bloque2.html" title="next page">Técnicas para la minería de textos</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
