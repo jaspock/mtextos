@@ -90,7 +90,7 @@ Percepción y representación mental (prototípica y abstracta) de los sonidos (
 
 Los sistemas de PLN de este nivel son los sistemas de reconocimiento del habla o análisis de voz. El primero transforman una cadena de sonido hablado en una representación textual procesable (texto digital codificado en UTF-8, etc.). Problemas: relacionar sonidos y fonemas, sílabas, entonación, discriminación del habla de otros tipos de sonidos (ruido), separación de palabras (o unidades significativas), etc.
 
-Ej. "Damunt del llit té la mà Maria"
+Ej. "..."
 
 El proceso contrario, del texto a habla, son los sistemas de síntesis de voz.
 
