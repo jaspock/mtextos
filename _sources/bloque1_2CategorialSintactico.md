@@ -67,15 +67,25 @@ Actualmente hay diversas propuestas. Es necesario saber con qué juego de etique
 
 Algunas propuestas:
 
-- BROWN corpus: http://www.helsinki.fi/varieng/CoRD/corpora/BROWN/tags.html
-- Penn Treebank tag set: https://www.cs.upc.edu/~nlp/SVMTool/PennTreebank.html
+- BROWN corpus:
+
+[http://www.helsinki.fi/varieng/CoRD/corpora/BROWN/tags.html](http://www.helsinki.fi/varieng/CoRD/corpora/BROWN/tags.html)
+
+- Penn Treebank tag set:
+
+[https://www.cs.upc.edu/~nlp/SVMTool/PennTreebank.html](https://www.cs.upc.edu/~nlp/SVMTool/PennTreebank.html)
+
 - EAGLES tag set:
-http://www.ilc.cnr.it/EAGLES96/annotate/annotate.html
-http://blade10.cs.upc.edu/freeling-old/doc/tagsets/tagset-es.html
-https://freeling-user-manual.readthedocs.io/en/latest/tagsets/
+
+[http://www.ilc.cnr.it/EAGLES96/annotate/annotate.html](http://www.ilc.cnr.it/EAGLES96/annotate/annotate.html)
+
+[http://blade10.cs.upc.edu/freeling-old/doc/tagsets/tagset-es.html](http://blade10.cs.upc.edu/freeling-old/doc/tagsets/tagset-es.html)
+
+[https://freeling-user-manual.readthedocs.io/en/latest/tagsets/](https://freeling-user-manual.readthedocs.io/en/latest/tagsets/)
 
 - Universal tagset (*Universal dependencies project*):
-https://universaldependencies.org/u/pos/
+
+[https://universaldependencies.org/u/pos/](https://universaldependencies.org/u/pos/)
 
 ### Arquitectura de un *PoS_tagger*. Algoritmos clásicos de desambiguación.
 
@@ -147,18 +157,18 @@ Ejemplo "Transformation-based Tagger" (Brill 1995). Proceso iterativo donde va a
 
 Aproximaciones multilingües basadas en *embeddings* y redes neuronales:
 
-http://nlpprogress.com/english/part-of-speech_tagging.html
+[http://nlpprogress.com/english/part-of-speech_tagging.html](http://nlpprogress.com/english/part-of-speech_tagging.html)
 
 
 ### Recursos.
 
 Cualquier sistema de PLN parte de un PoS tagger. Es el análisis básico.
 
-Freeling http://nlp.lsi.upc.edu/freeling/index.php/
-SpaCy: https://spacy.io/
-NLTK: http://www.nltk.org/
-Standford CORE NLP: https://stanfordnlp.github.io/CoreNLP/
-Google CLOUD: https://cloud.google.com/natural-language/
+- Freeling [http://nlp.lsi.upc.edu/freeling/index.php/](http://nlp.lsi.upc.edu/freeling/index.php/)
+- SpaCy: [https://spacy.io/](https://spacy.io/)
+- NLTK: [http://www.nltk.org/](http://www.nltk.org/)
+- Standford CORE NLP: [https://stanfordnlp.github.io/CoreNLP/](https://stanfordnlp.github.io/CoreNLP/)
+- Google CLOUD: [https://cloud.google.com/natural-language/](https://cloud.google.com/natural-language/)
 
 y muchos más
 
@@ -226,7 +236,7 @@ Estas gramáticas eran muy limitadas y fueron ampliadas con estructuras de rasgo
 
 ![Unificación](images/unificacion.png)
 
-En lingüística se han desarrollado diferentes modelos basados en estas técnicas las *Head-driven phrase structure grammar* o las *Lexical-Functional Grammar* (que sigue siendo un modelo válido: https://ling.sprachwiss.uni-konstanz.de/pages/home/lfg/ )
+En lingüística se han desarrollado diferentes modelos basados en estas técnicas las *Head-driven phrase structure grammar* o las *Lexical-Functional Grammar* (que sigue siendo un modelo válido: [https://ling.sprachwiss.uni-konstanz.de/pages/home/lfg/](https://ling.sprachwiss.uni-konstanz.de/pages/home/lfg/) )
 
 #### *Probabilistic Context Free Grammar* y modelos probabilísticos
 
@@ -241,11 +251,12 @@ Modelos de aprendizaje automático.
 Corpus de aprendizaje y evaluación: *treebanks*
 
 - Penn Treebank:
-https://catalog.ldc.upenn.edu/LDC99T42
-https://www.kaggle.com/nltkdata/penn-tree-bank
+
+[https://catalog.ldc.upenn.edu/LDC99T42](https://catalog.ldc.upenn.edu/LDC99T42)
+[https://www.kaggle.com/nltkdata/penn-tree-bank](https://www.kaggle.com/nltkdata/penn-tree-bank)
 
 - Ancora (español, catalán):
-http://clic.ub.edu/corpus/en/ancora-descarregues
+[http://clic.ub.edu/corpus/en/ancora-descarregues](http://clic.ub.edu/corpus/en/ancora-descarregues)
 
 Y muchos otros
 
@@ -273,7 +284,7 @@ Shift Reduce:
 
 *Transition-based dependency parsing* (Nivre 2014). Algoritmo shift-reduce.
 
-*Neural Network Dependency Parser*: https://nlp.stanford.edu/software/nndep.shtml
+*Neural Network Dependency Parser*: [https://nlp.stanford.edu/software/nndep.shtml](https://nlp.stanford.edu/software/nndep.shtml)
 
 Modelo de dependencias universal: *Universal Dependencies*:
 
@@ -281,11 +292,11 @@ Modelo de dependencias universal: *Universal Dependencies*:
 
 Representación vectorial (*embeddings*).
 
-http://nlpprogress.com/english/constituency_parsing.html
+[http://nlpprogress.com/english/constituency_parsing.html](http://nlpprogress.com/english/constituency_parsing.html)
 
-http://nlpprogress.com/english/dependency_parsing.html
+[http://nlpprogress.com/english/dependency_parsing.html](http://nlpprogress.com/english/constituency_parsing.html)
 
 ## Bibliografía
 
-Juravsky y Martin (2020) *Speech and Language Processing*. https://web.stanford.edu/~jurafsky/slp3/ 
+Juravsky y Martin (2020) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/) 
 (Caps 12-14)
