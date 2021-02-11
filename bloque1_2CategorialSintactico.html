@@ -1,0 +1,726 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Análisis categorial y sintáctico &#8212; Minería de Textos</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/estilos.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo-master-ca.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Minería de Textos</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Materiales de Minería de Textos
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="bloque1.html">
+   Introducción a la minería de textos
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque1_1Introduccion.html">
+     Minería de textos y procesamiento del lenguaje natural.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque1_Practica1.html">
+     Fundamentos de PLN. Práctica 1.
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="bloque2.html">
+   Técnicas para la minería de textos
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque2_embeddings.html">
+     Representaciones de palabras y oraciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque2_recurrent.html">
+     Redes neuronales recurrentes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque2_transformer.html">
+     La arquitectura transformer
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque2_pretrained.html">
+     Modelos preentrenados
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque2_scraping.html">
+     El raspado web
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque2_practica.html">
+     Práctica de representaciones de palabras
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque3.html">
+   Aplicaciones de la minería de textos
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="content.html">
+   Content in Jupyter Book
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="markdown.html">
+     Markdown Files
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notebooks.html">
+     Content with notebooks
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/bloque1_2CategorialSintactico.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unidades-de-comunicacion-basica-la-palabra-type-token-y-lema">
+   Unidades de comunicación básica. La palabra.
+   <em>
+    Type
+   </em>
+   ,
+   <em>
+    token
+   </em>
+   y lema.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analisis-morfologico-y-categorial">
+   Análisis morfológico y categorial.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fundamentos-linguisticos-a-modo-de-recordatorio">
+     Fundamentos lingüísticos (a modo de recordatorio).
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#importancia-en-mineria-de-textos">
+     Importancia en Minería de textos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#representacion-de-la-informacion-morfologica-y-categorial">
+     Representación de la información morfológica y categorial
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#arquitectura-de-un-pos-tagger-algoritmos-clasicos-de-desambiguacion">
+     Arquitectura de un
+     <em>
+      PoS_tagger
+     </em>
+     . Algoritmos clásicos de desambiguación.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algoritmos-de-desambiguacion-categorial-aproximacion-historica">
+     Algoritmos de desambiguación categorial (aproximación histórica)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#modelo-de-reglas-simples">
+       Modelo de reglas simples.
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelo-estadistico-cadena-de-markov">
+     Modelo estadístico: cadena de markov.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelo-oculto-de-markov">
+     Modelo oculto de Markov
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gramaticas-de-restricciones-constraint-grammar">
+     Gramáticas de restricciones (
+     <em>
+      Constraint grammar
+     </em>
+     )
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#modelos-basados-en-aprendizaje-automatico">
+       Modelos basados en aprendizaje automático.
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#situacion-actual">
+     Situación actual
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recursos">
+     Recursos.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analisis-sintactico">
+   Análisis sintáctico.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#arquitectura-estandar-de-un-parser">
+     Arquitectura estándar de un
+     <em>
+      parser
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelos-de-representacion">
+     Modelos de representación
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#principal-problema-computacional">
+     Principal problema computacional
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gramaticas-formales">
+     Gramáticas formales
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#context-free-grammars">
+       Context free grammars
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#probabilistic-context-free-grammar-y-modelos-probabilisticos">
+       <em>
+        Probabilistic Context Free Grammar
+       </em>
+       y modelos probabilísticos
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chunkers">
+     <em>
+      Chunkers
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estrategias">
+     Estrategias
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Situación actual
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliografia">
+   Bibliografía
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="analisis-categorial-y-sintactico">
+<span id="label-pos"></span><h1>Análisis categorial y sintáctico<a class="headerlink" href="#analisis-categorial-y-sintactico" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="unidades-de-comunicacion-basica-la-palabra-type-token-y-lema">
+<h2>Unidades de comunicación básica. La palabra. <em>Type</em>, <em>token</em> y lema.<a class="headerlink" href="#unidades-de-comunicacion-basica-la-palabra-type-token-y-lema" title="Permalink to this headline">¶</a></h2>
+<p>Si bien se suele utilizar como unidad mínima y básica de comunicación, la palabra es un concepto vago que no tiene una definión clara en la lingüística.</p>
+<p>En lingüística de corpus se trabaja con dos conceptos relacionados: <em>type</em> y <em>token</em>.</p>
+<ul class="simple">
+<li><p><em>Token</em> es cada una de las secuencias de caracteres separadas por espacio en blanco.</p></li>
+<li><p><em>Type</em> son todos los <em>tokens</em> iguales.</p></li>
+</ul>
+<p>Así, para medir el tamaño del corpus se indica el número de <em>tokens</em> y el cálculo de frecuencias más simple que se puede hacer el la cantidad de <em>tokens</em> por cada <em>type</em>.</p>
+<p>La tokenización, aún así, presenta algunos aspectos que deben ser tenidos en cuenta como signos de puntuación, unidades multipalabra (como formas complejas del verbo Ej. “he comido”) o contracciones (“del”, “al”) y formas aglutinantes (“dáselo”).</p>
+<p><em>Type</em> y <em>token</em> se refieren siempre a formas flexionadas, es decir, a formas con variaciones morfológicas. Así, “catamos” y “cantaré” son <em>tokens</em> distintos; al igual que “casa” y “casas”.</p>
+<p>Para agrupar todos los <em>tokens</em> relacionados con la misma palabra (es decir, la forma sin flexionar o la unidad léxica que podemos encontrar, por ejemplo, en los diccionarios) se realiza un proceso de <em>lematización</em>. La lematización es asignar a cada palabra su forma no marcada: infinitivo para verbos, forma masculino singular para nombres y verbos (es decir, la forma que aparece en el diccionario). El lema es una manera de nombrar la palabra en toda su diversidad flexiva.</p>
+<p>La lematización es un fenómenos complejo porque es necesario analizar morfológicamente la palabra para determinar su lema. Ej. El lema del <em>token</em> “traje” puede ser “traer” (si es verbo) o “traje” (si es nombre).</p>
+<p>Un proceso similar pero más sencillo es el <em>stemming</em>: reducir cada <em>token</em> a su raíz o lexema (la parte invarible que, en principio, asume el significado general de la palabra).</p>
+<blockquote>
+<div><p>Reflexión: para minería de textos, ¿qué es mejor, dejar el corpus con los <em>tokens</em>, lematizarlo o trabajar solo con las raíces léxicas (<em>stemm</em>)?</p>
+</div></blockquote>
+</div>
+<div class="section" id="analisis-morfologico-y-categorial">
+<h2>Análisis morfológico y categorial.<a class="headerlink" href="#analisis-morfologico-y-categorial" title="Permalink to this headline">¶</a></h2>
+<p>El objetivo general de la anotación categorial (<em>PoS Tagger</em>): asignar a cada palabra de un texto su categoría gramatical correspondiente. En concreto, a cada <em>token</em> del texto (incluidos signos de puntuación, etc) se le asigna:</p>
+<ul class="simple">
+<li><p>lema,</p></li>
+<li><p>categoría gramatical,</p></li>
+<li><p>rasgos morfológicos.</p></li>
+</ul>
+<p>El mayor problema viene en la selección de la categoría gramatical por los problemas de ambigüedad categorial que vimos en la sesión anterior.</p>
+<div class="section" id="fundamentos-linguisticos-a-modo-de-recordatorio">
+<h3>Fundamentos lingüísticos (a modo de recordatorio).<a class="headerlink" href="#fundamentos-linguisticos-a-modo-de-recordatorio" title="Permalink to this headline">¶</a></h3>
+<p>Categorías gramaticales: agrupaciones de palabras (“paradigmas”) según sus rasgos distributivos, morfológicos y (en menor medida) semánticos.</p>
+<p>ESP: artículo, sustantivo, adjetivo, pronombre, verbo, adverbio, preposición, conjunción e interjección.</p>
+<p>Por su función en el texto: categorías con significado léxico vs. “significado” gramatical (solo aportan información gramatical).</p>
+<p>Por su flexión: variables e invariables.</p>
+<p>Categorías abiertas vs cerradas.</p>
+</div>
+<div class="section" id="importancia-en-mineria-de-textos">
+<h3>Importancia en Minería de textos<a class="headerlink" href="#importancia-en-mineria-de-textos" title="Permalink to this headline">¶</a></h3>
+<p>Base para análisis sintáctico y semántico.</p>
+<p>Algunas aplicaciones de MdTx son dependientes de la categoría gramatical. Ej.:</p>
+<ul class="simple">
+<li><p>extracción de entidades –&gt; nombres propios</p></li>
+<li><p>extracción de eventos –&gt; verbos y nombres</p></li>
+<li><p>extracción de sentimientos –&gt; adjetivos</p></li>
+<li><p>etc.</p></li>
+</ul>
+</div>
+<div class="section" id="representacion-de-la-informacion-morfologica-y-categorial">
+<h3>Representación de la información morfológica y categorial<a class="headerlink" href="#representacion-de-la-informacion-morfologica-y-categorial" title="Permalink to this headline">¶</a></h3>
+<p>La información categorial y morfológica se representa explícitamente mediante juegos de etiquetas.</p>
+<p>Actualmente hay diversas propuestas. Es necesario saber con qué juego de etiquetas representa la información el sistema de PoS que estemos utilizando par poder interpretar la información correctamente.</p>
+<p>Algunas propuestas:</p>
+<ul class="simple">
+<li><p>BROWN corpus: http://www.helsinki.fi/varieng/CoRD/corpora/BROWN/tags.html</p></li>
+<li><p>Penn Treebank tag set: https://www.cs.upc.edu/~nlp/SVMTool/PennTreebank.html</p></li>
+<li><p>EAGLES tag set:
+http://www.ilc.cnr.it/EAGLES96/annotate/annotate.html
+http://blade10.cs.upc.edu/freeling-old/doc/tagsets/tagset-es.html
+https://freeling-user-manual.readthedocs.io/en/latest/tagsets/</p></li>
+<li><p>Universal tagset (<em>Universal dependencies project</em>):
+https://universaldependencies.org/u/pos/</p></li>
+</ul>
+</div>
+<div class="section" id="arquitectura-de-un-pos-tagger-algoritmos-clasicos-de-desambiguacion">
+<h3>Arquitectura de un <em>PoS_tagger</em>. Algoritmos clásicos de desambiguación.<a class="headerlink" href="#arquitectura-de-un-pos-tagger-algoritmos-clasicos-de-desambiguacion" title="Permalink to this headline">¶</a></h3>
+<p><img alt="ArquitecturaPoStagger" src="_images/arquitecturaPoStagger.png" /></p>
+<p>Ejemplo: Freeling.</p>
+</div>
+<div class="section" id="algoritmos-de-desambiguacion-categorial-aproximacion-historica">
+<h3>Algoritmos de desambiguación categorial (aproximación histórica)<a class="headerlink" href="#algoritmos-de-desambiguacion-categorial-aproximacion-historica" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="modelo-de-reglas-simples">
+<h4>Modelo de reglas simples.<a class="headerlink" href="#modelo-de-reglas-simples" title="Permalink to this headline">¶</a></h4>
+<p>Sistema TAGGIT (1950).
+71 etiquetas + 3300 reglas. 77% de precisión.</p>
+<p>Reglas: expresiones regulares tipo</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>\b.*ing\b = Verbo Infinitivo
+\b.*mente\b = adverbio
+las\s[a-z]*as → Nombre femenino plural
+etc.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="modelo-estadistico-cadena-de-markov">
+<h3>Modelo estadístico: cadena de markov.<a class="headerlink" href="#modelo-estadistico-cadena-de-markov" title="Permalink to this headline">¶</a></h3>
+<p>Tiene en cuenta el contexto de aparición de las palabras.
+Basados en bigramas.</p>
+<p>Calculan dos tipos de probabilidades:
+Léxica: p(W|T)
+Contextual: p(W|T|Ctx)</p>
+<p>ctx = palabra anterior –&gt; bigrama.</p>
+</div>
+<div class="section" id="modelo-oculto-de-markov">
+<h3>Modelo oculto de Markov<a class="headerlink" href="#modelo-oculto-de-markov" title="Permalink to this headline">¶</a></h3>
+<p>Basado en la probabilidad de cadenas de etiquetas (cadena oculta).</p>
+<p>Dos tipos de probabilidades:</p>
+<ul class="simple">
+<li><p>Probabilidad de emisión = p(W|T)</p></li>
+<li><p>Probabilidad de transmisión = p(T|T-1). Esta es la parte oculta.</p></li>
+</ul>
+<p>Así, la probabilidad final queda como:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>p(W|T) = p(W|T) * p(T|T-1)
+</pre></div>
+</div>
+<p>Proceso iterativo: primero analiza lo no ambiguo, luego hace una segunda vuelta calculando probabilidades de transición y re-anotando, hasta llegar a situación estable (fin).</p>
+</div>
+<div class="section" id="gramaticas-de-restricciones-constraint-grammar">
+<h3>Gramáticas de restricciones (<em>Constraint grammar</em>)<a class="headerlink" href="#gramaticas-de-restricciones-constraint-grammar" title="Permalink to this headline">¶</a></h3>
+<p>Modelo teórico: este tipo de gramáticas no dice cómo es un idioma, sino cómo NO es.</p>
+<p>Las reglas, por tanto, son reglas negativas. Dada una ambigüedad, las reglas indican cuál de las opciones seguro que no es. Combinando restricciones se llega al final a la solución correcta.</p>
+<p>Las reglas son condicionales al contexto (si la palabra anterior es X, la siguiente NO es Y).</p>
+<p>Ejemplo:
+“Un verbo no va precedido de artículo”.</p>
+<p>Sistema ENGCG (1990)</p>
+<div class="section" id="modelos-basados-en-aprendizaje-automatico">
+<h4>Modelos basados en aprendizaje automático.<a class="headerlink" href="#modelos-basados-en-aprendizaje-automatico" title="Permalink to this headline">¶</a></h4>
+<p>Sistemas supervisados. Aprendizaje a partir de un corpsu anotado a mano y validado por lingüistas.</p>
+<p>Diferentes algoritmos: árboles de decisión, vectores de soporte (SVM), etc.</p>
+<p>Ejemplo “Transformation-based Tagger” (Brill 1995). Proceso iterativo donde va aprendiendo reglas, cada vez más específicas. Analiza aplicando primero las específicas y luego las generales. Refinamiento: revisón manual de cada iteración.</p>
+</div>
+</div>
+<div class="section" id="situacion-actual">
+<h3>Situación actual<a class="headerlink" href="#situacion-actual" title="Permalink to this headline">¶</a></h3>
+<p>Aproximaciones multilingües basadas en <em>embeddings</em> y redes neuronales:</p>
+<p>http://nlpprogress.com/english/part-of-speech_tagging.html</p>
+</div>
+<div class="section" id="recursos">
+<h3>Recursos.<a class="headerlink" href="#recursos" title="Permalink to this headline">¶</a></h3>
+<p>Cualquier sistema de PLN parte de un PoS tagger. Es el análisis básico.</p>
+<p>Freeling http://nlp.lsi.upc.edu/freeling/index.php/
+SpaCy: https://spacy.io/
+NLTK: http://www.nltk.org/
+Standford CORE NLP: https://stanfordnlp.github.io/CoreNLP/
+Google CLOUD: https://cloud.google.com/natural-language/</p>
+<p>y muchos más</p>
+</div>
+</div>
+<div class="section" id="analisis-sintactico">
+<h2>Análisis sintáctico.<a class="headerlink" href="#analisis-sintactico" title="Permalink to this headline">¶</a></h2>
+<p>Sintaxis: agrupación y relaciones de las palabras dentro de una oración.</p>
+<p>Análisis automático: <em>parser</em></p>
+<div class="section" id="arquitectura-estandar-de-un-parser">
+<h3>Arquitectura estándar de un <em>parser</em><a class="headerlink" href="#arquitectura-estandar-de-un-parser" title="Permalink to this headline">¶</a></h3>
+<p><img alt="ArquitecturaParser" src="_images/parser.png" /></p>
+</div>
+<div class="section" id="modelos-de-representacion">
+<h3>Modelos de representación<a class="headerlink" href="#modelos-de-representacion" title="Permalink to this headline">¶</a></h3>
+<p>Análisis basado en <em>constituyentes</em></p>
+<p><img alt="Constituyentes" src="_images/constituyentes.png" /></p>
+<p>Análisis basado en <em>dependencias</em></p>
+<p><img alt="Dependecias_Freeling" src="_images/dependency_parsing_FreeLing.jpg" /></p>
+<p>(Créditos de la imagen <a class="reference external" href="http://liceu.uab.cat/~joaquim/language_technology/NLP/PLN_analisis.html#An%C3%A1lisis_de_dependencias">aquí</a>)</p>
+</div>
+<div class="section" id="principal-problema-computacional">
+<h3>Principal problema computacional<a class="headerlink" href="#principal-problema-computacional" title="Permalink to this headline">¶</a></h3>
+<p>Ambigüedad estructural:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;Ayer vi a tu hermano con los prismáticos&quot;
+</pre></div>
+</div>
+<p>Ambigüedad coordinación:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;Sirve los platos y los cubiertos limpios&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="gramaticas-formales">
+<h3>Gramáticas formales<a class="headerlink" href="#gramaticas-formales" title="Permalink to this headline">¶</a></h3>
+<p>Conjunto de reglas formales de análisis sintático.</p>
+<div class="section" id="context-free-grammars">
+<h4>Context free grammars<a class="headerlink" href="#context-free-grammars" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>G = (NT, T, S, P)
+NT: {no terminales},
+T: {terminales},
+S: Símbolo inicial
+P: Reglas de producción A -&gt; w: 
+    A   NT
+    W   (NT U T)*
+</pre></div>
+</div>
+<p>Tal que</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>NT ={S,NP,VP,nprop,n,v,det}, 
+T ={Pepe,manzana, come,una},
+P:
+    S -&gt; NP VP
+    NP -&gt; nprop
+    NP -&gt; det  n
+    VP -&gt; v
+    VP -&gt; v NP
+</pre></div>
+</div>
+<p><img alt="AnalisisConstituyentes" src="_images/constituyentes_2.png" /></p>
+<p>Estas gramáticas eran muy limitadas y fueron ampliadas con estructuras de rasgos y técnicas de unificación.</p>
+<p><img alt="Unificación" src="_images/unificacion.png" /></p>
+<p>En lingüística se han desarrollado diferentes modelos basados en estas técnicas las <em>Head-driven phrase structure grammar</em> o las <em>Lexical-Functional Grammar</em> (que sigue siendo un modelo válido: https://ling.sprachwiss.uni-konstanz.de/pages/home/lfg/ )</p>
+</div>
+<div class="section" id="probabilistic-context-free-grammar-y-modelos-probabilisticos">
+<h4><em>Probabilistic Context Free Grammar</em> y modelos probabilísticos<a class="headerlink" href="#probabilistic-context-free-grammar-y-modelos-probabilisticos" title="Permalink to this headline">¶</a></h4>
+<p>Añaden peso estadístico a cada regla.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SV → V SP SP (0.5)
+SV → V SP (0.3)
+SV → V (0.2)
+</pre></div>
+</div>
+<p>Modelos de aprendizaje automático.</p>
+<p>Corpus de aprendizaje y evaluación: <em>treebanks</em></p>
+<ul class="simple">
+<li><p>Penn Treebank:
+https://catalog.ldc.upenn.edu/LDC99T42
+https://www.kaggle.com/nltkdata/penn-tree-bank</p></li>
+<li><p>Ancora (español, catalán):
+http://clic.ub.edu/corpus/en/ancora-descarregues</p></li>
+</ul>
+<p>Y muchos otros</p>
+</div>
+</div>
+<div class="section" id="chunkers">
+<h3><em>Chunkers</em><a class="headerlink" href="#chunkers" title="Permalink to this headline">¶</a></h3>
+<p>En ocasiones el análisis sintáctico completo (<em>full parsing</em>) es complejo, consume mucho recurso y no suele obtener buenos resultados.</p>
+<p>Lo normal es realizar <em>análisis sintáctico parcial</em> o <em>chunkers</em>: extraer agrupaciones sintáticas (<em>chunks</em>) sin llegar a derivar el árbol sintáctico completo.</p>
+</div>
+<div class="section" id="estrategias">
+<h3>Estrategias<a class="headerlink" href="#estrategias" title="Permalink to this headline">¶</a></h3>
+<p>Descendente:
+Recursive Descendent:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import nltk
+nltk.app.rdparser()
+</pre></div>
+</div>
+<p>Ascendente
+Shift Reduce:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import nltk
+nltk.app.srparser()
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Situación actual<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p><em>Transition-based dependency parsing</em> (Nivre 2014). Algoritmo shift-reduce.</p>
+<p><em>Neural Network Dependency Parser</em>: https://nlp.stanford.edu/software/nndep.shtml</p>
+<p>Modelo de dependencias universal: <em>Universal Dependencies</em>:</p>
+<blockquote>
+<div><p>The Universal Dependencies project (Nivre et al., 2016) provides an inventory of dependency relations that arelinguistically motivated, computationally useful, and cross-linguistically applicable. (Juravsky y Martin 2020, cap. 14)</p>
+</div></blockquote>
+<p>Representación vectorial (<em>embeddings</em>).</p>
+<p>http://nlpprogress.com/english/constituency_parsing.html</p>
+<p>http://nlpprogress.com/english/dependency_parsing.html</p>
+</div>
+</div>
+<div class="section" id="bibliografia">
+<h2>Bibliografía<a class="headerlink" href="#bibliografia" title="Permalink to this headline">¶</a></h2>
+<p>Juravsky y Martin (2020) <em>Speech and Language Processing</em>. https://web.stanford.edu/~jurafsky/slp3/
+(Caps 12-14)</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Universitat d'Alacant<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
