@@ -18,16 +18,16 @@ Con esta práctica aprenderás los fundamentos de SpaCy como herramienta de PLN 
 
 ## Herramientas
 
-- Cuaderno COLAB para crear el código: https://colab.research.google.com
+- Cuaderno COLAB para crear el código: [https://colab.research.google.com](https://colab.research.google.com)
 - Python (ya instalado en COLAB)
-- SpaCy: https://spacy.io/
+- SpaCy: [https://spacy.io/](https://spacy.io/)
 
 ## Recursos
 
-- Corpus
+- Corpus: un fichero de texto que puedes descargar [aquí](https://www.dlsi.ua.es/~borja/a2.txt). Codificación: UTF-8.
 - Documentación básica SpaCy. Aquí está explicado todo lo necesario para hacer esta páctica:
 
-  https://spacy.io/usage/spacy-101
+[https://spacy.io/usage/spacy-101](https://spacy.io/usage/spacy-101)
 
 ### Por pasos:
 
@@ -49,5 +49,5 @@ Con esta práctica aprenderás los fundamentos de SpaCy como herramienta de PLN 
 
 Curso avanzado de SpaCy (en español):
 
-    https://course.spacy.io/es/
+[https://course.spacy.io/es/](https://course.spacy.io/es/)
 
