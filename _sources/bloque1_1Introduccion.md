@@ -1,4 +1,5 @@
-﻿(label_introduccion)=
+﻿
+(label_intro)=
 Minería de textos y procesamiento del lenguaje natural.
 ===================================
 
