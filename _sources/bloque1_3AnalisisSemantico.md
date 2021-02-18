@@ -122,6 +122,9 @@ La desambiguación de sentido sigue siendo hoy una tarea abierta en PLN. Algunos
 
 - [http://nlpprogress.com/english/word_sense_disambiguation.html](http://nlpprogress.com/english/word_sense_disambiguation.html)
 
+    :class: note
+    Antes de continuar, vamos a realizar la actividad 1 de la práctica 2.
+
 ## Semántica oracional. Semántica eventiva y roles semánticos.
 
 Los sistemas de WSD se centran únicamente en determinar el significado de las palabras. Sin embargo, el significado global de un texto no solo depende del significado de las palabras que lo forma, sino también de las relaciones que se establecen entre ellas tanto en la oración como en la globalidad del texto (principio de composicionalidad).
@@ -172,6 +175,11 @@ del marco.
 En el caso del marco Ingestion, los dos elementos *core* son *ingestor* e *ingestibles*; elementos periféricos son *instrument* o *source*, y el resto
 actuarían como extra-temáticos.
 
+    :class:note
+    Consulta este y otros *frame elements* en la BD de FrameNET:
+
+[https://framenet.icsi.berkeley.edu/fndrupal/](https://framenet.icsi.berkeley.edu/fndrupal/)
+
 #### PropBank
 
 La propuesta de PropBank (acrónimo de Proposition Bank (Palmer et al. 2005)) es justo la contraria. En vez de definir roles semánticos muy específicos según el evento, ProBank determina poco roles y muy generales, de tal manera que sean aplicable a cualquier evento. En vez de dar a los roles un nombre significativo, representa cada rol con un identificador. Así, de manera general se establece que puede haber hasta cinco roles semánticos asociados a un evento:
@@ -193,6 +201,14 @@ pasiva, los roles Arg0 y Arg1 serán los mismos:
 Este modelo ha sido adaptado al español en el [corpus AnCora]((http://clic.ub.edu/corpus/es/ancora)) (Taulé et al. 2008), que también incluye anotación de textos en catalán (AnCora-Es y AnCora-Cat respectivamente).
 
 De ambas propuestas de representación de roles semánticos, la más utilizada hoy día en PLN es la propuesta de PropBank.
+
+    :class: note
+    Consulta los roles de PropBank en su BD unificada (*Unified Verb Index*):
+
+[https://verbs.colorado.edu/verb-index/vn3.3/](https://verbs.colorado.edu/verb-index/vn3.3/)
+
+- Para descargar PropBank: [https://github.com/propbank/propbank-frames/](https://github.com/propbank/propbank-frames/)
+- Página del proyecto: [https://propbank.github.io/](https://propbank.github.io/)
 
 ### Algoritmos
 
