@@ -122,8 +122,10 @@ La desambiguación de sentido sigue siendo hoy una tarea abierta en PLN. Algunos
 
 - [http://nlpprogress.com/english/word_sense_disambiguation.html](http://nlpprogress.com/english/word_sense_disambiguation.html)
 
-    :class: note
-    Antes de continuar, vamos a realizar la actividad 1 de la práctica 2.
+```{admonition} Actividad
+:class: note
+Antes de continuar, vamos a realizar la actividad 1 de la práctica 2.
+```
 
 ## Semántica oracional. Semántica eventiva y roles semánticos.
 
@@ -175,10 +177,14 @@ del marco.
 En el caso del marco Ingestion, los dos elementos *core* son *ingestor* e *ingestibles*; elementos periféricos son *instrument* o *source*, y el resto
 actuarían como extra-temáticos.
 
-    :class:note
-    Consulta este y otros *frame elements* en la BD de FrameNET:
+```{admonition} Actividad
+:class: note
+Consulta este y otros *frame elements* en la BD de FrameNET:
 
 [https://framenet.icsi.berkeley.edu/fndrupal/](https://framenet.icsi.berkeley.edu/fndrupal/)
+
+```
+
 
 #### PropBank
 
@@ -202,10 +208,13 @@ Este modelo ha sido adaptado al español en el [corpus AnCora]((http://clic.ub.e
 
 De ambas propuestas de representación de roles semánticos, la más utilizada hoy día en PLN es la propuesta de PropBank.
 
-    :class: note
-    Consulta los roles de PropBank en su BD unificada (*Unified Verb Index*):
+```{admonition} Actividad
+:class: note
+Consulta los roles de PropBank en su BD unificada (*Unified Verb Index*):
 
 [https://verbs.colorado.edu/verb-index/vn3.3/](https://verbs.colorado.edu/verb-index/vn3.3/)
+
+```
 
 - Para descargar PropBank: [https://github.com/propbank/propbank-frames/](https://github.com/propbank/propbank-frames/)
 - Página del proyecto: [https://propbank.github.io/](https://propbank.github.io/)
