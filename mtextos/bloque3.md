@@ -7,7 +7,7 @@ Este tercer bloque analiza diversas aplicaciones de las técnicas de procesamien
 
 ## Temas del bloque 3
 
-### Teoría:
+### Teoría
 
 - T1. Aplicaciones generales del PLN (areas generales)
 - T2. Aplicaciones específicas y Benchmacks
@@ -17,7 +17,7 @@ Este tercer bloque analiza diversas aplicaciones de las técnicas de procesamien
 - T5. AutoML. Descripción general y estado de la cuestión
 - T5.1. AutoGOAL: Marco de trabajo para la generación de pipelines óptimos
 
-### Prácticas:
+### Prácticas
 
 - P1. Creación de baseline con Sklearn. Caso de uso Clasificación de Documentos
 - P1.2. Utilización de modelos transformers ya existentes como API. Caso de uso Clasificación de Documentos
@@ -29,4 +29,5 @@ Este tercer bloque analiza diversas aplicaciones de las técnicas de procesamien
 
 [abreu url]: https://scholar.google.es/citations?user=62u6KEkAAAAJ&hl=es
 [javi url]: https://cvnet.cpd.ua.es/curriculum-breve/es/fernandez-martinez-javier/321
-[yoan url]: https://cvnet.cpd.ua.es/curriculum-breve/es/gutierrez-vazquez-yoan/49618                  
+[yoan url]: https://cvnet.cpd.ua.es/curriculum-breve/es/gutierrez-vazquez-yoan/49618  
+[bloque3_p1]: mtextos\bloque3_p1_SA-Pipeline-Reviews.md              
