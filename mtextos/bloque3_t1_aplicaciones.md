@@ -1,11 +1,11 @@
 
-Aplicaciones de la minería de textos: Aplicaciones del PLN
+T1. Aplicaciones generales
 ====================================
 
-```{image} images/bloque3/areas.png
+```{image} images/bloque3/areas.jpg 
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
-:width: 500px
+:width: 400px
 :align: center
 ```
 
@@ -25,7 +25,7 @@ Procesamiento del Lenguaje Natural (PLN), también conocido como Lingüística C
 - y aplicaciones,
 aunque a veces es difícil distinguir claramente a qué áreas pertenecen los problemas.
 
-# Áreas centrales
+## Áreas centrales
 
 Abordan problemas fundamentales como:
 
@@ -34,7 +34,7 @@ Abordan problemas fundamentales como:
 - procesamiento sintáctico, o análisis sintáctico, que construye diagramas de oraciones como posibles precursores del procesamiento semántico;
 - y procesamiento semántico, que intenta destilar el significado de palabras, frases y componentes de nivel superior en el texto.
 
- ```{image} images/bloque3/volumen-apps.png
+```{image} images/bloque3/volumen-apps.jpg 
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 700px
@@ -44,7 +44,7 @@ Abordan problemas fundamentales como:
 Figura 2. Volumen de publicaciones sobre áreas centrales en los últimos años. Tomado de [1]
 Áreas de aplicación
 
-```{image} /images/bloque3/areas-apps.png
+```{image} /images/bloque3/areas-apps.jpg 
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 700px
@@ -77,19 +77,19 @@ Métodos clásicos:
 *DeepLearning:*
 En los últimos años, ha habido una transformación total, y estos enfoques han sido reemplazados por completo, o al menos mejorados, por modelos neuronales y aprendizaje profundo.
 
-# Aplicaciones
+## Aplicaciones
 
 Podríamos enmarcar las aplicaciones del PLN en seis grandes áreas que a continuación se detallan.
 
-## Information Retrieval (Recuperación de Información)
+### Information Retrieval (Recuperación de Información)
 
-### Descripción
+#### Descripción
 
 El propósito de los sistemas de recuperación de información (IR) es ayudar a las personas a encontrar la información correcta (la más útil) en el formato correcto (más conveniente) en el momento adecuado (cuando la necesitan). Entre muchos problemas de IR, un problema principal que debe abordarse es el de clasificar los documentos con respecto a una cadena de consulta en términos de puntuaciones de relevancia para tareas de recuperación ad-hoc(hecha a medida), similar a lo que sucede en un motor de búsqueda.
 Las búsquedas se pueden basar en el texto completo o en otra indexación basada en contenido. La recuperación de información es la ciencia de buscar información en un documento, buscar los propios documentos y también buscar los metadatos que describen los datos y las bases de datos de textos, imágenes o sonidos.
 Un sistema de IR es un sistema de software que proporciona acceso a libros, revistas y otros documentos; almacena y gestiona esos documentos. Los motores de búsqueda web son las aplicaciones de infrarrojos más visibles.
 
- ```{image} /images/bloque3/ir.png
+```{image} /images/bloque3/ir.jpg 
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 600px
@@ -98,7 +98,7 @@ Un sistema de IR es un sistema de software que proporciona acceso a libros, revi
 
 Figura 4. Arquitectura genérica de un sistema IR.
 
-### Ejemplo
+#### Ejemplo
 
  [“TREC Precision Medicine / Clinical Decision Support Track”](http://www.trec-cds.org/2020.html)
 
@@ -128,39 +128,39 @@ Por ejemplo:
 Q0 28348404 1 0.9999 my-run; lo cual indica que la ejecución denominada "my-run" recupera el documento 28348404 del tema número 1 en el rango 1 con una puntuación de 0,9999.
 ```
 
-### Métricas más comunes de evaluación
+#### Métricas más comunes de evaluación
 
 - Precisión
 - Recobrado (Cobertura)
 - F1 (Medida F)
 - Exactitud
 
-### ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta tarea?
+#### ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta tarea?
 
 - Mencione tres problemas actuales que se puedan solucionar.
 
-### Benchmarcks
+#### Benchmarcks
 
 - Papers With Code: <https://paperswithcode.com/task/information-retrieval>
 - Kaggle: <https://www.kaggle.com/search?q=%22information+retrieval%22+in%3Acompetitions>
 - TREC: <https://trec.nist.gov/>
 
-### Repositorios de Código
+#### Repositorios de Código
 
 - Kaggle: <https://www.kaggle.com/search?q=%22information+retrieval%22+in%3Anotebooks>
 
-### Conjuntos de datos
+#### Conjuntos de datos
 
 - TREC: <https://trec.nist.gov/data.html>
 - Kaggle: <https://www.kaggle.com/search?q=%22information+retrieval%22+in%3Adatasets>
 
-### Artículos
+#### Artículos
 
 - TREC: <https://trec.nist.gov/pubs.html>
 
-## Information Extraction (Extracción de Información)
+### Information Extraction (Extracción de Información)
 
-### Descripción
+#### Descripción
 
 La extracción de información extrae información explícita o implícita del texto. Los resultados de los sistemas varían, pero a menudo los datos extraídos y las relaciones dentro de ellos se guardan en bases de datos relacionales. No obstante, una etapa avanzada es poder almacenar esta información en estructuras y de datos semánticas. La información comúnmente extraída incluye entidades y relaciones nombradas, eventos y sus participantes, información temporal y tuplas de hechos. Las actividades más comunes implicadas en la extracción de información son:
 
@@ -168,7 +168,7 @@ La extracción de información extrae información explícita o implícita del t
 - Extracción de eventos (Event Extraction)
 - Extracción de relaciones (Relationship Extraction)
 
-```{image} /images/bloque3/ie.png
+```{image} /images/bloque3/ie.jpg 
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 600px
@@ -177,7 +177,7 @@ La extracción de información extrae información explícita o implícita del t
 
 Figura 5. Arquitectura genérica de un sistema IE.
 
-### [Ejemplo: eHealth-KD Challenge 2020](https://knowledge-learning.github.io/ehealthkd-2020)
+#### [Ejemplo: eHealth-KD Challenge 2020](https://knowledge-learning.github.io/ehealthkd-2020)
 
 Se nos proporcionan unos documentos de texto. Por ejemplo:
 “El asma es una enfermedad que afecta las vías respiratorias”
@@ -200,18 +200,18 @@ T3| Concept| 41 45;46 59|vías respiratorias|
 
 La primera columna es un identificador del elemento por orden de aparición; la segunda columna indica la clasificación de frase clave detectada; la tercera y cuarta columna se refieren a la posición de inicio y fin de la frase clave y la quinta columna indica la relación.
 
-### Métricas más comunes de evaluación
+#### Métricas más comunes de evaluación
 
 - Precisión
 - Recobrado (Cobertura)
 - F1 (Medida F)
 - Exactitud
 
-### ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta tarea?
+#### ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta tarea?
 
 Mencione tres problemas actuales que se puedan solucionar.
 
-### Benchmarcks
+#### Benchmarcks
 
 - Papers With Code: <https://paperswithcode.com/task/information-extraction>
 - Kaggle: <https://www.kaggle.com/search?q=%22information+extraction%22+in%3Acompetitions>
@@ -220,25 +220,25 @@ Mencione tres problemas actuales que se puedan solucionar.
       -Named Entity Recognition and Relation Extraction for Portuguese: <https://www.inf.pucrs.br/linatural/wordpress/iberlef-2019/>
       -Cantemist:  <https://temu.bsc.es/cantemist/>
 
-### Repositorios de Código
+#### Repositorios de Código
 
 - Kaggle: <https://www.kaggle.com/search?q=%22information+extraction%22+in%3Anotebooks>
 
-### Conjuntos de datos
+#### Conjuntos de datos
 
 - Kaggle: <https://www.kaggle.com/search?q=%22information+extraction%22+in%3Adatasets>
 
-### Artículos
+#### Artículos
 
 - Papers With Code: <https://paperswithcode.com/task/information-extraction>
 
-## Text Clasification (Clasificación textual)
+### Text Clasification (Clasificación textual)
 
-### Descripción
+#### Descripción
 
 Esta área trata la clasificación de texto o la asignación de documentos de texto libre a clases predefinidas. La clasificación de documentos tiene numerosas aplicaciones. Aunque es una tarea que se viene trabajando dese hace mucho tiempo con algoritmos clásicos de Maquinas de aprendizaje, Kim [2] fue el primero en utilizar vectores de palabras previamente entrenados en una Redes Neuronales Convolucionales (CNN) para la clasificación a nivel de oración. El trabajo de Kim fue motivador, motivador y demostró que las CNN simples, con una capa convolucional seguida de una capa densa con desactivación de neuronas y salida de softmax, podían lograr excelentes resultados en múltiples puntos de referencia utilizando un pequeño ajuste de hiperparámetros. Los modelos de CNN propuestos pudieron mejorar el estado del arte en 4 de las 7 tareas diferentes presentadas como clasificación de oraciones, incluido el análisis de sentimientos y la clasificación de preguntas. Conneau y col. [3] mostró más tarde que las redes que emplean un gran número de capas convolucionales funcionan bien para la clasificación de documentos.
 
- ```{image} /images/bloque3/tc1.png
+```{image} /images/bloque3/tc1.jpg 
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 600px
@@ -247,7 +247,7 @@ Esta área trata la clasificación de texto o la asignación de documentos de te
 
 Figura 6. Arquitectura genérica de un sistema TC. Una clasificación por texto.
 
-  ```{image} /images/bloque3/tc2.png
+```{image} /images/bloque3/tc2.jpg 
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 600px
@@ -261,7 +261,7 @@ Una explicación más extendida sobre el agrupamiento o clasificación de elemen
 [CLUSTERING2]: <https://www.kaggle.com/general/116693>
 [CLUSTERING3]: <https://www.kaggle.com/general/219500>
 
-### Ejemplo
+#### Ejemplo
 
 [“Coronavirus tweets NLP - Text Classification”:](https://www.kaggle.com/datatattle/covid-19-nlp-text-classification)
 
@@ -272,18 +272,18 @@ Se proporciona un texto recopilado de Twitter sobre el Coronavirus y se clasific
 - *Ejemplo de entrada:* The COVID-19 coronavirus pandemic is impacting consumer shopping behavior  purchase decisions and retail sales according to a First Insight study."
 - *Salida del sistema:* Neutral
 
-### Métricas más comunes de evaluación
+#### Métricas más comunes de evaluación
 
 - Precisión
 - Recobrado (Cobertura)
 - F1 (Medida F)
 - Exactitud
 
-### ¿Qué otras subtareas pensáis que pueden formar parte de esta tarea?
+#### ¿Qué otras subtareas pensáis que pueden formar parte de esta tarea?
 
 Mencione tres problemas actuales que se puedan solucionar con clasificación textual. Pensad en algún caso de múltiples clasificaciones.
 
-### Benchmarcks
+#### Benchmarcks
 
 - Papers With Code: <https://paperswithcode.com/task/text-classification>
 - Kaggle: <https://www.kaggle.com/search?q=text+classification+in%3Acompetitions>
@@ -291,22 +291,22 @@ Mencione tres problemas actuales que se puedan solucionar con clasificación tex
   - HAHA: <https://www.fing.edu.uy/inco/grupos/pln/haha/>
   - Fact: <https://www.fing.edu.uy/inco/grupos/pln/fact/>
 
-### Repositorios de Código
+#### Repositorios de Código
 
 - Kaggle: <https://www.kaggle.com/search?q=text+classification+in%3Anotebooks>
 
-### Conjuntos de datos
+#### Conjuntos de datos
 
 - Kaggle: <https://www.kaggle.com/search?q=text+classification+in%3Adatasets>
 - Huggingface: <https://huggingface.co/datasets?filter=task_categories:text-classification>
 
-### Artículos
+#### Artículos
 
 - Papers With Code: <https://paperswithcode.com/task/information-extraction>
 
-## Natural Language Generation (NLG, Generación de lenguaje natural)
+### Natural Language Generation (NLG, Generación de lenguaje natural)
 
-### Descripción
+#### Descripción
 
 Muchas tareas de PNL requieren la generación de un lenguaje (GLN) similar al humano. El resumen y la traducción automática convierten un texto en otro de una manera secuencia a secuencia (seq2seq). Otras tareas, como los subtítulos de imágenes y videos y los informes meteorológicos y deportivos automáticos, convierten datos no textuales en texto. Algunas tareas, sin embargo, producen texto sin ningún dato de entrada para convertir (o con pequeñas cantidades utilizadas como tema o guía) [1].
 Para generar un texto, un sistema debe escoger cierta información de la base de conocimiento, decidir cómo organizarla, y determinar cómo producir el texto en lenguaje natural, lo cual incluye el decidir acerca de la entrada del léxico y de las estructuras sintácticas.
@@ -332,40 +332,39 @@ Entre las tareas del GLN se encuentran:
 - la Respuesta a Preguntas (Question Answering)
 Arquitectura general del GNL donde el requisito es generar una salida textual utilizando alguna entrada textual no estructurada se conoce como *T2T GLN* y cuando la entrada es estructurada sería D2TGNL.
 
-```
-{image} /images/bloque3/gen.png
+```{image} /images/bloque3/gen.jpg
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
-:width: 600px
+:width: 500px
 :align: center
 ```
 
 Figura 8. Arquitectura genérica de un sistema de GLN, ya sea Texto a Texto o Dato a Texto, a partir tomando información desde texto o desde bases de información y conocimiento.
 
-### Ejemplos de texto a texto
+#### Ejemplos de texto a texto
 
 Tomado de <https://towardsdatascience.com/simple-text-generation-d1c93f43f340>
 
-#### Ejemplo 1
+##### Ejemplo 1
 
 - *Ejemplo de entrada:* First of all I dismembered the corpse.
 - *Ejemplo de salida:* first of all i dismembered the corpse which is profound since in the first place he appeared at first so suddenly as any matter no answer was impossible to find my sake he now happened to be sure it was he suspected or caution or gods and some voice held forth upon view the conditions
 
 Tomado de: texto a texto <https://unipython.com/generacion-de-textos-con-inteligencia-artificial/>
 
-#### Ejemplo2
+##### Ejemplo2
 
 - *Ejemplo de entrada:* " me abrís... ¡soplaré y soplaré y la casita derribaré! la madera crujió, y las paredes cayeron y lo "
 - *Ejemplo de salida:* ca casi l posi e aloo neroz, a lobo e lobo! ¡quié eem lo lo le aa casi e ¡uuié eem la lobo feroz, al lobo feroz! al lobo e lobo! - ¡quié eem lo lo le aa casi e ¡uuié eem la lobo feroz, al lobo feroz! al lobo e lobo! - ¡quié eem lo lo le aa casi e ¡uuié eem la lobo feroz, al lobo feroz! al lobo e lobo…….
 
-### Generación de Datos a Texto (D2T GLN)
+#### Generación de Datos a Texto (D2T GLN)
 
 La generación de datos a texto (D2T NLG) se puede describir como generación de lenguaje natural a partir de entrada estructurada. El requisito es generar una salida textual de la entrada proporcionada en un formato estructurado como: tablas; o gráficos de conocimiento; o JSON.
 Referencias relacionadas:
 
 - Generación de texto desde datos: <http://nlpprogress.com/english/data_to_text_generation.html>
 
-```{image} /images/bloque3/data2gen.png
+```{image} /images/bloque3/data2gen.jpg 
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 600px
@@ -374,7 +373,7 @@ Referencias relacionadas:
 
 Figura 9. Arquitectura genérica de un sistema de GLN tomando como fuente datos estructurados. Tomado de <https://paperswithcode.com/task/table-to-text-generation>
 
-### Métricas más comunes de evaluación
+#### Métricas más comunes de evaluación
 
 - Selección de contenido: precisión (P%) y recobrado (R%) de relaciones únicas extraídas del texto generado que también se extraen del texto de referencia. Esto mide qué tan bien el documento generado coincide con el documento de referencia.
 - Generación de relaciones: precisión (P%) y número de relaciones únicas (#) extraídas del texto generado que también aparecen en la entrada estructurada proporcionada. Esto mide qué tan bien el sistema es capaz de generar texto que contiene registros fácticos (es decir, correctos).
@@ -385,37 +384,37 @@ Figura 9. Arquitectura genérica de un sistema de GLN tomando como fuente datos 
 - ROUGE: ROUGE-1, ROUGE-2, ROUGE-3, ROUGE-4, ROUGE-L, ROUGE-SU4, ... [5]
 - BLEU[6]
 
-### ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta tarea?
+#### ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta tarea?
 
 - Mencione tres problemas actuales que se puedan solucionar.
 
-### Benchmarcks
+#### Benchmarcks
 
 - Papers With Code: <https://paperswithcode.com/task/text-generation>
 - WebNLG: <https://webnlg-challenge.loria.fr/>
 - NLP Progress: <http://nlpprogress.com/english/data_to_text_generation.html>
 
-### Repositorios de Código
+#### Repositorios de Código
 
 - Papers With Code: <https://paperswithcode.com/task/text-generation>
 - Kaggle: <https://www.kaggle.com/search?q=%22text+generation%22+in%3Anotebooks>
 
-### Conjuntos de datos
+#### Conjuntos de datos
 
 - RotoWire: <https://github.com/harvardnlp/boxscore-data/blob/master/rotowire.tar.bz2>
 - Kaggle: <https://www.kaggle.com/search?q=%22text+generation%22+in%3Adatasets>
 
-### Artículos
+#### Artículos
 
 - Papers With Code: <https://paperswithcode.com/task/text-generation>
 
-## Text Sumarisation (Generación de resúmenes)
+### Text Sumarisation (Generación de resúmenes)
 
-### Descripción
+#### Descripción
 
 El resumen es la tarea de producir una versión más corta de uno o varios documentos que conserve la mayor parte del significado de la entrada.
 
- ```{image} /images/bloque3/sum.png
+```{image} /images/bloque3/sum.jpg 
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 600px
@@ -429,9 +428,9 @@ La generación de resúmenes puede ser de dos tipos:
 - *Extractiva:* Los resúmenes extractivos son aquellos en su texto resultante este compuesto por fragmentos del texto original.
 - *Abstractiva:* Los resúmenes abstractivos son aquellos que en su texto resultante se generan nuevas frases representativas del contenido original.
 
-### Abstractiva
+#### Abstractiva
 
- ```{image} /images/bloque3/sum-abst.png
+```{image} /images/bloque3/sum-abst.jpg 
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 600px
@@ -440,9 +439,9 @@ La generación de resúmenes puede ser de dos tipos:
 
 Figura 11. Tipos de resúmenes abstractivos. Tomado de <https://doi.org/10.1016/j.eswa.2018.12.011>
 
-### Extractiva
+#### Extractiva
 
- ```{image} /images/bloque3/sum-extract.png
+```{image} /images/bloque3/sum-extract.jpg 
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 600px
@@ -451,45 +450,45 @@ Figura 11. Tipos de resúmenes abstractivos. Tomado de <https://doi.org/10.1016/
 
 Figura 12. Ejemplo de resumen extractivo. Tomado de <https://medium.com/@ondenyi.eric/extractive-text-summarization-techniques-with-sumy-3d3b127a0a32>
 
-### Ejemplo
+#### Ejemplo
 
 - *Ejemplo de entrada:* Documento
 - *Ejemplo de salida:* Documento reducido o resumen generado
 
-### Métricas más comunes de evaluación
+#### Métricas más comunes de evaluación
 
 - ROUGE: ROUGE-1, ROUGE-2, ROUGE-3, ROUGE-4, ROUGE-L, ROUGE-SU4, ... [5]
 - BLEU[6]
 
-### ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta tarea?
+#### ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta tarea?
 
 - Mencione tres problemas actuales que se puedan solucionar.
 
-### Benchmarcks
+#### Benchmarcks
 
 - Papers With Code: <https://paperswithcode.com/search?q_meta=&q=summarisation>
 - LaySumm: <https://ornlcda.github.io/SDProc/sharedtasks.html>; <https://competitions.codalab.org/competitions/25516>
 
-### Repositorios de Código
+#### Repositorios de Código
 
 - Papers With Code: <https://paperswithcode.com/search?q_meta=&q=summarisation>
 
-### Conjuntos de datos
+#### Conjuntos de datos
 
 - Huggingface: <https://huggingface.co/datasets?filter=task_ids:summarization>
 
-### Artículos
+#### Artículos
 
 - Papers With Code: <https://paperswithcode.com/search?q_meta=&q=summarisation>
 
-## Question Answering (QA, Respuestas a preguntas)
+### Question Answering (QA, Respuestas a preguntas)
 
-### Descripción
+#### Descripción
 
 Es un tipo de recuperación de la información capaz de recuperar respuestas a preguntas planteadas en lengua natural. Se encarga de buscar una información en una cantidad más o menos grande de documentos, ya que esto debe extraer de dichos documentos un fragmento de texto que responda a una pregunta dada en lenguaje natural. Estos sistemas están muy ligados a los buscadores web. Debe considerar listas, definiciones, y preguntas del tipo cómo, cuándo, dónde, por qué, etc.
 Similar al resumen y la extracción de información, la respuesta a preguntas (QA) recopila palabras, frases u oraciones relevantes de un documento. QA devuelve esta información de forma coherente en respuesta a una solicitud. Los métodos actuales se parecen a los de resumen[1][8].
 
- ```{image} /images/bloque3/qa.png
+```{image} /images/bloque3/qa.jpg 
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 600px
@@ -498,7 +497,7 @@ Similar al resumen y la extracción de información, la respuesta a preguntas (Q
 
 Figura 13. Arquitectura genérica de un sistema de QA.
 
-### Ejemplo
+#### Ejemplo
 
  Tomado de <https://ai.google.com/research/NaturalQuestions/visualization>
 
@@ -507,7 +506,7 @@ Figura 13. Arquitectura genérica de un sistema de QA.
   - *Respuesta corta:* The boiling process => ES: El proceso de ebullición
   - *Respuesta larga:* After mashing , the beer wort is boiled with hops ( and other flavourings if used ) in a large tank known as a " copper " or brew kettle – though historically the mash vessel was used and is still in some small breweries . The boiling process is where chemical reactions take place , including sterilization of the wort to remove unwanted bacteria , releasing of hop flavours , bitterness and aroma compounds through isomerization , stopping of enzymatic processes , precipitation of proteins , and concentration of the wort . Finally , the vapours produced during the boil volatilise off - flavours , including dimethyl sulfide precursors . The boil is conducted so that it is even and intense – a continuous " rolling boil " . The boil on average lasts between 45 and 90 minutes , depending on its intensity , the hop addition schedule , and volume of water the brewer expects to evaporate . At the end of the boil , solid particles in the hopped wort are separated out , usually in a vessel called a " whirlpool ".
 
-### Métricas más comunes de evaluación
+#### Métricas más comunes de evaluación
 
 - Precisión
 - Recobrado (Recall)
@@ -518,42 +517,41 @@ Figura 13. Arquitectura genérica de un sistema de QA.
 - EM (Exact Match): Coincidencia exacta con el valor esperado
 - Ver otros [8]
 
-### ¿Qué otras subtareas pensáis que pueden formar parte de la clasificación textual?*
+#### ¿Qué otras subtareas pensáis que pueden formar parte de la clasificación textual?*
 
 - Mencione tres problemas actuales que se puedan solucionar con clasificación textual.
 
-### Benchmarcks
+#### Benchmarcks
 
 - Papers With Code: <https://paperswithcode.com/task/question-answering>
 - Kaggle: <https://www.kaggle.com/search?q=Question+Answering+in%3Acompetitions>
 - CodaLab: <https://competitions.codalab.org/competitions/?q=Question+Answering>
 
-### Repositorios de Código
+#### Repositorios de Código
 
 - Papers With Code: <https://paperswithcode.com/task/question-answering>
 - Kaggle: <https://www.kaggle.com/search?q=Question+Answering+in%3Adatasets>
 
-### Conjuntos de datos
+#### Conjuntos de datos
 
 - Huggingface: <https://huggingface.co/datasets?filter=task_categories:question-answering>
 - Kaggle: <https://www.kaggle.com/search?q=%22information+extraction%22+in%3Adatasets>
 
-### Artículos
+#### Artículos
 
 - Papers With Code: <https://paperswithcode.com/task/question-answering>
 
-### Machine Translation
+#### Machine Translation
 
-### Descripción
+#### Descripción
 
 La traducción automática (MT) es la aplicación por excelencia del PLN. Implica el uso de técnicas matemáticas y algorítmicas para traducir documentos de un idioma a otro. Realizar una traducción eficaz es intrínsecamente complejo incluso para los humanos, y requiere competencia en áreas como morfología, sintaxis y semántica, así como una comprensión y un discernimiento expertos de las sensibilidades culturales, tanto para los idiomas (y sociedades asociadas) en consideración [7].
 
-### Traducción automática basada en reglas
+#### Traducción automática basada en reglas
 
 Consiste en realizar transformaciones a partir del original, reemplazando las palabras por su equivalente más apropiado. Al conjunto de este tipo de transformaciones del texto original se le llama predicción de textos.
 
- ```
- {image} /images/bloque3/trad-reglas.jpg
+``` {image} /images/bloque3/trad-reglas.jpg
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 600px
@@ -561,14 +559,14 @@ Consiste en realizar transformaciones a partir del original, reemplazando las pa
 ```
 Figura 14. Arquitectura genérica de un sistema de traducción basado en reglas.
 
-### Traducción automática basada en corpus
+#### Traducción automática basada en corpus
 
 La traducción automática a partir de un corpus lingüístico se basa en el análisis de muestras reales con sus respectivas traducciones. Entre los mecanismos que utilizan corpus se incluyen los métodos estadísticos y los basados en ejemplos.
 
 - *Estadística*: El objetivo de la traducción automática estadística es generar traducciones a partir de métodos estadísticos basados en corpus de textos bilingües, como por ejemplo las actas del parlamento europeo, que se encuentran traducidas en todos los idiomas oficiales de la UE. A medida que se generan y se analizan corpus de textos multilingües, se mejoran iterativamente los resultados al traducir textos de ámbitos similares.
 - *Basada en ejemplos*:La traducción automática basada en ejemplos se caracteriza por el uso de un corpus bilingüe como principal fuente de conocimiento en tiempo real. Es esencialmente una traducción por analogía y puede ser interpretada como una implementación del razonamiento por casos base empleado en el aprendizaje automático, que consiste en la resolución de un problema basándose en la solución de problemas similares.
 
-### Traducción automática basada en el contexto
+#### Traducción automática basada en el contexto
 
 La traducción automática basada en el contexto utiliza técnicas basadas en hallar la mejor traducción para una palabra fijándose en el resto de palabras que la rodean, básicamente este método se basa en tratar el texto en unidades de entre 4 y 8 palabras, de manera que se traduce cada una de ellas por su traducción al idioma destino, y se eliminan las traducciones que han generado una "frase" sin sentido. Luego, se mueve la ventana una posición (palabra), retraduciendo la mayoría de ellas de nuevo y volviendo a filtrar dejando solo las frases coherentes. Se repite dicho paso para todo el texto. Y luego se pasa a concatenar los resultados de dichas ventanas de manera que se logre una única traducción del texto.
 El filtrado que se realiza donde se decide si es una frase con sentido utiliza un corpus del lenguaje destino, donde se cuentan el número de apariciones de la frase buscada.
@@ -579,11 +577,11 @@ Como *ventajas*, aporta también la facilidad de añadir nuevas lenguas, ya que 
 - un buen diccionario, que puede ser cualquier versión comercial adaptada mediante reglas gramaticales para tener los verbos conjugados y los nombres/adjetivos con sus variaciones en número y género, y
 - un corpus en el lenguaje destino, que se puede sacar por ejemplo de Internet, sin que sea necesario traducir ninguna parte, como en los métodos estadísticos.
 
-### Redes neuronales. Codificador-Decodificador
+#### Redes neuronales. Codificador-Decodificador
 
 Entre las técnicas más actuales utilizadas en este ámbito está el uso de Redes Neuronales profundas y como parte de esto el uso de codificadores (encoders) y decodificadores (decoders). Una red neuronal (el codificador) procesa una oración de la fuente original para otra red (el decodificador). La segunda red neuronal predice las palabras en el lenguaje del destino.
 
- ```{image} /images/bloque3/trad-deep.png
+ ```{image} /images/bloque3/trad-deep.jpg 
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 600px
@@ -592,39 +590,39 @@ Entre las técnicas más actuales utilizadas en este ámbito está el uso de Red
 
 Figura 15. Representación del modelo de codificador-decodificador. Tomado de <https://github.com/shangeth/Seq2Seq-Machine-Translation>
 
-### Ejemplo (Español- Ingles)
+#### Ejemplo (Español- Ingles)
 
 - Ejemplo de entrada: (Español) Carlos llamó a su amigo por teléfono
 - Ejemplo de salida: (Inglés) Carlos called his friend on the phone
 
-### Métricas más comunes de evaluación
+#### Métricas más comunes de evaluación
 
 - BLEU: La calidad de las traducciones se evalúa con la BLEU Metric (BiLingual Evaluation Understudy). La evaluación se basa en la idea de que cuanto más se parece la traducción a una realizada por lingüistas profesionales mejor es. Se evalúa sobre 1, considerándose que la puntuación de un traductor humano está entre el 0.7 y el 0.85.
 
-### ¿Qué otras subtareas pensáis que pueden formar parte de la clasificación textual?
+#### ¿Qué otras subtareas pensáis que pueden formar parte de la clasificación textual?
 
 - Mencione tres problemas actuales que se puedan solucionar con clasificación textual.
 
-### Benchmarcks
+#### Benchmarcks
 
 - Papers With Code: <https://paperswithcode.com/task/machine-translation>
 - Codalab: <https://competitions.codalab.org/competitions/?q=machine+translation>
 
-### Repositorios de Código
+#### Repositorios de Código
 
 - Papers With Code: <https://paperswithcode.com/task/machine-translation>
 - Kaggle: <https://www.kaggle.com/search?q=machine+translation+in%3Anotebooks+tag%3Alanguages>
 
-### Conjuntos de datos
+#### Conjuntos de datos
 
 - Huggingface: <https://huggingface.co/datasets?filter=task_ids:machine-translation>
 - Papers With Code : <https://paperswithcode.com/datasets?q=machine+trasnlation&v=lst&o=match&mod=texts&page=1>
 
-### Artículos
+#### Artículos
 
 - Papers With Code: <https://paperswithcode.com/task/machine-translation>
 
-# Bibliografía
+## Bibliografía
 
 [1] Otter, D. W., Medina, J. R., & Kalita, J. K. (2020). A survey of the usages of deep learning for natural language processing. IEEE Transactions on Neural Networks and Learning Systems.
 

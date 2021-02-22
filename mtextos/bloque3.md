@@ -7,11 +7,12 @@ Este tercer bloque analiza diversas aplicaciones de las técnicas de procesamien
 
 ## Temas del bloque 3
 
+
 ### Teoría
 
-- T1. Aplicaciones generales del PLN (areas generales)
+- [T1. Aplicaciones generales del PLN (areas generales)][T1]
 - T2. Aplicaciones específicas y Benchmacks
-- T2.1. Caso de estudio Análisis de Sentimientos 
+- T2.1. Caso de estudio Análisis de Sentimientos
 - T3. Métricas de Evaluación
 - T4. Huggingface transformers: repositorios de código y datasets compartidos
 - T5. AutoML. Descripción general y estado de la cuestión
@@ -19,7 +20,7 @@ Este tercer bloque analiza diversas aplicaciones de las técnicas de procesamien
 
 ### Prácticas
 
-- P1. Creación de baseline con Sklearn. Caso de uso Clasificación de Documentos
+- [P1. Creación de baseline con Sklearn. Caso de uso Clasificación de Documentos][p1]
 - P1.2. Utilización de modelos transformers ya existentes como API. Caso de uso Clasificación de Documentos
 - P2. Transformer fine tunnig. Caso de uso Clasificación de Documentos
 - P3. Composición de características auxiliándose de transformers y otras tecnicas de extracción de  características. Caso de uso Clasificación de Documentos
@@ -30,4 +31,17 @@ Este tercer bloque analiza diversas aplicaciones de las técnicas de procesamien
 [abreu url]: https://scholar.google.es/citations?user=62u6KEkAAAAJ&hl=es
 [javi url]: https://cvnet.cpd.ua.es/curriculum-breve/es/fernandez-martinez-javier/321
 [yoan url]: https://cvnet.cpd.ua.es/curriculum-breve/es/gutierrez-vazquez-yoan/49618  
-[bloque3_p1]: mtextos\bloque3_p1_SA-Pipeline-Reviews.md              
+
+[t1]: https://jaspock.github.io/mtextos/bloque3_t1_aplicaciones.html
+[t2]: https://jaspock.github.io/mtextos/bloque3_t2_subaplicaciones-benchmarks.md
+[t2.1]: https://jaspock.github.io/mtextos/bloque3_t2.1_analisis_sentimientos.md
+[t3]: https://jaspock.github.io/mtextos/bloque3_t3.1_metricas.md
+[t4]: https://jaspock.github.io/mtextos/bloque3_t4_huggingface.md
+[t5]: https://jaspock.github.io/mtextos/bloque3_t5_automl.md
+[t5.1]: https://jaspock.github.io/mtextos/bloque3_t5.1_autogoal.md
+
+[p1]: https://jaspock.github.io/mtextos/bloque3_p1_SA-Pipeline-Reviews.html
+[p2]: https://jaspock.github.io/mtextos/bloque3_p2_SA-Transformers-Basic.md
+[p3]: https://jaspock.github.io/mtextos/bloque3_p3_SA-Transformers-Training-FineTuning.md
+[p4]: https://jaspock.github.io/mtextos/bloque3_p4_SA-Transformers-Training-Custom.md
+[p5]: https://jaspock.github.io/mtextos/bloque3_p5_SA-AutoGOAL.md
