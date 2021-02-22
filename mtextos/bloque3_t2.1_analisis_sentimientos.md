@@ -1,5 +1,5 @@
 
-Aplicaciones de la minería de textos: Subaplicaciones. Analisis de Sentimientos
+T2.1 Aplicaciones específicas. Análisis de Sentimientos
 ====================================
 
 

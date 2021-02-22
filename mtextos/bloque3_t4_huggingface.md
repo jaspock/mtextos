@@ -1,4 +1,4 @@
 
-Aplicaciones de la minería de textos: Ventajas de Huggingface
+T4. Huggingface. Ventajas
 ====================================
 

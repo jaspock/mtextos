@@ -1,3 +1,3 @@
 
-Aplicaciones de la minería de textos: AutoGOAL. Una librería para el descibrimiento automático de pipelines
+T5.1 AutoGOAL
 ====================================

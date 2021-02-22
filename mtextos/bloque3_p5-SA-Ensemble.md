@@ -1,26 +1,26 @@
 
-P1.1 Pipeline simple
+P4 Ensemble de pipelines
 ====================================
 
 ## **Clase práctica.**
 
-### Creación de un Pipeline simple: Caso de estudio de Análisis de Sentimientos
+### Ensemble de pipelines: Caso de estudio de Análisis de Sentimientos
 
-**Autores:** 
+**Autores:**
 
 - [Yoan Gutiérrez Vázquez][yoan]
 - [José Ignacio Abreu Salas][abreu]
 
 ### Descripción
 
-En esta clase práctica estudiaremos cómo crear pipelines de clasificación de sentimientos con el lenguaje Python, utilizando la librería Sklearn.
-Se orientarán ejercicios a resolver en los que el estudiante deberá hacer uso de los ejemplos estudiados para adaptarlos a estos.
+En esta clase práctica estudiaremos cómo diseñar distintos sistemas de clasificación textual que alimentan un meta ensamblador que se comporta como un sistema de votación.
+Se orientarán ejercicios a resolver en los que el estudiante deberá proponer y diseñar sistemas de análisis de sentimientos teniendo en cuenta lo estudiado en esta práctica.
 
 ### Ejemplo demostrativo
 
-Pipeline Movie Reviews:
+Transformers Ensemble:
 
-- [01-SA-Pipeline-Reviews][01-SA-Pipeline-Reviews]
+- [05-SA-Ensemble]
 
 ### Ejercicios
 
@@ -46,15 +46,12 @@ Elige alguno de los siguientes datasets y conforma tu propio sistema de sentimen
 - [Produt review][product] (recomendado)
 - [SA huggingface][huggingface]
 
-
-
-
-
 [huggingface]: https://huggingface.co/datasets?search=sentiment
 [product]: https://www.kaggle.com/arbazkhan971/product-sentiment-analysis
 [kaggle]: https://www.kaggle.com/search?q=sentiment+analysis+in%3Adatasets
 
-[01-SA-Pipeline-Reviews]: https://github.com/TeachingTextMining/TextClassification/tree/main/01-SA-Pipeline-Reviews
+[05-SA-Ensemble]: https://github.com/TeachingTextMining/TextClassification/tree/main/05-SA-Ensemble
+
 
 [yoan]: https://orcid.org/0000-0002-4052-7427
 [abreu]: https://orcid.org/0000-0002-4637-4206

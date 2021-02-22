@@ -1,4 +1,4 @@
 
-Aplicaciones de la minería de textos: Métricas de Evaluación
+T3. Métricas de Evaluación
 ====================================
 

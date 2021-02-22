@@ -1,26 +1,25 @@
-
-P1.1 Pipeline simple
+P5 Auto Machine Learning
 ====================================
 
 ## **Clase práctica.**
 
-### Creación de un Pipeline simple: Caso de estudio de Análisis de Sentimientos
+### Auto Machine Learning- Descubrimiento automático de Pipelines: Caso de estudio de Análisis de Sentimientos
 
-**Autores:** 
+**Autores:**
 
 - [Yoan Gutiérrez Vázquez][yoan]
 - [José Ignacio Abreu Salas][abreu]
 
 ### Descripción
 
-En esta clase práctica estudiaremos cómo crear pipelines de clasificación de sentimientos con el lenguaje Python, utilizando la librería Sklearn.
-Se orientarán ejercicios a resolver en los que el estudiante deberá hacer uso de los ejemplos estudiados para adaptarlos a estos.
+En esta clase práctica estudiaremos cómo descubrir pipelines óptimos para un problema determinado utilizando la librería [AutoGOAL].
+Se orientarán ejercicios a resolver en los que el estudiante deberá ser capaz de según el ejemplo visto en esta práctica de diseñar la exploración de pipelines para resolver problemas de procesamiento del lenguaje natural.
 
 ### Ejemplo demostrativo
 
-Pipeline Movie Reviews:
+AutoGÇOAL :
 
-- [01-SA-Pipeline-Reviews][01-SA-Pipeline-Reviews]
+- [06-SA-AutoGOAL]
 
 ### Ejercicios
 
@@ -46,15 +45,12 @@ Elige alguno de los siguientes datasets y conforma tu propio sistema de sentimen
 - [Produt review][product] (recomendado)
 - [SA huggingface][huggingface]
 
-
-
-
-
 [huggingface]: https://huggingface.co/datasets?search=sentiment
 [product]: https://www.kaggle.com/arbazkhan971/product-sentiment-analysis
 [kaggle]: https://www.kaggle.com/search?q=sentiment+analysis+in%3Adatasets
 
-[01-SA-Pipeline-Reviews]: https://github.com/TeachingTextMining/TextClassification/tree/main/01-SA-Pipeline-Reviews
-
 [yoan]: https://orcid.org/0000-0002-4052-7427
 [abreu]: https://orcid.org/0000-0002-4637-4206
+
+[06-SA-AutoGOAL]: https://github.com/TeachingTextMining/TextClassification/tree/main/06-SA-AutoGOAL
+[AutoGOAL]: https://autogoal.github.io/
