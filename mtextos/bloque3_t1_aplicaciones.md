@@ -37,7 +37,7 @@ Abordan problemas fundamentales como:
 ```{image} images/bloque3/volumen-apps.jpg 
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
-:width: 700px
+:width: 800px
 :align: center
 ```
 
@@ -47,7 +47,7 @@ Figura 2. Volumen de publicaciones sobre áreas centrales en los últimos años.
 ```{image} /images/bloque3/areas-apps.jpg 
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
-:width: 700px
+:width: 800px
 :align: center
 ```
 
@@ -257,9 +257,10 @@ Figura 6. Arquitectura genérica de un sistema TC. Una clasificación por texto.
 Figura 7. Arquitectura genérica de un sistema TC. Varias clasificaciones por texto.
 
 Una explicación más extendida sobre el agrupamiento o clasificación de elementos, así como los distintos métodos puede verse en el siguiente enlace: [CLUSTERING1], [CLUSTERING2], [CLUSTERING3].
-[CLUSTERING1]: <https://www.kaggle.com/general/116692>
-[CLUSTERING2]: <https://www.kaggle.com/general/116693>
-[CLUSTERING3]: <https://www.kaggle.com/general/219500>
+
+[CLUSTERING1]: https://www.kaggle.com/general/116692
+[CLUSTERING2]: https://www.kaggle.com/general/116693
+[CLUSTERING3]: https://www.kaggle.com/general/219500
 
 #### Ejemplo
 

@@ -44,4 +44,5 @@ Este tercer bloque analiza diversas aplicaciones de las técnicas de procesamien
 [p2]: https://jaspock.github.io/mtextos/bloque3_p2_SA-Transformers-Basic.md
 [p3]: https://jaspock.github.io/mtextos/bloque3_p3_SA-Transformers-Training-FineTuning.md
 [p4]: https://jaspock.github.io/mtextos/bloque3_p4_SA-Transformers-Training-Custom.md
-[p5]: https://jaspock.github.io/mtextos/bloque3_p5_SA-AutoGOAL.md
+[p5]: https://jaspock.github.io/mtextos/bloque3_p5-SA-Ensemble.md
+[p6]: https://jaspock.github.io/mtextos/bloque3_p6_SA-AutoGOAL.md
