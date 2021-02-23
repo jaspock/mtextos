@@ -144,6 +144,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="#colecciones-de-embeddings-para-palabras-y-frases">
+     Colecciones de embeddings para palabras y frases
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="bloque2_recurrent.html">
      Redes neuronales recurrentes
     </a>
@@ -261,6 +266,42 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Representaciones de palabras y oraciones
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#introduccion-a-los-embeddings-de-palabras">
+     Introducción a los embeddings de palabras
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ecuaciones-del-modelo-cbow">
+     Ecuaciones del modelo CBOW
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualizacion-de-embeddings">
+     Visualización de embeddings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#colecciones-de-embeddings-para-palabras-y-frases">
+   Colecciones de embeddings para palabras y frases
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -270,11 +311,39 @@
                 
   <div class="section" id="representaciones-de-palabras-y-oraciones">
 <h1>Representaciones de palabras y oraciones<a class="headerlink" href="#representaciones-de-palabras-y-oraciones" title="Permalink to this headline">¶</a></h1>
-<div class="tip admonition">
-<p class="admonition-title">Pista</p>
-<p>Contenido</p>
-<p>Más contenido</p>
+<p>Un aspecto fundamental en el procesamiento del lenguaje natural es utilizar representaciones numéricas adecuadas de los textos en los diferentes niveles (subpalabras, palabras, frases,  párrafos, etc.). En este apartado nos centraremos especialmente en las palabras y en uno de los algoritmos más utilizados para obtener dichas representaciones conocidas como <em>word embeddings</em>.</p>
+<div class="section" id="introduccion-a-los-embeddings-de-palabras">
+<h2>Introducción a los embeddings de palabras<a class="headerlink" href="#introduccion-a-los-embeddings-de-palabras" title="Permalink to this headline">¶</a></h2>
+<p>Para comenzar con el tema vamos a seguir la <a class="reference external" href="https://jalammar.github.io/illustrated-word2vec/">guía ilustrada</a> sobre embeddings de palabras de Jay Alammar. Esta guía describe la familia de algoritmos conocidos como <em>word2vec</em>; este conjunto de algoritmos lo forman <em>contextual bag of words</em> (CBOW) y <em>skip-gram</em>. Aquí nos centraremos en el primero, pero las ideas en las que se basa el segundo son muy similares.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Los algoritmos de word2vec no son la única manera de obtener embeddings de palabras. Anteriormente, ya se habían propuesto otras formas de obtenerlos.</p> 
+<p>Se puede utilizar una red neuronal *feedforward* con una capa oculta que usa a la entrada los embeddings de las *n* palabras anteriores y emite a la salida la probabilidad de la siguiente palabra. En este caso, las activaciones de la capa oculta se podrían tomar como los embeddings de dicha palabra. A diferencia de CBOW, aquí habría una capa oculta y se usarían solo las palabras anteriores, aunque es trivial adaptar la red para que use a la entrada un contexto de palabras anteriores y posteriores.</p> 
+<p>Una opción más elaborada pasa por usar una red neuronal recurrente con una capa oculta entrenada para predecir la siguiente palabra. Una vez finalizado el entrenamiento, se podrían utilizar las representaciones de estado de la capa oculta como embeddings de las palabras. A diferencia de CBOW, los embeddings aquí no son estáticos (incontextuales): dada una frase en particular, se puede ir suministrando a la red recurrente los embeddings de las palabras anteriores y obtener una representación vectorial de la siguiente palabra en el contexto anterior concreto de dicha frase.</p>
+<p>Más adelante, veremos arquitecturas aún más avanzadas (como BERT) que permiten obtener embeddings contextuales más profundos.</p>
 </div>
+</div>
+<div class="section" id="ecuaciones-del-modelo-cbow">
+<h2>Ecuaciones del modelo CBOW<a class="headerlink" href="#ecuaciones-del-modelo-cbow" title="Permalink to this headline">¶</a></h2>
+<p>Las ecuaciones que conforman el modelo CBOW están descritas en las secciones 4.1. y 4.2 de estas <a class="reference external" href="https://web.stanford.edu/class/cs224n/readings/cs224n-2019-notes01-wordvecs1.pdf">notas de clase</a> del curso <a class="reference external" href="https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1204/">CS224n</a> (Natural Language Processing with Deep
+Learning) de Stanford.</p>
+</div>
+<div class="section" id="visualizacion-de-embeddings">
+<h2>Visualización de embeddings<a class="headerlink" href="#visualizacion-de-embeddings" title="Permalink to this headline">¶</a></h2>
+<p>Mediante la herramienta <a class="reference external" href="https://projector.tensorflow.org/">Embedding Projector</a> vamos a explorar visualmente la distribución de las palabras en el espacio de embeddings.</p>
+<p>La herramienta tiene varios paneles:</p>
+<ul class="simple">
+<li><p>El panel de datos en el que seleccionamos los datos a examinar; nos vamos a centrar en el conjunto <em>Word2Vec All</em> (embeddings de dimensión 200 para unas 71000 palabras).</p></li>
+<li><p>El panel de proyección en el que se selecciona la técnica de reducción de dimensionalidad utilizada para representar los datos en un espacio de bi o tridimensional; podemos empezar por seleccionar PCA (<em>principal component analysis</em>), que es más rápida.</p></li>
+<li><p>El panel de visualización en el que se muestran los embeddings.</p></li>
+<li><p>El panel de inspección en el que podemos introducir una palabra y ver la lista de sus vecinos más cercanos.</p></li>
+</ul>
+<p>Para visualizar sesgos en las distribuciones podemos ir al panel de proyección y en <em>Custom</em> elegir el embedding de una palabra para el lado izquierdo y otro para el derecho. En el panel de <em>bookmarks</em> (abajo a la derecha) puedes encontrar un ejemplo ya creado. La expresión regular para una palabra exacta es /^bad$/, por ejemplo.</p>
+</div>
+</div>
+<div class="section" id="colecciones-de-embeddings-para-palabras-y-frases">
+<h1>Colecciones de embeddings para palabras y frases<a class="headerlink" href="#colecciones-de-embeddings-para-palabras-y-frases" title="Permalink to this headline">¶</a></h1>
+<p>Existen colecciones como <a class="reference external" href="https://fasttext.cc/">fastText</a>, que incluyen embeddings para dos millones de palabras en inglés (obtenidos procesando un corpus de 16.000 millones de palabras) o embeddings multilingües para más de cien idiomas. Aunque las representaciones a nivel de frase se pueden obtener mediante la integración de las representaciones individuales de las palabras, hay sistemas más avanzados como <a class="reference external" href="https://github.com/facebookresearch/LASER">LASER</a> que ofrecen un codificador neuronal capaz de emitir embeddings de frases en 93 idiomas (23 alfabetos diferentes).</p>
 </div>
 
     <script type="text/x-thebe-config">
