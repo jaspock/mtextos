@@ -67,6 +67,17 @@ La asignatura se centra en presentar los fundamentos, características y aplicac
 
 La asignatura tiene tres bloques: el primero ("{ref}`label_introduccion`") introduce los fundamentos de la lingüística computacional; en el segundo ("{ref}`label_tecnicas`") se estudia con cierto nivel de detalle las arquitecturas neuronales más empleadas en el área del procesamiento del lenguaje natural; por último, el tercer bloque ("{ref}`label_aplicaciones`") discute algunas de las aplicaciones más importantes, apoyándose para ello en lo estudiado en los dos bloques anteriores. 
 
+Para ampliar lo aprendido en la asignatura puedes consultar algunas de estas fuentes en línea:
+
+- "[Speech and language processing][jurafsky]" (borrador de la tercera edición).
+- "[Dive into deep learning][dive]".
+- Materiales del curso "[Natural language processing with deep learning][stanford]" de Stanford.
+
+[jurafsky]: https://web.stanford.edu/~jurafsky/slp3/
+[dive]: http://d2l.ai/
+[stanford]: http://web.stanford.edu/class/cs224n/
+
+
 ```{image} images/tower_of_babel_xkcd_2421.png
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
