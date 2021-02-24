@@ -55,7 +55,7 @@ La herramienta tiene varios paneles:
 
 Para visualizar sesgos en las distribuciones podemos ir al panel de proyección y en *Custom* elegir el embedding de una palabra para el lado izquierdo y otro para el derecho. En el panel de *bookmarks* (abajo a la derecha) puedes encontrar un ejemplo ya creado. La expresión regular para una palabra exacta es /^bad$/, por ejemplo.
 
-# Colecciones de embeddings para palabras y frases
+## Colecciones de embeddings para palabras y frases
 
 Existen colecciones como [fastText][fasttext], que incluyen embeddings para dos millones de palabras en inglés (obtenidos procesando un corpus de 16.000 millones de palabras) o embeddings multilingües para más de cien idiomas. Aunque las representaciones a nivel de frase se pueden obtener mediante la integración de las representaciones individuales de las palabras, hay sistemas más avanzados como [LASER][laser] que ofrecen un codificador neuronal capaz de emitir embeddings de frases en 93 idiomas (23 alfabetos diferentes).
 
