@@ -144,11 +144,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="#colecciones-de-embeddings-para-palabras-y-frases">
-     Colecciones de embeddings para palabras y frases
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="bloque2_recurrent.html">
      Redes neuronales recurrentes
     </a>
@@ -271,29 +266,22 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Representaciones de palabras y oraciones
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion-a-los-embeddings-de-palabras">
+   Introducción a los embeddings de palabras
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#introduccion-a-los-embeddings-de-palabras">
-     Introducción a los embeddings de palabras
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ecuaciones-del-modelo-cbow">
-     Ecuaciones del modelo CBOW
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#visualizacion-de-embeddings">
-     Visualización de embeddings
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ecuaciones-del-modelo-cbow">
+   Ecuaciones del modelo CBOW
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizacion-de-embeddings">
+   Visualización de embeddings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#colecciones-de-embeddings-para-palabras-y-frases">
    Colecciones de embeddings para palabras y frases
   </a>
@@ -345,10 +333,10 @@ Learning) de Stanford.</p>
 </ul>
 <p>Para visualizar sesgos en las distribuciones podemos ir al panel de proyección y en <em>Custom</em> elegir el embedding de una palabra para el lado izquierdo y otro para el derecho. En el panel de <em>bookmarks</em> (abajo a la derecha) puedes encontrar un ejemplo ya creado. La expresión regular para una palabra exacta es /^bad$/, por ejemplo.</p>
 </div>
-</div>
 <div class="section" id="colecciones-de-embeddings-para-palabras-y-frases">
-<h1>Colecciones de embeddings para palabras y frases<a class="headerlink" href="#colecciones-de-embeddings-para-palabras-y-frases" title="Permalink to this headline">¶</a></h1>
+<h2>Colecciones de embeddings para palabras y frases<a class="headerlink" href="#colecciones-de-embeddings-para-palabras-y-frases" title="Permalink to this headline">¶</a></h2>
 <p>Existen colecciones como <a class="reference external" href="https://fasttext.cc/">fastText</a>, que incluyen embeddings para dos millones de palabras en inglés (obtenidos procesando un corpus de 16.000 millones de palabras) o embeddings multilingües para más de cien idiomas. Aunque las representaciones a nivel de frase se pueden obtener mediante la integración de las representaciones individuales de las palabras, hay sistemas más avanzados como <a class="reference external" href="https://github.com/facebookresearch/LASER">LASER</a> que ofrecen un codificador neuronal capaz de emitir embeddings de frases en 93 idiomas (23 alfabetos diferentes).</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
