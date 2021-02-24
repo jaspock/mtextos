@@ -18,6 +18,20 @@ Para comenzar con el tema vamos a seguir la [guía ilustrada][guía] sobre embed
 <p>Más adelante, veremos arquitecturas aún más avanzadas (como BERT) que permiten obtener embeddings contextuales más profundos.</p>
 ```
 
+De los embeddings aprendidos con word2vec se pueden obtener ciertas analogías interesantes con simples operaciones aritméticas sobre los embeddings. Así, si consideramos el embedding más cercano al vector resultante de calcular embedding("France") - embedding("Paris") + embedding("Rome"), este resulta ser el correspondiente a "Italy". Otras analogías interesantes se pueden ver en la figura {numref}`analogia-word2vec`.
+
+```{figure} images/mikolov-word2vec-analogies.png
+---
+height: 400px
+name: analogia-word2vec
+---
+Analogías mostradas en el trabajo de [Mikolov et al.][mikolov2013] de 2013.
+
+[mikolov2013]: https://arxiv.org/pdf/1301.3781.pdf
+```
+
+
+
 ## Ecuaciones del modelo CBOW
 
 Las ecuaciones que conforman el modelo CBOW están descritas en las secciones 4.1. y 4.2 de estas [notas de clase][notas] del curso [CS224n][cs224] (Natural Language Processing with Deep

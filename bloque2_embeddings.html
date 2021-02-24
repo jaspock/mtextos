@@ -322,6 +322,11 @@
 <p>Una opción más elaborada pasa por usar una red neuronal recurrente con una capa oculta entrenada para predecir la siguiente palabra. Una vez finalizado el entrenamiento, se podrían utilizar las representaciones de estado de la capa oculta como embeddings de las palabras. A diferencia de CBOW, los embeddings aquí no son estáticos (incontextuales): dada una frase en particular, se puede ir suministrando a la red recurrente los embeddings de las palabras anteriores y obtener una representación vectorial de la siguiente palabra en el contexto anterior concreto de dicha frase.</p>
 <p>Más adelante, veremos arquitecturas aún más avanzadas (como BERT) que permiten obtener embeddings contextuales más profundos.</p>
 </div>
+<p>De los embeddings aprendidos con word2vec se pueden obtener ciertas analogías interesantes con simples operaciones aritméticas sobre los embeddings. Así, si consideramos el embedding más cercano al vector resultante de calcular embedding(“France”) - embedding(“Paris”) + embedding(“Rome”), este resulta ser el correspondiente a “Italy”. Otras analogías interesantes se pueden ver en la figura <a class="reference internal" href="#analogia-word2vec"><span class="std std-numref">Fig. 1</span></a>.</p>
+<div class="figure align-default" id="analogia-word2vec">
+<a class="reference internal image-reference" href="_images/mikolov-word2vec-analogies.png"><img alt="_images/mikolov-word2vec-analogies.png" src="_images/mikolov-word2vec-analogies.png" style="height: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Analogías mostradas en el trabajo de <a class="reference external" href="https://arxiv.org/pdf/1301.3781.pdf">Mikolov et al.</a> de 2013.</span><a class="headerlink" href="#analogia-word2vec" title="Permalink to this image">¶</a></p>
+</div>
 </div>
 <div class="section" id="ecuaciones-del-modelo-cbow">
 <h2>Ecuaciones del modelo CBOW<a class="headerlink" href="#ecuaciones-del-modelo-cbow" title="Permalink to this headline">¶</a></h2>
