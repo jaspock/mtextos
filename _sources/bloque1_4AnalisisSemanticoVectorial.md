@@ -115,9 +115,9 @@ Espacios $n$-dimesionales o multidimensionales: para representar el significado 
 
 Plano cartesiano (dos dimensiones):
 
-![cartesanio1](images/cartesiano_1.png){height="10cm"}
+![cartesanio1](images/cartesiano_1.png)
 
-![cartesanio2](images/cartesiano_2.png){height="10cm"}
+![cartesanio2](images/cartesiano_2.png)
 
 ----------------
 
