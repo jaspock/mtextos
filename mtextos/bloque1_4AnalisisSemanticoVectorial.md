@@ -11,14 +11,16 @@ Análisis semántico vectorial
 
 ## Lectura obligatoria:
 
-Peter D. Turney y Patrick Pantel (2010) "From Frequency to Meaning: Vector Space Models of Semantics" en *Journal of Artificial Intelligence  Research*, 37, págs. 141-188.  DOI: https://doi.org/10.1613/jair.2934 
-    [https://www.jair.org/index.php/jair/article/view/10640](https://www.jair.org/index.php/jair/article/view/10640)
-    [https://www.jair.org/index.php/jair/article/view/10640/25440](https://www.jair.org/index.php/jair/article/view/10640/25440)
+Peter D. Turney y Patrick Pantel (2010) "From Frequency to Meaning: Vector Space Models of Semantics" en *Journal of Artificial Intelligence  Research*, 37, págs. 141-188.  DOI: https://doi.org/10.1613/jair.2934
+
+[https://www.jair.org/index.php/jair/article/view/10640](https://www.jair.org/index.php/jair/article/view/10640)
+
+[https://www.jair.org/index.php/jair/article/view/10640/25440](https://www.jair.org/index.php/jair/article/view/10640/25440)
 
 ## Objetivos
 
 - Definir semántica distribucional.
-- Comprender cómo se representa el significado mediante vectores.ç
+- Comprender cómo se representa el significado mediante vectores.
 - Conocer los principales factores que determinan la representación vectorial.
 - Conocer los conceptos de distancia y similitud, y medidas básicas.
 
@@ -29,7 +31,7 @@ Semántica vectorial: Nueva aproximación **formal** a la **semántica** de las 
 - Formalismo:
   - Espacios vectoriales y álgebra lineal.
   - *Quantum semantics*: similar al caso de la mecánica cuántica matricial de
-    [[Heisenberg]{.ul}](https://es.wikipedia.org/wiki/Werner_Heisenberg).
+    [Heisenberg](https://es.wikipedia.org/wiki/Werner_Heisenberg).
   - Geometría: relaciones de *similitud semántica* basadas en
     *distancias* (Widdows 2004).
 
@@ -65,9 +67,9 @@ doc2 $= \{papel, rama, madera\}$
   -------- ------- ------- ------ ---------
             Doc 1   Doc 2   \...   Doc $n$
     casa      1       0     \...    \...
-   madera     1       1     \...    \...
+    madera    1       1     \...    \...
     mesa      1       0     \...    \...
-   papel      0       1     \...    \...
+    papel     0       1     \...    \...
     rama      0       1     \...    \...
   -------- ------- ------- ------ ---------
 
@@ -99,8 +101,8 @@ Un vector captura la semántica contextual/distribucional de la palabra (token o
   ------- ------ ------
            doc1   doc2
     car     7      6
-   taxi     5      6
-   train    6      1
+    taxi    5      6
+    train   6      1
   ------- ------ ------
 
 $car = (7,6)$\
@@ -150,9 +152,9 @@ Matriz de co-ocurrencias: Matriz Término-Término: número de veces que dos pal
 Contexto más pequeño y motivado lingüísticamente: oración, relación sintáctica, ventana de palabras u oraciones (párrafo deslizante), etc.
 
   ------ ----- ---------- ------
-          red   readable   blue
-   car     5       0        1
-   book    3       6        0
+           red   readable   blue
+    car     5       0        1
+    book    3       6        0
   ------ ----- ---------- ------
 
 Ejemplo de matriz con motivación lingüística fuerte: matriz *Pair-Pattern* (TurneyPantel 2010): Las filas son parejas de palabras ("carpenter:wood"), las columnas son relaciones entre palabras co-ocurrentes ("X cut Y").
@@ -244,10 +246,10 @@ De aquí derivan los *word embeddings* que, junto con las redes neuronales, han 
 
 Para crear espacios vectoriales y calcular similitudes:
 
-- GENSIM
-- SpaCy
+- [GENSIM](https://radimrehurek.com/gensim/)
 - [NLTK](http://www.nltk.org/)
 - [Pattern](http://www.clips.ua.ac.be/pattern)
+- [SpaCy](https://spacy.io/)
 
 ## Apéndice. Estudio de caso.
 
@@ -264,7 +266,7 @@ Juravsky y Martin (2020) *Speech and Language Processing*. https://web.stanford.
 Ferrone Lorenzo y Zanzotto Fabio Massimo (2020) "Symbolic, Distributed, and Distributional Representations for Natural Language Processing in the Era of Deep Learning: A Survey" en *Frontiers in Robotics and AI*, pags, 153. DOI 10.3389/frobt.2019.00153
 [https://www.frontiersin.org/article/10.3389/frobt.2019.00153](https://www.frontiersin.org/article/10.3389/frobt.2019.00153)
 
-Navarro Colorado, Borja (2021) "Sistemas de anotación semántica para corpus de español" en Giovanni Parodi, Pascual Cantos & Lewis Howe (Editores) *The Routledge Handbook of Spanish Corpus Linguistics* Routledge.
+Navarro Colorado, Borja (2021) "Sistemas de anotación semántica para corpus de español" en Giovanni Parodi, Pascual Cantos & Lewis Howe (Editores) *The Routledge Handbook of Spanish Corpus Linguistics* Routledge (en prensa).
 
 D. Widdows (2004) *Geometry and meaning*, CSLI.
 
