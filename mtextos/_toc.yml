@@ -8,6 +8,7 @@
     - file: bloque1_Practica1
     - file: bloque1_3AnalisisSemantico
     - file: bloque1_Practica2
+    - file: bloque1_4AnalisisSemanticoVectorial
 - file: bloque2
   sections:
     - file: bloque2_historia
