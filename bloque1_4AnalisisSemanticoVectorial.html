@@ -395,15 +395,15 @@
 </div>
 <div class="section" id="lectura-obligatoria">
 <h2>Lectura obligatoria:<a class="headerlink" href="#lectura-obligatoria" title="Permalink to this headline">¶</a></h2>
-<p>Peter D. Turney y Patrick Pantel (2010) “From Frequency to Meaning: Vector Space Models of Semantics” en <em>Journal of Artificial Intelligence  Research</em>, 37, págs. 141-188.  DOI: https://doi.org/10.1613/jair.2934
-<a class="reference external" href="https://www.jair.org/index.php/jair/article/view/10640">https://www.jair.org/index.php/jair/article/view/10640</a>
-<a class="reference external" href="https://www.jair.org/index.php/jair/article/view/10640/25440">https://www.jair.org/index.php/jair/article/view/10640/25440</a></p>
+<p>Peter D. Turney y Patrick Pantel (2010) “From Frequency to Meaning: Vector Space Models of Semantics” en <em>Journal of Artificial Intelligence  Research</em>, 37, págs. 141-188.  DOI: https://doi.org/10.1613/jair.2934</p>
+<p><a class="reference external" href="https://www.jair.org/index.php/jair/article/view/10640">https://www.jair.org/index.php/jair/article/view/10640</a></p>
+<p><a class="reference external" href="https://www.jair.org/index.php/jair/article/view/10640/25440">https://www.jair.org/index.php/jair/article/view/10640/25440</a></p>
 </div>
 <div class="section" id="objetivos">
 <h2>Objetivos<a class="headerlink" href="#objetivos" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Definir semántica distribucional.</p></li>
-<li><p>Comprender cómo se representa el significado mediante vectores.ç</p></li>
+<li><p>Comprender cómo se representa el significado mediante vectores.</p></li>
 <li><p>Conocer los principales factores que determinan la representación vectorial.</p></li>
 <li><p>Conocer los conceptos de distancia y similitud, y medidas básicas.</p></li>
 </ul>
@@ -416,7 +416,7 @@
 <ul>
 <li><p>Espacios vectoriales y álgebra lineal.</p></li>
 <li><p><em>Quantum semantics</em>: similar al caso de la mecánica cuántica matricial de
-<a class="reference external" href="https://es.wikipedia.org/wiki/Werner_Heisenberg">[Heisenberg]{.ul}</a>.</p></li>
+<a class="reference external" href="https://es.wikipedia.org/wiki/Werner_Heisenberg">Heisenberg</a>.</p></li>
 <li><p>Geometría: relaciones de <em>similitud semántica</em> basadas en
 <em>distancias</em> (Widdows 2004).</p></li>
 </ul>
@@ -453,12 +453,12 @@ words</em>): conjunto de palabras sin relación entre ellas.</p></li>
 <hr class="docutils" />
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>        Doc 1   Doc 2   \...   Doc $n$
 casa      1       0     \...    \...
+madera    1       1     \...    \...
+mesa      1       0     \...    \...
+papel     0       1     \...    \...
+rama      0       1     \...    \...
 </pre></div>
 </div>
-<p>madera     1       1     …    …
-mesa      1       0     …    …
-papel      0       1     …    …
-rama      0       1     …    …</p>
 <hr class="docutils" />
 <p>Matriz Término-Documento</p>
 </div>
@@ -489,10 +489,10 @@ distribucional”.</p>
 <hr class="docutils" />
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>       doc1   doc2
 car     7      6
+taxi    5      6
+train   6      1
 </pre></div>
 </div>
-<p>taxi     5      6
-train    6      1</p>
 <hr class="docutils" />
 <p><span class="math notranslate nohighlight">\(car = (7,6)\)</span><br />
 <span class="math notranslate nohighlight">\(taxi = (5,6)\)</span><br />
@@ -526,11 +526,11 @@ dimensión.</p>
 <p>Matriz de co-ocurrencias: Matriz Término-Término: número de veces que dos palabras aparecen en los mismos contexto.</p>
 <p>Contexto más pequeño y motivado lingüísticamente: oración, relación sintáctica, ventana de palabras u oraciones (párrafo deslizante), etc.</p>
 <hr class="docutils" />
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      red   readable   blue
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>       red   readable   blue
+car     5       0        1
+book    3       6        0
 </pre></div>
 </div>
-<p>car     5       0        1
-book    3       6        0</p>
 <hr class="docutils" />
 <p>Ejemplo de matriz con motivación lingüística fuerte: matriz <em>Pair-Pattern</em> (TurneyPantel 2010): Las filas son parejas de palabras (“carpenter:wood”), las columnas son relaciones entre palabras co-ocurrentes (“X cut Y”).</p>
 <p>Y por aquí se pueden definir variantes. En todos estos casos, lo que cambia es cómo se representa el contexto.</p>
@@ -611,10 +611,10 @@ similitudes (entre palabras, grupos de palabras, textos, etc.).</p>
 <h2>Herramientas y recursos<a class="headerlink" href="#herramientas-y-recursos" title="Permalink to this headline">¶</a></h2>
 <p>Para crear espacios vectoriales y calcular similitudes:</p>
 <ul class="simple">
-<li><p>GENSIM</p></li>
-<li><p>SpaCy</p></li>
+<li><p><a class="reference external" href="https://radimrehurek.com/gensim/">GENSIM</a></p></li>
 <li><p><a class="reference external" href="http://www.nltk.org/">NLTK</a></p></li>
 <li><p><a class="reference external" href="http://www.clips.ua.ac.be/pattern">Pattern</a></p></li>
+<li><p><a class="reference external" href="https://spacy.io/">SpaCy</a></p></li>
 </ul>
 </div>
 <div class="section" id="apendice-estudio-de-caso">
@@ -629,7 +629,7 @@ similitudes (entre palabras, grupos de palabras, textos, etc.).</p>
 (Caps. 12-14)</p>
 <p>Ferrone Lorenzo y Zanzotto Fabio Massimo (2020) “Symbolic, Distributed, and Distributional Representations for Natural Language Processing in the Era of Deep Learning: A Survey” en <em>Frontiers in Robotics and AI</em>, pags, 153. DOI 10.3389/frobt.2019.00153
 <a class="reference external" href="https://www.frontiersin.org/article/10.3389/frobt.2019.00153">https://www.frontiersin.org/article/10.3389/frobt.2019.00153</a></p>
-<p>Navarro Colorado, Borja (2021) “Sistemas de anotación semántica para corpus de español” en Giovanni Parodi, Pascual Cantos &amp; Lewis Howe (Editores) <em>The Routledge Handbook of Spanish Corpus Linguistics</em> Routledge.</p>
+<p>Navarro Colorado, Borja (2021) “Sistemas de anotación semántica para corpus de español” en Giovanni Parodi, Pascual Cantos &amp; Lewis Howe (Editores) <em>The Routledge Handbook of Spanish Corpus Linguistics</em> Routledge (en prensa).</p>
 <p>D. Widdows (2004) <em>Geometry and meaning</em>, CSLI.</p>
 </div>
 </div>
