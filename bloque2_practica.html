@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Práctica de representaciones de palabras &#8212; Minería de Textos</title>
+    <title>Práctica. Lectura del código de un detector de entidades nombradas &#8212; Minería de Textos</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -45,7 +45,7 @@
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -170,7 +170,7 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Práctica de representaciones de palabras
+     Práctica. Lectura del código de un detector de entidades nombradas
     </a>
    </li>
   </ul>
@@ -218,21 +218,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -250,22 +250,52 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
-    </div>
+        </div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objetivo">
+   Objetivo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comentarios-en-python">
+   Comentarios en Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uso-de-pycco-para-generar-la-documentacion">
+   Uso de Pycco para generar la documentación
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#orden-sugerido-para-el-estudio-del-codigo">
+   Orden sugerido para el estudio del código
+  </a>
+ </li>
+</ul>
+
+        </nav>
         
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -273,8 +303,34 @@
         
               <div>
                 
-  <div class="section" id="practica-de-representaciones-de-palabras">
-<h1>Práctica de representaciones de palabras<a class="headerlink" href="#practica-de-representaciones-de-palabras" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="practica-lectura-del-codigo-de-un-detector-de-entidades-nombradas">
+<h1>Práctica. Lectura del código de un detector de entidades nombradas<a class="headerlink" href="#practica-lectura-del-codigo-de-un-detector-de-entidades-nombradas" title="Permalink to this headline">¶</a></h1>
+<p>En esta práctica leerás el código de un programa escrito por otros y lo documentarás para demostrar que entiendes lo que hace. La documentación resultante es por lo que se te evaluará.</p>
+<p>Desde diversos frentes se <a class="reference external" href="https://www.stevejgordon.co.uk/become-a-better-developer-by-reading-source-code">defiende</a> la lectura de código escrito por otros como un enfoque adecuado para aprender a programar o mejorar las habilidades como programador. Esta asignatura incluye algunas prácticas en las que utilizarás modelos preentrenados para ciertas tareas de procesamiento del lenguaje natural, pero tanto la programación de los modelos subyacentes como el procesamiento de los datos quedarán normalmente ocultos tras la interfaz de los programas correspondientes. Partiendo de la premisa de que entender cómo funcionan las cosas ayuda a sacarles provecho y dado que la asignatura no incluye entre sus objetivos la escritura desde cero de un programa completo, esta práctica propone un acercamiento intermedio al estudiar el código escrito por terceros como preparación necesaria para poder más adelante crear tus propios programas o modificar los existentes. En el desarrollo de la profesión de científico de datos te encontrarás en situaciones en las que no existe un modelo que resuelva exactamente tu problema y deberás plantearte modificar el funcionamiento de un sistema base.</p>
+<p>Algunos estudios asemejan la labor de leer código a la de leer un texto escrito en lenguaje natural; otros lo equiparan más bien al procesamiento mental de ecuaciones matemáticas; otros <a class="reference external" href="https://www.sciencedaily.com/releases/2020/12/201215131236.htm">estudios</a> sugieren que el cerebro usa mecanismo distintos para la asimilación del código fuente.</p>
+<div class="section" id="objetivo">
+<h2>Objetivo<a class="headerlink" href="#objetivo" title="Permalink to this headline">¶</a></h2>
+<p>En esta práctica vas a estudiar un programa que permite entrenar y probar un sistema neuronal de reconocimiento de entidades nombradas. El programa se compone de varios módulos escritos en Python y que usan la librería Pytorch para la programación del modelo neuronal. El código está en <a class="reference external" href="https://github.com/jaspock/cs230-code-examples/tree/master/pytorch/nlp">esta carpeta</a> de un repositorio que tendrás que clonar. A efectos de reconocimiento de la autoría, el código está tomado del que utilizan como inspiración para sus proyectos los estudiantes del curso <a class="reference external" href="https://github.com/cs230-stanford/cs230-code-examples/">CS230</a>, «Deep Learning», de la Universidad de Stanford.</p>
+<p>El código original tiene algunos comentarios que puedes traducir al español o ignorar, pero tienes que añadir muchos más para explicar con cierto nivel de detalle qué hacen las principales líneas del código.</p>
+<p>Para hacerte una idea de cómo funciona el reconocedor de entidades nombradas, ejecuta en primer lugar el programa tal y como se explica en el README saltando la parte opcional que descarga datos de Kaggle.</p>
+</div>
+<div class="section" id="comentarios-en-python">
+<h2>Comentarios en Python<a class="headerlink" href="#comentarios-en-python" title="Permalink to this headline">¶</a></h2>
+<p>Los comentarios en Python pueden ser de <a class="reference external" href="https://realpython.com/documenting-python-code/">dos tipos</a> principalmente: comentarios de tipo <em>docstring</em> (que pueden aparecer en cualquier lugar del código, aunque suelen colocarse justo después de la definición de una clase o una función para documentarlas) y comentarios de una línea. Los primeros aparecen rodeados por una secuencia de tres comillas al principio y al final, y pueden ocupar más de una línea; los segundos se extienden desde el carácter de la almohadilla hasta el final de la línea. Dado que el propósito de esta práctica es escribir una documentación elaborada, es recomendable que uses más los comentarios de tipo <em>docstring</em>.</p>
+</div>
+<div class="section" id="uso-de-pycco-para-generar-la-documentacion">
+<h2>Uso de Pycco para generar la documentación<a class="headerlink" href="#uso-de-pycco-para-generar-la-documentacion" title="Permalink to this headline">¶</a></h2>
+<p>En lugar de presentar el código fuente documentado, vas a generar una vista en HTML de los comentarios y el código que facilita la lectura. Para ello, vas a usar la herramienta <a class="reference external" href="https://github.com/pycco-docs/pycco">Pycco</a>. Para aprender sobre su funcionamiento basta con estudiar un pequeño <a class="reference external" href="https://realpython.com/generating-code-documentation-with-pycco/">tutorial</a>. Estudia también uno de los ficheros del código fuente de Pycco (que se usa a sí mismo para generar su documentación) como, por ejemplo, <a class="reference external" href="https://github.com/pycco-docs/pycco/blob/master/pycco/main.py">main.py</a>, y observa después como se muestran sus comentarios en la <a class="reference external" href="https://pycco-docs.github.io/pycco/">página web generada</a>. Como ves, se puede utilizar <em>markdown</em> para dar un formato sencillo al texto de los comentarios.</p>
+<p>Para generar en la carpeta <em>docs</em> la documentación en HTML del código del detector de entidades nombradas:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>  <span class="n">pip</span> <span class="n">install</span> <span class="n">pycco</span>
+  <span class="n">pycco</span> <span class="o">--</span><span class="n">generate</span><span class="o">-</span><span class="n">index</span> <span class="o">*.</span><span class="n">py</span> <span class="n">model</span><span class="o">/*.</span><span class="n">py</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="orden-sugerido-para-el-estudio-del-codigo">
+<h2>Orden sugerido para el estudio del código<a class="headerlink" href="#orden-sugerido-para-el-estudio-del-codigo" title="Permalink to this headline">¶</a></h2>
+<p>PENDIENTE DE FINALIZACIÓN</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -299,15 +355,15 @@
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="bloque2_scraping.html" title="previous page">El raspado web</a>
     <a class='right-next' id="next-link" href="bloque3.html" title="next page">Aplicaciones de la minería de textos</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
