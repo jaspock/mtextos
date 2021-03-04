@@ -2,7 +2,7 @@
 T1. Aplicaciones generales
 ====================================
 
-```{image} images/bloque3/areas.jpg 
+```{image} /images/bloque3/t1/areas.jpg 
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 400px
@@ -34,24 +34,23 @@ Abordan problemas fundamentales como:
 - procesamiento sintáctico, o análisis sintáctico, que construye diagramas de oraciones como posibles precursores del procesamiento semántico;
 - y procesamiento semántico, que intenta destilar el significado de palabras, frases y componentes de nivel superior en el texto.
 
-```{image} images/bloque3/volumen-apps.jpg 
+```{image} /images/bloque3/t1/volumen-apps.jpg
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 800px
 :align: center
 ```
-
 Figura 2. Volumen de publicaciones sobre áreas centrales en los últimos años. Tomado de [1]
 Áreas de aplicación
 
-```{image} /images/bloque3/areas-apps.jpg 
+```{image} /images/bloque3/t1/areas-apps.jpg
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 800px
 :align: center
 ```
 
-Figura 3. Volumen de aplicaciones generales
+Figura 3. Volumen de publicaciones sobre aplicaciones generales
 
 Involucran temas tales como:
 
@@ -89,7 +88,7 @@ El propósito de los sistemas de recuperación de información (IR) es ayudar a 
 Las búsquedas se pueden basar en el texto completo o en otra indexación basada en contenido. La recuperación de información es la ciencia de buscar información en un documento, buscar los propios documentos y también buscar los metadatos que describen los datos y las bases de datos de textos, imágenes o sonidos.
 Un sistema de IR es un sistema de software que proporciona acceso a libros, revistas y otros documentos; almacena y gestiona esos documentos. Los motores de búsqueda web son las aplicaciones de infrarrojos más visibles.
 
-```{image} /images/bloque3/ir.jpg 
+```{image} /images/bloque3/t1/ir.jpg 
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 600px
@@ -124,9 +123,8 @@ TOPIC_NO Q0 ID RANK SCORE RUN_NAME
 
 Por ejemplo:
 
-```
-Q0 28348404 1 0.9999 my-run; lo cual indica que la ejecución denominada "my-run" recupera el documento 28348404 del tema número 1 en el rango 1 con una puntuación de 0,9999.
-```
+``` Q0 28348404 1 0.9999 my-run ```; lo cual indica que la ejecución denominada ```my-run``` recupera el documento ```28348404``` del tema número ```1``` en el rango de 0-1 con una puntuación de ```0,9999```.
+
 
 #### Métricas más comunes de evaluación
 
@@ -168,7 +166,7 @@ La extracción de información extrae información explícita o implícita del t
 - Extracción de eventos (Event Extraction)
 - Extracción de relaciones (Relationship Extraction)
 
-```{image} /images/bloque3/ie.jpg 
+```{image} /images/bloque3/t1/ie.jpg 
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 600px
@@ -191,11 +189,11 @@ El Sistema debe ser capaz de:
 El resultado esperado debe ser el siguiente (codificado de la siguiente forma):
 
 ```
-Texto| Concepto| inicio| fin| palabra|
-T1| Concept| 3| 7|asma
-T2| Concept| 15| 25| enfermedad|
-T4| Action| 30| 36| afecta|
-T3| Concept| 41 45;46 59|vías respiratorias|
+|Texto| Concepto| inicio| fin| palabra|
+|T1| Concept| 3| 7|asma
+|T2| Concept| 15| 25| enfermedad|
+|T4| Action| 30| 36| afecta|
+|T3| Concept| 41 45;46 59|vías respiratorias|
 ```
 
 La primera columna es un identificador del elemento por orden de aparición; la segunda columna indica la clasificación de frase clave detectada; la tercera y cuarta columna se refieren a la posición de inicio y fin de la frase clave y la quinta columna indica la relación.
@@ -216,9 +214,9 @@ Mencione tres problemas actuales que se puedan solucionar.
 - Papers With Code: <https://paperswithcode.com/task/information-extraction>
 - Kaggle: <https://www.kaggle.com/search?q=%22information+extraction%22+in%3Acompetitions>
 - IberLEF (Español):
-      -eHealth-KD: <https://knowledge-learning.github.io/ehealthkd-2020/>
-      -Named Entity Recognition and Relation Extraction for Portuguese: <https://www.inf.pucrs.br/linatural/wordpress/iberlef-2019/>
-      -Cantemist:  <https://temu.bsc.es/cantemist/>
+   - eHealth-KD: <https://knowledge-learning.github.io/ehealthkd-2020/>
+   - Named Entity Recognition and Relation Extraction for Portuguese: <https://www.inf.pucrs.br/linatural/wordpress/iberlef-2019/>
+   - Cantemist:  <https://temu.bsc.es/cantemist/>
 
 #### Repositorios de Código
 
@@ -238,7 +236,7 @@ Mencione tres problemas actuales que se puedan solucionar.
 
 Esta área trata la clasificación de texto o la asignación de documentos de texto libre a clases predefinidas. La clasificación de documentos tiene numerosas aplicaciones. Aunque es una tarea que se viene trabajando dese hace mucho tiempo con algoritmos clásicos de Maquinas de aprendizaje, Kim [2] fue el primero en utilizar vectores de palabras previamente entrenados en una Redes Neuronales Convolucionales (CNN) para la clasificación a nivel de oración. El trabajo de Kim fue motivador, motivador y demostró que las CNN simples, con una capa convolucional seguida de una capa densa con desactivación de neuronas y salida de softmax, podían lograr excelentes resultados en múltiples puntos de referencia utilizando un pequeño ajuste de hiperparámetros. Los modelos de CNN propuestos pudieron mejorar el estado del arte en 4 de las 7 tareas diferentes presentadas como clasificación de oraciones, incluido el análisis de sentimientos y la clasificación de preguntas. Conneau y col. [3] mostró más tarde que las redes que emplean un gran número de capas convolucionales funcionan bien para la clasificación de documentos.
 
-```{image} /images/bloque3/tc1.jpg 
+```{image} /images/bloque3/t1/tc1.jpg 
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 600px
@@ -247,7 +245,7 @@ Esta área trata la clasificación de texto o la asignación de documentos de te
 
 Figura 6. Arquitectura genérica de un sistema TC. Una clasificación por texto.
 
-```{image} /images/bloque3/tc2.jpg 
+```{image} /images/bloque3/t1/tc2.jpg 
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 600px
@@ -333,13 +331,12 @@ Entre las tareas del GLN se encuentran:
 - la Respuesta a Preguntas (Question Answering)
 Arquitectura general del GNL donde el requisito es generar una salida textual utilizando alguna entrada textual no estructurada se conoce como *T2T GLN* y cuando la entrada es estructurada sería D2TGNL.
 
-```{image} /images/bloque3/gen.jpg
+```{image} /images/bloque3/t1/gen.jpg
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 500px
 :align: center
 ```
-
 Figura 8. Arquitectura genérica de un sistema de GLN, ya sea Texto a Texto o Dato a Texto, a partir tomando información desde texto o desde bases de información y conocimiento.
 
 #### Ejemplos de texto a texto
@@ -365,7 +362,7 @@ Referencias relacionadas:
 
 - Generación de texto desde datos: <http://nlpprogress.com/english/data_to_text_generation.html>
 
-```{image} /images/bloque3/data2gen.jpg 
+```{image} /images/bloque3/t1/data2gen.jpg 
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 600px
@@ -415,13 +412,12 @@ Figura 9. Arquitectura genérica de un sistema de GLN tomando como fuente datos 
 
 El resumen es la tarea de producir una versión más corta de uno o varios documentos que conserve la mayor parte del significado de la entrada.
 
-```{image} /images/bloque3/sum.jpg 
+```{image} /images/bloque3/t1/sum.jpg 
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 600px
 :align: center
 ```
-
 Figura 10. Arquitectura general
 
 La generación de resúmenes puede ser de dos tipos:
@@ -431,18 +427,17 @@ La generación de resúmenes puede ser de dos tipos:
 
 #### Abstractiva
 
-```{image} /images/bloque3/sum-abst.jpg 
+```{image} /images/bloque3/t1/sum-abst.jpg 
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 600px
 :align: center
 ```
-
 Figura 11. Tipos de resúmenes abstractivos. Tomado de <https://doi.org/10.1016/j.eswa.2018.12.011>
 
 #### Extractiva
 
-```{image} /images/bloque3/sum-extract.jpg 
+```{image} /images/bloque3/t1/sum-extract.jpg 
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 600px
@@ -489,7 +484,7 @@ Figura 12. Ejemplo de resumen extractivo. Tomado de <https://medium.com/@ondenyi
 Es un tipo de recuperación de la información capaz de recuperar respuestas a preguntas planteadas en lengua natural. Se encarga de buscar una información en una cantidad más o menos grande de documentos, ya que esto debe extraer de dichos documentos un fragmento de texto que responda a una pregunta dada en lenguaje natural. Estos sistemas están muy ligados a los buscadores web. Debe considerar listas, definiciones, y preguntas del tipo cómo, cuándo, dónde, por qué, etc.
 Similar al resumen y la extracción de información, la respuesta a preguntas (QA) recopila palabras, frases u oraciones relevantes de un documento. QA devuelve esta información de forma coherente en respuesta a una solicitud. Los métodos actuales se parecen a los de resumen[1][8].
 
-```{image} /images/bloque3/qa.jpg 
+```{image} /images/bloque3/t1/qa.jpg 
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 600px
@@ -552,20 +547,25 @@ La traducción automática (MT) es la aplicación por excelencia del PLN. Implic
 
 Consiste en realizar transformaciones a partir del original, reemplazando las palabras por su equivalente más apropiado. Al conjunto de este tipo de transformaciones del texto original se le llama predicción de textos.
 
-``` {image} /images/bloque3/trad-reglas.jpg
-:alt: comic xkcd 2421
-:class: bg-primary mb-1
-:width: 600px
-:align: center
-```
-Figura 14. Arquitectura genérica de un sistema de traducción basado en reglas.
+Tipos de traductores basados en reglas:
+
+- **Directos** (traducción automática basada en diccionarios) los cuales asignan la entrada a la salida con reglas básicas.
+- De **transferencia** (traducción automática basada en transferencia) emplean análisis morfológico y sintáctico.
+- **Interlingüísticos** (Interlingua) utilizan un significado abstracto.
+
+Como mínimo, para obtener una traducción ade un idioma A hacia un idioma B, se necesita:
+
+- Un diccionario que asignará cada palabra en A a una palabra B adecuada.
+- Reglas que representan la estructura regular de las oraciones en A.
+- Reglas que representan la estructura regular de las oraciones en B.
+
 
 #### Traducción automática basada en corpus
 
 La traducción automática a partir de un corpus lingüístico se basa en el análisis de muestras reales con sus respectivas traducciones. Entre los mecanismos que utilizan corpus se incluyen los métodos estadísticos y los basados en ejemplos.
 
-- *Estadística*: El objetivo de la traducción automática estadística es generar traducciones a partir de métodos estadísticos basados en corpus de textos bilingües, como por ejemplo las actas del parlamento europeo, que se encuentran traducidas en todos los idiomas oficiales de la UE. A medida que se generan y se analizan corpus de textos multilingües, se mejoran iterativamente los resultados al traducir textos de ámbitos similares.
-- *Basada en ejemplos*:La traducción automática basada en ejemplos se caracteriza por el uso de un corpus bilingüe como principal fuente de conocimiento en tiempo real. Es esencialmente una traducción por analogía y puede ser interpretada como una implementación del razonamiento por casos base empleado en el aprendizaje automático, que consiste en la resolución de un problema basándose en la solución de problemas similares.
+- **Estadística**: El objetivo de la traducción automática estadística es generar traducciones a partir de métodos estadísticos basados en corpus de textos bilingües, como por ejemplo las actas del parlamento europeo, que se encuentran traducidas en todos los idiomas oficiales de la UE. A medida que se generan y se analizan corpus de textos multilingües, se mejoran iterativamente los resultados al traducir textos de ámbitos similares.
+- **Basada en ejemplos**:La traducción automática basada en ejemplos se caracteriza por el uso de un corpus bilingüe como principal fuente de conocimiento en tiempo real. Es esencialmente una traducción por analogía y puede ser interpretada como una implementación del razonamiento por casos base empleado en el aprendizaje automático, que consiste en la resolución de un problema basándose en la solución de problemas similares.
 
 #### Traducción automática basada en el contexto
 
@@ -582,7 +582,7 @@ Como *ventajas*, aporta también la facilidad de añadir nuevas lenguas, ya que 
 
 Entre las técnicas más actuales utilizadas en este ámbito está el uso de Redes Neuronales profundas y como parte de esto el uso de codificadores (encoders) y decodificadores (decoders). Una red neuronal (el codificador) procesa una oración de la fuente original para otra red (el decodificador). La segunda red neuronal predice las palabras en el lenguaje del destino.
 
- ```{image} /images/bloque3/trad-deep.jpg 
+ ```{image} /images/bloque3/t1/trad-deep.jpg 
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 600px
@@ -617,7 +617,7 @@ Figura 15. Representación del modelo de codificador-decodificador. Tomado de <h
 #### Conjuntos de datos
 
 - Huggingface: <https://huggingface.co/datasets?filter=task_ids:machine-translation>
-- Papers With Code : <https://paperswithcode.com/datasets?q=machine+trasnlation&v=lst&o=match&mod=texts&page=1>
+- PapersWithCode: <https://paperswithcode.com/datasets?q=machine+trasnlation&v=lst&o=match&mod=texts&page=1>
 
 #### Artículos
 
