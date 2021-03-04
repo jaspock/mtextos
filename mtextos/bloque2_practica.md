@@ -1,12 +1,17 @@
 
-Práctica. Lectura del código de un detector de entidades nombradas
-==================================================================
+Práctica. Lectura y documentación del código de un extractor de entidades
+=========================================================================
+
+[ Acceso rápido a la carpeta con el [código fuente][ner] ]
 
 En esta práctica leerás el código de un programa escrito por otros y lo documentarás para demostrar que entiendes lo que hace. La documentación resultante es por lo que se te evaluará.
 
-Desde diversos frentes se [defiende][defiende] la lectura de código escrito por otros como un enfoque adecuado para aprender a programar o mejorar las habilidades como programador. Esta asignatura incluye algunas prácticas en las que utilizarás modelos preentrenados para ciertas tareas de procesamiento del lenguaje natural, pero tanto la programación de los modelos subyacentes como el procesamiento de los datos quedarán normalmente ocultos tras la interfaz de los programas correspondientes. Partiendo de la premisa de que entender cómo funcionan las cosas ayuda a sacarles provecho y dado que la asignatura no incluye entre sus objetivos la escritura desde cero de un programa completo, esta práctica propone un acercamiento intermedio al estudiar el código escrito por terceros como preparación necesaria para poder más adelante crear tus propios programas o modificar los existentes. En el desarrollo de la profesión de científico de datos te encontrarás en situaciones en las que no existe un modelo que resuelva exactamente tu problema y deberás plantearte modificar el funcionamiento de un sistema base.
+Desde diversos frentes se [defiende][defiende] la lectura de código escrito por otros como un enfoque adecuado para aprender a programar o mejorar las habilidades como programador. La metodología [PRIMM][primm], por ejemplo, incentiva la discusión entre los estudiantes sobre cómo funciona un determinado programa y usa código ya existente  para integrar la lectura de código como una etapa anterior a la escritura. 
+
+Esta asignatura incluye algunas prácticas en las que utilizarás modelos preentrenados para ciertas tareas de procesamiento del lenguaje natural, pero tanto la programación de los modelos subyacentes como el procesamiento de los datos quedarán normalmente ocultos tras la interfaz de los programas correspondientes. Partiendo de la premisa de que entender cómo funcionan las cosas ayuda a sacarles provecho y dado que la asignatura no incluye entre sus objetivos la escritura desde cero de un programa completo, esta práctica propone un acercamiento intermedio al estudiar el código escrito por terceros como preparación necesaria para poder más adelante crear tus propios programas o modificar los existentes. Tener que modificar código es una tarea más frecuente de lo que en principio se puede pensar: en el desarrollo de la profesión de científico de datos te encontrarás en situaciones en las que no existe un modelo que resuelva exactamente tu problema y deberás plantearte modificar el funcionamiento de un sistema base.
 
 [defiende]: https://www.stevejgordon.co.uk/become-a-better-developer-by-reading-source-code
+[primm]: https://blog.teachcomputing.org/using-primm-to-structure-programming-lessons/
 
 Algunos estudios asemejan la labor de leer código a la de leer un texto escrito en lenguaje natural; otros lo equiparan más bien al procesamiento mental de ecuaciones matemáticas; otros [estudios][estudios] sugieren que el cerebro usa mecanismo distintos para la asimilación del código fuente.
 
@@ -15,24 +20,26 @@ Algunos estudios asemejan la labor de leer código a la de leer un texto escrito
 
 ## Objetivo
 
-En esta práctica vas a estudiar un programa que permite entrenar y probar un sistema neuronal de reconocimiento de entidades nombradas. El programa se compone de varios módulos escritos en Python y que usan la librería Pytorch para la programación del modelo neuronal. El código está en [esta carpeta][ner] de un repositorio que tendrás que clonar. A efectos de reconocimiento de la autoría, el código está tomado del que utilizan como inspiración para sus proyectos los estudiantes del curso [CS230][cs230], «Deep Learning», de la Universidad de Stanford.
+En esta práctica vas a estudiar un programa que permite entrenar y probar un sistema neuronal de reconocimiento de entidades nombradas. El programa se compone de varios módulos escritos en Python, algunos de los cuales usan la librería Pytorch para la programación del modelo neuronal. El código está en [esta carpeta][ner] del repositorio de la asignatura, que tendrás que clonar. A efectos de reconocimiento de la autoría, el código está tomado del que utilizan como inspiración para sus proyectos los estudiantes del curso Deep Learning ([CS230][cs230]) de la Universidad de Stanford.
 
 [cs230]: https://github.com/cs230-stanford/cs230-code-examples/
-[ner]: https://github.com/jaspock/cs230-code-examples/tree/master/pytorch/nlp
+[ner]: https://github.com/jaspock/code/ner
 
-El código original tiene algunos comentarios que puedes traducir al español o ignorar, pero tienes que añadir muchos más para explicar con cierto nivel de detalle qué hacen las principales líneas del código. 
+El código original tiene algunos comentarios que puedes consultar en el repositorio del curso CS230 y que han sido eliminados en la versión de este curso; estos comentarios originales son relativamente generales. En esta práctica tienes que añadir muchos más comentarios para explicar con cierto nivel de detalle qué hacen las principales líneas del código. 
 
-Para hacerte una idea de cómo funciona el reconocedor de entidades nombradas, ejecuta en primer lugar el programa tal y como se explica en el README saltando la parte opcional que descarga datos de Kaggle.
+Para hacerte una idea de cómo funciona el reconocedor de entidades nombradas, ejecuta en primer lugar el programa tal y como se explica en el README saltando la parte opcional que descarga datos de Kaggle. Puedes leer también esta [guía][guía] sobre el uso y propósito del programa.
+
+[guía]: https://cs230.stanford.edu/blog/tips/
 
 ## Comentarios en Python
 
-Los comentarios en Python pueden ser de [dos tipos][tipos] principalmente: comentarios de tipo *docstring* (que pueden aparecer en cualquier lugar del código, aunque suelen colocarse justo después de la definición de una clase o una función para documentarlas) y comentarios de una línea. Los primeros aparecen rodeados por una secuencia de tres comillas al principio y al final, y pueden ocupar más de una línea; los segundos se extienden desde el carácter de la almohadilla hasta el final de la línea. Dado que el propósito de esta práctica es escribir una documentación elaborada, es recomendable que uses más los comentarios de tipo *docstring*.
+Los comentarios en Python pueden ser de [dos tipos][tipos]: comentarios de tipo *docstring* (que pueden aparecer en cualquier lugar del código, aunque suelen colocarse justo después de la definición de una clase o una función para documentarlas) y comentarios de una línea. Los primeros aparecen rodeados por una secuencia de tres comillas al principio y al final, y pueden ocupar más de una línea; los segundos se extienden desde el carácter de la almohadilla hasta el final de la línea. Dado que el propósito de esta práctica es escribir una documentación elaborada, es recomendable que uses más los comentarios de tipo *docstring*, aunque no para documentar únicamente clases o funciones, sino líneas concretas.
 
 [tipos]: https://realpython.com/documenting-python-code/
 
 ## Uso de Pycco para generar la documentación
 
-En lugar de presentar el código fuente documentado, vas a generar una vista en HTML de los comentarios y el código que facilita la lectura. Para ello, vas a usar la herramienta [Pycco][pycco]. Para aprender sobre su funcionamiento basta con estudiar un pequeño [tutorial][tutorial]. Estudia también uno de los ficheros del código fuente de Pycco (que se usa a sí mismo para generar su documentación) como, por ejemplo, [main.py][pyccomain], y observa después como se muestran sus comentarios en la [página web generada][pyccoejemplo]. Como ves, se puede utilizar *markdown* para dar un formato sencillo al texto de los comentarios.
+En lugar de entregar el código fuente documentado, vas a generar una vista en HTML de los comentarios y el código que facilita su lectura. Para ello, vas a usar la herramienta [Pycco][pycco]. Para aprender sobre su funcionamiento basta con estudiar un pequeño [tutorial][tutorial]. Estudia también uno de los ficheros del código fuente de Pycco (que se usa a sí mismo para generar su documentación) como, por ejemplo, [main.py][pyccomain], y observa después como se muestran sus comentarios en la [página web generada][pyccoejemplo]. Como ves, se puede utilizar *markdown* para dar un formato sencillo al texto de los comentarios.
 
 Para generar en la carpeta *docs* la documentación en HTML del código del detector de entidades nombradas:
 
@@ -41,6 +48,8 @@ Para generar en la carpeta *docs* la documentación en HTML del código del dete
   pycco --generate-index *.py model/*.py
 ```
 
+Puedes estudiar el fichero `build_vocab.py` que contiene algunos ejemplos de comentarios.
+
 [pycco]: https://github.com/pycco-docs/pycco
 [pyccomain]: https://github.com/pycco-docs/pycco/blob/master/pycco/main.py
 [pyccoejemplo]: https://pycco-docs.github.io/pycco/
@@ -48,5 +57,58 @@ Para generar en la carpeta *docs* la documentación en HTML del código del dete
 
 ## Orden sugerido para el estudio del código
 
-PENDIENTE DE FINALIZACIÓN
+La {numref}`tab-ficheros` muestra el orden aproximado en que se recomienda ir documentando el código. Es posible que en ocasiones tengas que consultar parte de los ficheros de filas inferiores debido a las dependencias. En general, es recomendable que realices un primer repaso general sobre el código antes de ponerte a documentarlo.
 
+La documentación de los ficheros no marcados como opcionales permite sacar un 8,5 como máximo en esta práctica. Los ficheros opcionales permiten subir la nota final medio punto más cada uno.
+
+<p></p>
+
+```{list-table} Ficheros a documentar y orden recomendado.
+:header-rows: 1
+:name: tab-ficheros
+
+* - Fichero
+  - Dependencias
+  - Descripción
+  - Clases o funciones
+* - `build_vocab.py`
+  - 
+  -
+  - save_vocab_to_text_file, save_dict_to_json, update_vocab
+* - `utils.py`
+  - 
+  -
+  - Params, RunningAverage, set_logger, save_dict_to_json, save_checkpoint, load_checkpoint
+* - `model/net.py`
+  - 
+  -
+  - Net, accuracy, loss_fn
+* - `evaluate.py`
+  - utils, model.net, model.data_loader
+  - 
+  - evaluate
+* - `model/data_loader.py`
+  - utils
+  -
+  - DataLoader
+* - `train.py`
+  - model.net, model.data_laoder, utils
+  - 
+  - train, train_and_evaluate
+* - `search_hyperparams.py`
+  - OPCIONAL
+  -
+  -
+* - `synthesize_results.py`
+  - OPCIONAL
+  -
+  -
+* - `build_kaggle_dataset.py`
+  - OPCIONAL
+  -
+  -
+```
+
+## Entrega
+
+La fecha límite para entregar la práctica es el 30 de abril de 2021 a las 23.59 horas. Entrega un fichero zip de nombre `mtextos-ner-20-21.zip` que contenga el código fuente y la carpeta `docs` generada por Pycco.
