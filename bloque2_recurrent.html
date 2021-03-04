@@ -172,7 +172,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="bloque2_practica.html">
-     Práctica. Lectura del código de un detector de entidades nombradas
+     Práctica. Lectura y documentación del código de un extractor de entidades
     </a>
    </li>
   </ul>
@@ -356,6 +356,10 @@
 <div class="section" id="procesamiento-simbolica-con-redes-recurrentes">
 <h2>Procesamiento simbólica con redes recurrentes<a class="headerlink" href="#procesamiento-simbolica-con-redes-recurrentes" title="Permalink to this headline">¶</a></h2>
 <p>Consideremos que tenemos un <em>vocabulario</em> (un conjunto de símbolos conocidos como <em>tokens</em>) <span class="math notranslate nohighlight">\(V = \{\sigma_1, \ldots, \sigma_{|V|}\}\)</span> a partir del cual se obtienen secuencias temporales de la forma <span class="math notranslate nohighlight">\(s[1],\ldots,s[t],\ldots,s[L]\)</span>. Aunque las redes recurrentes pueden ser entrenadas para múltiples tareas como clasificar la temática de una frase de entrada o generar una traducción a otro idioma, aquí nos centraremos en la tarea de predecir el siguiente token de una secuencia. Los aspectos relevantes son los mismos independientemente de la tarea concreta para la que se utilice la RNR: la entrada se procesa token a token, se generan unas representaciones intermedias en un <em>espacio de estados</em> y a partir de estas representaciones se obtiene la salida de la red, que se interpretará de una forma u otra en función de la tarea.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>En las tareas de procesamiento del lenguaje natural, normalmente se reserva un token del vocabulario al que suele llamarse <code class="docutils literal notranslate"><span class="pre">UNK</span></code> (por el inglés <em>unknown</em>) para representar cualquier token desconocido que no pertenezca al vocabulario (OOV, por <em>out-of-vocabulary</em>), bien durante el entrenamiento, bien durante el uso en producción del modelo. El criterio para decidir si un token forma parte o no del vocabulario suele ser su frecuencia de aparición en el corpus de entrenamiento. El criterio para decidir el tamaño del vocabulario suele basarse en el tamaño deseado de la arquitectura resultante (a mayor vocabulario, mayor tamaño de la red neuronal).</p>
+</div>
 <p>Para predecir el siguiente símbolo de  la secuencia con una RNR debemos determinar varias cosas: cómo se representa cada uno de los símbolos de <span class="math notranslate nohighlight">\(V\)</span> y cómo se realiza el entrenamiento de la red para esta tarea. La forma más habitual de codificar los distintos símbolos <span class="math notranslate nohighlight">\(\sigma_i \in V\)</span> para su procesamiento por una RNR es la denominada  codificación <em>exclusiva</em>, más comúnmente conocida como representación <em>one-hot</em>. En ella, todos los símbolos se codifican mediante vectores unitarios de tamaño <span class="math notranslate nohighlight">\(|V|\)</span>, de forma que la representación del símbolo <span class="math notranslate nohighlight">\(\sigma_i\)</span> en un espacio <span class="math notranslate nohighlight">\([0,1]^{|V|}\)</span> se obtiene a través de la función de codificación:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -417,6 +421,10 @@ X_i [t] &amp; = &amp;
 <p>Aunque el modelo aquí presentado es completamente válido y útil, en tareas complejas la red se suele ampliar con capas de estado adicionales. En este caso, la recurrencia sigue existiendo entre cada capa y ella misma, pero también son posibles esquemas más avanzados en los que la salida de una capa retroalimenta la entrada de capas anteriores.</p>
 </div>
 <p>El estado inicial <span class="math notranslate nohighlight">\(\boldsymbol{x}[0]\)</span> se inicializa normalmente a <span class="math notranslate nohighlight">\(\boldsymbol{0}\)</span>.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Este modelo solo considera el contexto anterior para determinar la historia de la secuencia. En muchas tareas de procesamiento del lenguaje natural, sin embargo, suele ser necesario (o como mínimo beneficioso) tener en cuenta también el contexto posterior a un token dado. Por ello, se emplean sistemas como las <em>RNR bidireccionales</em> que usan dos modelos recurrentes: uno que procesa la entrada de izquierda a derecha y otro que la procesa de derecha a izquierda. Dado un token, se considera como su vector de estado el resultante de alguna operación (la media, la suma o la concatenación, por ejemplo) que integre los vectores de estado de ambos modelos. Observa que podría darse el caso de sistemas que han de procesar la entrada en tiempo real a nivel de token sin esperar al final de la frase (como en la traducción simultánea), pero lo más habitual es disponer como mínimo de la frase completa desde el principio.</p>
+</div>
 </div>
 <div class="section" id="entrenamiento-de-redes-neuronales-recurrentes">
 <h2>Entrenamiento de redes neuronales recurrentes<a class="headerlink" href="#entrenamiento-de-redes-neuronales-recurrentes" title="Permalink to this headline">¶</a></h2>

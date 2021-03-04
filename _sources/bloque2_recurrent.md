@@ -19,6 +19,11 @@ Las RNR o el transformer no son la única manera de incorporar información sobr
 
 Consideremos que tenemos un *vocabulario* (un conjunto de símbolos conocidos como *tokens*) $V = \{\sigma_1, \ldots, \sigma_{|V|}\}$ a partir del cual se obtienen secuencias temporales de la forma $s[1],\ldots,s[t],\ldots,s[L]$. Aunque las redes recurrentes pueden ser entrenadas para múltiples tareas como clasificar la temática de una frase de entrada o generar una traducción a otro idioma, aquí nos centraremos en la tarea de predecir el siguiente token de una secuencia. Los aspectos relevantes son los mismos independientemente de la tarea concreta para la que se utilice la RNR: la entrada se procesa token a token, se generan unas representaciones intermedias en un *espacio de estados* y a partir de estas representaciones se obtiene la salida de la red, que se interpretará de una forma u otra en función de la tarea.
 
+```{admonition} Nota
+:class: note
+En las tareas de procesamiento del lenguaje natural, normalmente se reserva un token del vocabulario al que suele llamarse `UNK` (por el inglés *unknown*) para representar cualquier token desconocido que no pertenezca al vocabulario (OOV, por *out-of-vocabulary*), bien durante el entrenamiento, bien durante el uso en producción del modelo. El criterio para decidir si un token forma parte o no del vocabulario suele ser su frecuencia de aparición en el corpus de entrenamiento. El criterio para decidir el tamaño del vocabulario suele basarse en el tamaño deseado de la arquitectura resultante (a mayor vocabulario, mayor tamaño de la red neuronal).
+```
+
 Para predecir el siguiente símbolo de  la secuencia con una RNR debemos determinar varias cosas: cómo se representa cada uno de los símbolos de $V$ y cómo se realiza el entrenamiento de la red para esta tarea. La forma más habitual de codificar los distintos símbolos $\sigma_i \in V$ para su procesamiento por una RNR es la denominada  codificación *exclusiva*, más comúnmente conocida como representación *one-hot*. En ella, todos los símbolos se codifican mediante vectores unitarios de tamaño $|V|$, de forma que la representación del símbolo $\sigma_i$ en un espacio $[0,1]^{|V|}$ se obtiene a través de la función de codificación:
 
 $$
@@ -97,6 +102,10 @@ Aunque el modelo aquí presentado es completamente válido y útil, en tareas co
 
 El estado inicial $\boldsymbol{x}[0]$ se inicializa normalmente a $\boldsymbol{0}$.
 
+```{admonition} Nota
+:class: note
+Este modelo solo considera el contexto anterior para determinar la historia de la secuencia. En muchas tareas de procesamiento del lenguaje natural, sin embargo, suele ser necesario (o como mínimo beneficioso) tener en cuenta también el contexto posterior a un token dado. Por ello, se emplean sistemas como las *RNR bidireccionales* que usan dos modelos recurrentes: uno que procesa la entrada de izquierda a derecha y otro que la procesa de derecha a izquierda. Dado un token, se considera como su vector de estado el resultante de alguna operación (la media, la suma o la concatenación, por ejemplo) que integre los vectores de estado de ambos modelos. Observa que podría darse el caso de sistemas que han de procesar la entrada en tiempo real a nivel de token sin esperar al final de la frase (como en la traducción simultánea), pero lo más habitual es disponer como mínimo de la frase completa desde el principio.
+```
 
 ## Entrenamiento de redes neuronales recurrentes
 
