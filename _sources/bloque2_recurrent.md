@@ -13,9 +13,9 @@ Una discusión introductoria y menos detallada de buena parte de lo aquí coment
 
 [guide]: https://wiki.pathmind.com/lstm
 
-Las RNR o el transformer no son la única manera de incorporar información sobre la historia de una secuencia a una red neuronal. Una red no recurrente puede ser ampliada con la incorporación a sus entradas de una memoria explícita a corto plazo mediante una *ventana temporal* de tokens. De esta forma, la entrada a la red consistirá en el token actual $u[t]$ (para simplificar, podemos asumir por ahora que un token es una palabra) concatenado con los $p-1$ tokens anteriores $u[t-1],\ldots,u[t-p+1]$ o con una ventana de valores en torno a $u[t]$. En este caso, sin embargo, el contexto disponible es mucho más limitado, el alcance de las representaciones más redicido y el número de parámetros mayor.
+Las RNR o el transformer no son la única manera de incorporar información sobre la historia de una secuencia a una red neuronal. Una red no recurrente puede ser ampliada con la incorporación a sus entradas de una memoria explícita a corto plazo mediante una *ventana temporal* de tokens. De esta forma, la entrada a la red consistirá en el token actual $u[t]$ (para simplificar, podemos asumir por ahora que un token es una palabra) concatenado con los $p-1$ tokens anteriores $u[t-1],\ldots,u[t-p+1]$ o con una ventana de valores en torno a $u[t]$. En este caso, sin embargo, el contexto disponible es mucho más limitado, el alcance de las representaciones más reducido y el número de parámetros mayor.
 
-## Procesamiento simbólica con redes recurrentes
+## Procesamiento simbólico con redes recurrentes
 
 Consideremos que tenemos un *vocabulario* (un conjunto de símbolos conocidos como *tokens*) $V = \{\sigma_1, \ldots, \sigma_{|V|}\}$ a partir del cual se obtienen secuencias temporales de la forma $s[1],\ldots,s[t],\ldots,s[L]$. Aunque las redes recurrentes pueden ser entrenadas para múltiples tareas como clasificar la temática de una frase de entrada o generar una traducción a otro idioma, aquí nos centraremos en la tarea de predecir el siguiente token de una secuencia. Los aspectos relevantes son los mismos independientemente de la tarea concreta para la que se utilice la RNR: la entrada se procesa token a token, se generan unas representaciones intermedias en un *espacio de estados* y a partir de estas representaciones se obtiene la salida de la red, que se interpretará de una forma u otra en función de la tarea.
 
@@ -138,6 +138,11 @@ $$
 \Delta W_i[n] = W_i[n+1] - W_i[n] = 
                    - \alpha \: \frac{\partial E[n]}{\partial W_i[n]}
 $$ (ec-introDelta)
+
+```{admonition} Nota
+:class: note
+Observa que en la ecuación anterior hemos usado $n$ y no $t$ para referirnos a los momentos en que se atualizan los pesos de la red porque el procesamiento de cada nuevo token de la secuencia no tiene por qué coincidir con un nuevo paso en la actualización de los pesos. Si los pesos se actualizan tras cada token se habla de *actualización en línea*, si se hace tras cada frase de *actualización por patrones o secuencias* y si se hace tras procesar un conjunto de varias frases (lo más habitual para aprovechar el rendimiento de la GPUs) se habla de *actualización por lotes* o *minilotes*.   
+```
 
 La tasa de aprendizaje $\alpha$ tiene una enorme influencia en la convergencia del método de descenso por el gradiente. Si $\alpha$ es pequeña, el proceso de aprendizaje se desarrolla suavemente, pero la convergencia del sistema a una solución estable puede llevar un tiempo excesivo. Si $\alpha$ es grande, la velocidad de aprendizaje aumenta, pero existe el riesgo de que el proceso de aprendizaje diverja y el sistema se vuelva inestable.
 
@@ -272,6 +277,10 @@ $$
 \delta^X_j[\tau+1]  W^{x,x}_{j,i} 
 $$
 
+Excepto en el caso, poco empleado en la práctica, de que los pesos se actualicen tras ver cada token, el valor de la derivada es el [mismo] tanto si se usa RTRL como si se usa BPTT para su cálculo. La complejidad temporal del [primero][rtrl] es $n_X^4$ (asumiendo que $n_X > n_U$) y la del [segundo][bptt] es $n_X^2$. La complejidad espacial de BPTT es mayor, por otro lado, y su implementación un poco más compleja.
+
+[bptt]: https://www.dlsi.ua.es/~mlf/nnafmc/pbook/node28.html
+[rtrl]: https://www.dlsi.ua.es/~mlf/nnafmc/pbook/node29.html
 
 ## El problema del gradiente evanescente
 

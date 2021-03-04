@@ -274,8 +274,8 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#procesamiento-simbolica-con-redes-recurrentes">
-   Procesamiento simbólica con redes recurrentes
+  <a class="reference internal nav-link" href="#procesamiento-simbolico-con-redes-recurrentes">
+   Procesamiento simbólico con redes recurrentes
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -352,9 +352,9 @@
 <p class="admonition-title">Nota</p>
 <p>Una discusión introductoria y menos detallada de buena parte de lo aquí comentado puede seguirse en “A beginner’s <a class="reference external" href="https://wiki.pathmind.com/lstm">guide</a> to LSTMs and recurrent neural networks”.</p>
 </div>
-<p>Las RNR o el transformer no son la única manera de incorporar información sobre la historia de una secuencia a una red neuronal. Una red no recurrente puede ser ampliada con la incorporación a sus entradas de una memoria explícita a corto plazo mediante una <em>ventana temporal</em> de tokens. De esta forma, la entrada a la red consistirá en el token actual <span class="math notranslate nohighlight">\(u[t]\)</span> (para simplificar, podemos asumir por ahora que un token es una palabra) concatenado con los <span class="math notranslate nohighlight">\(p-1\)</span> tokens anteriores <span class="math notranslate nohighlight">\(u[t-1],\ldots,u[t-p+1]\)</span> o con una ventana de valores en torno a <span class="math notranslate nohighlight">\(u[t]\)</span>. En este caso, sin embargo, el contexto disponible es mucho más limitado, el alcance de las representaciones más redicido y el número de parámetros mayor.</p>
-<div class="section" id="procesamiento-simbolica-con-redes-recurrentes">
-<h2>Procesamiento simbólica con redes recurrentes<a class="headerlink" href="#procesamiento-simbolica-con-redes-recurrentes" title="Permalink to this headline">¶</a></h2>
+<p>Las RNR o el transformer no son la única manera de incorporar información sobre la historia de una secuencia a una red neuronal. Una red no recurrente puede ser ampliada con la incorporación a sus entradas de una memoria explícita a corto plazo mediante una <em>ventana temporal</em> de tokens. De esta forma, la entrada a la red consistirá en el token actual <span class="math notranslate nohighlight">\(u[t]\)</span> (para simplificar, podemos asumir por ahora que un token es una palabra) concatenado con los <span class="math notranslate nohighlight">\(p-1\)</span> tokens anteriores <span class="math notranslate nohighlight">\(u[t-1],\ldots,u[t-p+1]\)</span> o con una ventana de valores en torno a <span class="math notranslate nohighlight">\(u[t]\)</span>. En este caso, sin embargo, el contexto disponible es mucho más limitado, el alcance de las representaciones más reducido y el número de parámetros mayor.</p>
+<div class="section" id="procesamiento-simbolico-con-redes-recurrentes">
+<h2>Procesamiento simbólico con redes recurrentes<a class="headerlink" href="#procesamiento-simbolico-con-redes-recurrentes" title="Permalink to this headline">¶</a></h2>
 <p>Consideremos que tenemos un <em>vocabulario</em> (un conjunto de símbolos conocidos como <em>tokens</em>) <span class="math notranslate nohighlight">\(V = \{\sigma_1, \ldots, \sigma_{|V|}\}\)</span> a partir del cual se obtienen secuencias temporales de la forma <span class="math notranslate nohighlight">\(s[1],\ldots,s[t],\ldots,s[L]\)</span>. Aunque las redes recurrentes pueden ser entrenadas para múltiples tareas como clasificar la temática de una frase de entrada o generar una traducción a otro idioma, aquí nos centraremos en la tarea de predecir el siguiente token de una secuencia. Los aspectos relevantes son los mismos independientemente de la tarea concreta para la que se utilice la RNR: la entrada se procesa token a token, se generan unas representaciones intermedias en un <em>espacio de estados</em> y a partir de estas representaciones se obtiene la salida de la red, que se interpretará de una forma u otra en función de la tarea.</p>
 <div class="note admonition">
 <p class="admonition-title">Nota</p>
@@ -452,6 +452,10 @@ W_i[n+1] = W_i[n] - \alpha \: \frac{\partial E[n]}{\partial W_i[n]}
 \Delta W_i[n] = W_i[n+1] - W_i[n] = 
                    - \alpha \: \frac{\partial E[n]}{\partial W_i[n]}
 \]</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Observa que en la ecuación anterior hemos usado <span class="math notranslate nohighlight">\(n\)</span> y no <span class="math notranslate nohighlight">\(t\)</span> para referirnos a los momentos en que se atualizan los pesos de la red porque el procesamiento de cada nuevo token de la secuencia no tiene por qué coincidir con un nuevo paso en la actualización de los pesos. Si los pesos se actualizan tras cada token se habla de <em>actualización en línea</em>, si se hace tras cada frase de <em>actualización por patrones o secuencias</em> y si se hace tras procesar un conjunto de varias frases (lo más habitual para aprovechar el rendimiento de la GPUs) se habla de <em>actualización por lotes</em> o <em>minilotes</em>.</p>
+</div>
 <p>La tasa de aprendizaje <span class="math notranslate nohighlight">\(\alpha\)</span> tiene una enorme influencia en la convergencia del método de descenso por el gradiente. Si <span class="math notranslate nohighlight">\(\alpha\)</span> es pequeña, el proceso de aprendizaje se desarrolla suavemente, pero la convergencia del sistema a una solución estable puede llevar un tiempo excesivo. Si <span class="math notranslate nohighlight">\(\alpha\)</span> es grande, la velocidad de aprendizaje aumenta, pero existe el riesgo de que el proceso de aprendizaje diverja y el sistema se vuelva inestable.</p>
 <p>Existen dos formas diferentes de calcular las derivadas parciales anteriores. La primera que veremos, el <em>aprendizaje recurrente en tiempo real</em> es conceptualmente más sencilla pero no se usa mucho actualmente. La segunda, conocida como <em>retropropagación a través del tiempo</em>, permite transformar el problema del entrenamiento de una RNR en uno equivalente de entrenamiento de una red no recurrente (<em>feedforward</em>) y aplicar las soluciones convencionales para este tipo de redes.</p>
 </div>
@@ -562,6 +566,7 @@ u_j[\tau]
 \delta^X_i[\tau] = g_X'(X_i[\tau]) \sum_{j=1}^{n_X}
 \delta^X_j[\tau+1]  W^{x,x}_{j,i} 
 \]</div>
+<p>Excepto en el caso, poco empleado en la práctica, de que los pesos se actualicen tras ver cada token, el valor de la derivada es el [mismo] tanto si se usa RTRL como si se usa BPTT para su cálculo. La complejidad temporal del <a class="reference external" href="https://www.dlsi.ua.es/~mlf/nnafmc/pbook/node29.html">primero</a> es <span class="math notranslate nohighlight">\(n_X^4\)</span> (asumiendo que <span class="math notranslate nohighlight">\(n_X &gt; n_U\)</span>) y la del <a class="reference external" href="https://www.dlsi.ua.es/~mlf/nnafmc/pbook/node28.html">segundo</a> es <span class="math notranslate nohighlight">\(n_X^2\)</span>. La complejidad espacial de BPTT es mayor, por otro lado, y su implementación un poco más compleja.</p>
 </div>
 </div>
 <div class="section" id="el-problema-del-gradiente-evanescente">
