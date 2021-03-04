@@ -23,7 +23,7 @@ Algunos estudios asemejan la labor de leer código a la de leer un texto escrito
 En esta práctica vas a estudiar un programa que permite entrenar y probar un sistema neuronal de reconocimiento de entidades nombradas. El programa se compone de varios módulos escritos en Python, algunos de los cuales usan la librería Pytorch para la programación del modelo neuronal. El código está en [esta carpeta][ner] del repositorio de la asignatura, que tendrás que clonar. A efectos de reconocimiento de la autoría, el código está tomado del que utilizan como inspiración para sus proyectos los estudiantes del curso Deep Learning ([CS230][cs230]) de la Universidad de Stanford.
 
 [cs230]: https://github.com/cs230-stanford/cs230-code-examples/
-[ner]: https://github.com/jaspock/code/ner
+[ner]: https://github.com/jaspock/mtextos/blob/main/code/ner/
 
 El código original tiene algunos comentarios que puedes consultar en el repositorio del curso CS230 y que han sido eliminados en la versión de este curso; estos comentarios originales son relativamente generales. En esta práctica tienes que añadir muchos más comentarios para explicar con cierto nivel de detalle qué hacen las principales líneas del código. 
 
