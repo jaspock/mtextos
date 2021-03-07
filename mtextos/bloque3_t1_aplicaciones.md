@@ -2,6 +2,14 @@
 T1. Aplicaciones generales
 ====================================
 
+Contenidos:
+
+- Áreas centrales
+- Aplicaciones
+
+
+T1. Aplicaciones generales¶
+
 ```{image} /images/bloque3/t1/areas.jpg 
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
@@ -565,7 +573,7 @@ Como mínimo, para obtener una traducción ade un idioma A hacia un idioma B, se
 La traducción automática a partir de un corpus lingüístico se basa en el análisis de muestras reales con sus respectivas traducciones. Entre los mecanismos que utilizan corpus se incluyen los métodos estadísticos y los basados en ejemplos.
 
 - **Estadística**: El objetivo de la traducción automática estadística es generar traducciones a partir de métodos estadísticos basados en corpus de textos bilingües, como por ejemplo las actas del parlamento europeo, que se encuentran traducidas en todos los idiomas oficiales de la UE. A medida que se generan y se analizan corpus de textos multilingües, se mejoran iterativamente los resultados al traducir textos de ámbitos similares.
-- **Basada en ejemplos**:La traducción automática basada en ejemplos se caracteriza por el uso de un corpus bilingüe como principal fuente de conocimiento en tiempo real. Es esencialmente una traducción por analogía y puede ser interpretada como una implementación del razonamiento por casos base empleado en el aprendizaje automático, que consiste en la resolución de un problema basándose en la solución de problemas similares.
+- **Basada en ejemplos**: La traducción automática basada en ejemplos se caracteriza por el uso de un corpus bilingüe como principal fuente de conocimiento en tiempo real. Es esencialmente una traducción por analogía y puede ser interpretada como una implementación del razonamiento por casos base empleado en el aprendizaje automático, que consiste en la resolución de un problema basándose en la solución de problemas similares.
 
 #### Traducción automática basada en el contexto
 
