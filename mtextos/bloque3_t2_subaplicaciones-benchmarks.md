@@ -2,6 +2,12 @@
 T2. Aplicaciones específicas y Benchmacks
 ====================================
 
+Contenidos:
+
+- Aplicaciones específicas
+- BenchMarks y competiciones científicas
+
+
 ## Aplicaciones específicas
 
 Dentro de las aplicaciones generales del PLN existen una gran diversidad de aplicaciones específicas y variantes. A continuación, se mencionan algunas de ellas.
@@ -225,7 +231,7 @@ Ejemplo tomado de [1]:
 - Hipotesis: “La técnica se utiliza durante el segundo y, ocasionalmente, el tercer trimestre del embarazo.”
 - Salida:  parafrase
 
-#### Natural language inference
+#### Natural language inference (Inferencia del Language Natural)
 
 La inferencia del lenguaje natural es la tarea de determinar si una "hipótesis" es verdadera (implicación), falsa (contradicción) o indeterminada (neutral) dada una "premisa"[NLP Prog TI].
 
@@ -579,20 +585,21 @@ Su objetivo es alentar a la comunidad investigadora a organizar tareas competiti
 - Iberlef2020:  <https://sites.google.com/view/iberlef2020/home>
 - Iberlef2021: <https://sites.google.com/view/iberlef2021>
 
-##### Benchmarks e infraestructuras de evaluación
 
-###### CodaLab [cuadernos de trabajo, concursos]( https://codalab.org/)
+### Benchmarks e infraestructuras de evaluación
+
+#### CodaLab [cuadernos de trabajo, concursos]( https://codalab.org/)
 
 CodaLab es una plataforma de código abierto que proporciona un ecosistema para realizar investigación computacional de una manera más eficiente, reproducible y colaborativa. Hay dos aspectos de CodaLab:
 
 - Hojas de trabajo: permiten capturar líneas de investigación complejas de una manera reproducible y crear "documentos ejecutables". Se puede utilizar cualquier formato de datos o lenguaje de programación.
 - Concursos (competiciones): Estos sirven para reunir a la comunidad científica para abordar los problemas informáticos y de datos más desafiantes de la actualidad. Puedes ganar premios y también crear tu propia competencia.
 
-###### Kaggle [concursos, conjunto de datos, códigos fuente]
+#### Kaggle [concursos, conjunto de datos, códigos fuente]
 
 Entidad subsidiaria de Google LLC, permite a los usuarios encontrar y publicar conjuntos de datos, explorar y construir modelos en un entorno de ciencia de datos basado en la web, trabajar organizar concursos para resolver desafíos de ciencia de datos.
 
-##### GLUE [tabla de rankings, conjunto de datos, códigos fuente]
+#### GLUE [tabla de rankings, conjunto de datos, códigos fuente]
 
 El punto de referencia de Evaluación de comprensión del lenguaje general (GLUE) es una colección de recursos para entrenar, evaluar y analizar sistemas de comprensión del lenguaje natural. GLUE se compone de:
 
@@ -605,13 +612,13 @@ Las tareas recogidas en el marco de GLUE actualmente ofrecen rendimientos cercan
 - Tareas: <https://gluebenchmark.com/tasks>
 - Tablas de resultados: <https://gluebenchmark.com/leaderboard>
 
-##### SuperGLUE [tabla de rankings, conjunto de datos, códigos fuente]
+#### SuperGLUE [tabla de rankings, conjunto de datos, códigos fuente]
 
 En el último año, los nuevos modelos y métodos para la formación previa y el aprendizaje por transferencia han impulsado sorprendentes mejoras en el rendimiento en una variedad de tareas de comprensión del lenguaje. El punto de referencia GLUE, presentado hace un año, ofrecía una métrica de un solo número que resume el progreso en un conjunto diverso de tales tareas, pero el rendimiento en el punto de referencia se ha acercado recientemente al nivel de humanos no expertos, lo que sugiere un margen limitado para futuras investigaciones.
 
 Tomamos en cuenta las lecciones aprendidas del punto de referencia GLUE original y presentamos SuperGLUE, un nuevo punto de referencia con el estilo de GLUE con un nuevo conjunto de tareas de comprensión del idioma más difíciles, recursos mejorados y una nueva tabla de clasificación pública.
 
-##### Huggingface 🤗[conjunto de datos, código fuente]
+#### Huggingface 🤗[conjunto de datos, código fuente]
 
 Hugging Face es una empresa emergente líder centrada en el PLN con más de mil empresas que utilizan sus bibliotecas de código abierto (específicamente: la biblioteca Transformers) en producción. La biblioteca Transformer basada en Python expone las API para usar rápidamente arquitecturas NLP como: BERT (Google, 2018)
 
@@ -621,7 +628,7 @@ La librería Transformers proporciona:
 - API para descargar y usar rápidamente esos modelos previamente entrenados
 - está respaldado/integrado por [PyTorch](https://pytorch.org/) y [TensorFlow](https://www.tensorflow.org/)
 
-##### Extreme
+#### Extreme
 
 TRansfer Evaluation of Multilingual Encoders ([Extreme]) es un punto de referencia para la evaluación de la capacidad de generalización entre idiomas de modelos multilingües previamente entrenados. Cubre 40 idiomas tipológicamente diversos (que abarcan 12 familias de idiomas) e incluye nueve tareas que colectivamente requieren razonamiento sobre diferentes niveles de sintaxis y semántica.
 [Extreme]: <https://github.com/google-research/xtreme>
