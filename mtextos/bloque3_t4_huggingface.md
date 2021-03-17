@@ -2,7 +2,7 @@
 T4. Huggingface. Centralización de datasets y modelos
 ====================================
 
-Contenidos
+Contenidos:
 
 - Introducción
 - Repositorio de Datasets
