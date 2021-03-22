@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -266,6 +266,26 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion-a-elmo-y-bert">
+   Introducción a ELMo y BERT
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tipologia-de-modelos-preentrenados">
+   Tipología de modelos preentrenados
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -276,6 +296,24 @@
                 
   <div class="section" id="modelos-preentrenados">
 <h1>Modelos preentrenados<a class="headerlink" href="#modelos-preentrenados" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="_images/elmo.png"><img alt="ELMo" class="align-left" src="_images/elmo.png" style="width: 120px;" /></a>
+<p>Los denominados <em>modelos neuronales preentrenados</em> han supuesto todo un lavado de cara para el procesamiento del lenguaje natural. Aunque la cantidad de este tipo de modelos existente hoy día es enorme, casi todos comparten los mismos fundamentos. El punto de inflexión de estos modelos lo podemos situar en el año 2018 con la aparición de ELMo, en primer lugar, y BERT, unos meses después. Nos centraremos en este último en nuestro estudio, pero sin descuidar otras propuestas.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Podemos decir que estos modelos son un ejemplo de <em>aprendizaje por transferencia</em> (<em>transfer learning</em>) en el que lo aprendido para una tarea secundaria ayuda a resolver la tarea principal. La tarea secundaria en este caso es <em>no supervisada</em> (<em>unsupervised</em>) en el sentido de que no utiliza datos etiquetados externamente (como cuando anotamos la polaridad de un texto), pero el entrenamiento sigue teniendo una función de pérdida en la que el valor emitido se compara con el deseado, por lo que para evitar confusión se habla de entrenamiento <em>autosupervisado</em>. En el entrenamiento autosupervisado las etiquetas que conforman el valor esperado se obtienen automáticamente a partir de la muestra con un algoritmo normalmente muy simple, pero, al mismo tiempo, la tarea de generarlas adecuadamente no es trivial e implica que para hacerlo la red ha de generar buenas representaciones intermedias.</p>
+</div>
+<div class="figure align-default" id="fig-pretrained">
+<a class="reference internal image-reference" href="_images/pretrained.png"><img alt="_images/pretrained.png" src="_images/pretrained.png" style="height: 360px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Algunos de los hitos en la historia reciente del procesamiento del lenguaje natural. Tomado de “2019, <a class="reference external" href="https://towardsdatascience.com/2019-year-of-bert-and-transformer-f200b53d05b9">year of BERT and Transformer</a>” de Manu Suryavansh.</span><a class="headerlink" href="#fig-pretrained" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="introduccion-a-elmo-y-bert">
+<h2>Introducción a ELMo y BERT<a class="headerlink" href="#introduccion-a-elmo-y-bert" title="Permalink to this headline">¶</a></h2>
+<p>Para comenzar con el tema, vamos a seguir la guía ilustrada de Jay Alammar sobre los modelos <a class="reference external" href="http://jalammar.github.io/illustrated-bert/">BERT y ELMo</a>.</p>
+</div>
+<div class="section" id="tipologia-de-modelos-preentrenados">
+<h2>Tipología de modelos preentrenados<a class="headerlink" href="#tipologia-de-modelos-preentrenados" title="Permalink to this headline">¶</a></h2>
+<p>Ahora vamos a ahondar en las características de estos modelos con las diapositivas del tema “<a class="reference external" href="http://web.stanford.edu/class/cs224n/slides/cs224n-2021-lecture10-pretraining.pdf">Pretraining</a>” que John Hewitt usa en el curso “CS224n: Natural Language Processing with Deep Learning” de la Universidad de Stanford.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

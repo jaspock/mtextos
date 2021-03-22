@@ -72,15 +72,17 @@ Para ampliar lo aprendido en la asignatura puedes consultar algunas de estas fue
 - "[Speech and language processing][jurafsky]" (borrador de la tercera edición).
 - "[Dive into deep learning][dive]".
 - Materiales del curso "[Natural language processing with deep learning][stanford]" de Stanford.
+- Materiales del curso "[Neural nets for NLP][neubig]" de la Universidad Carnegie Mellon.
 
 [jurafsky]: https://web.stanford.edu/~jurafsky/slp3/
 [dive]: http://d2l.ai/
 [stanford]: http://web.stanford.edu/class/cs224n/
+[neubig]: https://www.youtube.com/playlist?list=PL8PYTP1V4I8AkaHEJ7lOOrlex-pcxS-XV
 
 
 ```{image} images/tower_of_babel_xkcd_2421.png
 :alt: comic xkcd 2421
-:class: bg-primary mb-1
 :width: 600px
 :align: center
 ```
+%:class: bg-primary mb-1
