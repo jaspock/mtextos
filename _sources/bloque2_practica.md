@@ -101,7 +101,7 @@ La documentación de los ficheros no marcados como opcionales permite sacar un 8
   -
   - DataLoader
 * - `train.py`
-  - model.net, model.data_laoder, utils
+  - model.net, model.data_loader, utils
   - 
   - train, train_and_evaluate
 * - `search_hyperparams.py`
