@@ -16,7 +16,6 @@ Los denominados *modelos neuronales preentrenados* han supuesto todo un lavado d
 ```{admonition} Nota
 :class: note
 Podemos decir que estos modelos son un ejemplo de *aprendizaje por transferencia* (*transfer learning*) en el que lo aprendido para una tarea secundaria ayuda a resolver la tarea principal. La tarea secundaria en este caso es *no supervisada* (*unsupervised*) en el sentido de que no utiliza datos etiquetados externamente (como cuando anotamos la polaridad de un texto), pero el entrenamiento sigue teniendo una función de pérdida en la que el valor emitido se compara con el deseado, por lo que para evitar confusión se habla de entrenamiento *autosupervisado*. En el entrenamiento autosupervisado las etiquetas que conforman el valor esperado se obtienen automáticamente a partir de la muestra con un algoritmo normalmente muy simple, pero, al mismo tiempo, la tarea de generarlas adecuadamente no es trivial e implica que para hacerlo la red ha de generar buenas representaciones intermedias.
-
 ```
 
 ```{figure} images/pretrained.png
@@ -34,6 +33,14 @@ Algunos de los hitos en la historia reciente del procesamiento del lenguaje natu
 Para comenzar con el tema, vamos a seguir la guía ilustrada de Jay Alammar sobre los modelos [BERT y ELMo][bertilustrado]. 
 
 [bertilustrado]: http://jalammar.github.io/illustrated-bert/
+
+
+```{admonition} Problema
+:class: note
+Obtén los códigos BPE resultantes de aplicar 4 operaciones de unión al texto "para el bus en la parada abandonada". A continuación, aplica los códigos a la entrada "ensalada para la empanada".
+% p a  |  pa r  |  d a</w>  | a da</w>
+% e@@ n@@ s@@ a@@ l@@ ada par@@ a la e@@ m@@ pa@@ n@@ ada .
+```
 
 ## Tipología de modelos preentrenados
 
