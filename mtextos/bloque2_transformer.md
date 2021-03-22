@@ -11,7 +11,7 @@ En este apartado comenzaremos estudiando la arquitectura codificador-decodificad
 Aunque el énfasis en esta asignatura no está en la traducción automática, los desarrollos que vamos a comentar surgieron inicialmente en esta tarea, por lo que la discusión girará en torno a esta aplicación concreta. En posteriores apartados veremos cómo los modelos pueden adaptarse sin excesivas modificaciones a otras tareas más específicas de la minería de textos.
 ```
 
-## Arquitectura codificador-descodificador sobre redes reucrrentes y mecanismo de atención
+## Arquitectura codificador-descodificador sobre redes recurrentes y mecanismo de atención
 
 Para comenzar con el tema, vamos a seguir la guía ilustrada de Jay Alammar sobre los modelos [seq2seq con atención][seq2seq]. Esta guía aborda inicialmente el estudio de la arquitectura codificador-descodificador sobre redes neuronales recurrentes y describe entonces en la última parte el mecanismo de atención.
 
