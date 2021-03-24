@@ -48,12 +48,21 @@ Para generar en la carpeta *docs* la documentación en HTML del código del dete
   pycco --generate-index *.py model/*.py
 ```
 
-Puedes estudiar el fichero `build_vocab.py` que contiene algunos ejemplos de comentarios.
-
 [pycco]: https://github.com/pycco-docs/pycco
 [pyccomain]: https://github.com/pycco-docs/pycco/blob/master/pycco/main.py
 [pyccoejemplo]: https://pycco-docs.github.io/pycco/
 [tutorial]: https://realpython.com/generating-code-documentation-with-pycco/
+
+
+Puedes estudiar el fichero `build_vocab.py` que contiene algunos ejemplos de comentarios.
+
+```{admonition} Nota
+:class: note
+Algunas versiones de Pycco pueden provocar un error en Windows al intentar generar la documentación. Si es tu caso, puedes aplicar este [parche][parche] al código fuente de Pycco para arreglarlo.
+```
+
+[parche]: https://github.com/pycco-docs/pycco/issues/109
+
 
 ## Orden sugerido para el estudio del código
 
@@ -92,7 +101,7 @@ La documentación de los ficheros no marcados como opcionales permite sacar un 8
   -
   - DataLoader
 * - `train.py`
-  - model.net, model.data_laoder, utils
+  - model.net, model.data_loader, utils
   - 
   - train, train_and_evaluate
 * - `search_hyperparams.py`
