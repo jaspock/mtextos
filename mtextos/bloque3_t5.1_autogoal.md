@@ -98,16 +98,15 @@ Véase el siguiente ejemplo:
  ````
 >>> from autogoal.ml import AutoML
 >>> from autogoal. datasets import haha
->>> from autogoal.kb import List , Sentence , CategoricalVector
->>> automl = AutoML (
->>>      input = List (Sentences ()), # tipos de entrada: seleccionar el tipo de dato semántico
->>>      output = CategoricalVector (), # tipo de salida: seleccionar el tipo de dato semántico
+>>> from autogoal.kb import List , Sentence , VectorCategorical
+>>> automl = AutoML(
+>>>      input = (Seq[Sentence], Supervised[VectorCategorical]), # tipos de entrada: seleccionar el tipo de dato semántico
+>>>      output = VectorCategorical, # tipo de salida: seleccionar el tipo de dato semántico
 >>>      score_metric=balanced_accuracy_score # métrica a optimizar (Función objetivo): Seleccionar la métrica objetivo
 >>>      )
 >>> X, y = haha.load () # cargar datos del dominio especifico
 >>> automl.fit(X, y) # ejecutar optimizacion
 ````
-
 Figura 5. Ejemplo de código fuente para ejecutar AutoGOAL en un conjunto de datos específico, en este caso, un problema de PLN.
 
 Podemos considerando **más parámetros**:
@@ -117,11 +116,11 @@ Podemos considerando **más parámetros**:
 >>> from autogoal.ml import AutoML
 
 >>> classifier = AutoML(
->>>    input= List(Sentence()),
->>>    output=CategoricalVector(),
+>>>    input = (Seq[Sentence], Supervised[VectorCategorical]), 
+>>>    output = VectorCategorical, 
 >>>    score_metric=balanced_accuracy_score, #función objetivo
 >>>    registry=None,
->>>    search_algorithm=PESearch,
+>>>    search_algorithm=PESearch,  
 >>>    search_iterations=args.iterations,
 >>>    search_kwargs=dict(
 >>>        pop_size=args.popsize,
@@ -167,27 +166,9 @@ Problema de ejemplo clásicos con distintos tipos de datos (texto, imágenes, cl
 #### Definición de pipeline según AutoGOAL
 
 ##### ¿Cómo saber cuando dos algoritmos son conectables?
-Si **analizamos** los **entradas**(inputs) y **salidas**(outputs) de los distintos **algoritmos** **podemos saber si estos son conectables** dentro de un pipeline. [Ver tabla de algoritmos](https://autogoal.github.io/guide/algorithms/) 
+Se considera que dos algoritmos son conectables cuando el **tipo** de la **salida del primero** y la **entrada del segundo** son el **mismo** **o** el **primero es subtipo del segundo**. [Ver tabla de algoritmos](https://autogoal.github.io/guide/algorithms/) 
 
-<span style="color:red">[@Suilan puedes añadir alguna explicación corta aquí y un ejemplo de código?]</span>
-
-##### ¿Qué es un algoritmo para AutoGOAL?
-
-Un algoritmo en AutoGOAL un clase que se **define con un tipo de entrada y salida**, y **contiene un método ````run````**. Veamos el siguiente ejemplo:
-
-````
-class Algorithm():
-    def __init__(self, parameter1:Categorical ("l1", "l2"), parameter2:Continuous (0.1, 10),...): 
-        ...
-    def run(self, input: Tuple(MatrixContinuous ,CategoricalVector)) -> CategoricalVector #método run, entrada y salida
-        if self.training:
-            X, y = input
-            self.fit(X, y)
-            return y
-        else:
-            return self.predict(X)
-````
-Figura 9. Ejemplo nuevo de algoritmo
+Realmente es un **poco más amplio** dado que los **algortimos** pueden recibir **más de un tipo**, además **pueden** irse **acumulando varios tipos distintos** para un punto determinado en un Pipeline. En este caso se puede conectar al pipeline que estamos construyendo un algoritmo si este recibe un subconjunto de los tipos que ha acumulado el pipeline.
 
 #### Proceso de construcción del grafo de algoritmos
 
@@ -202,22 +183,14 @@ La siguiente imagen muestra una **explicación de alto nivel** del proceso de **
 
 Figura 8. Proceso de muestreo y optimización de Pipelines.
 
-**Ejemplo de código utilizando AutoGOAL desde la clase AutoML.**
-
-<span style="color:red">[@Suilan puedes poner aquí el ejemplo? No sé a qué te refieres]</span>
-
-Una vez definido el problema de esta forma,  se pueden resolver problemas clásicos utilizando las herramientas y algoritmos disponibles en AutoGOAL.
-
-<span style="color:red">[@Suilan poner un ejemplo corto si es posible]</span>
-
 #### Integración con otras librerías: Caso de estudio Sklearn
 
 ````
 class LR(sklearn.linear_model.LogisticRegression):
-    def __init__ (self, penalty:Categorical ("l1", "l2"), C:Continuous (0.1, 10)):
+    def __init__(self, penalty:Categorical("l1", "l2"), C:Continuous (0.1, 10)):
         super().__init__(penalty = penalty, C=C)
 
-    def run(self, input : Tuple ( MatrixContinuous ,CategoricalVector )) -> CategoricalVector
+    def run(self, input : Tuple (MatrixContinuous,VectorCategorical)) -> VectorCategorical
         if self.training:
             X, y = input
             self.fit(X, y)
@@ -232,7 +205,7 @@ En el siguiente enlace encontraremos documentación de ejemplo donde se **integr
 
 - <https://autogoal.github.io/examples/sklearn_simple_grammar/>
 
-### Tema 2. Beneficions de la arquitectura de AutoGOAL
+### Tema 2. Beneficios de la arquitectura de AutoGOAL
 
 AutoGOAL defiende una **arquitectura dividida por capas y módulos**. Cada **capa se encarga** de la **agrupación** de distintos tipos de **módulos** responsables de los siguentes aspectos:
 
@@ -255,9 +228,9 @@ Figura 10. Arquitectura de AutoGOAL.
 Proporciona un conjunto de anotaciones de tipo que se utilizan para definir el espacio de hiperparámetros de una técnica o algoritmo arbitrario.
 Cada técnica se representa como una clase de Python, y los hiperparámetros correspondientes se representan como argumentos anotados del método ````__init__````, ya sea valores primitivos (por ejemplo, numéricos, texto, etc.) o instancias de otras clases, anotadas recursivamente. Dada una colección de clases anotadas, este módulo infiere automáticamente una gramática libre de contexto que describe el espacio de todas las instancias posibles de esas clases.
 
-##### ¿Qué es una gramática?
+##### ¿Una gramática en AutoGOAL?
 
-Un mecanismo formal para describir una estructura jerárquica a partir   de reglas que definen como se generan subestructuras. Esto sería una gramática libre del contexto. La estructura se define recursivamente partiendo de un concepto raíz (en este caso Pipeline) que se compone recursivamente de la concatenación de otros conceptos, que a su vez  pueden estar compuestos por más conceptos. Cuando un concepto no se define en función de otros se considera un Terminal de la gramática y de lo contrario un concepto No Terminal. Lo más interesante de las gramáticas es que nos permiten representar espacios infinitos de forma finita. Se representan de la siguiente forma:
+Una gramatica en general es un mecanismo formal para describir una estructura jerárquica a partir   de reglas que definen como se generan subestructuras. Esto sería una gramática libre del contexto. La estructura se define recursivamente partiendo de un concepto raíz (en este caso Pipeline) que se compone recursivamente de la concatenación de otros conceptos, que a su vez  pueden estar compuestos por más conceptos. Cuando un concepto no se define en función de otros se considera un Terminal de la gramática y de lo contrario un concepto No Terminal. Lo más interesante de las gramáticas es que nos permiten representar espacios infinitos de forma finita. Se representan de la siguiente forma:
 
 ````
                     Oración:  Sujeto Predicado | Predicado
@@ -283,7 +256,6 @@ normalmente los **No Terminales** se representan con **mayúsculas** y los **Ter
 ````
 
 Figura 11. Ejemplo de gramática a partir de una clase. Tomado de [AutoGOAL](https://autogoal.github.io/api/autogoal.grammar.generate_cfg/).
-
 
 
 ````
@@ -342,16 +314,19 @@ En el siguiente enlace encontraremos la documentación correspondiente: [Ver má
 
 #### Módulo de Flujos (Pipelines)
 
-Proporciona una abstracción para que los algoritmos se comuniquen entre sı́ a través de un patrón Facade, es decir, la implementación de un método ````run```` con anotaciones para los tipos de entrada y salida. Las clases que implementan este patrón se conectan automáticamente en un grafo de algoritmos donde cada ruta representa un posible flujo para resolver un problema, especificado por los tipos de datos de entrada y salida.
+Proporciona una abstracción para que los algoritmos se comuniquen entre sı́ a través de un patrón Facade, es decir, la implementación de un método ````run```` con anotaciones para los tipos de entrada y salida. Las clases que implementan este patrón se conectan automáticamente en un grafo de algoritmos donde cada ruta representa un posible Pipeline para resolver un problema, especificado por los tipos de datos de entrada y salida. La figura 1 ejemplifica distintas alternativas (Pipelines) probables para enfrentar un problema determinado.
 
-<span style="color:red"> [@Suilan podemos poner aquí algún fragmento de código o imagen que ayude a entender este módulo?]</span>
-
-##### ¿Cómo añadir un algoritmo nuevo a AutoGOAL? 
+##### ¿Cómo añadir un algoritmo nuevo a AutoGOAL y utilizarlo? 
 
 1. Definir una clase
 2. Anotar los hiperparámetros
 3. Implementar el método run
 4. Pasar a la clase AutoML una lista personalizada de algoritmos. Ver figura 14 variable ````registry````. 
+
+
+###### Definir una clase, anotación de hiperparámetros y método ``run``
+
+Un algoritmo en AutoGOAL es una clase que se **define con un tipo de entrada y salida**, y **contiene un método ````run````**. Veamos el siguiente ejemplo:
 
 ````
 >>> @nice_repr
@@ -372,13 +347,16 @@ Proporciona una abstracción para que los algoritmos se comuniquen entre sı́ 
 Figura 13. Ejemplo de definición de un nuevo algoritmo para extraer el resumen
 de un ariculo de Wikipedia.
 
+##### Utilizar la clase AutoML para integrar los nuevos algoritmos
+
 ````
 >>> from autogoal.ml import AutoML
+>>> from autogoal.contrib import find_Classes
 >>> from autogoal.datasets import haha
->>> from autogoal.kb import List, Sentence, CategoricalVector
+>>> from autogoal.kb import List, Sentence, VectorCategorical
 >>> automl = AutoML (
->>>    input = List (Sentences ()), # tipos de entrada
->>>    output = CategoricalVector (), # tipo de salida
+>>>    input = (Seq[Sentence], Supervised[VectorCategorical]), #entrada
+>>>    output = VectorCategorical, #salida
 >>>    score_metric=balanced_accuracy_score, # métrica a optimizar (Función objetivo)
 >>>    registry=find_Clases().extend(WikipediaSummary) # añadimos a todas los algoritmos registrados. No es necesario añadir el nuevo si este se crea dentro del módulo ````contrib```` el nuevo algoritmo siempre y cuando este no.
 >>>    )
@@ -414,22 +392,26 @@ Pasos para utilizar AutoGOAL
 
 ##### Definición de espacio
 
-Para definir un espacio de búsqueda propio hay que definir clases con sus parámetros del constructor anotados, similar a lo que se hace en la sección anterior. Lo que no es necesario es el método run porque al ser definido por el usuario no tiene que cumplir con la interfaz de AutoML.
+Para definir un espacio de búsqueda propio hay que definir clases con sus parámetros del constructor anotados, similar a lo que se hace en la sección anterior. Lo que no es necesario es el método ``run`` porque al ser definido por el usuario no tiene que cumplir con la interfaz de AutoML.
+
+En el ejemplo de la **Figura 13** se puede ver un ejemplo donde se define una clase y el espacio que la búsqueda de algortimos esta representa.
+
+En la siguiente imagen podemos ver cómo podemos muestrear estos espacios de búsqueda de Pipelines desde el ``input`` hasta el ``output`` pasando por todos aquellos algortimos registrados en ``registry``.
 
 ````
 >>> registry.extend(find_classes()) # explicitly build the graph of pipelines
 >>> space = build_pipelines(
->>>    input=List(Tuple(Sentence(), Sentence())), # límite del espacio
->>>    output=List(Sentence()), # límite del espacio
+>>>    input=Seq[Sentence], Supervised[VectorCategorical], # límite del espacio
+>>>    output=VectorCategorical, # límite del espacio
 >>>    registry=registry # listado de algoritmos a considerar en el espacio de búsqueda
 >>>    )
 ...
->>> pipe = space.sample()
+>>> pipe = space.sample() # muestreo de resultados
 >>> print(pipe)
 
 ````
 
-Figura 15. Definición de espacio de búsqueda
+Figura 15. Definición de espacio de búsqueda al generar muestreos de Pipelines. La clase AutoML realiza este procedimiento internamente.
 
 ##### Función de evaluación
 
@@ -450,6 +432,243 @@ La documentación al respecto la podéis encontrar en el siguiente enlace: <http
 
 De esta forma se puede utilizar AutoGOAL para resolver problemas que no sean de AutoML. Una aplicación de esta forma uso es seleccionar el mejor ensemble dado un conjunto de algoritmos, donde el concepto de mejor se define en la función Objetivo.
 La documentación al respecto la podéis encontrar en el siguiente enlace: <https://autogoal.github.io/examples/comparing_search_strategies/>
+
+
+### Ejemplo completo de optimización que internamente se realiza en AutoGOAL
+
+👇👇👇👇👇👇👇👇👇👇👇👇👇👇
+````
+from sklearn.datasets import make_classification
+from sklearn.model_selection import train_test_split
+ 
+X, y = make_classification(random_state=0)  # Fixed seed for reproducibility
+ 
+from sklearn.linear_model import LogisticRegression 
+ 
+def evaluate(estimator, iters=30): # función de evaluación
+   scores = []
+ 
+   for i in range(iters):
+       X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25)
+       estimator.fit(X_train, y_train)
+       scores.append(estimator.score(X_test, y_test)) 
+   return sum(scores)/len(scores) 
+lr = LogisticRegression()  
+score = evaluate(lr) # prueba de evaluación de LR
+print(score)
+
+````
+Figura . Evaluación de un algoritmo.
+
+````
+from autogoal.grammar import ContinuousValue, CategoricalValue
+
+class LR(LogisticRegression):
+   def __init__(self, penalty: CategoricalValue("l1", "l2"), C: ContinuousValue(0.1, 10)):
+       super().__init__(penalty=penalty, C=C, solver="liblinear")
+
+from autogoal.grammar import  generate_cfg
+
+grammar =  generate_cfg(LR) # gramatica del clasificador LR
+print(grammar)
+ 
+# ```bash
+# <LR>         := LR (penalty=<LR_penalty>, C=<LR_C>)
+# <LR_penalty> := categorical (options=['l1', 'l2'])
+# <LR_C>       := continuous (min=0.1, max=10)
+# ```
+
+for _ in range(5):
+   print(grammar.sample()) # muestreo de LR con distintos hiperpárametros
+
+# ```bash
+# LR(C=4.015231900472649, penalty='l2')
+# LR(C=9.556786605505499, penalty='l2')
+# LR(C=4.05716261883461, penalty='l1')
+# LR(C=3.2786487445120858, penalty='l1')
+# LR(C=4.655510386502897, penalty='l2')
+# ```
+````
+Figura . Muestreo de una gramática
+
+
+````
+ 
+from sklearn.svm import SVC
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.naive_bayes import GaussianNB
+ 
+class SVM(SVC):
+   def __init__(
+       self, kernel: CategoricalValue("rbf", "linear", "poly"), C: ContinuousValue(0.1, 10)):
+       super().__init__(C=C, kernel=kernel) 
+ 
+class DT(DecisionTreeClassifier):
+   def __init__(self, criterion: CategoricalValue("gini", "entropy")):
+       super().__init__(criterion=criterion) 
+ 
+class NB(GaussianNB):
+   def __init__(self, var_smoothing: ContinuousValue(1e-10, 0.1)):
+       super().__init__(var_smoothing=var_smoothing)
+ 
+from autogoal.grammar import Union
+from autogoal.grammar import generate_cfg
+ 
+grammar =  generate_cfg(Union("Classifier", LR, SVM, NB, DT)) # listado de clasificadores
+ 
+print(grammar)
+ 
+# ```bash
+# <Classifier>       := <LR> | <SVM> | <NB> | <DT>
+# <LR>               := LR (penalty=<LR_penalty>, C=<LR_C>)
+# <LR_penalty>       := categorical (options=['l1', 'l2'])
+# <LR_C>             := continuous (min=0.1, max=10)
+# <SVM>              := SVM (kernel=<SVM_kernel>, C=<SVM_C>)
+# <SVM_kernel>       := categorical (options=['rbf', 'linear', 'poly'])
+# <SVM_C>            := continuous (min=0.1, max=10)
+# <NB>               := NB (var_smoothing=<NB_var_smoothing>)
+# <NB_var_smoothing> := continuous (min=1e-10, max=0.1)
+# <DT>               := DT (criterion=<DT_criterion>)
+# <DT_criterion>     := categorical (options=['gini', 'entropy'])
+# ```
+
+for _ in range(5):
+   print(grammar.sample()) # muestreo del listado de clasificadores y distintos hiperpárametros
+
+# ```bash
+# NB(var_smoothing=0.04620465447733762)
+# DT(criterion='gini')
+# SVM(C=3.2914771222720116, kernel='rbf')
+# LR(C=7.809744923904822, penalty='l1')
+# DT(criterion='gini')
+# ```
+````
+Figura . Unión de clasificadores en una gramática
+
+````
+ 
+from autogoal.datasets import movie_reviews 
+from autogoal.grammar import DiscreteValue 
+
+class Count(CountVectorizer):
+   def __init__(self, ngram: DiscreteValue(1, 3)):
+       super().__init__(ngram_range=(1, ngram))
+       self.ngram = ngram
+ 
+from autogoal.grammar import BooleanValue
+ 
+class TfIdf(TfidfVectorizer):
+   def __init__(self, ngram: DiscreteValue(1, 3), use_idf: BooleanValue()):
+       super().__init__(ngram_range=(1, ngram), use_idf=use_idf)
+       self.ngram = ngram
+
+from sklearn.decomposition import TruncatedSVD
+ 
+class SVD(TruncatedSVD):
+   def __init__(self, n: DiscreteValue(50, 200)):
+       super().__init__(n_components=n)
+       self.n = n
+ 
+class Noop:
+   def fit_transform(self, X, y=None):
+       return X
+ 
+   def transform(self, X, y=None):
+       return X
+ 
+   def __repr__(self):
+       return "Noop()"
+
+from sklearn.pipeline import Pipeline as _Pipeline
+
+class Pipeline(_Pipeline): # creación de un Pipeline
+   def __init__(
+       self,
+       vectorizer: Union("Vectorizer", Count, TfIdf),
+       decomposer: Union("Decomposer", Noop, SVD),
+       classifier: Union("Classifier", LR, SVM, DT, NB),
+   ):
+       self.vectorizer = vectorizer
+       self.decomposer = decomposer
+       self.classifier = classifier
+ 
+       super().__init__(
+           [
+               ("vec", vectorizer),
+               ("dec", decomposer),
+               ("cls", classifier),
+           ]
+       )
+ 
+ 
+grammar =  generate_cfg(Pipeline)
+ 
+print(grammar)
+ 
+# ```bash
+# <Pipeline>         := Pipeline (vectorizer=<Vectorizer>, decomposer=<Decomposer>, classifier=<Classifier>)
+# <Vectorizer>       := <Count> | <TfIdf>
+# <Count>            := Count (ngram=<Count_ngram>)
+# <Count_ngram>      := discrete (min=1, max=3)
+# <TfIdf>            := TfIdf (ngram=<TfIdf_ngram>, use_idf=<TfIdf_use_idf>)
+# <TfIdf_ngram>      := discrete (min=1, max=3)
+# <TfIdf_use_idf>    := boolean ()
+# <Decomposer>       := <Noop> | <SVD>
+# <Noop>             := Noop ()
+# <SVD>              := SVD (n=<SVD_n>)
+# <SVD_n>            := discrete (min=50, max=200)
+# <Classifier>       := <LR> | <SVM> | <DT> | <NB>
+# <LR>               := LR (penalty=<LR_penalty>, C=<LR_C>)
+# <LR_penalty>       := categorical (options=['l1', 'l2'])
+# <LR_C>             := continuous (min=0.1, max=10)
+# <SVM>              := SVM (kernel=<SVM_kernel>, C=<SVM_C>)
+# <SVM_kernel>       := categorical (options=['rbf', 'linear', 'poly'])
+# <SVM_C>            := continuous (min=0.1, max=10)
+# <DT>               := DT (criterion=<DT_criterion>)
+# <DT_criterion>     := categorical (options=['gini', 'entropy'])
+# <NB>               := NB (var_smoothing=<NB_var_smoothing>)
+# <NB_var_smoothing> := continuous (min=1e-10, max=0.1)
+# ```
+ 
+for _ in range(10):
+   print(grammar.sample()) # muestreo del pipeline con distintos hiperpárametros y clasificadores
+
+# ```bash
+# Pipeline(classifier=SVM(C=4.09762837283166, kernel='rbf'), decomposer=Noop(),
+#          vectorizer=Count(ngram=1))
+# Pipeline(classifier=DT(criterion='entropy'), decomposer=Noop(),
+#          vectorizer=Count(ngram=2))
+# Pipeline(classifier=LR(C=5.309978916527087, penalty='l2'), decomposer=Noop(),
+#          vectorizer=Count(ngram=3))
+# Pipeline(classifier=LR(C=9.776994352626533, penalty='l1'), decomposer=Noop(),
+#          vectorizer=TfIdf(ngram=2, use_idf=True))
+# Pipeline(classifier=SVM(C=5.973033047496386, kernel='rbf'),
+#          decomposer=SVD(n=197), vectorizer=Count(ngram=3))
+# Pipeline(classifier=NB(var_smoothing=0.07941925220053651),
+#          decomposer=SVD(n=183), vectorizer=TfIdf(ngram=3, use_idf=False))
+# Pipeline(classifier=DT(criterion='entropy'), decomposer=SVD(n=144),
+#          vectorizer=TfIdf(ngram=1, use_idf=True))
+# Pipeline(classifier=SVM(C=6.052775609636756, kernel='poly'),
+#          decomposer=SVD(n=160), vectorizer=TfIdf(ngram=1, use_idf=True))
+# Pipeline(classifier=DT(criterion='entropy'), decomposer=Noop(),
+#          vectorizer=Count(ngram=1))
+# Pipeline(classifier=DT(criterion='entropy'), decomposer=Noop(),
+#          vectorizer=TfIdf(ngram=3, use_idf=True))
+# ```
+
+````
+Figura . Creación de un pipeline utilizando la composición gramatica 
+
+
+````
+
+fitness_fn = movie_reviews.make_fn(examples=100)
+
+random_search = RandomSearch(grammar, fitness_fn, random_state=0)
+best, score = random_search.run(1000) # selección del mejor pipeline en una muestra de 1000
+````
+Figura 17. Búsqueda del Pipeline óptimo
+
 
 ## Bibliogarfía
 
