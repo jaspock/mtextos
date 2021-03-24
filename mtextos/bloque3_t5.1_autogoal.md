@@ -50,7 +50,7 @@ AutoGOAL es un **marco de Python** para la **optimización automática**, **gene
 
 Una **pipeline** se **define**, a los efectos de AutoGOAL, como **cualquier componente de software**, ya sea una **jerarquía de clases**, un conjunto de **funciones** o cualquier **combinación** de los mismos, que trabajan juntos para resolver un problema específico.
 
-Con AutoGOAL puede definir un pipeline de muchas formas diferentes, de modo que ciertas partes de ella sean configurables o sintonizables, y luego usar algoritmos de búsqueda para encontrar la mejor manera de ajustarla o configurarla para un problema dado.
+Con AutoGOAL puede **definir un pipeline** de muchas **formas diferentes**, de modo que ciertas **partes** de ella sean **configurables** o sintonizables, y luego usar **algoritmos de búsqueda** para encontrar la mejor manera de **ajustarla** o configurarla para un **problema** dado.
 
 ```{image} /images/bloque3/t5/t5_autogoal_flow.jpg
 :alt: comic xkcd 2421
@@ -73,18 +73,18 @@ Figura 4. Gramática probabilística
 #### Funciones
 
 - [**Optimización de caja negra:**](https://autogoal.github.io/guide/blackbox/) un optimizador de caja negra que se puede aplicar a cualquier función.
-- [**Pipelines predefinidos:**](https://autogoal.github.io/guide/predefined/) pre-empaquetados con pipelines basados en marcos de aprendizaje automático populares, que puede usar en pocas líneas de código para crear canales de aprendizaje automático altamente optimizados para una amplia gama de problemas.
-- [**Flujos basados en clases:**](https://autogoal.github.io/guide/cfg/) la API basada en clases le permite convertir cualquier jerarquía de clases en un espacio optimizable. Usted define clases y anota los parámetros del constructor con atributos, y AutoGOAL construye automáticamente una gramática que genera todas las instancias posibles de su jerarquía.
-- [**Canalizaciones basadas en grafos:**](https://autogoal.github.io/guide/graphs) la API basada en gráficos le permite explorar espacios definidos como gráficos. La gramática de un gráfico se define como un conjunto de reglas de reescritura de gráficos, que toman nodos existentes y los reemplazan por patrones más complejos. AutoGOAL luego se transforma en un objeto evaluable, por ejemplo, una red neuronal.
-- [**Pipelines funcionales:**](https://autogoal.github.io/guide/functional/) la API funcional le permite convertir cualquier código de Python que resuelva alguna tarea en un pipeline optimizable. Escribe un método regular e introduce los parámetros de AutoGOAL en el flujo de código, que luego se optimizarán automáticamente para producir la salida óptima.
+- [**Pipelines predefinidos:**](https://autogoal.github.io/guide/predefined/) pre-empaquetados con pipelines **basados en marcos de aprendizaje automático populares**, que puede usar en **pocas líneas de código** para crear canales de aprendizaje automático altamente optimizados para una amplia gama de problemas.
+- [**Flujos basados en clases:**](https://autogoal.github.io/guide/cfg/) la API basada en clases le permite convertir cualquier jerarquía de clases en un **espacio optimizable**. Usted **define clases** y **anota los parámetros del constructor** con atributos, y **AutoGOAL construye** automáticamente una **gramática** que genera todas las instancias posibles de su jerarquía.
+- [**Canalizaciones basadas en grafos:**](https://autogoal.github.io/guide/graphs) la API basada en grafos le **permite explorar espacios** definidos como grafos. La gramática de un grafo se define como un **conjunto de reglas** de reescritura de grafos, que **toman nodos existentes** y los **reemplazan por patrones más complejos**. AutoGOAL luego **se transforma** en un **objeto evaluable**, por ejemplo, una red neuronal.
+- [**Pipelines funcionales:**](https://autogoal.github.io/guide/functional/) la API funcional le permite **gemerar código de Python** que resuelva alguna tarea en un pipeline optimizable. Escribe un método regular e introduce los parámetros de AutoGOAL en el flujo de código, que luego se **optimizarán automáticamente** para producir la salida óptima.
 
 ## Temas que podemos tratar con AutoGOAL
 
-- [Tema 1. AutoGOAL para la resolución de problemas de alto nivel](#tema-1-autogoal-para-la-resolucion-de-problemas-de-alto-nivel)
-- [Tema 2. Beneficios de la arquitectura de AutoGOAL](#tema-2-beneficions-de-la-arquitectura-de-autogoal)
+- [Tema 1. AutoGOAL para la resolución de problemas de alto nivel](#tema-1-autogoal-para-la-resolucion-de-problemas-de-alto-nivel-uso-de-la-clase-automl)
+- [Tema 2. Beneficios de la arquitectura de AutoGOAL](#tema-2-beneficios-de-la-arquitectura-de-autogoal)
 - [Tema 3. Uso de componentes](#tema-3-uso-de-componentes)
 
-### Tema 1. AutoGOAL para la resolución de problemas de alto nivel
+### Tema 1. AutoGOAL para la resolución de problemas de alto nivel *(uso de la clase AutoML)*
 
 ¿Como definimos un problema con AutoGOAL?
 Es necesario definir:
@@ -108,6 +108,7 @@ Véase el siguiente ejemplo:
 >>> automl.fit(X, y) # ejecutar optimizacion
 ````
 Figura 5. Ejemplo de código fuente para ejecutar AutoGOAL en un conjunto de datos específico, en este caso, un problema de PLN.
+
 
 Podemos considerando **más parámetros**:
 
@@ -183,36 +184,15 @@ La siguiente imagen muestra una **explicación de alto nivel** del proceso de **
 
 Figura 8. Proceso de muestreo y optimización de Pipelines.
 
-#### Integración con otras librerías: Caso de estudio Sklearn
-
-````
-class LR(sklearn.linear_model.LogisticRegression):
-    def __init__(self, penalty:Categorical("l1", "l2"), C:Continuous (0.1, 10)):
-        super().__init__(penalty = penalty, C=C)
-
-    def run(self, input : Tuple (MatrixContinuous,VectorCategorical)) -> VectorCategorical
-        if self.training:
-            X, y = input
-            self.fit(X, y)
-            return y
-        else:
-            return self.predict(X)
-````
-
-Figura 9. Ejemplo de definición de adaptadores para algoritmos de scikitlearn.
-
-En el siguiente enlace encontraremos documentación de ejemplo donde se **integra la librería Sklearn** en **AutoGOAL**:
-
-- <https://autogoal.github.io/examples/sklearn_simple_grammar/>
 
 ### Tema 2. Beneficios de la arquitectura de AutoGOAL
 
 AutoGOAL defiende una **arquitectura dividida por capas y módulos**. Cada **capa se encarga** de la **agrupación** de distintos tipos de **módulos** responsables de los siguentes aspectos:
 
-- registro de recuros y bibliotecas
-- adaptación de algortimos a la plataforma AutoGOAL
-- gestión de flujos de procesos pipelines, gestión de gramáticas y la optimización de pipelines
-- definición conceptual de clases y tipos semánticos que se utilizan en los procesos de automatización
+- **registro** de recursos y bibliotecas
+- **adaptación de algortimos** a la plataforma AutoGOAL
+- **gestión de flujos** de procesos pipelines, **gestión de gramáticas** y la **optimización de pipelines**
+- **definición conceptual** de **clases** y **tipos semánticos** que se utilizan en los procesos de automatización
 
 ```{image} /images/bloque3/t5/t5_autogoal_arq.jpg
 :alt: comic xkcd 2421
@@ -221,16 +201,21 @@ AutoGOAL defiende una **arquitectura dividida por capas y módulos**. Cada **cap
 :align: center
 ```
 
-Figura 10. Arquitectura de AutoGOAL.
+Figura 9. Arquitectura de AutoGOAL.
 
-#### Módulo de Gramática
+#### Módulos de AutoGOAL
 
-Proporciona un conjunto de anotaciones de tipo que se utilizan para definir el espacio de hiperparámetros de una técnica o algoritmo arbitrario.
-Cada técnica se representa como una clase de Python, y los hiperparámetros correspondientes se representan como argumentos anotados del método ````__init__````, ya sea valores primitivos (por ejemplo, numéricos, texto, etc.) o instancias de otras clases, anotadas recursivamente. Dada una colección de clases anotadas, este módulo infiere automáticamente una gramática libre de contexto que describe el espacio de todas las instancias posibles de esas clases.
+##### Módulo de Gramática
 
-##### ¿Una gramática en AutoGOAL?
+Proporciona un **conjunto de anotaciones** de tipo que se utilizan para definir el **espacio de hiperparámetros** de una técnica o algoritmo arbitrario.
+**Cada técnica** se **representa** como una **clase de Python**, y los **hiperparámetros** correspondientes se representan como **argumentos** anotados del método **``__init__``**, ya sea valores primitivos (por ejemplo, numéricos, texto, etc.) o instancias de otras clases, anotadas recursivamente.
+**Dada una colección de clases anotadas**, este módulo **infiere automáticamente una gramática** libre de contexto que describe el espacio de todas las instancias posibles de esas clases.
 
-Una gramatica en general es un mecanismo formal para describir una estructura jerárquica a partir   de reglas que definen como se generan subestructuras. Esto sería una gramática libre del contexto. La estructura se define recursivamente partiendo de un concepto raíz (en este caso Pipeline) que se compone recursivamente de la concatenación de otros conceptos, que a su vez  pueden estar compuestos por más conceptos. Cuando un concepto no se define en función de otros se considera un Terminal de la gramática y de lo contrario un concepto No Terminal. Lo más interesante de las gramáticas es que nos permiten representar espacios infinitos de forma finita. Se representan de la siguiente forma:
+###### ¿Qué es una gramática en AutoGOAL?
+
+Una gramatica en general **es un mecanismo formal para describir una estructura jerárquica a partir de reglas** que definen como se generan subestructuras. Esto sería una gramática libre del contexto. La estructura se **define recursivamente partiendo de un concepto raíz** (en este caso Pipeline) que se compone recursivamente de la **concatenación de otros conceptos**, que a su vez  pueden estar compuestos por más conceptos. Cuando un **concepto no se define en función de otros** se considera un **Terminal** de la gramática y **de lo contrario** un concepto **No Terminal**. 
+
+!Lo más interesante de las gramáticas es que nos permiten representar espacios infinitos de forma finita! Se representan de la siguiente forma:
 
 ````
                     Oración:  Sujeto Predicado | Predicado
@@ -239,6 +224,7 @@ Una gramatica en general es un mecanismo formal para describir una estructura je
                     artículos: el | la | los | las …
                      ……. 
 ````
+Figura 10. Ejemplo de gramática de una oración
 
 normalmente los **No Terminales** se representan con **mayúsculas** y los **Terminales** con **minúsculas**
 
@@ -301,32 +287,37 @@ Figura 11. Ejemplo de gramática a partir de una clase. Tomado de [AutoGOAL](htt
 
 Figura 12. Ejemplo de gramática a partir de un pipeline de clasificación
 
-#### Módulo de Optimización
+##### Módulo de Optimización
 
-Proporciona estrategias de muestreo sobre una gramática libre del contexto que construye recursivamente una instancia especı́fica basada en las anotaciones. Se implementan dos estrategias de optimización:
+Proporciona **estrategias de muestreo** sobre una **gramática** libre del contexto que **construye recursivamente una instancia** especı́fica basada en las anotaciones. Se implementan dos estrategias de optimización:
 
 - [búsqueda aleatoria](https://autogoal.github.io/api/autogoal.search.RandomSearch/) y
-- [evolución gramatical probabilı́stica](https://autogoal.github.io/api/autogoal.search.SearchAlgorithm/)
+- [evolución gramatical probabilı́stica](https://autogoal.github.io/api/autogoal.search.PESearch/)
 
-Esta última realiza un ciclo de muestreo/actualización que selecciona las instancias de mejor rendimiento de acuerdo con alguna métrica predefinida (p.e., precisión) y actualiza iterativamente el modelo probabilístico interno del algoritmo de muestreo.
+Esta última, **PESearch**, realiza un ciclo de **muestreo**/actualización que **selecciona las instancias** de **mejor rendimiento** de acuerdo con alguna **métrica predefinida** (p.e., precisión) y **actualiza** iterativamente el **modelo probabilístico** interno del algoritmo de muestreo. Ver ejemplo de las **figuras 3 y 4**.
 
-En el siguiente enlace encontraremos la documentación correspondiente: [Ver más...](https://autogoal.github.io/api/autogoal.optimize/)
+En el siguiente enlace encontraremos la documentación correspondiente: [Ver más...](https://autogoal.github.io/examples/comparing_search_strategies/)
 
-#### Módulo de Flujos (Pipelines)
+##### Módulo de Flujos (Pipelines)
 
-Proporciona una abstracción para que los algoritmos se comuniquen entre sı́ a través de un patrón Facade, es decir, la implementación de un método ````run```` con anotaciones para los tipos de entrada y salida. Las clases que implementan este patrón se conectan automáticamente en un grafo de algoritmos donde cada ruta representa un posible Pipeline para resolver un problema, especificado por los tipos de datos de entrada y salida. La figura 1 ejemplifica distintas alternativas (Pipelines) probables para enfrentar un problema determinado.
+Proporciona una abstracción para que los **algoritmos se comuniquen entre sı́** a través de un **patrón Facade**, es decir, la implementación de un **método ``run``** con **anotaciones** para los **tipos de entrada y salida**. Las **clases**(que representan algiritmos) que implementan este **patrón** se **conectan automáticamente en un grafo** de algoritmos, donde **cada ruta** representa un **posible Pipeline** para resolver un problema, especificado por los tipos de datos de entrada y salida. La **Figura 1** ejemplifica **distintas alternativas** (Pipelines) probables para enfrentar un **problema determinado**.
 
-##### ¿Cómo añadir un algoritmo nuevo a AutoGOAL y utilizarlo? 
+#### ¿Cómo añadir un algoritmo nuevo a AutoGOAL y utilizarlo? 
 
-1. Definir una clase
-2. Anotar los hiperparámetros
-3. Implementar el método run
-4. Pasar a la clase AutoML una lista personalizada de algoritmos. Ver figura 14 variable ````registry````. 
+**Parte 1**:
+
+- **Definir una clase**
+- **Anotar los hiperparámetros** en el constructor
+- Implementar el **método ``run``**
+
+**Parte 2**: 
+
+- Pasar a la **clase AutoML** una **lista** personalizada de **algoritmos**. Ver Figura 14 variable **``registry``**. 
 
 
-###### Definir una clase, anotación de hiperparámetros y método ``run``
+##### **Parte 1**
 
-Un algoritmo en AutoGOAL es una clase que se **define con un tipo de entrada y salida**, y **contiene un método ````run````**. Veamos el siguiente ejemplo:
+Un **algoritmo** en AutoGOAL es una **clase** que se **define con un tipo de entrada y salida**, y **contiene un método ````run````**. Veamos el siguiente ejemplo:
 
 ````
 >>> @nice_repr
@@ -347,7 +338,9 @@ Un algoritmo en AutoGOAL es una clase que se **define con un tipo de entrada y s
 Figura 13. Ejemplo de definición de un nuevo algoritmo para extraer el resumen
 de un ariculo de Wikipedia.
 
-##### Utilizar la clase AutoML para integrar los nuevos algoritmos
+##### **Parte 2** 
+
+Utilizar la clase AutoML para integrar los nuevos algoritmos
 
 ````
 >>> from autogoal.ml import AutoML
@@ -377,26 +370,54 @@ Los argumentos pueden ser valores:
 Cada argumento provee los rangos válidos para el hiperparámetro correspondiente.
 Por ejemplo, anotaciones discretas y continuas definen valores máximos y mı́nimos, mientras que las categóricas presentan una lista de posibles valores. En el caso de los hiperparámetros que son instancias de otros algoritmos, AutoGOAL es capaz de encontrar el conjunto de clases válidas por los que pueden ser reemplazados.
 
+#### ¿Cómo integrar otras librerías?: Ejemplo Sklearn
+
+````
+class LR(sklearn.linear_model.LogisticRegression):
+    def __init__(self, penalty:Categorical("l1", "l2"), C:Continuous (0.1, 10)):
+        super().__init__(penalty = penalty, C=C)
+
+    def run(self, input:Tuple(MatrixContinuous,VectorCategorical)) -> VectorCategorical
+        if self.training:
+            X, y = input
+            self.fit(X, y)
+            return y
+        else:
+            return self.predict(X)
+````
+
+Figura 15. Ejemplo de definición de **adaptador** para el **algoritmo LogisticRegression de scikitlearn**.
+
+En el siguiente enlace encontraremos documentación de ejemplo donde se **integra la librería Sklearn** en **AutoGOAL**:
+
+- <https://autogoal.github.io/examples/sklearn_simple_grammar/>
+
+
 ### Tema 3. Uso de componentes
 
 #### Definición de espacio de búsqueda en AutoGOAL
 
-Un espacio de búsqueda es el conjunto de todos los posibles Pipelines   para resolver un problema. Son todas las posibilidades entre las que se quiere elegir y sus combinaciones. Se representa utilizando una gramática, donde el nodo inicial es Pipeline. En implementación esta gramática se puede inferir de la jerarquía de clases que se diseñe, pasando la clase que represente el concepto raíz de la gramática y se cumpla que los tipos de datos estén anotados.
-Pasos para utilizar AutoGOAL
+Un espacio de búsqueda es el **conjunto de todos los posibles Pipelines** para resolver un **problema**. Son **todas las posibilidades** entre las que se quiere elegir y sus **combinaciones**. Se representa utilizando una gramática, donde el **nodo inicial es Pipeline**. En implementación esta **gramática** se puede **inferir de la jerarquía de clases** que se diseñe, pasando la clase que represente el concepto raíz de la gramática y se cumpla que los tipos de datos estén anotados.
 
-1. [Definición de espacio](#definicion-de-espacio)
+**Pasos** para utilizar AutoGOAL:
+
+1. [Definición de espacio](#definicion-de-espacio-de-busqueda)
 2. [Función de evaluación](#funcion-de-evaluacion)
 3. [Generar gramática](#generar-gramatica)
 4. [Instanciación de clase hija de SearchAlgorithm](#instanciacion-de-searchalgorithm)
 5. [Ejecutar Funciones](#ejecutar-funciones)
 
-##### Definición de espacio
+##### Definición de espacio de búsqueda
 
-Para definir un espacio de búsqueda propio hay que definir clases con sus parámetros del constructor anotados, similar a lo que se hace en la sección anterior. Lo que no es necesario es el método ``run`` porque al ser definido por el usuario no tiene que cumplir con la interfaz de AutoML.
+Para definir un espacio de búsqueda propio hay que **definir clases con sus parámetros** del **constructor** anotados, **similar** a lo que se hace en la **sección anterior**. Lo que **NO es necesario** es el método **``run``** porque al ser definido por el usuario **NO necesita** que cumplir con la **interfaz** de ***AutoML***.
 
-En el ejemplo de la **Figura 13** se puede ver un ejemplo donde se define una clase y el espacio que la búsqueda de algortimos esta representa.
+En el ejemplo de la **Figura 13** se puede ver un **ejemplo** donde se **define una clase** y el **espacio que la búsqueda** de algortimos esta representa.
 
-En la siguiente imagen podemos ver cómo podemos muestrear estos espacios de búsqueda de Pipelines desde el ``input`` hasta el ``output`` pasando por todos aquellos algortimos registrados en ``registry``.
+En resumen, **si requerimos** el uso de la **clase AutoML**, ver descripción en [esta Sección](#modulo-de-flujos-pipelines),  para que se realice el **muestreo y optimización** de modo transparente necesitamos que las clases que representan **algoritmos** tengan **implentado** el método ``run``. En el caso de que **NO se desee** utilizar la **clase AutoML**, ver descripción en [Figura 18](#ejemplo-completo-de-optimizacion-que-internamente-se-realiza-en-autogoal), para este fin, **NO es necesario** que estas clases tengan implementado en **método ``run``**.
+
+###### Espacio de búsqueda construyendo Pipelines
+
+En la siguiente imagen podemos ver cómo podemos **muestrear** estos **espacios de búsqueda de Pipelines** desde el ``input`` hasta el ``output`` pasando por todos aquellos **algortimos registrados** en ``registry``.
 
 ````
 >>> registry.extend(find_classes()) # explicitly build the graph of pipelines
@@ -411,30 +432,32 @@ En la siguiente imagen podemos ver cómo podemos muestrear estos espacios de bú
 
 ````
 
-Figura 15. Definición de espacio de búsqueda al generar muestreos de Pipelines. La clase AutoML realiza este procedimiento internamente.
+Figura 16. Definición de espacio de búsqueda al generar muestreos de Pipelines.
 
 ##### Función de evaluación
 
-Otro requisito es contar con una función que evalúe cada Pipeline. Esta sería la función objetivo que se desea optimizar. Lo importante es esta función reciba un Pipeline y le asigna un número que sirve para comparar diferentes pipelines.
+Otro **requisito** es contar con una **función que evalúe cada Pipeline**. Esta sería la **función objetivo** que se **desea optimizar**. Lo importante es esta función **reciba un Pipeline** y le **asigna un número** que sirve para **comparar** diferentes **pipelines**.
 
-¡!!Lo que hace AutoML es ejecutar el Pipeline en un dataset y medir error de predicción)!!! [Ver ejemplo](#tema-1-autogoal-para-la-resolucion-de-problemas-de-alto-nivel)
+¡!!Lo que hace **AutoML** es **ejecutar** el **Pipeline** en un **dataset** y **medir error de predicción**)!!! [Ver ejemplo](#tema-1-autogoal-para-la-resolucion-de-problemas-de-alto-nivel)
 
 ##### Generar gramática
 
-Una vez que se tiene el Espacio de Búsqueda y la Función Objetivo se genera la gramática utilizando el método generate_cfg, que está en autogoal.grammar. [Ver ejemplo](#que-es-una-gramatica)
+Una vez que se tiene el **Espacio de Búsqueda** y la **Función Objetivo** se **genera la gramática** utilizando el ``método generate_cfg``, que está en ``autogoal.grammar``. [Ver ejemplo](#una-gramatica-en-autogoal)
 
 ##### Instanciación de SearchAlgorithm
 
-Luego instancias alguna clase que herede de la clase [SearchAlgorithm](https://autogoal.github.io/api/autogoal.search.SearchAlgorithm/) y le pasas la Gramática, la Función Objetivo y restricciones de tiempo y memorias.
+Luego se **instancia** alguna **clase que herede** de la clase [**SearchAlgorithm**](https://autogoal.github.io/api/autogoal.search.SearchAlgorithm/) y se le **envía** a la **Gramática**, la **Función Objetivo** y **restricciones** de tiempo y memorias.
 La documentación al respecto la podéis encontrar en el siguiente enlace: <https://autogoal.github.io/examples/comparing_search_strategies/>
 
 ##### Ejecutar Funciones
 
-De esta forma se puede utilizar AutoGOAL para resolver problemas que no sean de AutoML. Una aplicación de esta forma uso es seleccionar el mejor ensemble dado un conjunto de algoritmos, donde el concepto de mejor se define en la función Objetivo.
+De esta forma se puede **utilizar** AutoGOAL para **resolver problemas** que **no sean propios de ML**. Una aplicación de esta forma uso es **seleccionar el mejor ensemble** dado un **conjunto de algoritmos**, donde el concepto de mejor se define en la función Objetivo.
 La documentación al respecto la podéis encontrar en el siguiente enlace: <https://autogoal.github.io/examples/comparing_search_strategies/>
 
 
-### Ejemplo completo de optimización que internamente se realiza en AutoGOAL
+### Ejemplo extendido de optimización con AutoGOAL *(SIN uso de la clase AutoML)*
+
+En esta sección veremos **ejemplos** que **evolucionan**, desde **resolver** una problema con un **único algoritmo**, luego pasar a componer **varios algoritmos** hasta muestrear **diferentes Pipelines**.
 
 👇👇👇👇👇👇👇👇👇👇👇👇👇👇
 ````
@@ -443,7 +466,7 @@ from sklearn.model_selection import train_test_split
  
 X, y = make_classification(random_state=0)  # Fixed seed for reproducibility
  
-from sklearn.linear_model import LogisticRegression 
+from sklearn.linear_model import LogisticRegression
  
 def evaluate(estimator, iters=30): # función de evaluación
    scores = []
@@ -458,7 +481,7 @@ score = evaluate(lr) # prueba de evaluación de LR
 print(score)
 
 ````
-Figura . Evaluación de un algoritmo.
+Figura 17. Evaluación de un algoritmo.
 
 ````
 from autogoal.grammar import ContinuousValue, CategoricalValue
@@ -489,7 +512,7 @@ for _ in range(5):
 # LR(C=4.655510386502897, penalty='l2')
 # ```
 ````
-Figura . Muestreo de una gramática
+Figura 18. Muestreo de una gramática
 
 
 ````
@@ -543,7 +566,7 @@ for _ in range(5):
 # DT(criterion='gini')
 # ```
 ````
-Figura . Unión de clasificadores en una gramática
+Figura 19. Unión de clasificadores en una gramática
 
 ````
  
@@ -657,7 +680,7 @@ for _ in range(10):
 # ```
 
 ````
-Figura . Creación de un pipeline utilizando la composición gramatica 
+Figura 20. Creación de un pipeline utilizando la composición gramatica 
 
 
 ````
@@ -667,7 +690,7 @@ fitness_fn = movie_reviews.make_fn(examples=100)
 random_search = RandomSearch(grammar, fitness_fn, random_state=0)
 best, score = random_search.run(1000) # selección del mejor pipeline en una muestra de 1000
 ````
-Figura 17. Búsqueda del Pipeline óptimo
+Figura 21. Búsqueda del Pipeline óptimo
 
 
 ## Bibliogarfía

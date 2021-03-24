@@ -54,7 +54,7 @@ Elige alguno de los siguientes datasets y conforma tu propio sistema de sentimen
 [product]: https://www.kaggle.com/arbazkhan971/product-sentiment-analysis
 [kaggle]: https://www.kaggle.com/search?q=sentiment+analysis+in%3Adatasets
 
-[01-SA-Pipeline-Reviews]: https://github.com/TeachingTextMining/TextClassification/tree/main/01-SA-Pipeline-Reviews
+[01-SA-Pipeline-Reviews]: https://github.com/TeachingTextMining/TextClassification/tree/main/01-SA-Pipeline
 
 [yoan]: https://orcid.org/0000-0002-4052-7427
 [abreu]: https://orcid.org/0000-0002-4637-4206
