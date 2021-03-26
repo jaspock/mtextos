@@ -1,5 +1,5 @@
 
-T5.1 AutoGOAL
+T5.1. AutoGOAL
 ====================================
 
 ## Problemas en los enfoques de AutoML clásicos
@@ -28,6 +28,8 @@ El **Auto-ML heterogéneo** es una nueva variante del Auto-ML general que **cons
 ````
 
 Figura 1. Ejemplo simple de uso de AutoGOAL
+
+Para **ver demostrador** hacer click en el [**enlace.**](https://autogoal.github.io/)
 
 Sin embargo, los sistemas **AutoML no deben intentar reemplazar a los expertos humanos**, sino **servir como herramientas complementarias** que permitan a los investigadores **obtener rápidamente mejores prototipos** y conocimientos sobre las estrategias más prometedoras en un problema concreto. Las técnicas de AutoML abren las puertas a revolucionar la forma en que se realiza la investigación y el desarrollo del aprendizaje automático en la academia y la industria.
 

@@ -1,5 +1,5 @@
 
-T2.1 Aplicaciones específicas. Análisis de Sentimientos
+T2.1. Aplicaciones específicas. Análisis de Sentimientos
 ====================================
 
 Para este tema se proporcionarán materiales ya elaborados, videos y transparencias, sobre el análisis sentimientos.

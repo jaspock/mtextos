@@ -1,4 +1,4 @@
-P1.2 APIs Transformers
+P1.2. APIs Transformers
 ====================================
 
 ## **Clase práctica.**

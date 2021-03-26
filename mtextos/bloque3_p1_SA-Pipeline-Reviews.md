@@ -1,5 +1,5 @@
 
-P1.1 Pipeline simple
+P1.1. Pipeline simple
 ====================================
 
 ## **Clase práctica.**

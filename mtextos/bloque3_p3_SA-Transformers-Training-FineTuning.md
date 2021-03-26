@@ -1,4 +1,4 @@
-P2 Reajustar modelos Transformers
+P2. Reajustar modelos Transformers
 ====================================
 
 ## **Clase práctica.**

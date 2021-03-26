@@ -1,5 +1,5 @@
 
-P3 Composición de vectores de características
+P3. Composición de vectores de características
 ====================================
 
 ## **Clase práctica.**

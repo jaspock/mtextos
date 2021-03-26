@@ -1,4 +1,4 @@
-P5 Auto Machine Learning
+P5. Auto Machine Learning
 ====================================
 
 ## **Clase práctica.**
@@ -53,6 +53,6 @@ Elige alguno de los siguientes datasets y conforma tu propio sistema de sentimen
 [yoan]: https://orcid.org/0000-0002-4052-7427
 [abreu]: https://orcid.org/0000-0002-4637-4206
 
-[06.1-SA-AutoGOAL]: https://github.com/TeachingTextMining/TextClassification/tree/main/06-SA-AutoGOAL
-[06.2-SA-AutoGOAL]: https://github.com/TeachingTextMining/TextClassification/tree/main/06-SA-AutoGOAL
+[06.1-SA-AutoGOAL]: https://github.com/TeachingTextMining/TextClassification/blob/main/06-SA-AutoGOAL/06_TextClassification_with_AutoGOAL.ipynb
+[06.2-SA-AutoGOAL]: https://github.com/TeachingTextMining/TextClassification/blob/main/06-SA-AutoGOAL/06_TextClassification_with_AutoGOAL_End2End.ipynb
 [AutoGOAL]: https://autogoal.github.io/
