@@ -36,7 +36,7 @@ Este tercer bloque analiza diversas aplicaciones de las técnicas de procesamien
 [javi url]: https://cvnet.cpd.ua.es/curriculum-breve/es/fernandez-martinez-javier/321
 [yoan url]: https://cvnet.cpd.ua.es/curriculum-breve/es/gutierrez-vazquez-yoan/49618  
 
-[t1]: https://jaspock.github.io/mtextos/bloque3_t1_aplicaciones.html
+[t1]: https://jaspock.github.io/mtextos//bloque3_t1_aplicaciones.html
 [t2]: https://jaspock.github.io/mtextos/bloque3_t2_subaplicaciones-benchmarks.html
 [t2.1]: https://jaspock.github.io/mtextos/bloque3_t2.1_analisis_sentimientos.html
 [t3]: https://jaspock.github.io/mtextos/bloque3_t3.1_metricas.html
