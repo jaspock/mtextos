@@ -4,11 +4,12 @@ T5. Auto Machine Learning(AutoML)
 
 Contenidos:
 
-- AutoML vs estandar ML
-- Objetivos de automatización
-- Métodos de AutoML
-- Sistemas de AutoML
-- Competiciones y Benchmarks de AutoML
+- [Introducción](#introduccion)
+- [AutoML vs estandar ML](#automl-vs-estandar-ml)
+- [Objetivos de automatización](#objetivos-de-automatizacion)
+- [Métodos de AutoML](#metodos-de-automl)
+- [Sistemas de AutoML](#sistemas-de-automl)
+- [Competiciones y Benchmarks de AutoML](#competiciones-y-benchmarks-de-automl)
 
 ## Introducción
 
@@ -123,9 +124,9 @@ Os recomendamos la lectura del capítulo Neural Architecture Search [1], donde s
 
 ## Sistemas de AutoML
 
-### Auto-Weka [12]
+### Auto-Weka
 
-**Auto-Weka** ha sido uno de los **primeros sistemas AutoML** identificados en la literatura. **Se basa** en el conocido kit de herramientas de aprendizaje automático **WEKA** y busca en diferentes métodos de **clasificación** y **regresión**, su configuración de **hiperparámetros** y métodos de **preprocesamiento de datos**.
+**Auto-Weka [12]** ha sido uno de los **primeros sistemas AutoML** identificados en la literatura. **Se basa** en el conocido kit de herramientas de aprendizaje automático **WEKA** y busca en diferentes métodos de **clasificación** y **regresión**, su configuración de **hiperparámetros** y métodos de **preprocesamiento de datos**.
 
 Todo esto está disponible a través de la **interfaz gráfica** con solo hacer clic en un botón, sin la necesidad de una sola línea de código.
 
@@ -140,9 +141,9 @@ Todo esto está disponible a través de la **interfaz gráfica** con solo hacer 
 
 Figura 1. Técnicas de aprendizaje y métodos soportados por Auto-Weka jiunto con el numero de hyper-parametros. Todos portan clasificación y los señalados con ``*`` soportan regresión. Tomado de [1].
 
-### Hyperopt-Sklearn [13]
+### Hyperopt-Sklearn 
 
-Definición del espacio de búsqueda que abarca:
+Hyperopt-Sklearn [13] abarca la **definición del espacio de búsqueda** con:
 
 - 24 clasificadores
 - 12 regresores
@@ -158,9 +159,9 @@ En total considera 65 hyperparametros: 15 boleanos, 14 categoricos, 17 discretos
 
 Figura 2. Ejemplo de un espacio de búsqueda de hyperopt-sklearn teniendo en cuenta un paso de preprocesamiento y un segundo de clasificación.Tomado de [1].
 
-### Auto-sklearn [14]
+### Auto-sklearn 
 
-Es un sistema AutoML basado en el paquete de aprendizaje automático de Python scikit-learn.
+Auto-sklearn [14] es un **sistema AutoML** **basado** en el paquete de aprendizaje automático de **Python scikit-learn**.
 
 Incluye:
 
@@ -198,9 +199,9 @@ El siguiente ejemplo muestra la simplicidad de invocar procediminetos con Autosk
 
 Vér más en <https://automl.github.io/auto-sklearn/master/#example>
 
-### Auto-Net: Towards Automatically-Tuned Neural Networks [11]
+### Auto-Net: Towards Automatically-Tuned Neural Networks 
 
-**AutoNet1.0**. Una **extension de AutoSKlearn** añadiendo algunos componentes de clasificación y regresión.
+**AutoNet1.0 [11]**. Una **extension de AutoSKlearn** añadiendo algunos componentes de clasificación y regresión.
 Permite aprovechar las partes existentes de la canalización del aprendizaje automático:
 
 - preprocesamiento de funciones,
@@ -233,7 +234,7 @@ Figura 5. Configuración del espacio de búsqueda con AutoNet 1.0.
 
 Figura 6. Configuración del espacio de búsqueda con AutoNet 2.0
 
-### TPOT: A Tool for Automating Machine Learning [9]
+### TPOT: A Tool for Automating Machine Learning 
 
 [TPOT](https://automl.info/tpot/) es un **contenedor para** el paquete de aprendizaje automático de Python, **scikitlearn**. Cada operador de flujo de aprendizaje automático (es decir, GP primitivo) en TPOT corresponde a un algoritmo de aprendizaje automático, como un modelo de clasificación supervisado o un escalador de características estándar. Todas las implementaciones de los algoritmos de aprendizaje automático son de scikit-learn [excepto GBoost] [9] [10].
 

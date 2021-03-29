@@ -214,10 +214,10 @@ El sistema debe ser **capaz de**:
 1. **Detectar** frases claves
 2. **Clasificar** las frases claves
 3. **Establecer relaciones** semánticas **entre** las **entidades** siguiendo un modelo conceptual previamente proporcionado que especifica cada tipo de entidad y relación posible. 
-Se nos **proporcionan documentos** de texto con contenido similares a la entrada del ejemplo siguiente.
+Se nos **proporcionan documentos** de texto con contenido similares a la entrada del ejemplo siguiente:
 
-**Ejemplo de entrada:**``“El asma es una enfermedad que afecta las vías respiratorias”``
-**Ejemplo de salida:** 
+- **Ejemplo de entrada:**``“El asma es una enfermedad que afecta las vías respiratorias”``
+- **Ejemplo de salida:** 
 ```
 |Texto| Concepto| inicio| fin| palabra|
 |T1| Concept| 3| 7|asma

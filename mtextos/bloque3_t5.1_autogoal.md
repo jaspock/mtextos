@@ -2,7 +2,13 @@
 T5.1. AutoGOAL
 ====================================
 
-## Problemas en los enfoques de AutoML clásicos
+Contenidos:
+
+- [Introducción](#introduccion)
+- [¿Qué tipo de AutoML es AutoGOAL?](#que-tipo-de-automl-es-autogoal)
+- [Temas que podemos tratar con AutoGOAL](#temas-que-podemos-tratar-con-autogoal)
+
+## Introducción
 
 Las **propuestas de Auto-ML actuales** requieren de una **previa definición de los algoritmos** que serán considerados durante el **proceso de búsqueda**. **Sistemas** con un **diseño extensible** logran **separar** la **lógica** y el conjunto de **técnicas**, haciendo al segundo fácilmente modificable. Sin embargo, **no muchos logran cumplir este objetivo**, requiriendo cambios computacionales pertinentes a la hora de añadir enfoques de machine learning a ser considerados.
 
@@ -125,12 +131,12 @@ Podemos considerando **más parámetros**:
 >>>    registry=None,
 >>>    search_algorithm=PESearch,  
 >>>    search_iterations=args.iterations,
->>>    search_kwargs=dict(
->>>        pop_size=args.popsize,
->>>        search_timeout=args.global_timeout,
->>>        evaluation_timeout=args.timeout,
->>>        memory_limit=args.memory * 1024 ** 3,
->>>    ),
+>>>    
+>>>    pop_size=args.popsize,
+>>>    search_timeout=args.global_timeout,
+>>>    evaluation_timeout=args.timeout,
+>>>    memory_limit=args.memory * 1024 ** 3,
+>>>    
 >>>    include_filter=".*",
 >>>    exclude_filter=None,
 >>>    validation_split=0.3,
@@ -329,7 +335,7 @@ Un **algoritmo** en AutoGOAL es una **clase** que se **define con un tipo de ent
 >>>    def __init__(self, sentences_count:Discrete(5,20)):  # anotación de hiperpárametros
 >>>        self.sentences_count=sentences_count
 >>>
->>>    def run(self, input: Word(domain='general', language='english'))-> Summary():
+>>>    def run(self, input: Word) -> Summary:
 >>>        
 >>>        try:
 >>>            return wikipedia.summary(input, sentences=self.sentences_count)
@@ -379,7 +385,7 @@ class LR(sklearn.linear_model.LogisticRegression):
     def __init__(self, penalty:Categorical("l1", "l2"), C:Continuous (0.1, 10)):
         super().__init__(penalty = penalty, C=C)
 
-    def run(self, input:Tuple(MatrixContinuous,VectorCategorical)) -> VectorCategorical
+    def run(self, input: MatrixContinuous, VectorCategorical) -> VectorCategorical
         if self.training:
             X, y = input
             self.fit(X, y)
@@ -424,7 +430,7 @@ En la siguiente imagen podemos ver cómo podemos **muestrear** estos **espacios 
 ````
 >>> registry.extend(find_classes()) # explicitly build the graph of pipelines
 >>> space = build_pipelines(
->>>    input=Seq[Sentence], Supervised[VectorCategorical], # límite del espacio
+>>>    input=(Seq[Sentence], Supervised[VectorCategorical]), # límite del espacio
 >>>    output=VectorCategorical, # límite del espacio
 >>>    registry=registry # listado de algoritmos a considerar en el espacio de búsqueda
 >>>    )

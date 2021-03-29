@@ -4,9 +4,9 @@ T4. Huggingface. Centralización de datasets y modelos
 
 Contenidos:
 
-- Introducción
-- Repositorio de Datasets
-- Repositorio de Modelos pre-entrenados
+- [Introducción](#introduccion)
+- [Repositorio de Datasets](#repositorio-de-datasets)
+- [Repositorio de Modelos pre-entrenados](#repositorio-de-modelos-pre-entrenados)
 
 ## Introducción
 
@@ -171,8 +171,8 @@ En la propia documentación se aporta el **código de ejemplo** para hacer uso d
 
 ````
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
-tokenizer = AutoTokenizer.**from_pretrained**("nlptown/bert-base-multilingual-uncased-sentiment")
-model = AutoModelForSequenceClassification.**from_pretrained**("nlptown/bert-base-multilingual-uncased-sentiment")
+tokenizer = AutoTokenizer.from_pretrained("nlptown/bert-base-multilingual-uncased-sentiment")  # cargando el toquenizador basado en el modelo preentrenado
+model = AutoModelForSequenceClassification.from_pretrained("nlptown/bert-base-multilingual-uncased-sentiment") # cargando del modelo preentrenado
 ````
 
 ### Configuraciones de modelos trasnformers
@@ -183,11 +183,11 @@ Si tomamos como referencia la arquitectura de modelo Transformer [DistilBERT](ht
 >>> from transformers import DistilBertTokenizer, DistilBertModel
 >>> import torch
 
->>> tokenizer = DistilBertTokenizer.**from_pretrained**('distilbert-base-uncased')
->>> model = DistilBertModel.**from_pretrained**('distilbert-base-uncased')
+>>> tokenizer = DistilBertTokenizer.from_pretrained('distilbert-base-uncased') # cargando de toquenizador basado en el modelo preentrenado
+>>> model = DistilBertModel.from_pretrained('distilbert-base-uncased') # cargando el modelo preentrenado
 
 >>> inputs = tokenizer("Hello, my dog is cute", return_tensors="pt")
->>> outputs = model(**inputs)
+>>> outputs = model(inputs)
 
 >>> last_hidden_states = outputs.last_hidden_state
 
@@ -196,7 +196,7 @@ Si tomamos como referencia la arquitectura de modelo Transformer [DistilBERT](ht
 Es importante conocer que las **configuraciones** de modelos Transformer ya **cuentan** con **modelos base pre-entrenados**. En el caso de ``DistilBERT`` podemos encontrar ``distilbert-base-uncased``.
 
 
-Bibliografía
+## Bibliografía
 
 [1] <https://huggingface.co/>
 
