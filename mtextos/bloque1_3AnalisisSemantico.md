@@ -204,7 +204,7 @@ pasiva, los roles Arg0 y Arg1 serán los mismos:
     [Arg0 La policía militar] arrestó [Arg1 a tres personas]
     [Arg1 Tres personas] fueron arrestadas [Arg0 por la policía militar]
 
-Este modelo ha sido adaptado al español en el [corpus AnCora]((http://clic.ub.edu/corpus/es/ancora)) (Taulé et al. 2008), que también incluye anotación de textos en catalán (AnCora-Es y AnCora-Cat respectivamente).
+Este modelo ha sido adaptado al español en el [corpus AnCora](http://clic.ub.edu/corpus/es/ancora) (Taulé et al. 2008), que también incluye anotación de textos en catalán (AnCora-Es y AnCora-Cat respectivamente).
 
 De ambas propuestas de representación de roles semánticos, la más utilizada hoy día en PLN es la propuesta de PropBank.
 
