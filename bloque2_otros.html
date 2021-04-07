@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
 
-    <title>El raspado web &#8212; Minería de Textos</title>
+    <title>Otras técnicas para la minería de textos &#8212; Minería de Textos</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -56,6 +56,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Práctica. Lectura y documentación del código de un extractor de entidades" href="bloque2_practica.html" />
+    <link rel="prev" title="Modelos preentrenados" href="bloque2_pretrained.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -92,7 +94,7 @@
   </a>
  </li>
 </ul>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="bloque1.html">
    Introducción a la minería de textos
@@ -132,11 +134,11 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="bloque2.html">
    Técnicas para la minería de textos
   </a>
-  <ul class="collapse-ul">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="bloque2_historia.html">
      Revisión histórica
@@ -160,6 +162,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="bloque2_pretrained.html">
      Modelos preentrenados
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Otras técnicas para la minería de textos
     </a>
    </li>
    <li class="toctree-l2">
@@ -260,6 +267,36 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelos-multilingues">
+   Modelos multilingües
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizacion">
+   Visualización
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#avances-recientes">
+   Avances recientes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#el-raspado-web">
+   El raspado web
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -268,9 +305,33 @@
         
               <div>
                 
-  <section id="el-raspado-web">
-<h1>El raspado web<a class="headerlink" href="#el-raspado-web" title="Permalink to this headline">¶</a></h1>
+  <section id="otras-tecnicas-para-la-mineria-de-textos">
+<h1>Otras técnicas para la minería de textos<a class="headerlink" href="#otras-tecnicas-para-la-mineria-de-textos" title="Permalink to this headline">¶</a></h1>
+<section id="modelos-multilingues">
+<h2>Modelos multilingües<a class="headerlink" href="#modelos-multilingues" title="Permalink to this headline">¶</a></h2>
+<p>Para estudiar los modelos que explotan el entrenamiento y la transferencia multilingües seguiremos las diapositivas “<a class="reference external" href="http://demo.clab.cs.cmu.edu/11737fa20/slides/multiling-10-multilingual_training.pdf">Multilingual</a> training and cross-lingual transfer” preparadas por Xinyi Wang para el curso CMU <a class="reference external" href="http://demo.clab.cs.cmu.edu/11737fa20/">CS11-737</a>, “Multilingual Natural Language Processing”, de la Carnegie Mellon University.</p>
+</section>
+<section id="visualizacion">
+<h2>Visualización<a class="headerlink" href="#visualizacion" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>“Interfaces for <a class="reference external" href="https://jalammar.github.io/explaining-transformers/?s=03">explaining</a> transformer language models” de Jay Alammar.</p></li>
+<li><p>La herramienta <a class="reference external" href="https://pair-code.github.io/lit/demos/">LIT</a> (Language Interpretability Tool) permite estudiar en línea las <a class="reference external" href="https://pair-code.github.io/lit/demos/lm.html">predicciones de BERT</a> para las palabras enmascaradas.</p></li>
+</ul>
+</section>
+<section id="avances-recientes">
+<h2>Avances recientes<a class="headerlink" href="#avances-recientes" title="Permalink to this headline">¶</a></h2>
+<p>El investigador Sebastian Ruder suele escribir en su <a class="reference external" href="https://ruder.io/">página web</a> un resumen de los avances anuales más destacados en el área del procesamiento del lenguaje natural.</p>
+<ul class="simple">
+<li><p>“ML and NLP research highlights of <a class="reference external" href="https://ruder.io/research-highlights-2020/">2020</a>”</p></li>
+<li><p>“10 ML &amp; NLP research highlights of <a class="reference external" href="https://ruder.io/research-highlights-2019/">2019</a>”</p></li>
+<li><p>“10 exciting ideas of <a class="reference external" href="https://ruder.io/10-exciting-ideas-of-2018-in-nlp/">2018</a> in NLP”</p></li>
+<li><p>“Recent advances in language model <a class="reference external" href="https://ruder.io/recent-advances-lm-fine-tuning/">fine-tuning</a>”</p></li>
+</ul>
+</section>
+<section id="el-raspado-web">
+<h2>El raspado web<a class="headerlink" href="#el-raspado-web" title="Permalink to this headline">¶</a></h2>
 <p>Introducción al <a class="reference external" href="https://www.codementor.io/&#64;info658/introduction-to-web-scraping-with-python-1g1eb3pw9y">raspado web</a> con Python por Robin Andrews.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -298,6 +359,8 @@
         
         <div class='prev-next-bottom'>
             
+    <a class='left-prev' id="prev-link" href="bloque2_pretrained.html" title="previous page">Modelos preentrenados</a>
+    <a class='right-next' id="next-link" href="bloque2_practica.html" title="next page">Práctica. Lectura y documentación del código de un extractor de entidades</a>
 
         </div>
         

@@ -1,8 +1,6 @@
 Modelos preentrenados
 =====================
 
-
-
 ```{image} images/elmo.png
 :alt: ELMo
 :width: 120px
@@ -39,7 +37,7 @@ Para comenzar con el tema, vamos a seguir la guía ilustrada de Jay Alammar sobr
 :class: note
 Obtén los códigos BPE resultantes de aplicar 4 operaciones de unión al texto "para el bus en la parada abandonada". A continuación, aplica los códigos a la entrada "ensalada para la empanada".
 % p a  |  pa r  |  d a</w>  | a da</w>
-% e@@ n@@ s@@ a@@ l@@ ada par@@ a la e@@ m@@ pa@@ n@@ ada .
+% e@@ n@@ s@@ a@@ l@@ ada par@@ a la e@@ m@@ pa@@ n@@ ada
 ```
 
 ## Tipología de modelos preentrenados
