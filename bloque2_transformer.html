@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>La arquitectura transformer &#8212; Minería de Textos</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -166,11 +167,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="bloque2_scraping.html">
-     El raspado web
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="bloque2_practica.html">
      Práctica. Lectura y documentación del código de un extractor de entidades
     </a>
@@ -318,7 +314,7 @@
         
               <div>
                 
-  <div class="section" id="la-arquitectura-transformer">
+  <section id="la-arquitectura-transformer">
 <h1>La arquitectura transformer<a class="headerlink" href="#la-arquitectura-transformer" title="Permalink to this headline">¶</a></h1>
 <p>En 2017 las redes neuronales recurrentes basadas en unidades LSTM como las que hemos estudiado eran la arquitectura habitual para el procesamiento neuronal de secuencias, en general, y del lenguaje natural, en particular. Algunos investigadores comenzaban a obtener también buenos resultados en esta área con las redes neuronales convolucionales, tradicionalmente empleadas con imágenes. Por otro lado, los mecanismos de atención introducidos unos años antes en las redes recurrentes habían mejorado su capacidad para resolver ciertas tareas y abierto el abánico de posibilidades de estos modelos. Además, el modelo conocido como codificador-descodificador (<em>encoder-decoder</em> en inglés) se convertía en la piedra angular de los sistemas que transformaban una secuencia en otra (sistemas conocidos como <em>seq2seq</em> como, por ejemplo, los sistemas de traducción automática o de obtención de resúmenes). A mediados de 2017, sin embargo, aparece un artículo <a class="bibtex reference internal" href="#allyouneed" id="id1">[VSP+17]</a> que propone eliminar la recurrencia del modelo codificador-descodificador y sustituirla por lo que se denomina autoatención (<em>self-attention</em>); aunque el artículo se centra en la tarea de la traducción automática, en muy poco tiempo la aplicación de esta arquitectura, bautizada como <em>transformer</em>, en muchos otros campos se descubre altamente eficaz hasta el punto de relegar a las arquitecturas recurrentes a un segundo plano. El transformer sería, además, uno de los elementos fundamentales de los modelos preentrenados que estudiaremos más adelante y que comenzarían a aparecer en los meses o años siguientes.</p>
 <p>En este apartado comenzaremos estudiando la arquitectura codificador-decodificador y el mecanismo de atención inicial propuesto para ellas, para pasar después a estudiar el transformer y su mecanismo de autoatención.</p>
@@ -326,15 +322,15 @@
 <p class="admonition-title">Nota</p>
 <p>Aunque el énfasis en esta asignatura no está en la traducción automática, los desarrollos que vamos a comentar surgieron inicialmente en esta tarea, por lo que la discusión girará en torno a esta aplicación concreta. En posteriores apartados veremos cómo los modelos pueden adaptarse sin excesivas modificaciones a otras tareas más específicas de la minería de textos.</p>
 </div>
-<div class="section" id="arquitectura-codificador-descodificador-sobre-redes-recurrentes-y-mecanismo-de-atencion">
+<section id="arquitectura-codificador-descodificador-sobre-redes-recurrentes-y-mecanismo-de-atencion">
 <h2>Arquitectura codificador-descodificador sobre redes recurrentes y mecanismo de atención<a class="headerlink" href="#arquitectura-codificador-descodificador-sobre-redes-recurrentes-y-mecanismo-de-atencion" title="Permalink to this headline">¶</a></h2>
 <p>Para comenzar con el tema, vamos a seguir la guía ilustrada de Jay Alammar sobre los modelos <a class="reference external" href="https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/">seq2seq con atención</a>. Esta guía aborda inicialmente el estudio de la arquitectura codificador-descodificador sobre redes neuronales recurrentes y describe entonces en la última parte el mecanismo de atención.</p>
-</div>
-<div class="section" id="id2">
+</section>
+<section id="id2">
 <h2>La arquitectura transformer<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>Introducida la arquitectura <em>seq2seq</em>, usaremos en este bloque otra guía ilustrada de Jay Alammar para presentar este vez el <a class="reference external" href="http://jalammar.github.io/illustrated-transformer/">transformer</a>.</p>
 <p>Las representaciones aprendidas tras el entrenamiento por un transformer en cada una de sus capas para una nueva frase de entrada pueden considerarse (de la misma manera que con una red recurrente) como embeddings contextuales de los diferentes tokens de la entrada que pueden usarse a la hora de representarlos en otras tareas. En principio, cualquier capa puede ser adecuada para obtener estas representaciones, pero algunos trabajos han demostrado que ciertas capas son más adecuadas que otras para ciertas tareas. Las capas más cercanas a la entrada parecen representar información más relacionada con la morfología, mientras que las capas finales se relacionan más con la semántica.</p>
-<div class="section" id="las-diferentes-caras-de-la-atencion">
+<section id="las-diferentes-caras-de-la-atencion">
 <h3>Las diferentes caras de la atención<a class="headerlink" href="#las-diferentes-caras-de-la-atencion" title="Permalink to this headline">¶</a></h3>
 <p>En el siguiente análisis nos basaremos en la <a class="reference external" href="https://stats.stackexchange.com/a/424127/240809">discusión</a> de <em>dontloo</em> en Cross Validated. Hay tres conceptos clave en el mecanismo de atención para cuya explicación se puede hacer un símil con los conceptos homónimos en los sistemas de extracción de información:</p>
 <ul class="simple">
@@ -372,27 +368,27 @@ e_{ij} = f(\boldsymbol{s}_i) \cdot g(\boldsymbol{h}_j)^T
 \mathrm{Attention}(Q,K,V) = \mathrm{softmax} \left( \frac{QK^T}{\sqrt{d_k}} \right) V
 \]</div>
 <p>En realidad, las ecuaciones finales del transformer son ligeramente más complejas que esta al considerar los múltiples cabezales.</p>
-</div>
-</div>
-<div class="section" id="visualizacion-de-embeddings-contextuales">
+</section>
+</section>
+<section id="visualizacion-de-embeddings-contextuales">
 <h2>Visualización de embeddings contextuales<a class="headerlink" href="#visualizacion-de-embeddings-contextuales" title="Permalink to this headline">¶</a></h2>
 <p>Mediante la herramienta <a class="reference external" href="https://huggingface.co/exbert/?model=bart-large&amp;modelKind=bidirectional&amp;sentence=The%20moon%20is%20shinning%20brightly%20tonight.">exBERT</a> vamos a explorar visualmente las representaciones intermedias obtenidas en el codificador de un transformer.</p>
 <p>En la <a class="reference external" href="https://www.youtube.com/watch?v=e31oyfo_thY">herramienta</a> puedes seleccionar el modelo a utilizar (en estos momentos no hemos estudiado las diferencias entre ellas, por lo que con <em>BART</em> es suficiente), la frase de entrada, el grado de la atención, las capas y los cabezales a mostrar. La capa superior (la más alejada de la entrada) está a la izquierda. Para seleccionar o deseleccionar un cabezal puedes hacer clic en las columnas. Puedes seleccionar un token haciendo clic sobre él y ocultarlo con doble clic. Al colocarte sobre una palabra puedes ver la predicción que haría el modelo del token que corresponde al embedding obtenido por la red en esa posición, capa y cabezal; observa que si ocultas <em>moon</em> a la derecha, por ejemplo, a la izquierda el sistema tiende a predecir <em>sun</em> en esa posición.</p>
-</div>
-<div class="section" id="para-saber-mas">
+</section>
+<section id="para-saber-mas">
 <h2>Para saber más<a class="headerlink" href="#para-saber-mas" title="Permalink to this headline">¶</a></h2>
 <p>“<a class="reference external" href="https://nlp.seas.harvard.edu/2018/04/03/attention.html">The annotated transformer</a>” es un documento que va mostrando paso a paso el artículo científico original del transformer y su <em>traslación</em> a código en Python. Este material es opcional y de una complejidad superior a la requerida en la asignatura, pero es la mejor manera de entender la arquitectura a bajo nivel.</p>
-</div>
-<div class="section" id="referencias">
+</section>
+<section id="referencias">
 <h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">¶</a></h2>
-<p id="bibtex-bibliography-bloque2_transformer-0"><dl class="citation">
+<p id="bibtex-bibliography-bloque2_transformer-0"><dl class="bibtex citation">
 <dt class="bibtex label" id="allyouneed"><span class="brackets"><a class="fn-backref" href="#id1">VSP+17</a></span></dt>
 <dd><p>Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin. Attention is all you need. In I. Guyon, U. V. Luxburg, S. Bengio, H. Wallach, R. Fergus, S. Vishwanathan, and R. Garnett, editors, <em>Advances in Neural Information Processing Systems</em>, volume 30, 5998–6008. Curran Associates, Inc., 2017. URL: <a class="reference external" href="https://arxiv.org/abs/1706.03762">https://arxiv.org/abs/1706.03762</a>.</p>
 </dd>
 </dl>
 </p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

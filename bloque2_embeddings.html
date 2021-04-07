@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>Representaciones de palabras y oraciones &#8212; Minería de Textos</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -164,11 +165,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="bloque2_scraping.html">
-     El raspado web
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="bloque2_practica.html">
      Práctica. Lectura y documentación del código de un extractor de entidades
     </a>
@@ -304,10 +300,10 @@
         
               <div>
                 
-  <div class="section" id="representaciones-de-palabras-y-oraciones">
+  <section id="representaciones-de-palabras-y-oraciones">
 <h1>Representaciones de palabras y oraciones<a class="headerlink" href="#representaciones-de-palabras-y-oraciones" title="Permalink to this headline">¶</a></h1>
 <p>Un aspecto fundamental en el procesamiento del lenguaje natural es utilizar representaciones numéricas adecuadas de los textos en los diferentes niveles (subpalabras, palabras, frases,  párrafos, etc.). En este apartado nos centraremos especialmente en las palabras y en uno de los algoritmos más utilizados para obtener dichas representaciones conocidas como <em>word embeddings</em>.</p>
-<div class="section" id="introduccion-a-los-embeddings-de-palabras">
+<section id="introduccion-a-los-embeddings-de-palabras">
 <h2>Introducción a los embeddings de palabras<a class="headerlink" href="#introduccion-a-los-embeddings-de-palabras" title="Permalink to this headline">¶</a></h2>
 <p>Para comenzar con el tema vamos a seguir la <a class="reference external" href="https://jalammar.github.io/illustrated-word2vec/">guía ilustrada</a> sobre embeddings de palabras de Jay Alammar. Esta guía describe la familia de algoritmos conocidos como <em>word2vec</em>; este conjunto de algoritmos lo forman <em>contextual bag of words</em> (CBOW) y <em>skip-gram</em>. Aquí nos centraremos en el primero, pero las ideas en las que se basa el segundo son muy similares.</p>
 <div class="note admonition">
@@ -318,17 +314,19 @@
 <p>Más adelante, veremos arquitecturas aún más avanzadas (como BERT) que permiten obtener embeddings contextuales más profundos.</p>
 </div>
 <p>De los embeddings aprendidos con word2vec se pueden obtener ciertas analogías interesantes con simples operaciones aritméticas sobre los embeddings. Así, si consideramos el embedding más cercano al vector resultante de calcular embedding(“France”) - embedding(“Paris”) + embedding(“Rome”), este resulta ser el correspondiente a “Italy”. Otras analogías interesantes se pueden ver en la figura <a class="reference internal" href="#analogia-word2vec"><span class="std std-numref">Fig. 1</span></a>.</p>
-<div class="figure align-default" id="analogia-word2vec">
+<figure class="align-default" id="analogia-word2vec">
 <a class="reference internal image-reference" href="_images/mikolov-word2vec-analogies.png"><img alt="_images/mikolov-word2vec-analogies.png" src="_images/mikolov-word2vec-analogies.png" style="height: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Analogías mostradas en el trabajo de <a class="reference external" href="https://arxiv.org/pdf/1301.3781.pdf">Mikolov et al.</a> de 2013.</span><a class="headerlink" href="#analogia-word2vec" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="ecuaciones-del-modelo-cbow">
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Analogías mostradas en el trabajo de <a class="reference external" href="https://arxiv.org/pdf/1301.3781.pdf">Mikolov et al.</a> de 2013.</span><a class="headerlink" href="#analogia-word2vec" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="ecuaciones-del-modelo-cbow">
 <h2>Ecuaciones del modelo CBOW<a class="headerlink" href="#ecuaciones-del-modelo-cbow" title="Permalink to this headline">¶</a></h2>
 <p>Las ecuaciones que conforman el modelo CBOW están descritas en las secciones 4.1. y 4.2 de estas <a class="reference external" href="https://web.stanford.edu/class/cs224n/readings/cs224n-2019-notes01-wordvecs1.pdf">notas de clase</a> del curso <a class="reference external" href="https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1204/">CS224n</a> (Natural Language Processing with Deep
 Learning) de Stanford.</p>
-</div>
-<div class="section" id="visualizacion-de-embeddings">
+</section>
+<section id="visualizacion-de-embeddings">
 <h2>Visualización de embeddings<a class="headerlink" href="#visualizacion-de-embeddings" title="Permalink to this headline">¶</a></h2>
 <p>Mediante la herramienta <a class="reference external" href="https://projector.tensorflow.org/">Embedding Projector</a> vamos a explorar visualmente la distribución de las palabras en el espacio de embeddings.</p>
 <p>La herramienta tiene varios paneles:</p>
@@ -339,12 +337,12 @@ Learning) de Stanford.</p>
 <li><p>El panel de inspección en el que podemos introducir una palabra y ver la lista de sus vecinos más cercanos.</p></li>
 </ul>
 <p>Para visualizar sesgos en las distribuciones podemos ir al panel de proyección y en <em>Custom</em> elegir el embedding de una palabra para el lado izquierdo y otro para el derecho. En el panel de <em>bookmarks</em> (abajo a la derecha) puedes encontrar un ejemplo ya creado. La expresión regular para una palabra exacta es /^bad$/, por ejemplo.</p>
-</div>
-<div class="section" id="colecciones-de-embeddings-para-palabras-y-frases">
+</section>
+<section id="colecciones-de-embeddings-para-palabras-y-frases">
 <h2>Colecciones de embeddings para palabras y frases<a class="headerlink" href="#colecciones-de-embeddings-para-palabras-y-frases" title="Permalink to this headline">¶</a></h2>
 <p>Existen colecciones como <a class="reference external" href="https://fasttext.cc/">fastText</a>, que incluyen embeddings para dos millones de palabras en inglés (obtenidos procesando un corpus de 16.000 millones de palabras) o embeddings multilingües para más de cien idiomas. Aunque las representaciones a nivel de frase se pueden obtener mediante la integración de las representaciones individuales de las palabras, hay sistemas más avanzados como <a class="reference external" href="https://github.com/facebookresearch/LASER">LASER</a> que ofrecen un codificador neuronal capaz de emitir embeddings de frases en 93 idiomas (23 alfabetos diferentes).</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
