@@ -33,6 +33,12 @@ El investigador Sebastian Ruder suele escribir en su [página web][ruder] un res
 [2018]: https://ruder.io/10-exciting-ideas-of-2018-in-nlp/
 [fine]: https://ruder.io/recent-advances-lm-fine-tuning/
 
+## Ética
+
+Artículo "On the dangers of stochastic [parrots][parrots]: can language models be too big?" de Emily Bender et al.
+
+[parrots]: http://faculty.washington.edu/ebender/papers/Stochastic_Parrots.pdf
+
 ## El raspado web
 
 Introducción al [raspado web][raspado] con Python por Robin Andrews.
