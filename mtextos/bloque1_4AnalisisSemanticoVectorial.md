@@ -1,6 +1,5 @@
 ﻿
-
-(label_Semantica)=
+(label_Semantica_Vectorial)=
 Análisis semántico vectorial
 ============================
 
