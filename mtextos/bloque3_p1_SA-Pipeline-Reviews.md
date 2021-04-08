@@ -43,7 +43,7 @@ Basándose en el ejemplo anterior haga uso del siguiente dataset y diseñe su pr
 Elige alguno de los siguientes datasets y conforma tu propio sistema de sentiment analysis.
 
 - [SA Kaggle todos][kaggle]
-- [Produt review][product] (recomendado)
+- [Product review][product] (recomendado)
 - [SA huggingface][huggingface]
 
 

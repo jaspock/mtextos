@@ -19,8 +19,8 @@ Se orientarán ejercicios a resolver en los que el estudiante deberá ser capaz 
 
 AutoGOAL :
 
-- [06.1-SA-AutoGOAL]: AutoML a partir caracteríiticas
-- [06.2-SA-AutoGOAL]: AutoML a partir de problemas
+- [06.1-SA-AutoGOAL]: AutoML a partir caracteríticas
+- [06.2-SA-AutoGOAL]: (End2End)AutoML a partir de problemas
 
 ### Ejercicios
 

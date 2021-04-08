@@ -286,12 +286,22 @@ Figura 6. Arquitectura Autogoal[4] [5]
 Simplicidad para usar AutoGOAL:
 
 ````
->>> from autogoal.datasets import cars
->>> from autogoal.ml import AutoML
+!pip install autogoal[contrib]==0.4.4
 
->>> X, y = cars.load()
->>> automl = AutoML()
->>> automl.fit(X, y)
+from autogoal.datasets import cars
+from autogoal.ml import AutoML
+from sklearn.preprocessing import LabelEncoder
+
+encoder = LabelEncoder()
+X, y,*_ = cars.load()
+
+y = encoder.fit_transform(y)
+automl = AutoML()
+automl.fit(X, y)
+
+# Reporte del mejor pipeline
+print(automl.best_pipeline_)
+print('score: ' + str(automl.best_score_))
 ````
 
 ## Competiciones y Benchmarks de AutoML

@@ -24,15 +24,29 @@ El **Auto-ML heterogéneo** es una nueva variante del Auto-ML general que **cons
 
 **Permite** a los investigadores y profesionales **desarrollar rápidamente algoritmos de referencia optimizados** en diversos problemas de aprendizaje automático.
 
+Instalación de la librería AutoGOAL, versión 0.4.4
+````
+!pip install autogoal[contrib]==0.4.4
+````
+
+Uso de AutoGOAL desde la clase AutoML:
+
 ````
 >>> from autogoal.datasets import cars
 >>> from autogoal.ml import AutoML
+>>> from sklearn.preprocessing import LabelEncoder
 
->>> X, y = cars.load()
+>>> encoder = LabelEncoder()
+>>> X, y,*_ = cars.load()
+
+>>> y = encoder.fit_transform(y)
 >>> automl = AutoML()
 >>> automl.fit(X, y)
-````
 
+# Report the best pipeline
+>>> print(automl.best_pipeline_)
+>>> print('score: ' + str(automl.best_score_))
+````
 Figura 1. Ejemplo simple de uso de AutoGOAL
 
 Para **ver demostrador** hacer click en el [**enlace.**](https://autogoal.github.io/)
@@ -80,11 +94,11 @@ Figura 4. Gramática probabilística
 
 #### Funciones
 
-- [**Optimización de caja negra:**](https://autogoal.github.io/guide/blackbox/) un optimizador de caja negra que se puede aplicar a cualquier función.
-- [**Pipelines predefinidos:**](https://autogoal.github.io/guide/predefined/) pre-empaquetados con pipelines **basados en marcos de aprendizaje automático populares**, que puede usar en **pocas líneas de código** para crear canales de aprendizaje automático altamente optimizados para una amplia gama de problemas.
-- [**Flujos basados en clases:**](https://autogoal.github.io/guide/cfg/) la API basada en clases le permite convertir cualquier jerarquía de clases en un **espacio optimizable**. Usted **define clases** y **anota los parámetros del constructor** con atributos, y **AutoGOAL construye** automáticamente una **gramática** que genera todas las instancias posibles de su jerarquía.
-- [**Canalizaciones basadas en grafos:**](https://autogoal.github.io/guide/graphs) la API basada en grafos le **permite explorar espacios** definidos como grafos. La gramática de un grafo se define como un **conjunto de reglas** de reescritura de grafos, que **toman nodos existentes** y los **reemplazan por patrones más complejos**. AutoGOAL luego **se transforma** en un **objeto evaluable**, por ejemplo, una red neuronal.
-- [**Pipelines funcionales:**](https://autogoal.github.io/guide/functional/) la API funcional le permite **gemerar código de Python** que resuelva alguna tarea en un pipeline optimizable. Escribe un método regular e introduce los parámetros de AutoGOAL en el flujo de código, que luego se **optimizarán automáticamente** para producir la salida óptima.
+- [**Optimización de caja negra:**](https://autogoal.github.io/guide/) un optimizador de caja negra que se puede aplicar a cualquier función.
+- [**Pipelines predefinidos:**](https://autogoal.github.io/guide/) pre-empaquetados con pipelines **basados en marcos de aprendizaje automático populares**, que puede usar en **pocas líneas de código** para crear canales de aprendizaje automático altamente optimizados para una amplia gama de problemas.
+- [**Flujos basados en clases:**](https://autogoal.github.io/guide/) la API basada en clases le permite convertir cualquier jerarquía de clases en un **espacio optimizable**. Usted **define clases** y **anota los parámetros del constructor** con atributos, y **AutoGOAL construye** automáticamente una **gramática** que genera todas las instancias posibles de su jerarquía.
+- [**Canalizaciones basadas en grafos:**](https://autogoal.github.io/guide/) la API basada en grafos le **permite explorar espacios** definidos como grafos. La gramática de un grafo se define como un **conjunto de reglas** de reescritura de grafos, que **toman nodos existentes** y los **reemplazan por patrones más complejos**. AutoGOAL luego **se transforma** en un **objeto evaluable**, por ejemplo, una red neuronal.
+- [**Pipelines funcionales:**](https://autogoal.github.io/guide/) la API funcional le permite **gemerar código de Python** que resuelva alguna tarea en un pipeline optimizable. Escribe un método regular e introduce los parámetros de AutoGOAL en el flujo de código, que luego se **optimizarán automáticamente** para producir la salida óptima.
 
 ## Temas que podemos tratar con AutoGOAL
 
@@ -106,14 +120,19 @@ Véase el siguiente ejemplo:
  ````
 >>> from autogoal.ml import AutoML
 >>> from autogoal. datasets import haha
->>> from autogoal.kb import List , Sentence , VectorCategorical
+>>> from autogoal.kb import Seq , Sentence , VectorCategorical, Supervised
+>>> from sklearn.metrics import balanced_accuracy_score
 >>> automl = AutoML(
->>>      input = (Seq[Sentence], Supervised[VectorCategorical]), # tipos de entrada: seleccionar el tipo de dato semántico
->>>      output = VectorCategorical, # tipo de salida: seleccionar el tipo de dato semántico
+>>>      input=(Seq[Sentence], Supervised[VectorCategorical]), # tipos de entrada: seleccionar el tipo de dato semántico
+>>>      output=VectorCategorical, # tipo de salida: seleccionar el tipo de dato semántico
 >>>      score_metric=balanced_accuracy_score # métrica a optimizar (Función objetivo): Seleccionar la métrica objetivo
 >>>      )
->>> X, y = haha.load () # cargar datos del dominio especifico
+>>> X, y,*_ = haha.load()
 >>> automl.fit(X, y) # ejecutar optimizacion
+
+# Report the best pipeline
+>>> print(automl.best_pipeline_)
+>>> print(automl.best_score_)
 ````
 Figura 5. Ejemplo de código fuente para ejecutar AutoGOAL en un conjunto de datos específico, en este caso, un problema de PLN.
 
@@ -123,6 +142,26 @@ Podemos considerando **más parámetros**:
 ````
 >>> from autogoal.kb import *
 >>> from autogoal.ml import AutoML
+>>> from autogoal.datasets import haha
+>>> from autogoal.search import PESearch
+>>> from sklearn.metrics import balanced_accuracy_score
+
+>>> import argparse
+
+>>> parser = argparse.ArgumentParser()
+>>> parser.add_argument('-f')
+>>> parser.add_argument("--iterations", type=int, default=100)
+>>> parser.add_argument("--timeout", type=int, default=1800)
+>>> parser.add_argument("--memory", type=int, default=20)
+>>> parser.add_argument("--popsize", type=int, default=50)
+>>> parser.add_argument("--selection", type=int, default=10)
+>>> parser.add_argument("--global-timeout", type=int, default=None)
+>>> parser.add_argument("--examples", type=int, default=None)
+>>> parser.add_argument("--token", default=None)
+>>> parser.add_argument("--channel", default=None)
+
+>>> args = parser.parse_args()
+>>> print('Done')
 
 >>> classifier = AutoML(
 >>>    input = (Seq[Sentence], Supervised[VectorCategorical]), 
@@ -147,6 +186,10 @@ Podemos considerando **más parámetros**:
 >>>    errors="warn",
 >>>    )
 >>> automl.fit(X, y)
+
+# Report the best pipeline
+>>> print(automl.best_pipeline_)
+>>> print(automl.best_score_)
 ````
 
 Figura 6. Ejemplo de código fuente con más parámetros.
@@ -155,7 +198,7 @@ Figura 6. Ejemplo de código fuente con más parámetros.
 
 Los **tipos de datos semánticos** permiten identificar la **compatibilidad** entre la **entrada** y **salida** de los **distintos algoritmos** pertenecientes a los Pipelines. De este modo es posible, a **través** de los **algoritmos transformar** un **dato en otro** y conseguir que el flujo del Pipeline no se interrumpa.
 Se aplican además **jerarquías de conceptos** los cuales **proporcionan interfaces comunes** para los distintos **tipos de datos**.
-En el siguiente enlace podemos encontrar las especificaciones : <https://autogoal.github.io/api/autogoal.kb/#classes>
+<!-- En el siguiente enlace podemos encontrar las especificaciones : <https://autogoal.github.io/api/autogoal.kb/#classes> -->
 
 ```{image} /images/bloque3/t5/t5_autogoal_datatypes.jpg
 :alt: comic xkcd 2421
@@ -168,14 +211,15 @@ Figura 7. Datos semánticos
 
 Problema de ejemplo clásicos con distintos tipos de datos (texto, imágenes, clasificación básica)
 
-- Ejemplo [UCI](https://autogoal.github.io/examples/solving_uci_datasets/)
-- Ejemplo [HAHA](https://autogoal.github.io/examples/solving_haha_2019/)
-- Ejemplo [MEDDOCAN](https://autogoal.github.io/examples/solving_meddocan_2019/)
+- Ejemplo [UCI](https://autogoal.github.io/examples/tests.examples.solving_uci_datasets)
+- Ejemplo [HAHA](https://autogoal.github.io/examples/tests.examples.solving_haha_2019)
+- Ejemplo [MEDDOCAN](https://autogoal.github.io/examples/tests.examples.solving_meddocan_2019)
 
 #### Definición de pipeline según AutoGOAL
 
 ##### ¿Cómo saber cuando dos algoritmos son conectables?
-Se considera que dos algoritmos son conectables cuando el **tipo** de la **salida del primero** y la **entrada del segundo** son el **mismo** **o** el **primero es subtipo del segundo**. [Ver tabla de algoritmos](https://autogoal.github.io/guide/algorithms/) 
+Se considera que dos algoritmos son conectables cuando el **tipo** de la **salida del primero** y la **entrada del segundo** son el **mismo** **o** el **primero es subtipo del segundo**. 
+<!-- [Ver tabla de algoritmos](https://autogoal.github.io/guide/algorithms/)  -->
 
 Realmente es un **poco más amplio** dado que los **algortimos** pueden recibir **más de un tipo**, además **pueden** irse **acumulando varios tipos distintos** para un punto determinado en un Pipeline. En este caso se puede conectar al pipeline que estamos construyendo un algoritmo si este recibe un subconjunto de los tipos que ha acumulado el pipeline.
 
@@ -237,8 +281,11 @@ Figura 10. Ejemplo de gramática de una oración
 normalmente los **No Terminales** se representan con **mayúsculas** y los **Terminales** con **minúsculas**
 
 ````
+>>> from autogoal.grammar import  generate_cfg
+>>> from autogoal.grammar import DiscreteValue, ContinuousValue
+
 >>> class MyClass:
-         def __init__(self, x: Discrete(1,3), y: Continuous(0,1)):
+         def __init__(self, x: DiscreteValue(1,3), y: ContinuousValue(0,1)):
              pass
 
 >>> grammar = generate_cfg(MyClass)
@@ -249,10 +296,11 @@ normalmente los **No Terminales** se representan con **mayúsculas** y los **Ter
 <MyClass_y> := continuous (min=0, max=1)
 ````
 
-Figura 11. Ejemplo de gramática a partir de una clase. Tomado de [AutoGOAL](https://autogoal.github.io/api/autogoal.grammar.generate_cfg/).
+Figura 11. Ejemplo de gramática a partir de una clase. Tomado de [AutoGOAL](https://autogoal.github.io/api/autogoal.grammar.__init__/).
 
 
 ````
+...
 >>> class Pipeline(SkPipeline):
 >>>    def __init__(
 >>>        self,
@@ -299,12 +347,12 @@ Figura 12. Ejemplo de gramática a partir de un pipeline de clasificación
 
 Proporciona **estrategias de muestreo** sobre una **gramática** libre del contexto que **construye recursivamente una instancia** especı́fica basada en las anotaciones. Se implementan dos estrategias de optimización:
 
-- [búsqueda aleatoria](https://autogoal.github.io/api/autogoal.search.RandomSearch/) y
-- [evolución gramatical probabilı́stica](https://autogoal.github.io/api/autogoal.search.PESearch/)
+- [búsqueda aleatoria](https://autogoal.github.io/api/autogoal.search._random/) y
+- [evolución gramatical probabilı́stica](https://autogoal.github.io/examples/tests.examples.comparing_search_strategies/)
 
 Esta última, **PESearch**, realiza un ciclo de **muestreo**/actualización que **selecciona las instancias** de **mejor rendimiento** de acuerdo con alguna **métrica predefinida** (p.e., precisión) y **actualiza** iterativamente el **modelo probabilístico** interno del algoritmo de muestreo. Ver ejemplo de las **figuras 3 y 4**.
 
-En el siguiente enlace encontraremos la documentación correspondiente: [Ver más...](https://autogoal.github.io/examples/comparing_search_strategies/)
+En el siguiente enlace encontraremos la documentación correspondiente: [Ver más...](https://autogoal.github.io/examples/tests.examples.comparing_search_strategies/)
 
 ##### Módulo de Flujos (Pipelines)
 
@@ -328,19 +376,21 @@ Proporciona una abstracción para que los **algoritmos se comuniquen entre sı�
 Un **algoritmo** en AutoGOAL es una **clase** que se **define con un tipo de entrada y salida**, y **contiene un método ````run````**. Veamos el siguiente ejemplo:
 
 ````
->>> @nice_repr
->>> class WikipediaSummary:  # Definición de la clase
->>>    """This class find a word in Wikipedia and return a summary in Spanish.
->>>    """
->>>    def __init__(self, sentences_count:Discrete(5,20)):  # anotación de hiperpárametros
->>>        self.sentences_count=sentences_count
->>>
->>>    def run(self, input: Word) -> Summary:
->>>        
->>>        try:
->>>            return wikipedia.summary(input, sentences=self.sentences_count)
->>>        except:
->>>            return ""
+from autogoal.kb import Document, Word, AlgorithmBase
+@nice_repr
+class WikipediaSummaryExample(AlgorithmBase):
+    """This class find a word in Wikipedia and return a summary in english.
+    """
+    def __init__(self):
+        pass
+
+    def run(self, input: Word)-> Document:
+        """This method use wikipedia.
+        """
+        try:
+            return wikipedia.summary(input)
+        except:
+            return ""
 ````
 
 Figura 13. Ejemplo de definición de un nuevo algoritmo para extraer el resumen
@@ -351,32 +401,42 @@ de un ariculo de Wikipedia.
 Utilizar la clase AutoML para integrar los nuevos algoritmos
 
 ````
->>> from autogoal.ml import AutoML
->>> from autogoal.contrib import find_Classes
->>> from autogoal.datasets import haha
->>> from autogoal.kb import List, Sentence, VectorCategorical
->>> automl = AutoML (
->>>    input = (Seq[Sentence], Supervised[VectorCategorical]), #entrada
->>>    output = VectorCategorical, #salida
->>>    score_metric=balanced_accuracy_score, # métrica a optimizar (Función objetivo)
->>>    registry=find_Clases().extend(WikipediaSummary) # añadimos a todas los algoritmos registrados. No es necesario añadir el nuevo si este se crea dentro del módulo ````contrib```` el nuevo algoritmo siempre y cuando este no.
->>>    )
->>> X, y = haha.load() # cargar datos del dominio especifico
->>> automl.fit(X, y) # ejecutar optimizacion
+from autogoal.ml import AutoML
+
+from sklearn.metrics import balanced_accuracy_score
+from autogoal.kb import Seq, Sentence, VectorCategorical, Discrete, Supervised
+from autogoal.contrib import find_classes
+from autogoal.datasets import haha
+
+clases = find_classes()
+clases.extend([WikipediaSummaryExample])
+
+automl = AutoML (
+   input= (Seq[Sentence], Supervised[VectorCategorical]), #entrada
+   output = VectorCategorical, #salida
+   score_metric=balanced_accuracy_score, #métrica a optimizar (Función objetivo)
+   registry=clases# añadimos a todas los algoritmos registrados. No es necesario añadir el nuevo si este se crea dentro del módulo ````contrib```` el nuevo algoritmo siempre y cuando este no.
+   )
+X, y, *_ = haha.load() #cargar datos del dominio especifico
+automl.fit(X, y) # ejecutar optimizacion
+
+# Report the best pipeline
+print(automl.best_pipeline_)
+print(automl.best_score_)
 ````
 Figura 14. Incorporación del nuevo algoritmo en el proceso de AutoML
 
 En cada implementación de un algoritmo (ahora una clase) se define un contructor con argumentos semánticamente anotados que describen los posibles rangos de valores de sus hiperparámetros.
-Los argumentos pueden ser valores:
+Los **argumentos** pueden ser valores:
 
-- discretos,
-- continuos,
-- categóricos,
-- booleanos,
-- instancias de alguna otra clase.
+- **discretos**,
+- **continuos**,
+- **categóricos**,
+- **booleanos**,
+- **instancias** de alguna otra clase.
 
-Cada argumento provee los rangos válidos para el hiperparámetro correspondiente.
-Por ejemplo, anotaciones discretas y continuas definen valores máximos y mı́nimos, mientras que las categóricas presentan una lista de posibles valores. En el caso de los hiperparámetros que son instancias de otros algoritmos, AutoGOAL es capaz de encontrar el conjunto de clases válidas por los que pueden ser reemplazados.
+Cada **argumento** provee los rangos válidos para el **hiperparámetro** correspondiente.
+Por ejemplo, anotaciones discretas y continuas definen valores máximos y mı́nimos, mientras que las categóricas presentan una lista de posibles valores. En el caso de los **hiperparámetros que son instancias de otros algoritmos**, AutoGOAL es capaz de **encontrar el conjunto de clases válidas** por los que pueden **ser reemplazados**.
 
 #### ¿Cómo integrar otras librerías?: Ejemplo Sklearn
 
@@ -398,7 +458,7 @@ Figura 15. Ejemplo de definición de **adaptador** para el **algoritmo LogisticR
 
 En el siguiente enlace encontraremos documentación de ejemplo donde se **integra la librería Sklearn** en **AutoGOAL**:
 
-- <https://autogoal.github.io/examples/sklearn_simple_grammar/>
+- <https://autogoal.github.io/api/autogoal.contrib.sklearn.__init__/>
 
 
 ### Tema 3. Uso de componentes
@@ -428,18 +488,54 @@ En resumen, **si requerimos** el uso de la **clase AutoML**, ver descripción en
 En la siguiente imagen podemos ver cómo podemos **muestrear** estos **espacios de búsqueda de Pipelines** desde el ``input`` hasta el ``output`` pasando por todos aquellos **algortimos registrados** en ``registry``.
 
 ````
->>> registry.extend(find_classes()) # explicitly build the graph of pipelines
->>> space = build_pipelines(
->>>    input=(Seq[Sentence], Supervised[VectorCategorical]), # límite del espacio
->>>    output=VectorCategorical, # límite del espacio
->>>    registry=registry # listado de algoritmos a considerar en el espacio de búsqueda
->>>    )
 ...
->>> pipe = space.sample() # muestreo de resultados
->>> print(pipe)
+from sklearn.pipeline import Pipeline as _Pipeline
+class Pipeline(_Pipeline): # creación de un Pipeline
+   def __init__(
+       self,
+       vectorizer: Union("Vectorizer", Count, TfIdf),
+       decomposer: Union("Decomposer", Noop, SVD),
+       classifier: Union("Classifier", LR, SVM, DT, NB),
+   ):
+       self.vectorizer = vectorizer
+       self.decomposer = decomposer
+       self.classifier = classifier
+ 
+       super().__init__(
+           [
+               ("vec", vectorizer),
+               ("dec", decomposer),
+               ("cls", classifier),
+           ]
+       )
+grammar =  generate_cfg(Pipeline) 
+print(grammar)
 
+## generar pipelines
+for _ in range(10):
+   print(grammar.sample())
+
+Pipeline(classifier=DT(criterion='entropy'), decomposer=SVD(n=171),
+         vectorizer=Count(ngram=1))
+Pipeline(classifier=NB(var_smoothing=0.040787398985797634), decomposer=Noop(),
+         vectorizer=TfIdf(ngram=1, use_idf=False))
+Pipeline(classifier=DT(criterion='entropy'), decomposer=Noop(),
+         vectorizer=TfIdf(ngram=2, use_idf=True))
+Pipeline(classifier=NB(var_smoothing=0.04191083544753372), decomposer=SVD(n=85),
+         vectorizer=Count(ngram=3))
+Pipeline(classifier=LR(C=4.0925502319539, penalty='l1'), decomposer=SVD(n=195),
+         vectorizer=TfIdf(ngram=1, use_idf=False))
+Pipeline(classifier=LR(C=8.152718968487418, penalty='l1'), decomposer=Noop(),
+         vectorizer=Count(ngram=3))
+Pipeline(classifier=LR(C=6.571248367039737, penalty='l1'), decomposer=SVD(n=67),
+         vectorizer=TfIdf(ngram=3, use_idf=False))
+Pipeline(classifier=DT(criterion='entropy'), decomposer=SVD(n=112),
+         vectorizer=TfIdf(ngram=2, use_idf=True))
+Pipeline(classifier=LR(C=4.475181588819262, penalty='l1'),
+         decomposer=SVD(n=176), vectorizer=Count(ngram=1))
+Pipeline(classifier=SVM(C=3.555271538951682, kernel='rbf'),
+         decomposer=SVD(n=148), vectorizer=Count(ngram=2))
 ````
-
 Figura 16. Definición de espacio de búsqueda al generar muestreos de Pipelines.
 
 ##### Función de evaluación
@@ -454,13 +550,13 @@ Una vez que se tiene el **Espacio de Búsqueda** y la **Función Objetivo** se *
 
 ##### Instanciación de SearchAlgorithm
 
-Luego se **instancia** alguna **clase que herede** de la clase [**SearchAlgorithm**](https://autogoal.github.io/api/autogoal.search.SearchAlgorithm/) y se le **envía** a la **Gramática**, la **Función Objetivo** y **restricciones** de tiempo y memorias.
-La documentación al respecto la podéis encontrar en el siguiente enlace: <https://autogoal.github.io/examples/comparing_search_strategies/>
+Luego se **instancia** alguna **clase que herede** de la clase [**SearchAlgorithm**](https://autogoal.github.io/api/autogoal.search._base/) y se le **envía** a la **Gramática**, la **Función Objetivo** y **restricciones** de tiempo y memorias.
+La documentación al respecto la podéis encontrar en el siguiente enlace: <https://autogoal.github.io/examples/tests.examples.comparing_search_strategies/>
 
 ##### Ejecutar Funciones
 
 De esta forma se puede **utilizar** AutoGOAL para **resolver problemas** que **no sean propios de ML**. Una aplicación de esta forma uso es **seleccionar el mejor ensemble** dado un **conjunto de algoritmos**, donde el concepto de mejor se define en la función Objetivo.
-La documentación al respecto la podéis encontrar en el siguiente enlace: <https://autogoal.github.io/examples/comparing_search_strategies/>
+La documentación al respecto la podéis encontrar en el siguiente enlace: <https://autogoal.github.io/examples/tests.examples.comparing_search_strategies/>
 
 
 ### Ejemplo extendido de optimización con AutoGOAL *(SIN uso de la clase AutoML)*
@@ -469,6 +565,7 @@ En esta sección veremos **ejemplos** que **evolucionan**, desde **resolver** un
 
 👇👇👇👇👇👇👇👇👇👇👇👇👇👇
 ````
+
 from sklearn.datasets import make_classification
 from sklearn.model_selection import train_test_split
  
@@ -486,8 +583,16 @@ def evaluate(estimator, iters=30): # función de evaluación
    return sum(scores)/len(scores) 
 lr = LogisticRegression()  
 score = evaluate(lr) # prueba de evaluación de LR
-print(score)
+print(lr)
+print('Score: ' +str(score))
 
+##```bash
+#LogisticRegression(C=1.0, class_weight=None, dual=False, fit_intercept=True,
+#                   intercept_scaling=1, l1_ratio=None, max_iter=100,
+#                   multi_class='auto', n_jobs=None, penalty='l2',
+#                   random_state=None, solver='lbfgs', tol=0.0001, verbose=0,
+#                   warm_start=False)
+#Score: 0.8506666666666668
 ````
 Figura 17. Evaluación de un algoritmo.
 
@@ -577,9 +682,8 @@ for _ in range(5):
 Figura 19. Unión de clasificadores en una gramática
 
 ````
- 
-from autogoal.datasets import movie_reviews 
-from autogoal.grammar import DiscreteValue 
+from autogoal.grammar import DiscreteValue
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 
 class Count(CountVectorizer):
    def __init__(self, ngram: DiscreteValue(1, 3)):
@@ -692,7 +796,8 @@ Figura 20. Creación de un pipeline utilizando la composición gramatica
 
 
 ````
-
+from autogoal.datasets import movie_reviews
+from autogoal.search import RandomSearch
 fitness_fn = movie_reviews.make_fn(examples=100)
 
 random_search = RandomSearch(grammar, fitness_fn, random_state=0)
