@@ -634,8 +634,8 @@
 </ul>
 <section id="tema-1-autogoal-para-la-resolucion-de-problemas-de-alto-nivel-uso-de-la-clase-automl">
 <h3>Tema 1. AutoGOAL para la resolución de problemas de alto nivel <em>(uso de la clase AutoML)</em><a class="headerlink" href="#tema-1-autogoal-para-la-resolucion-de-problemas-de-alto-nivel-uso-de-la-clase-automl" title="Permalink to this headline">¶</a></h3>
-<p>¿Como definimos un problema con AutoGOAL?
-Es necesario definir:</p>
+<p>¿Como definimos un problema con AutoGOAL?</p>
+<p>Es necesario definir:</p>
 <ul class="simple">
 <li><p><strong>Entrada</strong>,</p></li>
 <li><p><strong>Salida</strong>, y</p></li>
@@ -742,6 +742,8 @@ Se aplican además <strong>jerarquías de conceptos</strong> los cuales <strong>
 <p>La siguiente imagen muestra una <strong>explicación de alto nivel</strong> del proceso de <strong>construcción del grafo de algoritmos</strong> y cómo se generan las muestras de algoritmos.</p>
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/t5_autogoal_process.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/t5_autogoal_process.jpg" style="width: 600px;" /></a>
 <p>Figura 8. Proceso de muestreo y optimización de Pipelines.</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/t5_grafoPipeline.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/t5_grafoPipeline.jpg" style="width: 600px;" /></a>
+<p>Figura 8.1. Grafo de muestreo y optimización de Pipelines.</p>
 </section>
 </section>
 <section id="tema-2-beneficios-de-la-arquitectura-de-autogoal">
@@ -896,7 +898,7 @@ de un ariculo de Wikipedia.</p>
 <span class="kn">from</span> <span class="nn">autogoal.datasets</span> <span class="kn">import</span> <span class="n">haha</span>
 
 <span class="n">clases</span> <span class="o">=</span> <span class="n">find_classes</span><span class="p">()</span>
-<span class="n">clases</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">WikipediaSummaryExample</span><span class="p">])</span>
+<span class="n">clases</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">WikipediaSummaryExample</span><span class="p">])</span> <span class="c1">#añadir algoritmo al registro de algoritmos</span>
 
 <span class="n">automl</span> <span class="o">=</span> <span class="n">AutoML</span> <span class="p">(</span>
    <span class="nb">input</span><span class="o">=</span> <span class="p">(</span><span class="n">Seq</span><span class="p">[</span><span class="n">Sentence</span><span class="p">],</span> <span class="n">Supervised</span><span class="p">[</span><span class="n">VectorCategorical</span><span class="p">]),</span> <span class="c1">#entrada</span>
@@ -965,12 +967,15 @@ Por ejemplo, anotaciones discretas y continuas definen valores máximos y mı́
 <h5>Definición de espacio de búsqueda<a class="headerlink" href="#definicion-de-espacio-de-busqueda" title="Permalink to this headline">¶</a></h5>
 <p>Para definir un espacio de búsqueda propio hay que <strong>definir clases con sus parámetros</strong> del <strong>constructor</strong> anotados, <strong>similar</strong> a lo que se hace en la <strong>sección anterior</strong>. Lo que <strong>NO es necesario</strong> es el método <strong><code class="docutils literal notranslate"><span class="pre">run</span></code></strong> porque al ser definido por el usuario <strong>NO necesita</strong> que cumplir con la <strong>interfaz</strong> de <em><strong>AutoML</strong></em>.</p>
 <p>En el ejemplo de la <strong>Figura 13</strong> se puede ver un <strong>ejemplo</strong> donde se <strong>define una clase</strong> y el <strong>espacio que la búsqueda</strong> de algortimos esta representa.</p>
-<p>En resumen, <strong>si requerimos</strong> el uso de la <strong>clase AutoML</strong>, ver descripción en <a class="reference external" href="#modulo-de-flujos-pipelines">esta Sección</a>,  para que se realice el <strong>muestreo y optimización</strong> de modo transparente necesitamos que las clases que representan <strong>algoritmos</strong> tengan <strong>implentado</strong> el método <code class="docutils literal notranslate"><span class="pre">run</span></code>. En el caso de que <strong>NO se desee</strong> utilizar la <strong>clase AutoML</strong>, ver descripción en <a class="reference external" href="#ejemplo-completo-de-optimizacion-que-internamente-se-realiza-en-autogoal">Figura 18</a>, para este fin, <strong>NO es necesario</strong> que estas clases tengan implementado en <strong>método <code class="docutils literal notranslate"><span class="pre">run</span></code></strong>.</p>
+<p>En resumen, <strong>si requerimos</strong> el uso de la <strong>clase AutoML</strong>, ver descripción en <a class="reference external" href="#modulo-de-flujos-pipelines">esta Sección</a>,  para que se realice el <strong>muestreo y optimización</strong> de modo transparente necesitamos que las clases que representan <strong>algoritmos</strong> tengan <strong>implentado</strong> el método <code class="docutils literal notranslate"><span class="pre">run</span></code>. En el caso de que <strong>NO se desee</strong> utilizar la <strong>clase AutoML</strong>, ver descripción en <a class="reference external" href="#ejemplo-extendido-de-optimizacion-con-autogoal-sin-uso-de-la-clase-automl">Figura 18</a>, para este fin, <strong>NO es necesario</strong> que estas clases tengan implementado en <strong>método <code class="docutils literal notranslate"><span class="pre">run</span></code></strong>.</p>
 <section id="espacio-de-busqueda-construyendo-pipelines">
 <h6>Espacio de búsqueda construyendo Pipelines<a class="headerlink" href="#espacio-de-busqueda-construyendo-pipelines" title="Permalink to this headline">¶</a></h6>
-<p>En la siguiente imagen podemos ver cómo podemos <strong>muestrear</strong> estos <strong>espacios de búsqueda de Pipelines</strong> desde el <code class="docutils literal notranslate"><span class="pre">input</span></code> hasta el <code class="docutils literal notranslate"><span class="pre">output</span></code> pasando por todos aquellos <strong>algortimos registrados</strong> en <code class="docutils literal notranslate"><span class="pre">registry</span></code>.</p>
+<p>En la siguiente imagen podemos ver cómo podemos <strong>muestrear</strong> estos <strong>espacios de búsqueda de Pipelines</strong> con <code class="docutils literal notranslate"><span class="pre">autogoal.grammar</span></code> desde un input <code class="docutils literal notranslate"><span class="pre">Vectorizer</span></code> hasta un output <code class="docutils literal notranslate"><span class="pre">Classifier</span></code> pasando por todos aquellos <strong>algortimos registrados</strong> en el pipeline.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">autogoal.grammar</span> <span class="kn">import</span> <span class="n">Union</span>
+<span class="kn">from</span> <span class="nn">autogoal.grammar</span> <span class="kn">import</span> <span class="n">generate_cfg</span>
 <span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span> <span class="k">as</span> <span class="n">_Pipeline</span>
+
 <span class="k">class</span> <span class="nc">Pipeline</span><span class="p">(</span><span class="n">_Pipeline</span><span class="p">):</span> <span class="c1"># creación de un Pipeline</span>
    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
        <span class="bp">self</span><span class="p">,</span>
@@ -990,11 +995,11 @@ Por ejemplo, anotaciones discretas y continuas definen valores máximos y mı́
            <span class="p">]</span>
        <span class="p">)</span>
 <span class="n">grammar</span> <span class="o">=</span>  <span class="n">generate_cfg</span><span class="p">(</span><span class="n">Pipeline</span><span class="p">)</span> 
-<span class="nb">print</span><span class="p">(</span><span class="n">grammar</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">grammar</span><span class="p">)</span> <span class="c1">#imprime la gramatica general del algoritmo</span>
 
 <span class="c1">## generar pipelines</span>
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-   <span class="nb">print</span><span class="p">(</span><span class="n">grammar</span><span class="o">.</span><span class="n">sample</span><span class="p">())</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">grammar</span><span class="o">.</span><span class="n">sample</span><span class="p">())</span> <span class="c1">#imprime cada posible pipeline generado en 10 iteraciones</span>
 
 <span class="n">Pipeline</span><span class="p">(</span><span class="n">classifier</span><span class="o">=</span><span class="n">DT</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;entropy&#39;</span><span class="p">),</span> <span class="n">decomposer</span><span class="o">=</span><span class="n">SVD</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">171</span><span class="p">),</span>
          <span class="n">vectorizer</span><span class="o">=</span><span class="n">Count</span><span class="p">(</span><span class="n">ngram</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
@@ -1024,11 +1029,12 @@ Por ejemplo, anotaciones discretas y continuas definen valores máximos y mı́
 <section id="funcion-de-evaluacion">
 <h5>Función de evaluación<a class="headerlink" href="#funcion-de-evaluacion" title="Permalink to this headline">¶</a></h5>
 <p>Otro <strong>requisito</strong> es contar con una <strong>función que evalúe cada Pipeline</strong>. Esta sería la <strong>función objetivo</strong> que se <strong>desea optimizar</strong>. Lo importante es esta función <strong>reciba un Pipeline</strong> y le <strong>asigna un número</strong> que sirve para <strong>comparar</strong> diferentes <strong>pipelines</strong>.</p>
-<p>¡!!Lo que hace <strong>AutoML</strong> es <strong>ejecutar</strong> el <strong>Pipeline</strong> en un <strong>dataset</strong> y <strong>medir error de predicción</strong>)!!! <a class="reference external" href="#tema-1-autogoal-para-la-resolucion-de-problemas-de-alto-nivel">Ver ejemplo</a></p>
+<p>¡!!Lo que hace <strong>AutoML</strong> es <strong>ejecutar</strong> el <strong>Pipeline</strong> en un <strong>dataset</strong> y <strong>medir error de predicción</strong>)!!! <a class="reference external" href="#tema-1-autogoal-para-la-resolucion-de-problemas-de-alto-nivel-uso-de-la-clase-automl">Ver ejemplo</a></p>
 </section>
 <section id="generar-gramatica">
 <h5>Generar gramática<a class="headerlink" href="#generar-gramatica" title="Permalink to this headline">¶</a></h5>
-<p>Una vez que se tiene el <strong>Espacio de Búsqueda</strong> y la <strong>Función Objetivo</strong> se <strong>genera la gramática</strong> utilizando el <code class="docutils literal notranslate"><span class="pre">método</span> <span class="pre">generate_cfg</span></code>, que está en <code class="docutils literal notranslate"><span class="pre">autogoal.grammar</span></code>. <a class="reference external" href="#una-gramatica-en-autogoal">Ver ejemplo</a></p>
+<p>Una vez que se tiene el <strong>Espacio de Búsqueda</strong> y la <strong>Función Objetivo</strong> se <strong>genera la gramática</strong> utilizando el <code class="docutils literal notranslate"><span class="pre">método</span> <span class="pre">generate_cfg</span></code>, que está en <code class="docutils literal notranslate"><span class="pre">autogoal.grammar</span></code>.</p>
+<!-- [Ver ejemplo](#una-gramatica-en-autogoal) -->
 </section>
 <section id="instanciacion-de-searchalgorithm">
 <h5>Instanciación de SearchAlgorithm<a class="headerlink" href="#instanciacion-de-searchalgorithm" title="Permalink to this headline">¶</a></h5>
