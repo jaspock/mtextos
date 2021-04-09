@@ -355,9 +355,9 @@ Son **muchas las aplicaciones del PLN**, en los siguientes apartados se abordar�
 Figura 8. Técnicas y aplicaciones por areas. Según [Wikipedia](https://en.wikipedia.org/wiki/Natural_language_processing)
 
 
-## BenchMarks y competiciones científicas
+## Benchmarks y competiciones científicas
 
-### Definiciones
+### Definiciones sobre Benchmark
 
 **Economía y finanzas:**
 El **benchmark** es un **punto de referencia** utilizado para **medir el rendimiento de una inversión**. Se trata de un **indicador financiero** utilizado como herramienta de **comparación** para **evaluar el rendimiento** de una inversión. [1](https://economipedia.com/definiciones/benchmark.html)
@@ -576,7 +576,7 @@ URL:  <https://trec.nist.gov/>
 - Terabyte Track
 - Web Track
 
-#### TAC. Text Analysis Conference
+### TAC. Text Analysis Conference
 
 URL: <https://tac.nist.gov/>
 
@@ -602,13 +602,13 @@ Figura 14. Tareas TAC
 
 Figura 15. Tareas CLEF
 
-#### IberLEF: Iberian Languages Evaluation Forum
+### IberLEF: Iberian Languages Evaluation Forum
 
 IberLEF es una **campaña de evaluación** comparativa de sistemas de **Procesamiento de Lenguaje Natural** en **español y otras lenguas ibéricas**.
 
 Su objetivo es alentar a la comunidad investigadora a **organizar tareas competitivas** de **procesamiento**, **comprensión** y **generación de textos** para definir nuevos desafíos de investigación y establecer nuevos resultados de vanguardia en esos idiomas.
 
-##### Ediciones
+#### Ediciones
 
 - TASS 2012-2020: <http://tass.sepln.org/>
 
