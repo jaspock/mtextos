@@ -19,7 +19,7 @@ Se orientarán ejercicios a resolver en los que el estudiante deberá ser capaz 
 
 AutoGOAL :
 
-- [06.1-SA-AutoGOAL]: AutoML a partir caracteríticas
+- [06.1-SA-AutoGOAL]: AutoML a partir características
 - [06.2-SA-AutoGOAL]: (End2End)AutoML a partir de problemas
 
 ### Ejercicios
@@ -42,7 +42,7 @@ Basándose en el ejemplo anterior haga uso del siguiente dataset y diseñe su pr
 
 Elige alguno de los siguientes datasets y conforma tu propio sistema de sentiment analysis.
 
-- [SA Kaggle todos][kagglke]
+- [SA Kaggle todos][kaggle]
 - [Product review][product] (recomendado)
 - [SA huggingface][huggingface]
 

@@ -629,7 +629,7 @@ Entre las **técnicas más actuales** utilizadas en este ámbito está el uso de
 :align: center
 ```
 
-Figura 15. Representación del modelo de codificador-decodificador. Tomado de <https://github.com/shangeth/Seq2Seq-Machine-Translation>
+Figura 15. Representación del modelo de codificador-decodificador (Inglés-Alemán). Tomado de <https://github.com/shangeth/Seq2Seq-Machine-Translation>
 
 #### Ejemplo (Español- Ingles)
 
