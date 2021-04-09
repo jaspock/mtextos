@@ -5,10 +5,10 @@ P5. Auto Machine Learning
 
 ### Auto Machine Learning- Descubrimiento automático de Pipelines: Caso de estudio de Análisis de Sentimientos
 
-**Autores:**
+<!-- **Autores:**
 
 - [Yoan Gutiérrez Vázquez][yoan]
-- [José Ignacio Abreu Salas][abreu]
+- [José Ignacio Abreu Salas][abreu] -->
 
 ### Descripción
 

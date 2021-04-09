@@ -349,7 +349,7 @@ Son **muchas las aplicaciones del PLN**, en los siguientes apartados se abordar√
 ```{image} /images/bloque3/t2/aplicacionesporareas.jpg
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
-:width: 600px
+:width: 800px
 :align: center
 ```
 Figura 8. T√©cnicas y aplicaciones por areas. Seg√∫n [Wikipedia](https://en.wikipedia.org/wiki/Natural_language_processing)
@@ -394,20 +394,20 @@ Desventajas:
 ```{image} /images/bloque3/t2/challenge.jpg
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
-:width: 600px
+:width: 800px
 :align: center
 ```
-Figura 8. Marco de trabajo de los concursos
+Figura 9. Marco de trabajo de los concursos
 
 **Infraestructura de concursos**
 
 ```{image} /images/bloque3/t2/challenge2.jpg
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
-:width: 300px
+:width: 200px
 :align: center
 ```
-Figura 9. Infraestructura de concursos
+Figura 10. Infraestructura de concursos
 
 **Repositorios**: [Github](http://github.com), [Gitlab](http://gitlab.com), Servidores online, etc.
 
@@ -438,7 +438,7 @@ Por qu√© **primero** SensEval (Sens de sentido o significado y Eval de evaluaci√
 :width: 600px
 :align: center
 ```
-Figura 10. Tareas Semeval
+Figura 11. Tareas Semeval
 
 ### CLEF
 
@@ -464,7 +464,7 @@ URL: <http://www.clef-initiative.eu/>
 :align: center
 ```
 
-Figura 11. Tareas CLEF
+Figura 12. Tareas CLEF
 
 ```{image} /images/bloque3/t2/clef2.jpg
 :alt: comic xkcd 2421
@@ -473,7 +473,7 @@ Figura 11. Tareas CLEF
 :align: center
 ```
 
-Figura 12. Durabilidad de tareas CLEF
+Figura 13. Durabilidad de tareas CLEF
 
 **Tareas**:
 
@@ -591,7 +591,7 @@ URL: <https://tac.nist.gov/>
 :align: center
 ```
 
-Figura 12. Tareas TAC
+Figura 14. Tareas TAC
 
 ```{image} /images/bloque3/t2/graphTAC.jpg
 :alt: comic xkcd 2421
@@ -600,7 +600,7 @@ Figura 12. Tareas TAC
 :align: center
 ```
 
-Figura 13. Tareas CLEF
+Figura 15. Tareas CLEF
 
 #### IberLEF: Iberian Languages Evaluation Forum
 

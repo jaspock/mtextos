@@ -5,10 +5,10 @@ P1.2. APIs Transformers
 
 ### Uso de APIs Transformers: Caso de estudio de Análisis de Sentimientos
 
-**Autores:**
+<!-- **Autores:**
 
 - [Yoan Gutiérrez Vázquez][yoan]
-- [José Ignacio Abreu Salas][abreu]
+- [José Ignacio Abreu Salas][abreu] -->
 
 ### Descripción
 

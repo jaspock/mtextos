@@ -575,7 +575,7 @@ Figura 13. Arquitectura genérica de un sistema de QA.
 
 - Papers With Code: <https://paperswithcode.com/task/question-answering>
 
-#### Machine Translation
+### Machine Translation
 
 #### Descripción
 
