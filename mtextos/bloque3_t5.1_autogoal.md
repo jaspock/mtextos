@@ -109,6 +109,7 @@ Figura 4. Gramática probabilística
 ### Tema 1. AutoGOAL para la resolución de problemas de alto nivel *(uso de la clase AutoML)*
 
 ¿Como definimos un problema con AutoGOAL?
+
 Es necesario definir:
 
 - **Entrada**,
@@ -235,6 +236,15 @@ La siguiente imagen muestra una **explicación de alto nivel** del proceso de **
 ```
 
 Figura 8. Proceso de muestreo y optimización de Pipelines.
+
+```{image} /images/bloque3/t5/t5_grafoPipeline.jpg
+:alt: comic xkcd 2421
+:class: bg-primary mb-1
+:width: 600px
+:align: center
+```
+
+Figura 8.1. Grafo de muestreo y optimización de Pipelines.
 
 
 ### Tema 2. Beneficios de la arquitectura de AutoGOAL
@@ -409,7 +419,7 @@ from autogoal.contrib import find_classes
 from autogoal.datasets import haha
 
 clases = find_classes()
-clases.extend([WikipediaSummaryExample])
+clases.extend([WikipediaSummaryExample]) #añadir algoritmo al registro de algoritmos
 
 automl = AutoML (
    input= (Seq[Sentence], Supervised[VectorCategorical]), #entrada
@@ -481,15 +491,18 @@ Para definir un espacio de búsqueda propio hay que **definir clases con sus par
 
 En el ejemplo de la **Figura 13** se puede ver un **ejemplo** donde se **define una clase** y el **espacio que la búsqueda** de algortimos esta representa.
 
-En resumen, **si requerimos** el uso de la **clase AutoML**, ver descripción en [esta Sección](#modulo-de-flujos-pipelines),  para que se realice el **muestreo y optimización** de modo transparente necesitamos que las clases que representan **algoritmos** tengan **implentado** el método ``run``. En el caso de que **NO se desee** utilizar la **clase AutoML**, ver descripción en [Figura 18](#ejemplo-completo-de-optimizacion-que-internamente-se-realiza-en-autogoal), para este fin, **NO es necesario** que estas clases tengan implementado en **método ``run``**.
+En resumen, **si requerimos** el uso de la **clase AutoML**, ver descripción en [esta Sección](#modulo-de-flujos-pipelines),  para que se realice el **muestreo y optimización** de modo transparente necesitamos que las clases que representan **algoritmos** tengan **implentado** el método ``run``. En el caso de que **NO se desee** utilizar la **clase AutoML**, ver descripción en [Figura 18](#ejemplo-extendido-de-optimizacion-con-autogoal-sin-uso-de-la-clase-automl), para este fin, **NO es necesario** que estas clases tengan implementado en **método ``run``**.
 
 ###### Espacio de búsqueda construyendo Pipelines
 
-En la siguiente imagen podemos ver cómo podemos **muestrear** estos **espacios de búsqueda de Pipelines** desde el ``input`` hasta el ``output`` pasando por todos aquellos **algortimos registrados** en ``registry``.
+En la siguiente imagen podemos ver cómo podemos **muestrear** estos **espacios de búsqueda de Pipelines** con ``autogoal.grammar`` desde un input ``Vectorizer`` hasta un output ``Classifier`` pasando por todos aquellos **algortimos registrados** en el pipeline.
 
 ````
 ...
+from autogoal.grammar import Union
+from autogoal.grammar import generate_cfg
 from sklearn.pipeline import Pipeline as _Pipeline
+
 class Pipeline(_Pipeline): # creación de un Pipeline
    def __init__(
        self,
@@ -509,11 +522,11 @@ class Pipeline(_Pipeline): # creación de un Pipeline
            ]
        )
 grammar =  generate_cfg(Pipeline) 
-print(grammar)
+print(grammar) #imprime la gramatica general del algoritmo
 
 ## generar pipelines
 for _ in range(10):
-   print(grammar.sample())
+   print(grammar.sample()) #imprime cada posible pipeline generado en 10 iteraciones
 
 Pipeline(classifier=DT(criterion='entropy'), decomposer=SVD(n=171),
          vectorizer=Count(ngram=1))
@@ -542,11 +555,12 @@ Figura 16. Definición de espacio de búsqueda al generar muestreos de Pipelines
 
 Otro **requisito** es contar con una **función que evalúe cada Pipeline**. Esta sería la **función objetivo** que se **desea optimizar**. Lo importante es esta función **reciba un Pipeline** y le **asigna un número** que sirve para **comparar** diferentes **pipelines**.
 
-¡!!Lo que hace **AutoML** es **ejecutar** el **Pipeline** en un **dataset** y **medir error de predicción**)!!! [Ver ejemplo](#tema-1-autogoal-para-la-resolucion-de-problemas-de-alto-nivel)
+¡!!Lo que hace **AutoML** es **ejecutar** el **Pipeline** en un **dataset** y **medir error de predicción**)!!! [Ver ejemplo](#tema-1-autogoal-para-la-resolucion-de-problemas-de-alto-nivel-uso-de-la-clase-automl)
 
 ##### Generar gramática
 
-Una vez que se tiene el **Espacio de Búsqueda** y la **Función Objetivo** se **genera la gramática** utilizando el ``método generate_cfg``, que está en ``autogoal.grammar``. [Ver ejemplo](#una-gramatica-en-autogoal)
+Una vez que se tiene el **Espacio de Búsqueda** y la **Función Objetivo** se **genera la gramática** utilizando el ``método generate_cfg``, que está en ``autogoal.grammar``. 
+<!-- [Ver ejemplo](#una-gramatica-en-autogoal) -->
 
 ##### Instanciación de SearchAlgorithm
 
