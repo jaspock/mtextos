@@ -120,4 +120,6 @@ La documentación de los ficheros no marcados como opcionales permite sacar un 8
 
 ## Entrega
 
-La fecha límite para entregar la práctica es el 10 de mayo de 2021 a las 23.59 horas. Entrega un fichero zip de nombre `mtextos-ner-20-21.zip` que contenga el código fuente y la carpeta `docs` generada por Pycco.
+La fecha límite para entregar la práctica es el 10 de mayo de 2021 a las 23.59 horas. Entrega a través del [servidor de prácticas][servidor] del Departamento un fichero zip de nombre `mtextos-ner-20-21.zip` que contenga directamente en la carpeta raíz el código fuente (incluida la carpeta `model`) con la estructura original que permita ejecutarlo, así como la carpeta `docs` generada por Pycco.
+
+[servidor]: https://pracdlsi.dlsi.ua.es/index.cgi
