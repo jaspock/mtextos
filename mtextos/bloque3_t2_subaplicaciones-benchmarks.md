@@ -657,7 +657,7 @@ Las tareas recogidas en el marco de GLUE actualmente ofrecen **rendimientos cerc
 
 #### [Huggingface 🤗](https://huggingface.co/) [conjunto de datos, código fuente]
 
-Hugging Face es una **empresa emergente líder en el PLN** con más de mil empresas que utilizan sus bibliotecas de código abierto (específicamente: la **biblioteca** **Transformers**) en producción. La biblioteca Transformer basada en Python expone las API para usar rápidamente arquitecturas NLP como: **BERT** (Google, 2018)
+Hugging Face es una **empresa emergente líder en el PLN** con más de mil empresas que utilizan sus bibliotecas de código abierto (específicamente: la **biblioteca** **Transformers**) en producción. La biblioteca Transformer basada en Python expone las API para usar rápidamente **arquitecturas NLP** como: **BERT** (Google, 2018)
 
 La librería Transformers **proporciona**:
 
