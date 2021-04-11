@@ -162,7 +162,7 @@ TOPIC_NO Q0 ID RANK SCORE RUN_NAME
 - **F1** (Medida F)
 - Exactitud
 
-#### ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta tarea?
+#### ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?
 
 !Mencione **tres problemas actuales** que se puedan solucionar!
 
@@ -235,7 +235,7 @@ La **primera columna** es un **identificador del elemento** por orden de aparici
 - F1 (Medida F)
 - Exactitud
 
-#### ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta tarea?
+#### ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?
 
 !Mencione **tres problemas actuales** que se puedan solucionar!
 
@@ -309,7 +309,7 @@ Esta trarea propone realizar **clasificación** de texto **en los datos**. Se ha
 - F1 (Medida F)
 - Exactitud
 
-#### ¿Qué otras subtareas pensáis que pueden formar parte de esta tarea?
+#### ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?
 
 !Mencione **tres problemas actuales** que se puedan solucionar! Pensad en algún caso de múltiples clasificaciones.
 
@@ -415,7 +415,7 @@ Figura 9. Arquitectura genérica de un sistema de GLN tomando como fuente datos 
 - ROUGE: ROUGE-1, ROUGE-2, ROUGE-3, ROUGE-4, ROUGE-L, ROUGE-SU4, ... [5]
 - BLEU[6]
 
-#### ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta tarea?
+#### ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?
 
 !Mencione **tres problemas actuales** que se puedan solucionar!
 
@@ -491,7 +491,7 @@ Figura 12. Ejemplo de resumen extractivo. Tomado de <https://medium.com/@ondenyi
 - ROUGE: ROUGE-1, ROUGE-2, ROUGE-3, ROUGE-4, ROUGE-L, ROUGE-SU4, ... [5]
 - BLEU[6]
 
-#### ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta tarea?
+#### ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?
 
 !Mencione **tres problemas actuales** que se puedan solucionar!
 
@@ -551,7 +551,7 @@ Figura 13. Arquitectura genérica de un sistema de QA.
 - EM (Exact Match): Coincidencia exacta con el valor esperado
 - Ver otros [8]
 
-#### ¿Qué otras subtareas pensáis que pueden formar parte de la clasificación textual?*
+#### ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?
 
 !Mencione **tres problemas actuales** que se puedan solucionar!
 
@@ -640,7 +640,7 @@ Figura 15. Representación del modelo de codificador-decodificador (Inglés-Alem
 
 - **BLEU**: La **calidad de las traducciones** se evalúa con la BLEU Metric (BiLingual Evaluation Understudy). La evaluación se basa en la idea de que **cuanto más se parece la traducción a una realizada** por lingüistas **profesionales**, mejor es. Se evalúa sobre 1, considerándose que la puntuación de un traductor humano está entre el 0.7 y el 0.85.
 
-#### ¿Qué otras subtareas pensáis que pueden formar parte de la clasificación textual?
+#### ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?
 
 !Mencione **tres problemas actuales** que se puedan solucionar!
 

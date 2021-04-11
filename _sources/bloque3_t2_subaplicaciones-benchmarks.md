@@ -622,7 +622,7 @@ Su objetivo es alentar a la comunidad investigadora a **organizar tareas competi
 
 ### Benchmarks e infraestructuras de evaluación
 
-#### CodaLab [cuadernos de trabajo, concursos]( https://codalab.org/)
+#### [CodaLab]( https://codalab.org/) [cuadernos de trabajo, concursos]
 
 CodaLab es una **plataforma de código abierto** que proporciona un **ecosistema** para realizar **investigación computacional** de una manera más eficiente, **reproducible y colaborativa**.
 
@@ -631,11 +631,11 @@ Hay dos **aspectos de CodaLab**:
 - **Hojas de trabajo**: permiten capturar **líneas de investigación** complejas de una manera **reproducible** y crear **"documentos ejecutables"**. Se puede utilizar **cualquier formato** de **datos** o **lenguaje** de programación.
 - **Concursos** (competiciones): Estos sirven para **reunir** a la **comunidad** científica para **abordar los problemas** informáticos y de datos más desafiantes de la actualidad. Puedes **ganar premios** y también crear tu propia competencia.
 
-#### Kaggle [concursos, conjunto de datos, códigos fuente]
+#### [Kaggle](https://www.kaggle.com/) [concursos, conjunto de datos, códigos fuente]
 
 Entidad **subsidiaria de Google LLC**, permite a los usuarios **encontrar y publicar conjuntos de datos, explorar y construir modelos** en un entorno de ciencia de datos basado en la web, trabajar **organizar concursos** para resolver desafíos de ciencia de datos.
 
-#### GLUE [tabla de rankings, conjunto de datos, códigos fuente]
+#### [GLUE](https://gluebenchmark.com) [tabla de rankings, conjunto de datos, códigos fuente]
 
 El **marco de referencia** de **evaluación** de comprensión del lenguaje general (GLUE) es una **colección de recursos** para **entrenar, evaluar y analizar sistemas de comprensión del lenguaje natural**. 
 
@@ -651,13 +651,13 @@ Las tareas recogidas en el marco de GLUE actualmente ofrecen **rendimientos cerc
 - Tareas: <https://gluebenchmark.com/tasks>
 - Tablas de resultados: <https://gluebenchmark.com/leaderboard>
 
-#### SuperGLUE [tabla de rankings, conjunto de datos, códigos fuente]
+#### [SuperGLUE](https://super.gluebenchmark.com/) [tabla de rankings, conjunto de datos, códigos fuente]
 
 **SuperGLUE**, un **nuevo Benckmark** con el **estilo de GLUE** con un **nuevo conjunto de tareas** de comprensión del idioma **más difíciles**, **recursos mejorados** y **una nueva tabla de clasificación pública**.
 
-#### Huggingface 🤗[conjunto de datos, código fuente]
+#### [Huggingface 🤗](https://huggingface.co/) [conjunto de datos, código fuente]
 
-Hugging Face es una **empresa emergente líder en el PLN** con más de mil empresas que utilizan sus bibliotecas de código abierto (específicamente: la **biblioteca** **Transformers**) en producción. La biblioteca Transformer basada en Python expone las API para usar rápidamente arquitecturas NLP como: **BERT** (Google, 2018)
+Hugging Face es una **empresa emergente líder en el PLN** con más de mil empresas que utilizan sus bibliotecas de código abierto (específicamente: la **biblioteca** **Transformers**) en producción. La biblioteca Transformer basada en Python expone las API para usar rápidamente **arquitecturas NLP** como: **BERT** (Google, 2018)
 
 La librería Transformers **proporciona**:
 
@@ -665,7 +665,7 @@ La librería Transformers **proporciona**:
 - **API para descargar y usar** rápidamente esos **modelos previamente entrenados**
 - está **respaldado/integrado** por librerías como [**PyTorch**](https://pytorch.org/) y [**TensorFlow**](https://www.tensorflow.org/)
 
-#### Extreme
+#### [Extreme](https://sites.research.google/xtreme) [tabla de rankings, conjunto de datos, códigos fuente. papers]
 
 **TRansfer Evaluation of Multilingual Encoders** ([Extreme]) es un benckmark para la **evaluación** de la capacidad de **generalización** entre **idiomas de modelos multilingües** previamente entrenados. Cubre **40 idiomas** tipológicamente diversos (que abarcan 12 familias de idiomas) e incluye **nueve tareas** que colectivamente requieren razonamiento sobre diferentes niveles de sintaxis y semántica.
 [Extreme](https://github.com/google-research/xtreme)
