@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>T4. Huggingface. Centralización de datasets y modelos &#8212; Minería de Textos</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -408,7 +407,7 @@
         
               <div>
                 
-  <section id="t4-huggingface-centralizacion-de-datasets-y-modelos">
+  <div class="section" id="t4-huggingface-centralizacion-de-datasets-y-modelos">
 <h1>T4. Huggingface. Centralización de datasets y modelos<a class="headerlink" href="#t4-huggingface-centralizacion-de-datasets-y-modelos" title="Permalink to this headline">¶</a></h1>
 <p>Contenidos:</p>
 <ul class="simple">
@@ -416,12 +415,12 @@
 <li><p><a class="reference external" href="#repositorio-de-datasets">Repositorio de Datasets</a></p></li>
 <li><p><a class="reference external" href="#repositorio-de-modelos-pre-entrenados">Repositorio de Modelos pre-entrenados</a></p></li>
 </ul>
-<section id="introduccion">
+<div class="section" id="introduccion">
 <h2>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this headline">¶</a></h2>
 <p>Huggingface.co una compañía centrada en el PLN la cual ha desarrollado las <a class="reference external" href="https://huggingface.co/transformers/"><strong>librerías Transformers</strong></a>, <strong>centralizado datasets</strong> y ha <strong>creado modelos de aprendizaje pre-entrenados</strong> disponibles a través de sus librerías de programación.
 Las librerías de Huggingface actualmente dan soporte a empresas muy importantes del mercado tecnológico. Ver <a class="reference external" href="https://huggingface.co/">https://huggingface.co/</a>.</p>
-</section>
-<section id="repositorio-de-datasets">
+</div>
+<div class="section" id="repositorio-de-datasets">
 <h2>Repositorio de Datasets<a class="headerlink" href="#repositorio-de-datasets" title="Permalink to this headline">¶</a></h2>
 <p>Proporciona conjuntos de datos para muchas tareas de PLN como clasificación de texto, respuesta a preguntas, modelado de lenguaje, etc.<br />
 Instalación de librería de manipulación de datasets
@@ -438,7 +437,7 @@ Para la <strong>instalación</strong> de la librería de manipulación de datase
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;5733be284776f41900661182&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;University_of_Notre_Dame&#39;</span><span class="p">,</span> <span class="s1">&#39;context&#39;</span><span class="p">:</span> <span class="s1">&#39;Architecturally, the school has a Catholic character. Atop the Main Building</span><span class="se">\&#39;</span><span class="s1">s gold dome is a golden statue of the Virgin Mary. Immediately in front of the Main Building and facing it, is a copper statue of Christ with arms upraised with the legend &quot;Venite Ad Me Omnes&quot;...&#39;</span><span class="p">,</span> <span class="s1">&#39;question&#39;</span><span class="p">:</span> <span class="s1">&#39;To whom did the Virgin Mary allegedly appear in 1858 in Lourdes France?&#39;</span><span class="p">,</span> <span class="s1">&#39;answers&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([</span><span class="s1">&#39;Saint Bernadette Soubirous&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">),</span> <span class="s1">&#39;answer_start&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([</span><span class="mi">515</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int32</span><span class="p">)}}</span>
 </pre></div>
 </div>
-<section id="listar-datasets-disponibles-en-el-repositorio">
+<div class="section" id="listar-datasets-disponibles-en-el-repositorio">
 <h3>Listar datasets disponibles en el repositorio<a class="headerlink" href="#listar-datasets-disponibles-en-el-repositorio" title="Permalink to this headline">¶</a></h3>
 <p>Para listar los conjuntos de datos disponibles es necesario ejecutar la siguiente función <code class="docutils literal notranslate"><span class="pre">datasets.list_datasets</span> <span class="pre">()</span></code> que pertenece a la clase <code class="docutils literal notranslate"><span class="pre">datasets</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">list_datasets</span>
@@ -458,8 +457,8 @@ Para la <strong>instalación</strong> de la librería de manipulación de datase
 <li><p>Seleccionar el menú Datasets: <a class="reference external" href="https://huggingface.co/datasets">https://huggingface.co/datasets</a></p></li>
 <li><p>Filtrar por categoría, idioma, tarea y/o licencia</p></li>
 </ol>
-</section>
-<section id="como-cargar-datasets">
+</div>
+<div class="section" id="como-cargar-datasets">
 <h3>¿Cómo cargar datasets?<a class="headerlink" href="#como-cargar-datasets" title="Permalink to this headline">¶</a></h3>
 <p>Haciendo uso de la función <code class="docutils literal notranslate"><span class="pre">load_dataset</span></code> se nos permite recuperar cualquier dataset registrado en el repositorio. Por ejemplo, el dataset <strong>MRPC</strong> que ha sido proporcionado en el índice de referencia GLUE (<a class="reference external" href="https://gluebenchmark.com/leaderboard">https://gluebenchmark.com/leaderboard</a>).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">load_dataset</span>
@@ -480,8 +479,8 @@ Para la <strong>instalación</strong> de la librería de manipulación de datase
 <ul class="simple">
 <li><p><a class="reference external" href="https://huggingface.co/docs/datasets/quicktour.html">https://huggingface.co/docs/datasets/quicktour.html</a></p></li>
 </ul>
-</section>
-<section id="categorias-tareas-e-idiomas-de-datasets">
+</div>
+<div class="section" id="categorias-tareas-e-idiomas-de-datasets">
 <h3>Categorías, tareas e idiomas de datasets<a class="headerlink" href="#categorias-tareas-e-idiomas-de-datasets" title="Permalink to this headline">¶</a></h3>
 <p><strong>9 Categorías:</strong></p>
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/hf_dataset_categoria.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/hf_dataset_categoria.jpg" style="width: 300px;" /></a>
@@ -489,9 +488,9 @@ Para la <strong>instalación</strong> de la librería de manipulación de datase
 <p><strong>Más de 134 tareas y más de 194 idiomas:</strong></p>
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/hf_dataset_tareas_idiomas.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/hf_dataset_tareas_idiomas.jpg" style="width: 300px;" /></a>
 <p>Figura 2. Tareas e idiomas filtro datasets</p>
-</section>
-</section>
-<section id="repositorio-de-modelos-pre-entrenados">
+</div>
+</div>
+<div class="section" id="repositorio-de-modelos-pre-entrenados">
 <h2>Repositorio de Modelos pre-entrenados<a class="headerlink" href="#repositorio-de-modelos-pre-entrenados" title="Permalink to this headline">¶</a></h2>
 <p>La biblioteca de Transformers permite el <strong>uso de modelos previamente entrenados</strong> para tareas de Comprensión del lenguaje natural (NLU), i.e. como analizar el sentimiento de un texto, y Generación del lenguaje natural (NLG), i.e. como completar un mensaje con texto nuevo o traducir a otro idioma.
 A groso modo listamos los modelos que nos podemos encontrar</p>
@@ -524,7 +523,7 @@ Tomado de https://huggingface.co/transformers/quicktour.html</p></li>
 </pre></div>
 </div>
 <p>Si os fijáis hemos cargado el modelo pre-entrenado llamado <code class="docutils literal notranslate"><span class="pre">sentiment-analysis</span></code> para utilizarlo como clasificador. Este <strong>modelo</strong> se puede <strong>reentrenar</strong> a escenarios específicos si queremos realizando un ajuste sobre un nuevo corpus. Para más detalles ver la clase práctica <a class="reference external" href="https://jaspock.github.io/mtextos/bloque3_p3_SA-Transformers-Training-FineTuning.html"><code class="docutils literal notranslate"><span class="pre">bloque3_p3_SA-Transformers-Training-FineTuning</span></code></a></p>
-<section id="como-buscar-y-reutilizar-modelos-pre-entrenados-en-la-plataforma">
+<div class="section" id="como-buscar-y-reutilizar-modelos-pre-entrenados-en-la-plataforma">
 <h3>¿Cómo buscar y reutilizar modelos pre-entrenados en la plataforma?<a class="headerlink" href="#como-buscar-y-reutilizar-modelos-pre-entrenados-en-la-plataforma" title="Permalink to this headline">¶</a></h3>
 <p>A continuación, se listan los pasos a seguir:</p>
 <ol class="simple">
@@ -541,8 +540,8 @@ En la propia documentación se aporta el <strong>código de ejemplo</strong> par
 <span class="n">model</span> <span class="o">=</span> <span class="n">AutoModelForSequenceClassification</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;nlptown/bert-base-multilingual-uncased-sentiment&quot;</span><span class="p">)</span> <span class="c1"># cargando del modelo preentrenado</span>
 </pre></div>
 </div>
-</section>
-<section id="configuraciones-de-modelos-trasnformers">
+</div>
+<div class="section" id="configuraciones-de-modelos-trasnformers">
 <h3>Configuraciones de modelos trasnformers<a class="headerlink" href="#configuraciones-de-modelos-trasnformers" title="Permalink to this headline">¶</a></h3>
 <p>Los <strong>modelos pre-entrenados</strong> que se brindan en el repositorio se <strong>basan</strong> en alguna de las <strong>arquitecturas Transformers</strong> descrita en la documentación del repositorio (<a class="reference external" href="https://huggingface.co/transformers/model_doc/">https://huggingface.co/transformers/model_doc/</a>).
 Si tomamos como referencia la arquitectura de modelo Transformer <a class="reference external" href="https://huggingface.co/transformers/model_doc/distilbert.html#overview">DistilBERT</a> podemos conocer cómo <strong>gestionar</strong> los distintos <strong>parámetros</strong>, <a class="reference external" href="https://huggingface.co/transformers/model_doc/distilbert.html#distilbertconfig"><strong>configuraciones de red neuronal</strong></a>, <a class="reference external" href="https://huggingface.co/transformers/model_doc/distilbert.html#distilberttokenizer"><strong>tokenizador</strong></a> y <strong>ejemplos</strong> para cada tipo de tarea.</p>
@@ -560,13 +559,13 @@ Si tomamos como referencia la arquitectura de modelo Transformer <a class="refer
 </pre></div>
 </div>
 <p>Es importante conocer que las <strong>configuraciones</strong> de modelos Transformer ya <strong>cuentan</strong> con <strong>modelos base pre-entrenados</strong>. En el caso de <code class="docutils literal notranslate"><span class="pre">DistilBERT</span></code> podemos encontrar <code class="docutils literal notranslate"><span class="pre">distilbert-base-uncased</span></code>.</p>
-</section>
-</section>
-<section id="bibliografia">
+</div>
+</div>
+<div class="section" id="bibliografia">
 <h2>Bibliografía<a class="headerlink" href="#bibliografia" title="Permalink to this headline">¶</a></h2>
 <p>[1] <a class="reference external" href="https://huggingface.co/">https://huggingface.co/</a></p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

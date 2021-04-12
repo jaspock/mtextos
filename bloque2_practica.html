@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Práctica. Lectura y documentación del código de un extractor de entidades &#8212; Minería de Textos</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -384,24 +383,24 @@
         
               <div>
                 
-  <section id="practica-lectura-y-documentacion-del-codigo-de-un-extractor-de-entidades">
+  <div class="section" id="practica-lectura-y-documentacion-del-codigo-de-un-extractor-de-entidades">
 <h1>Práctica. Lectura y documentación del código de un extractor de entidades<a class="headerlink" href="#practica-lectura-y-documentacion-del-codigo-de-un-extractor-de-entidades" title="Permalink to this headline">¶</a></h1>
 <p>[ Acceso rápido a la carpeta con el <a class="reference external" href="https://github.com/jaspock/mtextos/blob/main/code/ner/">código fuente</a> ]</p>
 <p>En esta práctica leerás el código de un programa escrito por otros y lo documentarás para demostrar que entiendes lo que hace. La documentación resultante es por lo que se te evaluará.</p>
 <p>Desde diversos frentes se <a class="reference external" href="https://www.stevejgordon.co.uk/become-a-better-developer-by-reading-source-code">defiende</a> la lectura de código escrito por otros como un enfoque adecuado para aprender a programar o mejorar las habilidades como programador. La metodología <a class="reference external" href="https://blog.teachcomputing.org/using-primm-to-structure-programming-lessons/">PRIMM</a>, por ejemplo, incentiva la discusión entre los estudiantes sobre cómo funciona un determinado programa y usa código ya existente  para integrar la lectura de código como una etapa anterior a la escritura.</p>
 <p>Esta asignatura incluye algunas prácticas en las que utilizarás modelos preentrenados para ciertas tareas de procesamiento del lenguaje natural, pero tanto la programación de los modelos subyacentes como el procesamiento de los datos quedarán normalmente ocultos tras la interfaz de los programas correspondientes. Partiendo de la premisa de que entender cómo funcionan las cosas ayuda a sacarles provecho y dado que la asignatura no incluye entre sus objetivos la escritura desde cero de un programa completo, esta práctica propone un acercamiento intermedio al estudiar el código escrito por terceros como preparación necesaria para poder más adelante crear tus propios programas o modificar los existentes. Tener que modificar código es una tarea más frecuente de lo que en principio se puede pensar: en el desarrollo de la profesión de científico de datos te encontrarás en situaciones en las que no existe un modelo que resuelva exactamente tu problema y deberás plantearte modificar el funcionamiento de un sistema base.</p>
 <p>Algunos estudios asemejan la labor de leer código a la de leer un texto escrito en lenguaje natural; otros lo equiparan más bien al procesamiento mental de ecuaciones matemáticas; otros <a class="reference external" href="https://www.sciencedaily.com/releases/2020/12/201215131236.htm">estudios</a> sugieren que el cerebro usa mecanismo distintos para la asimilación del código fuente.</p>
-<section id="objetivo">
+<div class="section" id="objetivo">
 <h2>Objetivo<a class="headerlink" href="#objetivo" title="Permalink to this headline">¶</a></h2>
 <p>En esta práctica vas a estudiar un programa que permite entrenar y probar un sistema neuronal de reconocimiento de entidades nombradas. El programa se compone de varios módulos escritos en Python, algunos de los cuales usan la librería Pytorch para la programación del modelo neuronal. El código está en <a class="reference external" href="https://github.com/jaspock/mtextos/blob/main/code/ner/">esta carpeta</a> del repositorio de la asignatura, que tendrás que clonar. A efectos de reconocimiento de la autoría, el código está tomado del que utilizan como inspiración para sus proyectos los estudiantes del curso Deep Learning (<a class="reference external" href="https://github.com/cs230-stanford/cs230-code-examples/">CS230</a>) de la Universidad de Stanford.</p>
 <p>El código original tiene algunos comentarios que puedes consultar en el repositorio del curso CS230 y que han sido eliminados en la versión de este curso; estos comentarios originales son relativamente generales. En esta práctica tienes que añadir muchos más comentarios para explicar con cierto nivel de detalle qué hacen las principales líneas del código.</p>
 <p>Para hacerte una idea de cómo funciona el reconocedor de entidades nombradas, ejecuta en primer lugar el programa tal y como se explica en el README saltando la parte opcional que descarga datos de Kaggle. Puedes leer también esta <a class="reference external" href="https://cs230.stanford.edu/blog/tips/">guía</a> sobre el uso y propósito del programa.</p>
-</section>
-<section id="comentarios-en-python">
+</div>
+<div class="section" id="comentarios-en-python">
 <h2>Comentarios en Python<a class="headerlink" href="#comentarios-en-python" title="Permalink to this headline">¶</a></h2>
 <p>Los comentarios en Python pueden ser de <a class="reference external" href="https://realpython.com/documenting-python-code/">dos tipos</a>: comentarios de tipo <em>docstring</em> (que pueden aparecer en cualquier lugar del código, aunque suelen colocarse justo después de la definición de una clase o una función para documentarlas) y comentarios de una línea. Los primeros aparecen rodeados por una secuencia de tres comillas al principio y al final, y pueden ocupar más de una línea; los segundos se extienden desde el carácter de la almohadilla hasta el final de la línea. Dado que el propósito de esta práctica es escribir una documentación elaborada, es recomendable que uses más los comentarios de tipo <em>docstring</em>, aunque no para documentar únicamente clases o funciones, sino líneas concretas.</p>
-</section>
-<section id="uso-de-pycco-para-generar-la-documentacion">
+</div>
+<div class="section" id="uso-de-pycco-para-generar-la-documentacion">
 <h2>Uso de Pycco para generar la documentación<a class="headerlink" href="#uso-de-pycco-para-generar-la-documentacion" title="Permalink to this headline">¶</a></h2>
 <p>En lugar de entregar el código fuente documentado, vas a generar una vista en HTML de los comentarios y el código que facilita su lectura. Para ello, vas a usar la herramienta <a class="reference external" href="https://github.com/pycco-docs/pycco">Pycco</a>. Para aprender sobre su funcionamiento basta con estudiar un pequeño <a class="reference external" href="https://realpython.com/generating-code-documentation-with-pycco/">tutorial</a>. Estudia también uno de los ficheros del código fuente de Pycco (que se usa a sí mismo para generar su documentación) como, por ejemplo, <a class="reference external" href="https://github.com/pycco-docs/pycco/blob/master/pycco/main.py">main.py</a>, y observa después como se muestran sus comentarios en la <a class="reference external" href="https://pycco-docs.github.io/pycco/">página web generada</a>. Como ves, se puede utilizar <em>markdown</em> para dar un formato sencillo al texto de los comentarios.</p>
 <p>Para generar en la carpeta <em>docs</em> la documentación en HTML del código del detector de entidades nombradas:</p>
@@ -414,8 +413,8 @@
 <p class="admonition-title">Nota</p>
 <p>Algunas versiones de Pycco pueden provocar un error en Windows al intentar generar la documentación. Si es tu caso, puedes aplicar este <a class="reference external" href="https://github.com/pycco-docs/pycco/issues/109">parche</a> al código fuente de Pycco para arreglarlo.</p>
 </div>
-</section>
-<section id="orden-sugerido-para-el-estudio-del-codigo">
+</div>
+<div class="section" id="orden-sugerido-para-el-estudio-del-codigo">
 <h2>Orden sugerido para el estudio del código<a class="headerlink" href="#orden-sugerido-para-el-estudio-del-codigo" title="Permalink to this headline">¶</a></h2>
 <p>La <a class="reference internal" href="#tab-ficheros"><span class="std std-numref">Table 1</span></a> muestra el orden aproximado en que se recomienda ir documentando el código. Es posible que en ocasiones tengas que consultar parte de los ficheros de filas inferiores debido a las dependencias. En general, es recomendable que realices un primer repaso general sobre el código antes de ponerte a documentarlo.</p>
 <p>La documentación de los ficheros no marcados como opcionales permite sacar un 8,5 como máximo en esta práctica. Los ficheros opcionales permiten subir la nota final medio punto más cada uno.</p>
@@ -483,12 +482,12 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="entrega">
+</div>
+<div class="section" id="entrega">
 <h2>Entrega<a class="headerlink" href="#entrega" title="Permalink to this headline">¶</a></h2>
 <p>La fecha límite para entregar la práctica es el 10 de mayo de 2021 a las 23.59 horas. Entrega a través del <a class="reference external" href="https://pracdlsi.dlsi.ua.es/index.cgi">servidor de prácticas</a> del Departamento un fichero zip de nombre <code class="docutils literal notranslate"><span class="pre">mtextos-ner-20-21.zip</span></code> que contenga directamente en la carpeta raíz el código fuente (incluida la carpeta <code class="docutils literal notranslate"><span class="pre">model</span></code>) con la estructura original que permita ejecutarlo, así como la carpeta <code class="docutils literal notranslate"><span class="pre">docs</span></code> generada por Pycco.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

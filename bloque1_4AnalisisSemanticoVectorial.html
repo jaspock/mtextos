@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Análisis semántico vectorial &#8212; Minería de Textos</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -461,22 +460,22 @@
         
               <div>
                 
-  <section id="analisis-semantico-vectorial">
+  <div class="section" id="analisis-semantico-vectorial">
 <span id="label-semantica-vectorial"></span><h1>Análisis semántico vectorial<a class="headerlink" href="#analisis-semantico-vectorial" title="Permalink to this headline">¶</a></h1>
-<section id="indice">
+<div class="section" id="indice">
 <h2>Índice<a class="headerlink" href="#indice" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Introducción a los modelos semánticos vectoriales.</p></li>
 <li><p>Estudio de caso: <em>topic modeling</em>.</p></li>
 </ul>
-</section>
-<section id="lectura-obligatoria">
+</div>
+<div class="section" id="lectura-obligatoria">
 <h2>Lectura obligatoria:<a class="headerlink" href="#lectura-obligatoria" title="Permalink to this headline">¶</a></h2>
 <p>Peter D. Turney y Patrick Pantel (2010) “From Frequency to Meaning: Vector Space Models of Semantics” en <em>Journal of Artificial Intelligence  Research</em>, 37, págs. 141-188.  DOI: https://doi.org/10.1613/jair.2934</p>
 <p><a class="reference external" href="https://www.jair.org/index.php/jair/article/view/10640">https://www.jair.org/index.php/jair/article/view/10640</a></p>
 <p><a class="reference external" href="https://www.jair.org/index.php/jair/article/view/10640/25440">https://www.jair.org/index.php/jair/article/view/10640/25440</a></p>
-</section>
-<section id="objetivos">
+</div>
+<div class="section" id="objetivos">
 <h2>Objetivos<a class="headerlink" href="#objetivos" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Definir semántica distribucional.</p></li>
@@ -484,8 +483,8 @@
 <li><p>Conocer los principales factores que determinan la representación vectorial.</p></li>
 <li><p>Conocer los conceptos de distancia y similitud, y medidas básicas.</p></li>
 </ul>
-</section>
-<section id="introduccion">
+</div>
+<div class="section" id="introduccion">
 <h2>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this headline">¶</a></h2>
 <p>Semántica vectorial: Nueva aproximación <strong>formal</strong> a la <strong>semántica</strong> de las lenguas naturales.</p>
 <ul class="simple">
@@ -506,8 +505,8 @@
 </ul>
 </li>
 </ul>
-</section>
-<section id="origen">
+</div>
+<div class="section" id="origen">
 <h2>Origen<a class="headerlink" href="#origen" title="Permalink to this headline">¶</a></h2>
 <p><strong>Recuperación de información</strong> (<em>Information Retrieval</em>): ej.
 buscadores de internet.</p>
@@ -538,8 +537,8 @@ rama      0       1     \...    \...
 </div>
 <hr class="docutils" />
 <p>Matriz Término-Documento</p>
-</section>
-<section id="fundamentos-linguisticos">
+</div>
+<div class="section" id="fundamentos-linguisticos">
 <h2>Fundamentos lingüísticos<a class="headerlink" href="#fundamentos-linguisticos" title="Permalink to this headline">¶</a></h2>
 <p>Los modelos semánticos vectoriales asumen básicamente tres propuestas teóricas (Clarke 2011):</p>
 <ol>
@@ -559,8 +558,8 @@ de que</p>
 </ol>
 <p>Todo ello se engloba dentro del concepto de “significado
 distribucional”.</p>
-</section>
-<section id="representacion-vectorial-del-significado">
+</div>
+<div class="section" id="representacion-vectorial-del-significado">
 <h2>Representación vectorial del significado<a class="headerlink" href="#representacion-vectorial-del-significado" title="Permalink to this headline">¶</a></h2>
 <p>Un vector captura la semántica contextual/distribucional de la palabra (token o lema) al representar el número de veces (frecuencia) que la palabra aparece en cada contexto (documento).</p>
 <hr class="docutils" />
@@ -587,7 +586,7 @@ train   6      1
 <li><p>Representación de las palabras (filas)</p></li>
 <li><p>Valores o pesos de cada palabra en cada contexto.</p></li>
 </ul>
-<section id="representacion-del-contexto">
+<div class="section" id="representacion-del-contexto">
 <h3>Representación del contexto<a class="headerlink" href="#representacion-del-contexto" title="Permalink to this headline">¶</a></h3>
 <p>Cada uno de los contextos donde pueda aparece una palabra será una
 dimensión.</p>
@@ -611,8 +610,8 @@ book    3       6        0
 <hr class="docutils" />
 <p>Ejemplo de matriz con motivación lingüística fuerte: matriz <em>Pair-Pattern</em> (TurneyPantel 2010): Las filas son parejas de palabras (“carpenter:wood”), las columnas son relaciones entre palabras co-ocurrentes (“X cut Y”).</p>
 <p>Y por aquí se pueden definir variantes. En todos estos casos, lo que cambia es cómo se representa el contexto.</p>
-</section>
-<section id="representacion-de-las-palabras">
+</div>
+<div class="section" id="representacion-de-las-palabras">
 <h3>Representación de las palabras<a class="headerlink" href="#representacion-de-las-palabras" title="Permalink to this headline">¶</a></h3>
 <p>Según vimos en sesiones anteriores:</p>
 <ul class="simple">
@@ -626,8 +625,8 @@ book    3       6        0
 <li><p>etc.</p></li>
 </ul>
 <p>Requieren pre-proceso del corpus con técnicas de PLN vistas con anterioridad.</p>
-</section>
-<section id="calculo-de-los-valores-o-pesos">
+</div>
+<div class="section" id="calculo-de-los-valores-o-pesos">
 <h3>Cálculo de los valores o pesos<a class="headerlink" href="#calculo-de-los-valores-o-pesos" title="Permalink to this headline">¶</a></h3>
 <p>Representación cuantitativa de la relevancia (peso) que tiene la palabra en cada contexto.</p>
 <p>Frecuencias simples y relativas: número de veces que la palabra aparece en el contexto, normalizado por el tamaño del contexto.</p>
@@ -637,7 +636,7 @@ book    3       6        0
 <li><p>No discrimina la importancia real de cada palabra en el contexto.</p></li>
 <li><p>El <em>[hapax legomenon]</em>(https://en.wikipedia.org/wiki/Hapax_legomenon)</p></li>
 </ul>
-<section id="tf-idf-term-frequency-inverse-document-frequency-sparck-jones-1972">
+<div class="section" id="tf-idf-term-frequency-inverse-document-frequency-sparck-jones-1972">
 <h4>TF/IDF: <em>term frequency / inverse document frequency</em> (Sparck Jones, 1972)<a class="headerlink" href="#tf-idf-term-frequency-inverse-document-frequency-sparck-jones-1972" title="Permalink to this headline">¶</a></h4>
 <p>Idea intuitiva: palabras de uso común que aparecen con alta frecuencia en muchos contextos no son discriminativas ni relevantes. TF/IDF intenta dar más peso a las palabras específicas de cada documento.</p>
 <ul class="simple">
@@ -648,8 +647,8 @@ book    3       6        0
 <p>Así, el valor tf-idf (<span class="math notranslate nohighlight">\(w\)</span>) de una palabra <span class="math notranslate nohighlight">\(t\)</span> en un documento <span class="math notranslate nohighlight">\(d\)</span> es:</p>
 <div class="math notranslate nohighlight">
 \[w_t,_d = tf_t,_d · idf_t\]</div>
-</section>
-<section id="matriz-dispersa-y-matriz-densa">
+</div>
+<div class="section" id="matriz-dispersa-y-matriz-densa">
 <h4>Matriz dispersa y matriz densa<a class="headerlink" href="#matriz-dispersa-y-matriz-densa" title="Permalink to this headline">¶</a></h4>
 <p>Dadas las caracterísiticas de los idiomas, este tipo de matrices son siempre muy dispersas, en las que la mayoría de los valores con cero.</p>
 <blockquote>
@@ -657,10 +656,10 @@ book    3       6        0
 </div></blockquote>
 <p>Para solucionar esto se reduce la dimensionalidad de la matriz, generando así  matrices densas (<em>dense matrix</em>) donde la mayoría de los valores no son ceros pero manteniendo las relaciones semánticas entre las palabras (los valores semánticos).</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Latent_semantic_analysis"><em>Latent semantic analysis</em></a>: descomposición de la matriz dispesar en valores singulares (<a class="reference external" href="https://en.wikipedia.org/wiki/Singular_value_decomposition"><em>singular value decomposition</em></a>), generando una matriz densa de 300 dimensiones. Se considera que mantiene relaciones semánticas “latentes”. Origen de los <em>word embeddings</em> que veréis en próximos temas.</p>
-</section>
-</section>
-</section>
-<section id="interpretacion-semantica-distancia-y-similitud">
+</div>
+</div>
+</div>
+<div class="section" id="interpretacion-semantica-distancia-y-similitud">
 <h2>Interpretación semántica: distancia y similitud.<a class="headerlink" href="#interpretacion-semantica-distancia-y-similitud" title="Permalink to this headline">¶</a></h2>
 <p>La interpretación en esta aproximación vectorial a la semántica distribucional se realiza por relaciones de similitud entre palabras o documentos. La similitud se calcular según la distancia entre los vectores en el espacio vectorial: a menor distancia entre vectores, mayor similitud semántica.</p>
 <p>Así, desde un punto de vista lingüístico, dos vectores (de palabras) serán similares en la medida que tengan valores relevantes en los mismos contextos.</p>
@@ -670,7 +669,7 @@ similitudes (entre palabras, grupos de palabras, textos, etc.).</p>
 <div class="math notranslate nohighlight">
 \[cos(a,b) = \frac{a · b}{||a|| ||b||}\]</div>
 <p><img alt="cartesanio2" src="_images/cartesiano_2.png" />{height=”10cm”}</p>
-<section id="conclusiones">
+<div class="section" id="conclusiones">
 <h3>Conclusiones<a class="headerlink" href="#conclusiones" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Representación formal del significado distribucional.</p></li>
@@ -678,13 +677,13 @@ similitudes (entre palabras, grupos de palabras, textos, etc.).</p>
 <li><p>El vector está formado por el peso de la palabra en cada uno de los contextos (documentos, oraciones, etc.)</p></li>
 <li><p>El proceso de interpretación se basa en la distancia entre vectores: similitud.</p></li>
 </ul>
-</section>
-</section>
-<section id="situacion-actual">
+</div>
+</div>
+<div class="section" id="situacion-actual">
 <h2>Situación actual<a class="headerlink" href="#situacion-actual" title="Permalink to this headline">¶</a></h2>
 <p>De aquí derivan los <em>word embeddings</em> que, junto con las redes neuronales, han revolucionado el campo del PLN. De todo esto os hablará el prof. Juan Antonio Pérez Ortiz en las próximas sesiones.</p>
-</section>
-<section id="herramientas-y-recursos">
+</div>
+<div class="section" id="herramientas-y-recursos">
 <h2>Herramientas y recursos<a class="headerlink" href="#herramientas-y-recursos" title="Permalink to this headline">¶</a></h2>
 <p>Para crear espacios vectoriales y calcular similitudes:</p>
 <ul class="simple">
@@ -693,12 +692,12 @@ similitudes (entre palabras, grupos de palabras, textos, etc.).</p>
 <li><p><a class="reference external" href="http://www.clips.ua.ac.be/pattern">Pattern</a></p></li>
 <li><p><a class="reference external" href="https://spacy.io/">SpaCy</a></p></li>
 </ul>
-</section>
-<section id="apendice-estudio-de-caso">
+</div>
+<div class="section" id="apendice-estudio-de-caso">
 <h2>Apéndice. Estudio de caso.<a class="headerlink" href="#apendice-estudio-de-caso" title="Permalink to this headline">¶</a></h2>
 <p>Extracción de <em>topics</em> con Topic Modeling.</p>
-</section>
-<section id="bibliografia">
+</div>
+<div class="section" id="bibliografia">
 <h2>Bibliografía<a class="headerlink" href="#bibliografia" title="Permalink to this headline">¶</a></h2>
 <p>David M. Blei (2012) “Probabilistic topic models” en <em>Communications of the ACM</em> vol. 55 (4), April 2012. Doi:10.1145/2133806.2133826
 <a class="reference external" href="https://dl.acm.org/doi/10.1145/2133806.2133826">https://dl.acm.org/doi/10.1145/2133806.2133826</a></p>
@@ -708,8 +707,8 @@ similitudes (entre palabras, grupos de palabras, textos, etc.).</p>
 <a class="reference external" href="https://www.frontiersin.org/article/10.3389/frobt.2019.00153">https://www.frontiersin.org/article/10.3389/frobt.2019.00153</a></p>
 <p>Navarro Colorado, Borja (2021) “Sistemas de anotación semántica para corpus de español” en Giovanni Parodi, Pascual Cantos &amp; Lewis Howe (Editores) <em>The Routledge Handbook of Spanish Corpus Linguistics</em> Routledge (en prensa).</p>
 <p>D. Widdows (2004) <em>Geometry and meaning</em>, CSLI.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

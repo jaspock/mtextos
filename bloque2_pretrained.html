@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Modelos preentrenados &#8212; Minería de Textos</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -369,7 +368,7 @@
         
               <div>
                 
-  <section id="modelos-preentrenados">
+  <div class="section" id="modelos-preentrenados">
 <h1>Modelos preentrenados<a class="headerlink" href="#modelos-preentrenados" title="Permalink to this headline">¶</a></h1>
 <a class="reference internal image-reference" href="_images/elmo.png"><img alt="ELMo" class="align-left" src="_images/elmo.png" style="width: 120px;" /></a>
 <p>Los denominados <em>modelos neuronales preentrenados</em> han supuesto todo un lavado de cara para el procesamiento del lenguaje natural. Aunque la cantidad de este tipo de modelos existente hoy día es enorme, casi todos comparten los mismos fundamentos. El punto de inflexión de estos modelos lo podemos situar en el año 2018 con la aparición de ELMo, en primer lugar, y BERT, unos meses después. Nos centraremos en este último en nuestro estudio, pero sin descuidar otras propuestas.</p>
@@ -377,25 +376,23 @@
 <p class="admonition-title">Nota</p>
 <p>Podemos decir que estos modelos son un ejemplo de <em>aprendizaje por transferencia</em> (<em>transfer learning</em>) en el que lo aprendido para una tarea secundaria ayuda a resolver la tarea principal. La tarea secundaria en este caso es <em>no supervisada</em> (<em>unsupervised</em>) en el sentido de que no utiliza datos etiquetados externamente (como cuando anotamos la polaridad de un texto), pero el entrenamiento sigue teniendo una función de pérdida en la que el valor emitido se compara con el deseado, por lo que para evitar confusión se habla de entrenamiento <em>autosupervisado</em>. En el entrenamiento autosupervisado las etiquetas que conforman el valor esperado se obtienen automáticamente a partir de la muestra con un algoritmo normalmente muy simple, pero, al mismo tiempo, la tarea de generarlas adecuadamente no es trivial e implica que para hacerlo la red ha de generar buenas representaciones intermedias.</p>
 </div>
-<figure class="align-default" id="fig-pretrained">
+<div class="figure align-default" id="fig-pretrained">
 <a class="reference internal image-reference" href="_images/pretrained.png"><img alt="_images/pretrained.png" src="_images/pretrained.png" style="height: 360px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Algunos de los hitos en la historia reciente del procesamiento del lenguaje natural. Tomado de “2019, <a class="reference external" href="https://towardsdatascience.com/2019-year-of-bert-and-transformer-f200b53d05b9">year of BERT and Transformer</a>” de Manu Suryavansh.</span><a class="headerlink" href="#fig-pretrained" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-<section id="introduccion-a-elmo-y-bert">
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Algunos de los hitos en la historia reciente del procesamiento del lenguaje natural. Tomado de “2019, <a class="reference external" href="https://towardsdatascience.com/2019-year-of-bert-and-transformer-f200b53d05b9">year of BERT and Transformer</a>” de Manu Suryavansh.</span><a class="headerlink" href="#fig-pretrained" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="introduccion-a-elmo-y-bert">
 <h2>Introducción a ELMo y BERT<a class="headerlink" href="#introduccion-a-elmo-y-bert" title="Permalink to this headline">¶</a></h2>
 <p>Para comenzar con el tema, vamos a seguir la guía ilustrada de Jay Alammar sobre los modelos <a class="reference external" href="http://jalammar.github.io/illustrated-bert/">BERT y ELMo</a>.</p>
 <div class="note admonition">
 <p class="admonition-title">Problema</p>
 <p>Obtén los códigos BPE resultantes de aplicar 4 operaciones de unión al texto “para el bus en la parada abandonada”. A continuación, aplica los códigos a la entrada “ensalada para la empanada”.</p>
 </div>
-</section>
-<section id="tipologia-de-modelos-preentrenados">
+</div>
+<div class="section" id="tipologia-de-modelos-preentrenados">
 <h2>Tipología de modelos preentrenados<a class="headerlink" href="#tipologia-de-modelos-preentrenados" title="Permalink to this headline">¶</a></h2>
 <p>Ahora vamos a ahondar en las características de estos modelos con las diapositivas del tema “<a class="reference external" href="http://web.stanford.edu/class/cs224n/slides/cs224n-2021-lecture10-pretraining.pdf">Pretraining</a>” que John Hewitt usa en el curso “CS224n: Natural Language Processing with Deep Learning” de la Universidad de Stanford.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

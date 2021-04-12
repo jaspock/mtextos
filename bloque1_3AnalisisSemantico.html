@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Análisis semántico &#8212; Minería de Textos</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -453,13 +452,13 @@
         
               <div>
                 
-  <section id="analisis-semantico">
+  <div class="section" id="analisis-semantico">
 <span id="label-semantica"></span><h1>Análisis semántico<a class="headerlink" href="#analisis-semantico" title="Permalink to this headline">¶</a></h1>
-<section id="la-semantica-tipos-de-significados">
+<div class="section" id="la-semantica-tipos-de-significados">
 <h2>La semántica. Tipos de significados.<a class="headerlink" href="#la-semantica-tipos-de-significados" title="Permalink to this headline">¶</a></h2>
 <p>La semántica estudia significado de los textos. El propio concepto de significado es, sin embargo, bastante vago. En este tema se presenta modelos de representación y procesamiento del significado lingüístico según el estándar actual en PLN: por un lado el significado léxico y el significado oracional por otro.</p>
-</section>
-<section id="semantica-lexica-word-sense-disambiguation">
+</div>
+<div class="section" id="semantica-lexica-word-sense-disambiguation">
 <h2>Semántica léxica. <em>Word Sense Disambiguation</em>.<a class="headerlink" href="#semantica-lexica-word-sense-disambiguation" title="Permalink to this headline">¶</a></h2>
 <p>La semántica léxica se refiere al significado de las palabras.</p>
 <p>En PLN hay actualmente dos modelos para tratar la semántica léxica:</p>
@@ -468,7 +467,7 @@
 <li><p>La consideración del sentido a partir de las relaciones contextuales (distribucionales) entre las palabras en su uso real (en un corpus, por ejemplo). Este modelo es la base de la semántica vectorial, de la cual surgen los <em>word embeddings</em> que se verán en el próximo tema.</p></li>
 </ul>
 <p>Este capítulo se centra en el primer modelo.</p>
-<section id="significado-lexico-como-unidad-discreta">
+<div class="section" id="significado-lexico-como-unidad-discreta">
 <h3>Significado léxico como unidad discreta<a class="headerlink" href="#significado-lexico-como-unidad-discreta" title="Permalink to this headline">¶</a></h3>
 <p>Según este modelo, por tanto, una palabra puede tener uno o más significados que además podemos especificar en un diccionario. Las palabras que tienen dos o más significados son palabras ambiguas. Se calcula que más del 60% de las palabras de un idioma son ambiguas: basta echar un vistazo a un diccionario para comprobarlo. En un contexto determinado, esa ambigüedad se reduce, de tal manera que un ser humano al interpretar el texto es capaz de determinar, a partir del conjunto de significado de una palabra, el sentido apropiado para ese contexto.</p>
 <blockquote>
@@ -483,13 +482,13 @@ mouse2:  …. a quiet animal like amouse</p>
 <p>Son por tanto dos palabras distintas que, por evolución, ahora se pronuncian igual. Las diferencias semánticas en los casos de homonimia son muy grandes por ser palabras diferentes.</p>
 <p>La <em>polisemia</em> se produce por la evolución del propio significado de una palabra. Dado una palabra, el uso diario puede producir que genere un nuevo significado por procesos de metaforización (“ratón”), metonimia (“pluma”), especificación (“banco entidad” vs. “banco edificio”), etc.</p>
 <p>Desde un punto de vista computacional, la polisemia es más compleja de procesar, pues esto significados nuevos siempre están relacionados con el significado original. Hay casos que la diferencia en la polisemia es muy sutil.</p>
-</section>
-<section id="word-sense-disambiguation">
+</div>
+<div class="section" id="word-sense-disambiguation">
 <h3><em>Word Sense Disambiguation</em><a class="headerlink" href="#word-sense-disambiguation" title="Permalink to this headline">¶</a></h3>
 <p>En PLN, este proceso de seleccionar el significado apropiado para un contexto a partir de los significados establecidos en un diccionario se denomina <em>Word Sense Disambiguation</em> (WSD). Es una de las tareas del PLN con más tradición, junto al análisis categorial o el análisis sintáctico que vimos en temas anteriores.</p>
 <p>Los sistemas de WSD están formados por dos componentes fundamentales: un diccionario en el que se representan todos los significados de las palabras y un algoritmo de desambiguación.</p>
-</section>
-<section id="representacion-del-significado-lexico-wordnet">
+</div>
+<div class="section" id="representacion-del-significado-lexico-wordnet">
 <h3>Representación del significado léxico: WordNet.<a class="headerlink" href="#representacion-del-significado-lexico-wordnet" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://wordnet.princeton.edu/">WordNet</a> (Miller 1995,
 Fellbau 1998) es el principal recurso léxico (diccionario) utilizado hoy día en PLN. En su origen fue un diccionario para el inglés, pero luego fue ampliado a lenguas europeas (EuroWordNet) y otras familias lingüísticas (balkanet, arabic wordnet, etc.) y más tarde a todas las lenguas del mundo (<a class="reference external" href="http://globalwordnet.org/">GlobalWordNet</a>) Ver también el <a class="reference external" href="http://compling.hss.ntu.edu.sg/omw/">Open Multilingual Wordnet</a>.</p>
@@ -508,13 +507,13 @@ Fellbau 1998) es el principal recurso léxico (diccionario) utilizado hoy día e
 <p>En las últimas versiones se pueden encontrar otros tipos de relaciones.</p>
 <p>Así, WordNet tiene unos nodos raíz con sentidos muy abstractos (“entidad”) de las cuales van derivando por relación léxica el resto de sentidos hasta los más concretos.</p>
 <p>En su concepción original, WordNet pretendía ser una representación computacional del lexicón humano. Finalmente se ha convertido en quizá el principal recurso para el análisis léxico-semántico. WordNet es el estándar <em>de facto</em> para la representación semántica léxica de un corpus.</p>
-</section>
-<section id="algoritmos-de-desambiguacion-lexico-semantica">
+</div>
+<div class="section" id="algoritmos-de-desambiguacion-lexico-semantica">
 <h3>Algoritmos de desambiguación léxico-semántica.<a class="headerlink" href="#algoritmos-de-desambiguacion-lexico-semantica" title="Permalink to this headline">¶</a></h3>
 <p>WSD asume que los significados de una palabra son únicamente aquellos establecidos en un diccionario (WordNet en este caso). No se plantean otras formas de significación como la metáfora.</p>
 <p>La complejidad es WSD es determinar, de los posibles synsets asociados a una palabra (nombre, verbo o adjetivo), cuál es el apropiado en un contexto dado. La heurística básica es seleccionar el sentido más frecuente.</p>
 <p>En los últimos 30 años se han propuesto diferentes algoritmos. En general, hay dos aproximaciones básicas: algoritmos basados en conocimiento y algoritmos basados en aprendizaje supervisado.</p>
-<section id="estrategias-basadas-en-conocimiento">
+<div class="section" id="estrategias-basadas-en-conocimiento">
 <h4>Estrategias basadas en conocimiento<a class="headerlink" href="#estrategias-basadas-en-conocimiento" title="Permalink to this headline">¶</a></h4>
 <p>Las estrategias basadas en conocimiento (<em>knowledge-based</em>) se caracterizan por explotar al máximo la información del recurso léxico (normalmente WordNet) y su comparación con el contexto donde aparece la palabra ambigua.</p>
 <p>El algoritmo de Lesk (Lesk 1986) es el método estándar de desambiguación basando en conocimiento. Para determinar el sentido apropiado de una palabra ambigua, compara las palabras del contexto donde aparece con la definición de cada sentido (la “glosa” en WordNet). Finalmente selecciona como sentido apropiado aquél cuya definición tiene más coincidencias con el contexto.</p>
@@ -531,16 +530,16 @@ ofrece préstamos con intereses.</p></li>
 <p>Existen diferentes implementaciones de este algoritmo, como por ejemplo
 la disponible en el <a class="reference external" href="https://www.nltk.org/howto/wordnet.html"><em>Natural Language Toolkit</em></a> (NLTK) (Bird et al. 2009), pero solo funciona para inglés.</p>
 <p>En esta línea, el algoritmo UKB (Agirre y Soroa 2009, Padró et al. 2010) es un aproximación mucho más avanzada. El algoritmo es una adaptación del algoritmo Page Rank de Google. La idea principal de éste es que no todos los nodos de un grafo son iguales, sino que unos tienen más importancia que otros. Un nodo es importante si otros nodos apuntan a él, y si un nodo importante apunta a otro, este también se considera relativamente importante. Sin entrar en detalles técnicos, este algoritmo determina la pertinencia de un sentido en un contexto mediante las relaciones léxicas de cada palabra dentro de WordNet. Dada una palabra ambigua, aquel synset cuyas relaciones de hiperonimia, etc. mejor encaje con el resto de sentidos del contexto, será el apropiado (Agirre y Soroa 2009). Este es el algoritmo implementado en <a class="reference external" href="http://nlp.lsi.upc.edu/freeling/">Freeling</a>.</p>
-</section>
-<section id="estrategias-basadas-en-aprendizaje-supervisado">
+</div>
+<div class="section" id="estrategias-basadas-en-aprendizaje-supervisado">
 <h4>Estrategias basadas en aprendizaje supervisado<a class="headerlink" href="#estrategias-basadas-en-aprendizaje-supervisado" title="Permalink to this headline">¶</a></h4>
 <p>Estas estrategias (“features-based algorithms”) se caracterizan por aprender diferentes rasgos del contexto de las palabras y utilizarlos para clasificar usos ambiguos.</p>
 <p>Por ejemplo, una estrategia óptima sería crear un clasificador basado en SVM con rasgos de aprendizaje como pudieran ser las categorías gramaticales de las tres palabras anteriores, n-gramas de las palabras alrededor de la palabra ambigua, o un vector contextual a partir de los vectores incrustados (<em>embedings</em>) de cada palabra del contexto (Juravki y Martin, cap. 18, pág. 12).</p>
 <p>Existen diferentes corpus anotados con sentidos desambiguados. El primero en ser desarrollado fue SemCor, con texto en inglés. Este corpus es el modelo a partir del cual se han desarrollado otros. El corpus se creó al mismo tiempo que WordNet y por las mismas personas. En SemCor, cada palabra tiene asignado el <em>synset</em> específico en WordNet. Y muchos sentidos de WordNet se han determinado a partir de los textos de SemCor. SemCor está disponible en diferentes páginas (como <a class="reference external" href="http://www.gabormelli.com/RKB/SemCor_Corpus">esta</a> y <a class="reference external" href="http://web.eecs.umich.edu/~mihalcea/downloads.html#semcor">esta</a>), así como en <a class="reference external" href="https://www.kaggle.com/nltkdata/semcor-corpus">Kaggle</a> o <a class="reference external" href="https://www.nltk.org/_modules/nltk/corpus/reader/semcor.html">NLTK</a>.</p>
 <p>Corpus similares a SemCor para otros idiomas. Para español se creó el corpus Cast3LB, hoy enriquecido con más información y renombrado <a class="reference external" href="http://clic.ub.edu/corpus/es/ancora">Ancora Corpus</a>).</p>
 <p>La línea de trabajo acutal es aplicar <em>word embeddings</em> a la tarea de WSD. Un recurso muy utilizado es <a class="reference external" href="http://lcl.uniroma1.it/nasari/">Nasari</a>, que incluye representaciones vectoriales de los <em>synsets</em> de WordNet y de la Wikipedia (ambos integrados en el recurso BabelNet).</p>
-</section>
-<section id="induccion-de-sentidos">
+</div>
+<div class="section" id="induccion-de-sentidos">
 <h4>Inducción de sentidos<a class="headerlink" href="#induccion-de-sentidos" title="Permalink to this headline">¶</a></h4>
 <p>Junto a estas dos estrategias, hay una tercera basada en técnicas no supervisadas. En este caso, sin embargo, como no hay un recursos léxico de referencia con los sentidos, los sistemas no determinan significados sino que agrupan oraciones. Así, dado un conjunto de oraciones con una palabra ambigua en común, agrupan las oraciones en las que esa palabra se utiliza con un sentido determinado. Lo que no pueden determinar es cuál es ese sentido.</p>
 <p>En esta tareas se suelen aplicar modelos de semántica vectorial que se verán en la próxima sesión.</p>
@@ -552,10 +551,10 @@ la disponible en el <a class="reference external" href="https://www.nltk.org/how
 <p class="admonition-title">Actividad</p>
 <p>Antes de continuar, vamos a realizar la actividad 1 de la práctica 2.</p>
 </div>
-</section>
-</section>
-</section>
-<section id="semantica-oracional-semantica-eventiva-y-roles-semanticos">
+</div>
+</div>
+</div>
+<div class="section" id="semantica-oracional-semantica-eventiva-y-roles-semanticos">
 <h2>Semántica oracional. Semántica eventiva y roles semánticos.<a class="headerlink" href="#semantica-oracional-semantica-eventiva-y-roles-semanticos" title="Permalink to this headline">¶</a></h2>
 <p>Los sistemas de WSD se centran únicamente en determinar el significado de las palabras. Sin embargo, el significado global de un texto no solo depende del significado de las palabras que lo forma, sino también de las relaciones que se establecen entre ellas tanto en la oración como en la globalidad del texto (principio de composicionalidad).</p>
 <p>Así, la semántica oracional se centra en estudiar el significado de la oración en su conjunto. Dentro del PLN hay diferentes aproximaciones a la semántica oracional, de las que destaca sobre todo el análisis de roles semánticos (Gildea y Jurafsky 2002).</p>
@@ -567,11 +566,11 @@ la disponible en el <a class="reference external" href="https://www.nltk.org/how
 </div></blockquote>
 <p>expresa el evento “perseguir” que tiene una estructura argumental formada por la persona que persigue (“las fuerzas de seguridad”) y la persona perseguida (“los agresores”). El primer argumento se podría considerar como rol “agente” y el segundo como rol “tema”.</p>
 <p>El evento puede estar expresado por verbo (“luchar”) pero también por un nombre (“la guerra”). Los argumentos son los sintagmas que completan el significado del evento. La función semántica que pueden asumir los argumento es lo que se denomina “roles semánticos”.</p>
-<section id="representacion-formal-de-los-roles-semanticos">
+<div class="section" id="representacion-formal-de-los-roles-semanticos">
 <h3>Representación formal de los roles semánticos.<a class="headerlink" href="#representacion-formal-de-los-roles-semanticos" title="Permalink to this headline">¶</a></h3>
 <p>La teoría de los roles semánticos proviene de la Teoría de Casos de Ch. Fillmore y ha tenido diferentes desarrollos en lingüística teórica. El problema principal que tienen estas teorías es que, por un lado, no se ha podido consensuar una única lista de roles semánticos y, por otro, no hay una clara distinción entre los roles. Así, al hablar de roles semánticos nos podemos encontrar roles como <em>agente</em> (el argumento que realiza el evento), <em>paciente</em> o <em>tema</em> (el argumento sobre el que actúa el evento), experimentante, proto-agente, proto-paciente (ambos generalizaciones de agente y paciente), etc.</p>
 <p>Esta falta de definición ha propiciado el desarrollo de dos modelos de representación de roles semántico en lingüística computacional: el modelo de FrameNet y el modelo de PropBank.</p>
-<section id="framenet">
+<div class="section" id="framenet">
 <h4>FrameNet<a class="headerlink" href="#framenet" title="Permalink to this headline">¶</a></h4>
 <p>FrameNet (Baker et al. 1998, Ruppenhofer et al. 2016) propone una representación de roles semánticos muy fina: indica roles específicos para unidades léxicas concretas. Estas unidades pueden ser verbos, nombres o adjetivos. Cada uno de sus sentidos se agrupa en un marco semántico, entendido
 como un marco estructural conceptual (<em>frame</em>) que describe una situación, un objeto o un evento concreto más sus participantes: los roles semánticos asociados a ese marco (<em>frame elements</em>).</p>
@@ -600,8 +599,8 @@ actuarían como extra-temáticos.</p>
 <p>Consulta este y otros <em>frame elements</em> en la BD de FrameNET:</p>
 <p><a class="reference external" href="https://framenet.icsi.berkeley.edu/fndrupal/">https://framenet.icsi.berkeley.edu/fndrupal/</a></p>
 </div>
-</section>
-<section id="propbank">
+</div>
+<div class="section" id="propbank">
 <h4>PropBank<a class="headerlink" href="#propbank" title="Permalink to this headline">¶</a></h4>
 <p>La propuesta de PropBank (acrónimo de Proposition Bank (Palmer et al. 2005)) es justo la contraria. En vez de definir roles semánticos muy específicos según el evento, ProBank determina poco roles y muy generales, de tal manera que sean aplicable a cualquier evento. En vez de dar a los roles un nombre significativo, representa cada rol con un identificador. Así, de manera general se establece que puede haber hasta cinco roles semánticos asociados a un evento:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Arg0 | Arg1 | Arg2 | Arg3 | Arg4
@@ -629,9 +628,9 @@ pasiva, los roles Arg0 y Arg1 serán los mismos:</p>
 <li><p>Para descargar PropBank: <a class="reference external" href="https://github.com/propbank/propbank-frames/">https://github.com/propbank/propbank-frames/</a></p></li>
 <li><p>Página del proyecto: <a class="reference external" href="https://propbank.github.io/">https://propbank.github.io/</a></p></li>
 </ul>
-</section>
-</section>
-<section id="algoritmos">
+</div>
+</div>
+<div class="section" id="algoritmos">
 <h3>Algoritmos<a class="headerlink" href="#algoritmos" title="Permalink to this headline">¶</a></h3>
 <p>Los sistema de análisis de roles semánticos (<em>semantic role labeling</em>) toman como entrada un corpus anotado con categorías gramaticales y (en algunos casos, pero no siempre) con relaciones sintácticas. La salida es la especificación de qué elemento expresa el evento, qué palabras se agrupan en cada argumento y el tipo de argumento.</p>
 <p>Los principales algoritmos de <em>semantic roles labeling</em> suelen estar basados en técnicas de aprendizaje supervisado. A partir de corpus anotados con roles (como el propio corpus <a class="reference external" href="https://propbank.github.io/">PropBank</a>), se establecen una serie de rasgos de aprendizaje que se utilizan luego para clasificar por tipos de roles semánticos.</p>
@@ -643,21 +642,21 @@ partir de estos rasgos.</p>
 <p><a class="reference external" href="http://nlpprogress.com/english/semantic_role_labeling.html">http://nlpprogress.com/english/semantic_role_labeling.html</a></p>
 <p>También hay interés en sistemas multi- y cross-lingües:</p>
 <p><a class="reference external" href="https://www.aclweb.org/anthology/2020.acl-main.627/">https://www.aclweb.org/anthology/2020.acl-main.627/</a></p>
-</section>
-</section>
-<section id="otros-tipos-de-analisis">
+</div>
+</div>
+<div class="section" id="otros-tipos-de-analisis">
 <h2>Otros tipos de análisis.<a class="headerlink" href="#otros-tipos-de-analisis" title="Permalink to this headline">¶</a></h2>
 <p>http://nlpprogress.com/english/semantic_parsing.html</p>
-</section>
-<section id="bibliografia">
+</div>
+<div class="section" id="bibliografia">
 <h2>Bibliografía<a class="headerlink" href="#bibliografia" title="Permalink to this headline">¶</a></h2>
 <p>(Incompleta)</p>
 <p>Fellbau, C. (ed) 1998. <em>WordNet: An Electronic Lexical Database</em>. Cambridge, MA: MIT Press.</p>
 <p>Juravsky y Martin (2020) <em>Speech and Language Processing</em>. <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/">https://web.stanford.edu/~jurafsky/slp3/</a> (Caps 12-14)</p>
 <p>Miller, G. A. 1995. “WordNet: A Lexical Database for English”. <em>Communications of the ACM</em>, 38(11), 39-41.</p>
 <p>Navarro Colorado, Borja (2021) “Sistemas de anotación semántica para corpus de español” en Giovanni Parodi, Pascual Cantos &amp; Lewis Howe (Editores) <em>The Routledge Handbook of Spanish Corpus Linguistics</em> Routledge.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

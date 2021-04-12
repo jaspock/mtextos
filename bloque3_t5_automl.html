@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>T5. Auto Machine Learning(AutoML) &#8212; Minería de Textos</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -440,7 +439,7 @@
         
               <div>
                 
-  <section id="t5-auto-machine-learning-automl">
+  <div class="section" id="t5-auto-machine-learning-automl">
 <h1>T5. Auto Machine Learning(AutoML)<a class="headerlink" href="#t5-auto-machine-learning-automl" title="Permalink to this headline">¶</a></h1>
 <p>Contenidos:</p>
 <ul class="simple">
@@ -451,7 +450,7 @@
 <li><p><a class="reference external" href="#sistemas-de-automl">Sistemas de AutoML</a></p></li>
 <li><p><a class="reference external" href="#competiciones-y-benchmarks-de-automl">Competiciones y Benchmarks de AutoML</a></p></li>
 </ul>
-<section id="introduccion">
+<div class="section" id="introduccion">
 <h2>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this headline">¶</a></h2>
 <p>“I’d like to use machine learning, but I can’t invest much time” =&gt; <em>Me gustaría usar aprendizaje de máquinas, pero no puedo invertir mucho tiempo.</em></p>
 <p>Esta <strong>frase</strong> es algo que <strong>se escucha con demasiada frecuencia</strong> en la industria y de investigadores de otras disciplinas ajenas al aprendizaje de máquinas. La <strong>demanda de soluciones con muy poca implicación humana</strong> para el aprendizaje automático ha dado lugar recientemente al campo del aprendizaje automático automatizado (<strong>AutoML</strong>) [1].
@@ -461,8 +460,8 @@ El aprendizaje automático (AutoML) es el proceso de automatizar una acción apl
 <li><p>El alto grado de <strong>automatización</strong> en AutoML permite que aquellos que no son expertos puedan hacer uso de <strong>modelos de aprendizaje automático</strong> sin necesitar mucha experiencia previa en dicho campo.</p></li>
 <li><p>La automatización del proceso de aprendizaje ofrece otras ventajas, como la <strong>producción de soluciones más sencillas</strong> y una <strong>resolución más rápida</strong>.</p></li>
 </ul>
-</section>
-<section id="automl-vs-estandar-ml">
+</div>
+<div class="section" id="automl-vs-estandar-ml">
 <h2>AutoML vs estandar ML<a class="headerlink" href="#automl-vs-estandar-ml" title="Permalink to this headline">¶</a></h2>
 <p>En una aplicación de <strong>aprendizaje automático estándar</strong>, los practicantes tienen un conjunto de datos y tienen que lidiar con distintas etapas para el diseño de su algoritmo.
 Un <strong>experto puede</strong>:</p>
@@ -476,8 +475,8 @@ Un <strong>experto puede</strong>:</p>
 </ol>
 <p>Esto es precisamente los que el AutoML persigue automatizar y liberar al practicante de repetitivas iteraciones de prueba de parámetros y estrategias.</p>
 <p><strong>Una desventaja</strong> son los <strong>parámetros adicionales</strong> de las herramientas AutoML, que pueden necesitar alguna ayuda para establecerse. Aunque existan dicho hiperparámetros, <strong>AutoML simplifica la aplicación de aprendizaje automático para aquellos que no son expertos</strong>.</p>
-</section>
-<section id="objetivos-de-automatizacion">
+</div>
+<div class="section" id="objetivos-de-automatizacion">
 <h2>Objetivos de automatización<a class="headerlink" href="#objetivos-de-automatizacion" title="Permalink to this headline">¶</a></h2>
 <p>La última década ha sido testigo de una explosión de investigación y aplicaciones de aprendizaje automático; especialmente, los métodos de aprendizaje profundo (<em>Deep Learning</em>) <strong>han permitido avances clave</strong> en muchos dominios de aplicaciones, como la visión por computadora, el procesamiento del habla y los video juegos. Sin embargo, el rendimiento de muchos <strong>métodos de aprendizaje automático</strong> es <strong>muy sensible</strong> a una gran cantidad de <strong>decisiones de diseño</strong>, lo que constituye una barrera considerable para los nuevos usuarios. Esto es particularmente cierto en el campo en auge del aprendizaje profundo, donde los <strong>ingenieros humanos</strong> deben aplicar el <strong>proceso de seleccionar</strong>:</p>
 <ul class="simple">
@@ -486,7 +485,7 @@ Un <strong>experto puede</strong>:</p>
 <li><p>los <strong>métodos de regularización</strong> y</p></li>
 <li><p>los <strong>hiper-parámetros</strong> correctos de todos estos componentes para hacer que sus redes hagan lo que se supone que deben hacer.</p></li>
 </ul>
-<section id="rendimiento-suficientemente-bueno">
+<div class="section" id="rendimiento-suficientemente-bueno">
 <h3>Rendimiento suficientemente bueno<a class="headerlink" href="#rendimiento-suficientemente-bueno" title="Permalink to this headline">¶</a></h3>
 <p>Este proceso debe repetirse para cada aplicación. Incluso los expertos a menudo se quedan con tediosos episodios de prueba y error hasta que identifican un buen conjunto de opciones para un conjunto de datos en particular.
 El campo del aprendizaje automático automatizado (AutoML) tiene como objetivo tomar estas decisiones de una manera basada en datos, objetiva y automatizada:</p>
@@ -524,9 +523,9 @@ Con <strong>AutoML</strong>, el aprendizaje automático personalizado de última
 <li><p><strong>Resultados obtenidos de análisis automáticos</strong>.</p></li>
 <li><p><strong>Interfaces</strong> de usuario y <strong>visualizaciones</strong> de aprendizaje automático.</p></li>
 </ul>
-</section>
-</section>
-<section id="metodos-de-automl">
+</div>
+</div>
+<div class="section" id="metodos-de-automl">
 <h2>Métodos de AutoML<a class="headerlink" href="#metodos-de-automl" title="Permalink to this headline">¶</a></h2>
 <p>Entre las <strong>vertientes</strong> más generales en la que se enfoca el <strong>AutoML</strong> nos encontramos con la <strong>Optimización de Parámetros</strong>; el <strong>Meta Aprendizaje</strong>; y la <strong>Búsqueda de Arquitecturas de Redes Neuronales</strong>. A continuación, listamos los siguientes trabajos en los que se recopila el estado de la cuestión de cada una de estas:</p>
 <ul class="simple">
@@ -559,7 +558,7 @@ La <strong>flexibilidad es importante</strong> porque cada algoritmo está basad
 </ul>
 <p>De esta manera es posible aprender, seleccionar, alterar o combinar diferentes algoritmos de IA para buscar los resultados que mejor satisfagan el problema de aprendizaje.
 Os recomendamos la lectura del capítulo Meta Learning [1], donde se hace una lectura concienzuda de la bibliografía al respecto.</p>
-<section id="busqueda-de-arquitectura-neuronal-neural-architecture-search-nas">
+<div class="section" id="busqueda-de-arquitectura-neuronal-neural-architecture-search-nas">
 <h3>Búsqueda de arquitectura neuronal (Neural Architecture Search,NAS)<a class="headerlink" href="#busqueda-de-arquitectura-neuronal-neural-architecture-search-nas" title="Permalink to this headline">¶</a></h3>
 <p>Es una <strong>técnica para automatizar el diseño de redes neuronales artificiales</strong>. Este es un modelo ampliamente utilizado en el campo del aprendizaje automático.</p>
 <p>NAS se ha utilizado para diseñar redes que están a la par o superan las arquitecturas diseñadas a mano. Los <strong>métodos para NAS</strong> se pueden clasificar de acuerdo con el <strong>espacio de búsqueda</strong>, la <strong>estrategia de búsqueda</strong> y la <strong>estrategia de estimación del rendimiento</strong> utilizada:</p>
@@ -570,19 +569,19 @@ Os recomendamos la lectura del capítulo Meta Learning [1], donde se hace una le
 </ul>
 <p>NAS está estrechamente relacionado con la <strong>optimización de hiperparámetros</strong> y es un subcampo del aprendizaje automático automatizado (AutoML).
 Os recomendamos la lectura del capítulo Neural Architecture Search [1], donde se hace una lectura concienzuda de la bibliografía al respecto.</p>
-</section>
-</section>
-<section id="sistemas-de-automl">
+</div>
+</div>
+<div class="section" id="sistemas-de-automl">
 <h2>Sistemas de AutoML<a class="headerlink" href="#sistemas-de-automl" title="Permalink to this headline">¶</a></h2>
-<section id="auto-weka">
+<div class="section" id="auto-weka">
 <h3>Auto-Weka<a class="headerlink" href="#auto-weka" title="Permalink to this headline">¶</a></h3>
 <p><strong>Auto-Weka [12]</strong> ha sido uno de los <strong>primeros sistemas AutoML</strong> identificados en la literatura. <strong>Se basa</strong> en el conocido kit de herramientas de aprendizaje automático <strong>WEKA</strong> y busca en diferentes métodos de <strong>clasificación</strong> y <strong>regresión</strong>, su configuración de <strong>hiperparámetros</strong> y métodos de <strong>preprocesamiento de datos</strong>.</p>
 <p>Todo esto está disponible a través de la <strong>interfaz gráfica</strong> con solo hacer clic en un botón, sin la necesidad de una sola línea de código.</p>
 <p><strong>Software:</strong> <a class="reference external" href="https://www.cs.ubc.ca/labs/beta/Projects/autoweka/#software">https://www.cs.ubc.ca/labs/beta/Projects/autoweka/#software</a></p>
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/t5_autoweka.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/t5_autoweka.jpg" style="width: 500px;" /></a>
 <p>Figura 1. Técnicas de aprendizaje y métodos soportados por Auto-Weka jiunto con el numero de hyper-parametros. Todos portan clasificación y los señalados con <code class="docutils literal notranslate"><span class="pre">*</span></code> soportan regresión. Tomado de [1].</p>
-</section>
-<section id="hyperopt-sklearn">
+</div>
+<div class="section" id="hyperopt-sklearn">
 <h3>Hyperopt-Sklearn<a class="headerlink" href="#hyperopt-sklearn" title="Permalink to this headline">¶</a></h3>
 <p>Hyperopt-Sklearn [13] abarca la <strong>definición del espacio de búsqueda</strong> con:</p>
 <ul class="simple">
@@ -593,8 +592,8 @@ En total considera 65 hyperparametros: 15 boleanos, 14 categoricos, 17 discretos
 </ul>
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/t5_hyperopt-sklearn.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/t5_hyperopt-sklearn.jpg" style="width: 600px;" /></a>
 <p>Figura 2. Ejemplo de un espacio de búsqueda de hyperopt-sklearn teniendo en cuenta un paso de preprocesamiento y un segundo de clasificación.Tomado de [1].</p>
-</section>
-<section id="auto-sklearn">
+</div>
+<div class="section" id="auto-sklearn">
 <h3>Auto-sklearn<a class="headerlink" href="#auto-sklearn" title="Permalink to this headline">¶</a></h3>
 <p>Auto-sklearn [14] es un <strong>sistema AutoML</strong> <strong>basado</strong> en el paquete de aprendizaje automático de <strong>Python scikit-learn</strong>.</p>
 <p>Incluye:</p>
@@ -616,8 +615,8 @@ En total considera 65 hyperparametros: 15 boleanos, 14 categoricos, 17 discretos
 </pre></div>
 </div>
 <p>Vér más en <a class="reference external" href="https://automl.github.io/auto-sklearn/master/#example">https://automl.github.io/auto-sklearn/master/#example</a></p>
-</section>
-<section id="auto-net-towards-automatically-tuned-neural-networks">
+</div>
+<div class="section" id="auto-net-towards-automatically-tuned-neural-networks">
 <h3>Auto-Net: Towards Automatically-Tuned Neural Networks<a class="headerlink" href="#auto-net-towards-automatically-tuned-neural-networks" title="Permalink to this headline">¶</a></h3>
 <p><strong>AutoNet1.0 [11]</strong>. Una <strong>extension de AutoSKlearn</strong> añadiendo algunos componentes de clasificación y regresión.
 Permite aprovechar las partes existentes de la canalización del aprendizaje automático:</p>
@@ -638,8 +637,8 @@ Aquí, <strong>limitamos Auto-Net a redes neuronales</strong> de alimentación <
 </ul>
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/t5_config_espacio_autonet2.0.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/t5_config_espacio_autonet2.0.jpg" style="width: 500px;" /></a>
 <p>Figura 6. Configuración del espacio de búsqueda con AutoNet 2.0</p>
-</section>
-<section id="tpot-a-tool-for-automating-machine-learning">
+</div>
+<div class="section" id="tpot-a-tool-for-automating-machine-learning">
 <h3>TPOT: A Tool for Automating Machine Learning<a class="headerlink" href="#tpot-a-tool-for-automating-machine-learning" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://automl.info/tpot/">TPOT</a> es un <strong>contenedor para</strong> el paquete de aprendizaje automático de Python, <strong>scikitlearn</strong>. Cada operador de flujo de aprendizaje automático (es decir, GP primitivo) en TPOT corresponde a un algoritmo de aprendizaje automático, como un modelo de clasificación supervisado o un escalador de características estándar. Todas las implementaciones de los algoritmos de aprendizaje automático son de scikit-learn [excepto GBoost] [9] [10].</p>
 <p><strong>Operadores de clasificación</strong> supervisados:</p>
@@ -671,8 +670,8 @@ Aquí, <strong>limitamos Auto-Net a redes neuronales</strong> de alimentación <
 <li><p>y Eliminación de características recursivas <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.RFE.html">RFE</a>.</p></li>
 </ul>
 <p>Los <strong>operadores de selección de características reducen la cantidad de características en el conjunto de datos</strong> utilizando algunos criterios y devuelven el conjunto de datos modificado.</p>
-</section>
-<section id="autogoal-automatic-generation-optimization-and-artificial-learning">
+</div>
+<div class="section" id="autogoal-automatic-generation-optimization-and-artificial-learning">
 <h3>AutoGOAL: Automatic Generation, Optimization And Artificial Learning<a class="headerlink" href="#autogoal-automatic-generation-optimization-and-artificial-learning" title="Permalink to this headline">¶</a></h3>
 <p><strong>AutoGOAL</strong> es un marco para <strong>encontrar</strong> el mejor programa (<strong>Pipeline</strong>) para resolver un problema dado. AutoGOAL proporciona un conjunto de <strong>componentes de bajo nivel</strong> para definir diferentes espacios de búsqueda y buscar de manera eficiente en ellos. En el contexto específico del aprendizaje automático, AutoGOAL también proporciona <strong>componentes de alto nivel</strong> que se pueden usar como <strong>caja negra</strong> en casi <strong>cualquier tipo de problema y formato de conjunto de datos</strong>.</p>
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/t5_autogoal_arq.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/t5_autogoal_arq.jpg" style="width: 600px;" /></a>
@@ -696,9 +695,9 @@ print(automl.best_pipeline_)
 print(&#39;score: &#39; + str(automl.best_score_))
 </pre></div>
 </div>
-</section>
-</section>
-<section id="competiciones-y-benchmarks-de-automl">
+</div>
+</div>
+<div class="section" id="competiciones-y-benchmarks-de-automl">
 <h2>Competiciones y Benchmarks de AutoML<a class="headerlink" href="#competiciones-y-benchmarks-de-automl" title="Permalink to this headline">¶</a></h2>
 <p>Hemos identificado <strong>entornos científicos de competición y benchmarks</strong>.  Estas competiciones han implicado los siguientes <strong>dominios de aplicación</strong> [8]:</p>
 <ul class="simple">
@@ -719,8 +718,8 @@ print(&#39;score: &#39; + str(automl.best_score_))
 <li><p><a class="reference external" href="https://competitions.codalab.org/competitions/17767">AutoML2</a> (2017-2018): AutoML 2018 challenge :: PAKDD2018</p></li>
 <li><p><a class="reference external" href="https://competitions.codalab.org/competitions/19836">AutoML3</a> (LLML, 2018): AutoML3 (LLML, 2018)</p></li>
 </ul>
-</section>
-<section id="bibliogarfia">
+</div>
+<div class="section" id="bibliogarfia">
 <h2>Bibliogarfía<a class="headerlink" href="#bibliogarfia" title="Permalink to this headline">¶</a></h2>
 <p>[1] Hutter, F., Kotthoff, L., &amp; Vanschoren, J. (2019). Automated machine learning: methods, systems, challenges (p. 219). Springer Nature.</p>
 <p>[2] Claesen, Marc; Bart De Moor (2015). “Hyperparameter Search in Machine Learning”. arXiv:1502.02127 [cs.LG].</p>
@@ -736,8 +735,8 @@ print(&#39;score: &#39; + str(automl.best_score_))
 <p>[12] Auto-WEKA. Lars Kotthoff and Chris Thornton and Holger H. Hoos and Frank Hutter and Kevin Leyton-Brown. 2013.</p>
 <p>[13] Hyperopt-Sklearn. Brent Komer and James Bergstra and Chris Eliasmith. 2019.</p>
 <p>[14] Auto-sklearn: Efficient and Robust Automated Machine Learning. Matthias Feurer and Aaron Klein and Katharina Eggensperger and Jost Tobias Springenberg and Manuel Blum and Frank Hutter. 2019.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

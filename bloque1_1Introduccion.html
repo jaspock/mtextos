@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Minería de textos y procesamiento del lenguaje natural. &#8212; Minería de Textos</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -445,7 +444,7 @@
         
               <div>
                 
-  <section id="mineria-de-textos-y-procesamiento-del-lenguaje-natural">
+  <div class="section" id="mineria-de-textos-y-procesamiento-del-lenguaje-natural">
 <span id="label-intro"></span><h1>Minería de textos y procesamiento del lenguaje natural.<a class="headerlink" href="#mineria-de-textos-y-procesamiento-del-lenguaje-natural" title="Permalink to this headline">¶</a></h1>
 <p><em>Minería de textos</em> es el conjunto de técnicas y herramientas desarrolladas para extraer información de grandes colecciones textuales, tanto información implícita como explícita.</p>
 <p>Extracción de información de grandes volúmenes de textos. Sin estas técnicas no sería posible analizar toda esa información por un humano. Extracción de patrones / información recurrente.</p>
@@ -453,7 +452,7 @@
 <p>La disciplina computacional que idea y desarrolla sistemas para la interpretación de los textos es el procesamiento del lenguaje natural, disciplina híbrida entre la lingüística y la computación.</p>
 <p>Este primer bloque de la asignatura es una introducción a los conceptos fundamentales del procesamiento del lenguaje natural. Se expondrán los principales problemas a los que se enfrenta, así como herramientas y recursos disponibles para la minería de textos.</p>
 <p>Muchos de los conceptos y problemas presentados en este bloque serán recurrentes a lo largo de toda la asignatura, y en algunos de ellos se profundizará en los siguientes módulos.</p>
-<section id="que-es-un-texto-y-por-que-es-dificil-su-procesamiento-automatico">
+<div class="section" id="que-es-un-texto-y-por-que-es-dificil-su-procesamiento-automatico">
 <h2>Qué es un texto (y por qué es difícil su procesamiento automático).<a class="headerlink" href="#que-es-un-texto-y-por-que-es-dificil-su-procesamiento-automatico" title="Permalink to this headline">¶</a></h2>
 <p>La minería de textos, como su nombre indica, debe procesar automáticamente textos escritos en una lengua concreta para extraer de ellos información.</p>
 <p>La información de un texto está codificada en signos. Estos signos forman lo que se denomina “idioma” o “lengua”.</p>
@@ -490,28 +489,28 @@
 <ul class="simple">
 <li><p>¿Otros?</p></li>
 </ul>
-<section id="actividad-para-pensar">
+<div class="section" id="actividad-para-pensar">
 <h3>Actividad para pensar:<a class="headerlink" href="#actividad-para-pensar" title="Permalink to this headline">¶</a></h3>
 <p>Consulta las siguientes oraciones e intenta determinar qué tipo de ambigüedad tienen:</p>
 <p><a class="reference external" href="https://docs.google.com/forms/d/e/1FAIpQLSekRufl7AoUu4z0kSxa2ZkCoYzd9pNzyaIxtCJN7ZBFOC7U2A/viewform?usp=sf_link">Formulario ambigüedad</a></p>
-</section>
-</section>
-<section id="niveles-de-descripcion-linguistica">
+</div>
+</div>
+<div class="section" id="niveles-de-descripcion-linguistica">
 <h2>Niveles de descripción lingüística.<a class="headerlink" href="#niveles-de-descripcion-linguistica" title="Permalink to this headline">¶</a></h2>
 <p>Para estudiar las lenguas en su complejidad, los lingüistas las han seccionado en diferentes niveles, lo llamados <em>niveles de descripción lingüística</em>. El PLN se basa en estos niveles para desarrollar sus sistemas.</p>
 <p>Se presentan en orden semasiológico.</p>
-<section id="imagen-o-sonidos-extralinguistico">
+<div class="section" id="imagen-o-sonidos-extralinguistico">
 <h3>Imagen o sonidos extralingüístico.<a class="headerlink" href="#imagen-o-sonidos-extralinguistico" title="Permalink to this headline">¶</a></h3>
 <p>Percepción por la vista (tipografía) o el oído (fonética).</p>
-</section>
-<section id="nivel-fono-fonologico">
+</div>
+<div class="section" id="nivel-fono-fonologico">
 <h3>Nivel fono-fonológico.<a class="headerlink" href="#nivel-fono-fonologico" title="Permalink to this headline">¶</a></h3>
 <p>Percepción y representación mental (prototípica y abstracta) de los sonidos (o su imágenes tipográficas correspondiente). Sistema fonológico basado en rasgos articulatorios mediante oposiciones: modo de articulación (vocales y consonantes), punto de articulación (bilabial, labiodental, interdenta, nasal, palatal, velar, etc.) y vibración de las cuerdas vocales (sonoras - sordas).</p>
 <p>Los sistemas de PLN de este nivel son los sistemas de reconocimiento del habla o análisis de voz. El primero transforman una cadena de sonido hablado en una representación textual procesable (texto digital codificado en UTF-8, etc.). Problemas: relacionar sonidos y fonemas, sílabas, entonación, discriminación del habla de otros tipos de sonidos (ruido), separación de palabras (o unidades significativas), etc.</p>
 <p>Ej. “…”</p>
 <p>El proceso contrario, del texto a habla, son los sistemas de síntesis de voz.</p>
-</section>
-<section id="nivel-morfologico">
+</div>
+<div class="section" id="nivel-morfologico">
 <h3>Nivel morfológico.<a class="headerlink" href="#nivel-morfologico" title="Permalink to this headline">¶</a></h3>
 <p>La palabra como unidad básica. Elementos constitutivos de las palabras (lexemas, morfemas, etc.), tipos de palabras (nombre, verbo, adjetivo, etc.), así como otro fenómenos lingüísticos como derivación, composición, etc.</p>
 <p>En PLN, este nivel está relacionado con los sistemas de análisis categorial o Part of Speech taggers (PoS_tagger). Estos sistemas suelen realizar cuatro tareas de análisis:</p>
@@ -539,15 +538,15 @@ d. análisis categorial (clasificación de palabras según la categoría gramati
 15 .               .               Fp      Fp  pos=punctuation|type=period
 </pre></div>
 </div>
-</section>
-<section id="nivel-sintactico">
+</div>
+<div class="section" id="nivel-sintactico">
 <h3>Nivel sintáctico<a class="headerlink" href="#nivel-sintactico" title="Permalink to this headline">¶</a></h3>
 <p>Dentro de una oración, las palabras se agrupan en constituyentes superiores (sintagmas) y establecen relaciones jerárquicas (dependencias) entre ellas. Estas relaciones determinan el significado final de la oración, por lo que es necesario determinarlas.</p>
 <p>En PLN, los sistemas que realizan el análisis sintáctico reciben el nombre genérico de <em>parser</em>. Estos deben dar cuenta sobre todo de la ambigüedad estructural. Salida:</p>
 <p><img alt="FreelingFullParser" src="_images/arbolSintatico_FreelingFullParser.png" /></p>
 <p>Ambigüedad: “Vi a tu hermano con los prismáticos”</p>
-</section>
-<section id="nivel-semantico">
+</div>
+<div class="section" id="nivel-semantico">
 <h3>Nivel semántico<a class="headerlink" href="#nivel-semantico" title="Permalink to this headline">¶</a></h3>
 <p>Todo aquello relacionado con el significado del texto.</p>
 <ul class="simple">
@@ -566,14 +565,14 @@ d. análisis categorial (clasificación de palabras según la categoría gramati
 &lt;/predicate&gt;
 </pre></div>
 </div>
-</section>
-<section id="nivel-textual">
+</div>
+<div class="section" id="nivel-textual">
 <h3>Nivel textual<a class="headerlink" href="#nivel-textual" title="Permalink to this headline">¶</a></h3>
 <p>La comunicación no se realiza mediante palabras u oraciones, sino mediante textos. EL texto es la unidad comunicativa superior. En este nivel se estudian fenómenos lingüísticos que relacionan oraciones: marcas de conexión entre oraciones o secciones, correferencias (anáforas y catáforas), coherencia general del texto, temas…</p>
 <p>Diferentes sistemas de PLN se encargan de estos fenómenos. La resolución de la correferencia es quizá de los más interesantes en Minería de textos por su relación con la extracción de entidades.</p>
 <p>Ej: “Juan había ido elaborando una ruta perfecta de bares <em>que</em> <em>le</em> permitía ver <em>su</em> programa favorito”.</p>
-</section>
-<section id="nivel-pragmatico">
+</div>
+<div class="section" id="nivel-pragmatico">
 <h3>Nivel pragmático<a class="headerlink" href="#nivel-pragmatico" title="Permalink to this headline">¶</a></h3>
 <p>La comunicación, por último, no se produce de manera aislada, sino dentro de una situación comunicativa donde aparece una persona que crea el texto, otra que lo interpreta, un contexto, una intención, etc. Todos estos aspectos entran dentro de la pragmática.</p>
 <p>Algunos fenómenos que requieren tener en cuenta la situación pragmática:</p>
@@ -589,19 +588,19 @@ SIRI: “¿Qué tal si busco “comportamiento inapropiado” en Internet?”</p
 <li><p>Agentes conversacionales y gestión del diálogo.</p></li>
 <li><p>etc.</p></li>
 </ul>
-</section>
-</section>
-<section id="metodos-de-pln">
+</div>
+</div>
+<div class="section" id="metodos-de-pln">
 <h2>Métodos de PLN.<a class="headerlink" href="#metodos-de-pln" title="Permalink to this headline">¶</a></h2>
 <p>Si bien las primeras propuestas de aplicar métodos computacionales la texto datan de los años 40 (con el nacimiento de la teoría de los lenguajes formales), no es hasta los 70 cuando empiezan a aparecer los primeros sistemas de PLN (SHRDLU de Winograd, 1972).</p>
 <p>Desde los primeros años se establecieron dos métodos generales:</p>
-<section id="metodos-simbolicos-racionalismo">
+<div class="section" id="metodos-simbolicos-racionalismo">
 <h3>Métodos simbólicos (racionalismo):<a class="headerlink" href="#metodos-simbolicos-racionalismo" title="Permalink to this headline">¶</a></h3>
 <p>Estos intentan describir el funcionamiento del idioma (en cualquiera de sus fenómenos y niveles) mediante reglas formales. En general, tratan de formalizar nuestro conocimiento de la gramática de un idioma en reglar que la máquina pueda entender.</p>
 <p>Este paradigma fue predominante en los años 80. Hoy día, si bien en investigación apenas tiene presencia (es raro encontrar artículos que presenten sistemas simbólicos), en la industria sigue siendo un paradigma utilizado. Los sistemas de PLN de muchas empresas dependen de gramáticas y otros recursos lingüísticos (diccionarios) que se crean y mantienen a mano por expertos (lingüistas).</p>
 <p>La gran ventaja de los métodos simbólicos es su precisión. Permite tratar fenómenos lingüísticos muy concretos (y a veces poco probables). Adolecen, sin embargo, de cobertura, pues es complejo prever y tratar todos los fenómenos lingüísticos que puede haber en un texto mediante reglas.</p>
-</section>
-<section id="metodos-estadisticos-empirismo">
+</div>
+<div class="section" id="metodos-estadisticos-empirismo">
 <h3>Métodos estadísticos (empirismo).<a class="headerlink" href="#metodos-estadisticos-empirismo" title="Permalink to this headline">¶</a></h3>
 <p>La aplicación de métodos estadísticos al procesamiento lingüístico no es nueva, pero tuvo especial desarrollo a partir de los años 90 del siglo XX.</p>
 <p>Hoy día estos métodos siguen los modelos de aprendizaje automático: supervisado, no supervisado y semi-supervisado. Dependen siempre de la disponibiliad de corpus (selección de muestras lingüísticas); bien para los procesos de aprendizaje, bien para procesos de evaluación o bien para ambos.</p>
@@ -617,27 +616,27 @@ SIRI: “¿Qué tal si busco “comportamiento inapropiado” en Internet?”</p
 - seleccionar el algoritmo apropiado para la detección del fenómeno y su clasificación según sus rasgos.
 </pre></div>
 </div>
-</section>
-<section id="metodos-neuronales">
+</div>
+<div class="section" id="metodos-neuronales">
 <h3>Métodos neuronales<a class="headerlink" href="#metodos-neuronales" title="Permalink to this headline">¶</a></h3>
 <p>En los últimos años se han desarrollado los procesos neuronales a partir del <em>deep learning</em>.</p>
 <p>Hay área donde los modelos neuronales han hallado la solución a problemas complejos. En el caso del PLN, los sistemas de análisis de voz funcionan prácticamente ya sin problemas gracias a estos modelos. El PLN en general, sin embargo, aún presenta muchos problemas irresolubles (Manning 2015), lo cual quizá sea la mayor prueba de la complejidad del análisis lingüístico.</p>
-</section>
-</section>
-<section id="conclusion">
+</div>
+</div>
+<div class="section" id="conclusion">
 <h2>Conclusión<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
 <p>En esta sesión se han presentado los análisis básicos de PLN, necesarios para preprocesar un corpus antes de realizar tareas de minería de textos. Además de estas tareas de procesamiento lingüístico básico, el PLN tiene definidas otras tareas como las expuestas aquí:</p>
 <p>http://nlpprogress.com/</p>
-</section>
-<section id="bibliografia">
+</div>
+<div class="section" id="bibliografia">
 <h2>Bibliografía<a class="headerlink" href="#bibliografia" title="Permalink to this headline">¶</a></h2>
 <p>Bird, Steven; Klein, Ewan y Loper, Edward (2009) <em>Natural Language Processing with Python. Analyzing Text with the Natural Language Toolkit</em> O’Reilly Media. https://www.nltk.org/book_1ed/</p>
 <p>Juravsky y Martin (2020) <em>Speech and Language Processing</em>. https://web.stanford.edu/~jurafsky/slp3/</p>
 <p>Lakoff y Johnson (1980) <em>Metáforas de la vida cotidiana</em> Madrid, Cátedra, 1986.</p>
 <p>Manning, Christopher D. (2015) “Computational Linguistics and Deep Learning” <em>Computational Linguistics</em> 41 (4) p.701-707</p>
 <p>Schubert, Lenhart, “Computational Linguistics”, <em>The Stanford Encyclopedia of Philosophy</em> (Spring 2020 Edition), Edward N. Zalta (ed.), https://plato.stanford.edu/archives/spr2020/entries/computational-linguistics/</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
