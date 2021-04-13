@@ -12,6 +12,12 @@ A continuación se presenta una revisión histórica de la evolución del proces
 Hacia final de curso deberías ser capaz de leer esta revisión histórica entendiendo cada aspecto explicado.
 ```
 
+```{admonition} Nota
+El análisis "[10 things][things] you need to know about BERT and the transformer architecture that are reshaping the AI landscape", más centrado en el panorama reciente del procesamiento del lenguaje natural, también te puede servir para repasar todo este bloque a final de curso y asegurarte de que has entendido todos sus conceptos.
+
+[things]: https://neptune.ai/blog/bert-and-the-transformer-architecture-reshaping-the-ai-landscape
+```
+
 ## Algo de historia
 
 ### Los inicios y la traducción automática
