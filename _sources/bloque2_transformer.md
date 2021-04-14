@@ -17,6 +17,47 @@ Para comenzar con el tema, vamos a seguir la guía ilustrada de Jay Alammar sobr
 
 [seq2seq]: https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/
 
+### Ecuaciones del modelo seq2seq recurrente
+
+Veamos en primer lugar las ecuaciones del modelo sin atención en el que un vector de contexto fijo para cada frase *resume* toda la información del codificador. El estado en el instante $t$ del codificador es:
+
+$$
+\boldsymbol{h}_t = f(\boldsymbol{x}_t,\boldsymbol{h}_{t-1}) \\[1.5ex]
+$$
+
+donde $f$ y el resto de funciones que se muestran a conmtinuación se instrumentan como redes neuronales. La fórmula anterior es como la usada en la red de Elman. El vector de contexto, si $m$ es la longitud de la secuencia de entrada, es:
+
+$$
+\boldsymbol{c} = q(\{\boldsymbol{h}_1,\ldots,\boldsymbol{h}_m\})
+$$
+
+El descodificador se puede caracterizar como:
+
+$$
+\boldsymbol{s}_i = g(\boldsymbol{s}_{i-1},\boldsymbol{y}_{i-1},\boldsymbol{c})
+$$
+
+es decir, como una red recurrente condicionada por el vector de contexto que resume la frase de entrada y por la salida emitida por el descodificador en el instante anterior; esto último es lo que da su naturaleza autoregresiva al modelo. La salida del modelo es:
+
+$$
+\boldsymbol{y}_i = m(\boldsymbol{s}_i)
+$$
+
+La arquitectura anterior fue la propuesta por Ilya Sutskever, Oriol Vinyals y Quoc V. Le en 2014. Unos meses después, Dzmitry Bahdanau, Kyunghyun Cho y Yoshua Bengio incorporaron el mecanismo de atención que implica reescribir la ecuación de $\boldsymbol{s}_i$ como sigue:
+
+$$
+\boldsymbol{s}_i = g(\boldsymbol{s}_{i-1},\boldsymbol{y}_{i-1},\boldsymbol{c}_i)
+$$
+
+El vector de contexto ya no es fijo, sino que cambia para cada token del descodificador:
+
+
+$$
+e_{ij} &=& a(\boldsymbol{s}_i,\boldsymbol{h}_j) \\[1.5ex]
+\alpha_{ij} &=& \frac{\mathrm{exp}(e_{ij})}{\sum_k \mathrm{exp}(e_{ik})} \\[1.5ex]
+\boldsymbol{c}_i &=& \sum_{j=1}^m \alpha_{ij} \boldsymbol{h}_j
+$$
+
 
 ## La arquitectura transformer
 
@@ -26,23 +67,70 @@ Introducida la arquitectura *seq2seq*, usaremos en este bloque otra guía ilustr
 
 Las representaciones aprendidas tras el entrenamiento por un transformer en cada una de sus capas para una nueva frase de entrada pueden considerarse (de la misma manera que con una red recurrente) como embeddings contextuales de los diferentes tokens de la entrada que pueden usarse a la hora de representarlos en otras tareas. En principio, cualquier capa puede ser adecuada para obtener estas representaciones, pero algunos trabajos han demostrado que ciertas capas son más adecuadas que otras para ciertas tareas. Las capas más cercanas a la entrada parecen representar información más relacionada con la morfología, mientras que las capas finales se relacionan más con la semántica.
 
+### Ecuaciones del transformer
+
+El transformer usa la arquitectura codificador-descodificador para emitir de forma autoregresiva una secuencia de salida $\boldsymbol{y}= y_1, y_2,\ldots,y_n$ a partir de una secuencia de entrada $\boldsymbol{x}= x_1, x_2,\ldots,x_n$. Habitualmente cada $x_i$ será un embedding *no contextual* para el token correspondiente de la frase a procesar obtenido de una tabla de embeddings, y cada $y_i$ será el vector de probabilidades correspondiente al $i$-ésimo token de la frase de salida.
+
+El codificador tiene $N$ capas idénticas, cada una formada a su vez por dos subcapas:
+
+$$
+\underline{\boldsymbol{h}}^l &=& \text{LN}\left(\text{SelfAtt}\left(\boldsymbol{h}^{l-1}\right) + \boldsymbol{h}^{l-1}\right) \\[2ex]
+\boldsymbol{h}^l &=& \text{LN}\left(\text{FF}\left(\underline{\boldsymbol{h}}^l\right) + \underline{\boldsymbol{h}}^l\right)
+$$
+
+donde $\boldsymbol{h}^l = \{h_1^l,h_2^l,\ldots,h_n^l\}$ son las salidas de la capa $l$-ésima (una por cada token de la entrada). La salida de la primera capa es $\boldsymbol{h}^0= \boldsymbol{x}$. La función LN obtiene la normalización a nivel de capa, SelfAtt es el mecanismo de atención con múltiples cabezales y FF es una red hacia delante completamente conectada.
+
+El descodificador sigue un planteamiento similar con un par de particularidades: el mecanismo de autoatención usa una máscara para no usar los embeddings de los tokens aún no generados y aparece una tercera subcapa responsable de la atención hacia el codificador:
+
+$$
+\underline{\boldsymbol{s}}^l &=& \text{LN}\left(\text{MaskedSelfAtt}\left(\boldsymbol{s}^{l-1}\right) + \boldsymbol{s}^{l-1}\right) \\[2ex]
+\underline{\underline{\boldsymbol{s}}}^l &=& \text{LN}\left(\text{CrossAtt}\left(\underline{\boldsymbol{s}}^{l},\boldsymbol{h}^N\right) + \underline{\boldsymbol{s}}^{l}\right) \\[2ex]
+\boldsymbol{s}^l &=& \text{LN}\left(\text{FF}\left(\underline{\underline{\boldsymbol{s}}}^l\right) + \underline{\underline{\boldsymbol{s}}}^l\right)
+$$
+
+donde $\boldsymbol{s}^l$ son las salidas de la capa $l$-ésima del descodificador. Los embeddings de la última capa $\boldsymbol{s}^M$ se pasan por una capa densa adicional seguida de una función softmax para obtener la estimación de la probabilidad del token correspondiente. La salida de la primera capa del descodificador $\boldsymbol{s}^0$ es, como en el codificador, un embedding no contextual del token anterior (por ejemplo, el token de mayor probabilidad emitido en el paso anterior).
+
+### Un símil del mecanismo de autoatención
+
+El mecanismo de autoatención se puede introducir con propósitos didácticos basándonos en una hipotética versión de Python en la que se permitiera acceder a los valores de un diccionario usando claves *aproximadas*. Supongamos el siguiente diccionario de Python almacenado en la variable `d`; como cualquier diccionario de Python este contiene también un conjunto de claves (`manzana`, por ejemplo) y sus valores asociados (`8` es el valor asociado a la clave `manzana`, por ejemplo):
+
+```python
+d = {"manzana":8, "albaricoque":4, "naranja":3}
+```
+
+En Python *convencional* ahora podemos realizar una *consulta* al diccionario con una sintaxis como `d["manzana"]` para obtener el valor `8`. El intérprete de Python ha usado el nombre de nuestra consulta (`manzana`) para buscar entre todas las claves del diccionario una cuyo nombre coincida *exactamente* y devolver su valor (`8` en este caso).
+
+Observa cómo en la discusión anterior hemos usado los términos "consulta" (*query*), "clave" (*key*) y "valor" (*value*) que aparecen tambien cuando se discute el mencanismo de autoatención del transformer.
+
+Vayamos ahora más allá y consideremos que realizamos una consulta como `d["narancoque"]`. Un intérprete de Python *real* lanzará una excepción ante la consulta anterior, pero un intérprete *imaginario* podría recorrer el diccionario, comparar el término de la consulta con cada clave del diccionario y ponderar los valores en función del parecido encontrado. Consideremos una función `similitud` que recibe dos cadenas y devuelve un número, no necesariamente acotado, que es mayor cuanto más parecidas son las cadenas (los valores concretos no son ahora relevantes):
+
+```
+similitud("narancoque","manzana") → 0
+similitud("narancoque","albaricoque") → 20
+similitud("narancoque","naranja") → 30
+```
+
+Estos resultados normalizados para que su suma sea 1 son `0`, `0,4` y `0,6`. Nuestro intérprete de Python imaginario podría ahora devolvernos para la consulta `d["narancoque"]` el valor 0 x 8 + 0,4 x 4 + 0,6 x 3 = 3,4. 
+
+En el caso del transformer, las consultas, las claves y los valores son vectores de una cierta dimensión, y la función de similitud empleada es el producto escalar de la consulta y las diferentes claves. Los grados de similitud se normalizan mediante la función softmax y se utlizan igualmente para ponderar después los distintos valores:
+
+$$
+\text{SelfAtt}(Q,K,V) = \text{softmax}\left( \frac{Q K^T}{\sqrt{d_k}} \right) V
+$$
+
 ### Las diferentes caras de la atención
 
-En el siguiente análisis nos basaremos en la [discusión][dontloo] de *dontloo* en Cross Validated. Hay tres conceptos clave en el mecanismo de atención para cuya explicación se puede hacer un símil con los conceptos homónimos en los sistemas de extracción de información:
+En el siguiente análisis nos basaremos en la [discusión][dontloo] de *dontloo* en Cross Validated. 
 
 [dontloo]: https://stats.stackexchange.com/a/424127/240809
 
-- las *consultas*, que serían equivalentes a los términos a buscar;
-- las *claves*, que serían los valores del campo (por ejemplo, título) sobre el que se realiza la búsqueda;
-- los *valores*, que serían aquello devuelto finalmente por el motor de búsqueda.
-
-En el sistema *seq2seq*, la atención es una media ponderada de las claves:
+En el sistema *seq2seq*, la atención calcula una media ponderada de las claves:
 
 $$
 \boldsymbol{c} = \sum_{j} \alpha_j \boldsymbol{h}_j   \qquad \mathrm{con} \,\, \sum_j \alpha_j = 1
 $$
 
-Si $\alpha$ fuera un vector one-hot, la atención se reduciría a recuperar aquel elemento de entre los distintos $\boldsymbol{h}_j$ en base al correspondiente índice; pero sabemos que $\alpha$ difícilmente será un vector unitario, por lo que se tratará más bien de una recuperación ponderada. En este caso, $\boldsymbol{c}$ puede considerarse como el valor resultante.
+Si $\alpha$ fuera un vector one-hot, la atención se reduciría a recuperar aquel elemento de entre los distintos $\boldsymbol{h}_j$ en base al correspondiente índice; pero sabemos que $\alpha$ difícilmente será un vector unitario, por lo que se tratará más bien de una recuperación ponderada. En este caso, $\boldsymbol{c}\,$ puede considerarse como el valor resultante.
 
 Hay una diferencia importante en cómo este vector de pesos con suma 1 se obtiene en las arquitecturas de *seq2seq* y la del *transformer*. En el primer caso, se usa una red neuronal *feedforward*, representada mediante la función $a$, que determina la *compatibilidad* entre la representación del token $i$-ésimo del descodificador $\boldsymbol{s}_i$ y la representación del token $j$-ésimo del codificador $\boldsymbol{h}_j$:
 
@@ -56,7 +144,7 @@ $$
 \alpha_{ij} = \frac{\mathrm{exp}(e_{ij})}{\sum_k \mathrm{exp}(e_{ik})}
 $$
 
-Supongamos que la longitud de la secuencia de entrada es $m$ y la de la salida generada hasta esete momento es $n$. Un problema de este enfoque es que en cada paso del descodificador es necesario pasar por la red neuronal $a$ un total de $mn$ veces para computar todos los $e_{ij}$.
+Supongamos que la longitud de la secuencia de entrada es $m$ y la de la salida generada hasta este momento es $n$. Un problema de este enfoque es que en cada paso del descodificador es necesario pasar por la red neuronal $a$ un total de $mn$ veces para computar todos los $e_{ij}$.
 
 Existe una estrategia más eficiente que pasa por proyectar los $\boldsymbol{s}_i$ y los $\boldsymbol{h}_j$ a un espacio común (mediante, por ejemplo, sendas transformaciones lineales de una capa, $f$ y $g$) y usar entonces una medida de similitud (como el producto escalar) para obtener la puntuación $e_{ij}$:
 
@@ -68,13 +156,30 @@ Podemos considerar que el vector de proyección $f(\boldsymbol{s}_i)$ es la cons
 
 El mecanismo de atención del transformer establece las condiciones para que las proyecciones de consultas y claves y el cálculo de la similitud se puedan llevar a cabo. Cuando la atención se realiza desde y hacia vectores con el mismo origen (por ejemplo, dentro del codificador) se denomina *autoatención*. El transformer combina autoatención separada en codificador y descodificador con el otro mecanismo de atención *heterogénea* en el que $Q$ viene del descodificador y $K$ y $V$ vienen del codificador.
 
-La ecuación básica del transformer es esta:
+Como ya se ha visto, la ecuación básica de la autoatención en el transformer es esta:
 
 $$
-\mathrm{Attention}(Q,K,V) = \mathrm{softmax} \left( \frac{QK^T}{\sqrt{d_k}} \right) V
+\mathrm{SelfAttn}(Q,K,V) = \mathrm{softmax} \left( \frac{QK^T}{\sqrt{d_k}} \right) V
 $$
 
-En realidad, las ecuaciones finales del transformer son ligeramente más complejas que esta al considerar los múltiples cabezales.
+En realidad, las ecuaciones finales del transformer son ligeramente más complejas que esta al tener que considerar los múltiples cabezales.
+
+### Normalización de capa
+
+Sean $\hat{\boldsymbol{\mu}}_B$ y $\hat{\boldsymbol{\sigma}}^2_B$ los vectores de la media y la varianza, respectivamente, de todas las activaciones $\boldsymbol{x}$ producidas en una capa cuando se procesa un determinado minibatch $B$:
+
+$$
+\hat{\boldsymbol{\mu}}_B &=& \frac{1}{|B|} \sum_{\boldsymbol{x} \in B} \boldsymbol{x} \\[1.5ex]
+\hat{\boldsymbol{\sigma}}^2_B &=& \frac{1}{|B|} \sum_{\boldsymbol{x} \in B} \left(\boldsymbol{x} - \hat{\boldsymbol{\mu}}_B \right)^2 + \epsilon
+$$
+
+donde $\epsilon$ tiene un valor muy pequeño para evitar que la una división por cero en la siguiente ecuación. La función LN de normalización se define como la estandarización:
+
+$$
+\text{LN}(\boldsymbol{x}) = \boldsymbol{\gamma} \odot \frac{\boldsymbol{x} - \hat{\boldsymbol{\mu}}_B}{\hat{\boldsymbol{\sigma}}^2_B} + \boldsymbol{\beta}
+$$
+
+donde $\odot$ es el producto elemento a elemento de los dos vectores. La fracción permite que todos los vectores del minibatch tengan media cero y varianza 1. Como estos valores son arbitrarios, en cualquier caso, se añaden dos parámetros aprendibles $\boldsymbol{\gamma}$ y $\boldsymbol{\beta}$ para reescalarlos.
 
 ## Visualización de embeddings contextuales
 
