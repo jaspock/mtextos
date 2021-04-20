@@ -545,16 +545,32 @@ En la propia documentación se aporta el <strong>código de ejemplo</strong> par
 <h3>Configuraciones de modelos trasnformers<a class="headerlink" href="#configuraciones-de-modelos-trasnformers" title="Permalink to this headline">¶</a></h3>
 <p>Los <strong>modelos pre-entrenados</strong> que se brindan en el repositorio se <strong>basan</strong> en alguna de las <strong>arquitecturas Transformers</strong> descrita en la documentación del repositorio (<a class="reference external" href="https://huggingface.co/transformers/model_doc/">https://huggingface.co/transformers/model_doc/</a>).
 Si tomamos como referencia la arquitectura de modelo Transformer <a class="reference external" href="https://huggingface.co/transformers/model_doc/distilbert.html#overview">DistilBERT</a> podemos conocer cómo <strong>gestionar</strong> los distintos <strong>parámetros</strong>, <a class="reference external" href="https://huggingface.co/transformers/model_doc/distilbert.html#distilbertconfig"><strong>configuraciones de red neuronal</strong></a>, <a class="reference external" href="https://huggingface.co/transformers/model_doc/distilbert.html#distilberttokenizer"><strong>tokenizador</strong></a> y <strong>ejemplos</strong> para cada tipo de tarea.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">DistilBertTokenizer</span><span class="p">,</span> <span class="n">DistilBertModel</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># !pip install transformers</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">DistilBertTokenizer</span><span class="p">,</span> <span class="n">DistilBertModel</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">torch</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">DistilBertTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">&#39;distilbert-base-uncased&#39;</span><span class="p">)</span> <span class="c1"># cargando de toquenizador basado en el modelo preentrenado</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">DistilBertModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">&#39;distilbert-base-uncased&#39;</span><span class="p">)</span> <span class="c1"># cargando el modelo preentrenado</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">inputs</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="p">(</span><span class="s2">&quot;Hello, my dog is cute&quot;</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">&quot;pt&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">last_hidden_states</span> <span class="o">=</span> <span class="n">outputs</span><span class="o">.</span><span class="n">last_hidden_state</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">last_hidden_states</span><span class="p">)</span>
+
+<span class="go">tensor([[[-1.8296e-01, -7.4054e-02,  5.0267e-02,  ..., -1.1261e-01,</span>
+<span class="go">           4.4493e-01,  4.0941e-01],</span>
+<span class="go">         [ 7.0631e-04,  1.4825e-01,  3.4328e-01,  ..., -8.6039e-02,</span>
+<span class="go">           6.9475e-01,  4.3353e-02],</span>
+<span class="go">         [-5.0721e-01,  5.3086e-01,  3.7163e-01,  ..., -5.6287e-01,</span>
+<span class="go">           1.3756e-01,  2.8475e-01],</span>
+<span class="go">         ...,</span>
+<span class="go">         [-4.2251e-01,  5.7314e-02,  2.4338e-01,  ..., -1.5223e-01,</span>
+<span class="go">           2.4462e-01,  6.4155e-01],</span>
+<span class="go">         [-4.9384e-01, -1.8895e-01,  1.2641e-01,  ...,  6.3241e-02,</span>
+<span class="go">           3.6913e-01, -5.8252e-02],</span>
+<span class="go">         [ 8.3269e-01,  2.4948e-01, -4.5440e-01,  ...,  1.1998e-01,</span>
+<span class="go">          -3.9257e-01, -2.7785e-01]]], grad_fn=&lt;NativeLayerNormBackward&gt;)</span>
 
 </pre></div>
 </div>
