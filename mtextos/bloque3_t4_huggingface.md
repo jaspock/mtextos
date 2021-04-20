@@ -180,6 +180,7 @@ Los **modelos pre-entrenados** que se brindan en el repositorio se **basan** en 
 Si tomamos como referencia la arquitectura de modelo Transformer [DistilBERT](https://huggingface.co/transformers/model_doc/distilbert.html#overview) podemos conocer cómo **gestionar** los distintos **parámetros**, [**configuraciones de red neuronal**](https://huggingface.co/transformers/model_doc/distilbert.html#distilbertconfig), [**tokenizador**](https://huggingface.co/transformers/model_doc/distilbert.html#distilberttokenizer) y **ejemplos** para cada tipo de tarea.
 
 ````
+>>> # !pip install transformers
 >>> from transformers import DistilBertTokenizer, DistilBertModel
 >>> import torch
 
@@ -187,9 +188,24 @@ Si tomamos como referencia la arquitectura de modelo Transformer [DistilBERT](ht
 >>> model = DistilBertModel.from_pretrained('distilbert-base-uncased') # cargando el modelo preentrenado
 
 >>> inputs = tokenizer("Hello, my dog is cute", return_tensors="pt")
->>> outputs = model(inputs)
+>>> outputs = model(**inputs)
 
 >>> last_hidden_states = outputs.last_hidden_state
+>>> print(last_hidden_states)
+
+tensor([[[-1.8296e-01, -7.4054e-02,  5.0267e-02,  ..., -1.1261e-01,
+           4.4493e-01,  4.0941e-01],
+         [ 7.0631e-04,  1.4825e-01,  3.4328e-01,  ..., -8.6039e-02,
+           6.9475e-01,  4.3353e-02],
+         [-5.0721e-01,  5.3086e-01,  3.7163e-01,  ..., -5.6287e-01,
+           1.3756e-01,  2.8475e-01],
+         ...,
+         [-4.2251e-01,  5.7314e-02,  2.4338e-01,  ..., -1.5223e-01,
+           2.4462e-01,  6.4155e-01],
+         [-4.9384e-01, -1.8895e-01,  1.2641e-01,  ...,  6.3241e-02,
+           3.6913e-01, -5.8252e-02],
+         [ 8.3269e-01,  2.4948e-01, -4.5440e-01,  ...,  1.1998e-01,
+          -3.9257e-01, -2.7785e-01]]], grad_fn=<NativeLayerNormBackward>)
 
 ````
 
