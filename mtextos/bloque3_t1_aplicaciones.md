@@ -332,7 +332,7 @@ Esta trarea propone realizar **clasificación** de texto **en los datos**. Se ha
 
 #### Artículos
 
-- Papers With Code: <https://paperswithcode.com/task/information-extraction>
+- Papers With Code: <https://paperswithcode.com/task/text-classification>
 
 ### Natural Language Generation (NLG, Generación de lenguaje natural)
 
@@ -564,12 +564,12 @@ Figura 13. Arquitectura genérica de un sistema de QA.
 #### Repositorios de Código
 
 - Papers With Code: <https://paperswithcode.com/task/question-answering>
-- Kaggle: <https://www.kaggle.com/search?q=Question+Answering+in%3Adatasets>
+- Kaggle: <https://www.kaggle.com/search?q=Question+Answering+in%3Anotebooks>
 
 #### Conjuntos de datos
 
 - Huggingface: <https://huggingface.co/datasets?filter=task_categories:question-answering>
-- Kaggle: <https://www.kaggle.com/search?q=%22information+extraction%22+in%3Adatasets>
+- Kaggle: <https://www.kaggle.com/search?q=Question+Answering+in%3Adatasets>
 
 #### Artículos
 
