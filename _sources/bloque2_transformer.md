@@ -90,6 +90,17 @@ $$
 
 donde $\boldsymbol{s}^l$ son las salidas de la capa $l$-ésima del descodificador. Los embeddings de la última capa $\boldsymbol{s}^M$ se pasan por una capa densa adicional seguida de una función softmax para obtener la estimación de la probabilidad del token correspondiente. La salida de la primera capa del descodificador $\boldsymbol{s}^0$ es, como en el codificador, un embedding no contextual del token anterior (por ejemplo, el token de mayor probabilidad emitido en el paso anterior).
 
+```{figure} images/self-attention_multihead-romain-futrzynski.svg
+---
+height: 700px
+name: fig-selfatt
+---
+Una representación tridimensional del mecanismo de autoatención tomada del [tutorial][tutorialromain] de Romain Futrzynski.
+```
+
+[tutorialromain]: https://peltarion.com/blog/data-science/self-attention-video
+
+
 ### Un símil del mecanismo de autoatención
 
 El mecanismo de autoatención se puede introducir con propósitos didácticos basándonos en una hipotética versión de Python en la que se permitiera acceder a los valores de un diccionario usando claves *aproximadas*. Supongamos el siguiente diccionario de Python almacenado en la variable `d`; como cualquier diccionario de Python este contiene también un conjunto de claves (`manzana`, por ejemplo) y sus valores asociados (`8` es el valor asociado a la clave `manzana`, por ejemplo):
