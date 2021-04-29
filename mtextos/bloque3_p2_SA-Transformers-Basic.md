@@ -23,21 +23,21 @@ API Transformers Basic:
 
 ### Ejercicios
 
-#### Ejercicio 1
+#### Ejercicio 1 (opcional)
 
 Basándose en el ejemplo anterior haga uso del siguiente dataset y diseñe su propio sistema para el análisis de sentimientos. Se disponibilizan unas funciones python para la limpieza y carga de dataset.
 
 - sample_data/ejercicio_tripadvisor.csv
 - tripadvisor_Utils.py
 
-#### Ejercicio 2
+#### Ejercicio 2 (opcional)
 
 Basándose en el ejemplo anterior haga uso del siguiente dataset y diseñe su propio sistema para el análisis de sentimientos. Se disponibilizan unas funciones python para la limpieza y carga de dataset.
 
 - sample_data/ejercicio_bbc_train.csv
 - sample_data/ejercicio_bbc_test.csv
 
-#### Ejercicios adicionales
+#### Ejercicios adicionales (opcional)
 
 Elige alguno de los siguientes datasets y conforma tu propio sistema de sentiment analysis.
 
