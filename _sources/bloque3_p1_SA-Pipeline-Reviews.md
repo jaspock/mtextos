@@ -38,7 +38,7 @@ Basándose en el ejemplo anterior haga uso del siguiente dataset y diseñe su pr
 - sample_data/ejercicio_bbc_train.csv
 - sample_data/ejercicio_bbc_test.csv
 
-#### Ejercicios adicionales
+#### Ejercicios adicionales (opcional)
 
 Elige alguno de los siguientes datasets y conforma tu propio sistema de sentiment analysis.
 
