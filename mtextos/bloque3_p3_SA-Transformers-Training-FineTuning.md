@@ -15,6 +15,8 @@ P2. Reajustar modelos Transformers
 En esta clase práctica estudiaremos cómo ajustar modelos de Transformers a problemas concretos, en este caso uno de análisis de sentimientos. Los modelos utilizados contienen un vocabulario muy amplio y han sido entrenados sin ajustar los pesos internos a problemas concretos. Lo que estudiaremos será cómo realizar ajustes al problema.
 Se orientarán ejercicios a resolver en los que el estudiante deberá reajustar modelos existentes BERTs, mostrados en los ejemplos estudiados, para adaptarlos a la resolución de los ejercicios.
 
+Las entregas de ejercicios se han de hacer a través del UAcloud>Evaluación>[Nombre de la práctica].
+
 ### Ejemplo demostrativo
 
 Transformers Training Fine Tuning:

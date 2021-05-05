@@ -15,6 +15,8 @@ P5. Auto Machine Learning
 En esta clase práctica estudiaremos cómo descubrir pipelines óptimos para un problema determinado utilizando la librería [AutoGOAL].
 Se orientarán ejercicios a resolver en los que el estudiante deberá ser capaz de según el ejemplo visto en esta práctica de diseñar la exploración de pipelines para resolver problemas de procesamiento del lenguaje natural.
 
+Las entregas de ejercicios se han de hacer a través del UAcloud>Evaluación>[Nombre de la práctica].
+
 ### Ejemplo demostrativo
 
 AutoGOAL :

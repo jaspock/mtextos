@@ -16,6 +16,8 @@ P4. Ensemble de pipelines
 En esta clase práctica estudiaremos cómo diseñar distintos sistemas de clasificación textual que alimentan un meta ensamblador que se comporta como un sistema de votación.
 Se orientarán ejercicios a resolver en los que el estudiante deberá proponer y diseñar sistemas de análisis de sentimientos teniendo en cuenta lo estudiado en esta práctica.
 
+Las entregas de ejercicios se han de hacer a través del UAcloud>Evaluación>[Nombre de la práctica].
+
 ### Ejemplo demostrativo
 
 Transformers Ensemble:
