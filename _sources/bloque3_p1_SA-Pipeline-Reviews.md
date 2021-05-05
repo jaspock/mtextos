@@ -16,6 +16,8 @@ P1.1. Pipeline simple
 En esta clase práctica estudiaremos cómo crear pipelines de clasificación de sentimientos con el lenguaje Python, utilizando la librería Sklearn.
 Se orientarán ejercicios a resolver en los que el estudiante deberá hacer uso de los ejemplos estudiados para adaptarlos a estos.
 
+Las entregas de ejercicios se han de hacer a través del UAcloud>Evaluación>[Nombre de la práctica].
+
 ### Ejemplo demostrativo
 
 Pipeline Movie Reviews:

@@ -16,6 +16,8 @@ P3. Composición de vectores de características
 En esta clase práctica estudiaremos cómo extraer vectores de  características de distintos modos y finalmente componerlo como un único vector de características. Usaremos la librería Transformers como uno de los mecanismos de obtención de vectores de características.
 Se orientarán ejercicios a resolver en los que el estudiante deberá proponer y diseñar la composición de vectores de  características para alimentar sistemas de análisis de sentimientos.
 
+Las entregas de ejercicios se han de hacer a través del UAcloud>Evaluación>[Nombre de la práctica].
+
 ### Ejemplo demostrativo
 
 Transformers Training Custom:
