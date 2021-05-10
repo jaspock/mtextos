@@ -691,7 +691,7 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done&#39;</span><span class="p">)</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">classifier</span> <span class="o">=</span> <span class="n">AutoML</span><span class="p">(</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">automl</span> <span class="o">=</span> <span class="n">AutoML</span><span class="p">(</span>
 <span class="gp">&gt;&gt;&gt; </span>   <span class="nb">input</span> <span class="o">=</span> <span class="p">(</span><span class="n">Seq</span><span class="p">[</span><span class="n">Sentence</span><span class="p">],</span> <span class="n">Supervised</span><span class="p">[</span><span class="n">VectorCategorical</span><span class="p">]),</span> 
 <span class="gp">&gt;&gt;&gt; </span>   <span class="n">output</span> <span class="o">=</span> <span class="n">VectorCategorical</span><span class="p">,</span> 
 <span class="gp">&gt;&gt;&gt; </span>   <span class="n">score_metric</span><span class="o">=</span><span class="n">balanced_accuracy_score</span><span class="p">,</span> <span class="c1">#función objetivo</span>

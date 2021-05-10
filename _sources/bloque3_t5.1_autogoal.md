@@ -164,7 +164,7 @@ Podemos considerando **más parámetros**:
 >>> args = parser.parse_args()
 >>> print('Done')
 
->>> classifier = AutoML(
+>>> automl = AutoML(
 >>>    input = (Seq[Sentence], Supervised[VectorCategorical]), 
 >>>    output = VectorCategorical, 
 >>>    score_metric=balanced_accuracy_score, #función objetivo
