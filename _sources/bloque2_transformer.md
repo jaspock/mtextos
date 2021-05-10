@@ -177,20 +177,20 @@ En realidad, las ecuaciones finales del transformer son ligeramente más complej
 
 ### Normalización de capa
 
-Sean $\hat{\boldsymbol{\mu}}_B$ y $\hat{\boldsymbol{\sigma}}^2_B$ los vectores de la media y la varianza, respectivamente, de todas las activaciones $\boldsymbol{x}$ producidas en una capa cuando se procesa un determinado minibatch $B$:
+Sean $\hat{\mu}$ y $\hat{\sigma}^2$ la media y la varianza, respectivamente, de todas las entradas, que representaremos por $\boldsymbol{x}$, a las neuronas de una capa formada por H neuronas:
 
 $$
-\hat{\boldsymbol{\mu}}_B &=& \frac{1}{|B|} \sum_{\boldsymbol{x} \in B} \boldsymbol{x} \\[1.5ex]
-\hat{\boldsymbol{\sigma}}^2_B &=& \frac{1}{|B|} \sum_{\boldsymbol{x} \in B} \left(\boldsymbol{x} - \hat{\boldsymbol{\mu}}_B \right)^2 + \epsilon
+\hat{\mu} &=& \frac{1}{H} \sum_{i=1}^H x_i \\[1.5ex]
+\hat{\sigma}^2 &=& \frac{1}{H} \sum_{i=1}^H \left(x_i - \hat{\mu} \right)^2 + \epsilon
 $$
 
-donde $\epsilon$ tiene un valor muy pequeño para evitar que la una división por cero en la siguiente ecuación. La función LN de normalización se define como la estandarización:
+donde $\epsilon$ tiene un valor muy pequeño para evitar que la una división por cero en la siguiente ecuación. La función LN de normalización para cada entrada de la capa se define como la estandarización:
 
 $$
-\text{LN}(\boldsymbol{x}) = \boldsymbol{\gamma} \odot \frac{\boldsymbol{x} - \hat{\boldsymbol{\mu}}_B}{\hat{\boldsymbol{\sigma}}^2_B} + \boldsymbol{\beta}
+\text{LN}(x_i) = \gamma_i \frac{x_i - \hat{\mu}}{\hat{\sigma}^2} + \beta
 $$
 
-donde $\odot$ es el producto elemento a elemento de los dos vectores. La fracción permite que todos los vectores del minibatch tengan media cero y varianza 1. Como estos valores son arbitrarios, en cualquier caso, se añaden dos parámetros aprendibles $\boldsymbol{\gamma}$ y $\boldsymbol{\beta}$ para reescalarlos.
+La fracción permite que todos las entradas de la capa en un determinado instante tengan media cero y varianza 1. Como estos valores son arbitrarios, en cualquier caso, se añaden dos parámetros aprendibles $\boldsymbol{\gamma}$ y $\boldsymbol{\beta}$ para reescalarlos. Los valores normalizados se convierten en la nueva entrada de cada neurona y a estos se aplica la función de activación que corresponda; en el caso del transformer, no hay ninguna función de activación adicional.
 
 ## Visualización de embeddings contextuales
 
