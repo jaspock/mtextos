@@ -154,7 +154,17 @@ Ejemplo de Análisis de Sentimientos con Huggingface Transformer:
 [{'label': 'POSITIVE', 'score': 0.9997795224189758}]
 ````
 
-Si os fijáis hemos cargado el modelo pre-entrenado llamado ``sentiment-analysis`` para utilizarlo como clasificador. Este **modelo** se puede **reentrenar** a escenarios específicos si queremos realizando un ajuste sobre un nuevo corpus. Para más detalles ver la clase práctica [``bloque3_p3_SA-Transformers-Training-FineTuning``](https://jaspock.github.io/mtextos/bloque3_p3_SA-Transformers-Training-FineTuning.html)
+Si os fijáis hemos cargado un modelo pre-entrenado a través del pipeline  ``sentiment-analysis`` para utilizarlo como clasificador. Este **modelo** se puede **reentrenar** a escenarios específicos si queremos realizando un ajuste sobre un nuevo corpus. Para más detalles ver la clase práctica [``bloque3_p3_SA-Transformers-Training-FineTuning``](https://jaspock.github.io/mtextos/bloque3_p3_SA-Transformers-Training-FineTuning.html)
+
+
+Si queremos que el pipeline sea multilingue, podemos indicar el modelo exacto que contemple un diccionario de este tipo y el pipeline lo ensamblará internamente. Mirad el siguiente ejemplo:
+
+````
+>>> from transformers import pipeline
+>>> classifier = pipeline('sentiment-analysis', model='nlptown/bert-base-multilingual-uncased-sentiment' )
+>>> classifier('Estoy muy triste')
+[{'label': '1 star', 'score': 0.7241697907447815}]
+````
 
 
 ### ¿Cómo buscar y reutilizar modelos pre-entrenados en la plataforma?
