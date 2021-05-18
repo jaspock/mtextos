@@ -166,6 +166,40 @@ Si queremos que el pipeline sea multilingue, podemos indicar el modelo exacto qu
 [{'label': '1 star', 'score': 0.7241697907447815}]
 ````
 
+Para otras tareas como Rellenado de Máscaras podemos ver como podemos simplemente indicar el tipo de tarea para que el pipeline seleccione el tipo de configuración más adecuada a esta y el modelo que queremos aplicarle. Con solo cambiar el modelo base podemos hacer esta tarea unilingue a multilingue o cambiar de idioma. Ver el ejemplo a continuación:
+
+````
+>>> from transformers import AutoModelWithLMHead, AutoTokenizer
+>>> model = AutoModelWithLMHead.from_pretrained('mrm8488/RuPERTa-base')
+>>> tokenizer = AutoTokenizer.from_pretrained("mrm8488/RuPERTa-base", do_lower_case=True)
+
+>>> from transformers import pipeline
+
+>>> pipeline_fill_mask = pipeline("fill-mask", model=model, tokenizer=tokenizer)
+
+>>> pipeline_fill_mask("España es un país muy <mask> en la UE")
+
+[{'score': 0.19951821863651276,
+  'sequence': 'España es un país muy importante en la UE',
+  'token': 1560,
+  'token_str': ' importante'},
+ {'score': 0.04137842729687691,
+  'sequence': 'España es un país muy grande en la UE',
+  'token': 2741,
+  'token_str': ' grande'},
+ {'score': 0.029216745868325233,
+  'sequence': 'España es un país muy pequeño en la UE',
+  'token': 2948,
+  'token_str': ' pequeño'},
+ {'score': 0.02563760057091713,
+  'sequence': 'España es un país muy popular en la UE',
+  'token': 5782,
+  'token_str': ' popular'},
+ {'score': 0.022264542058110237,
+  'sequence': 'España es un país muy antiguo en la UE',
+  'token': 5240,
+  'token_str': ' antiguo'}]
+````
 
 ### ¿Cómo buscar y reutilizar modelos pre-entrenados en la plataforma?
 
@@ -186,7 +220,7 @@ model = AutoModelForSequenceClassification.from_pretrained("nlptown/bert-base-mu
 ````
 
 ### Configuraciones de modelos trasnformers
-Los **modelos pre-entrenados** que se brindan en el repositorio se **basan** en alguna de las **arquitecturas Transformers** descrita en la documentación del repositorio (<https://huggingface.co/transformers/model_doc/>).
+Los **modelos pre-entrenados** que se brindan en el repositorio se **basan** en alguna de las **arquitecturas Transformers** descrita en la documentación del repositorio (<https://huggingface.co/docs>).
 Si tomamos como referencia la arquitectura de modelo Transformer [DistilBERT](https://huggingface.co/transformers/model_doc/distilbert.html#overview) podemos conocer cómo **gestionar** los distintos **parámetros**, [**configuraciones de red neuronal**](https://huggingface.co/transformers/model_doc/distilbert.html#distilbertconfig), [**tokenizador**](https://huggingface.co/transformers/model_doc/distilbert.html#distilberttokenizer) y **ejemplos** para cada tipo de tarea.
 
 ````
