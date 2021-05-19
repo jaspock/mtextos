@@ -1,5 +1,5 @@
 
-T4. Huggingface. Centralización de datasets y modelos
+T4. Centralización de datasets y modelos: Huggingface
 ====================================
 
 Contenidos:
@@ -200,6 +200,9 @@ Para otras tareas como Rellenado de Máscaras podemos ver como podemos simplemen
   'token': 5240,
   'token_str': ' antiguo'}]
 ````
+
+### Listado de Pipelines 
+En Huggingface podemos encontrar una serie de Pipelines ya preparados para enfrentar tareas concretas a los cuales les podemos suministrar distintos modelos y tokenizadores transformes. Ver ejemplos: <https://huggingface.co/transformers/main_classes/pipelines.html>
 
 ### ¿Cómo buscar y reutilizar modelos pre-entrenados en la plataforma?
 
