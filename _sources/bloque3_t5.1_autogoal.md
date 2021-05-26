@@ -275,7 +275,7 @@ Proporciona un **conjunto de anotaciones** de tipo que se utilizan para definir 
 
 ###### ¿Qué es una gramática en AutoGOAL?
 
-Una gramatica en general **es un mecanismo formal para describir una estructura jerárquica a partir de reglas** que definen como se generan subestructuras. Esto sería una gramática libre del contexto. La estructura se **define recursivamente partiendo de un concepto raíz** (en este caso Pipeline) que se compone recursivamente de la **concatenación de otros conceptos**, que a su vez  pueden estar compuestos por más conceptos. Cuando un **concepto no se define en función de otros** se considera un **Terminal** de la gramática y **de lo contrario** un concepto **No Terminal**. 
+Una gramatica (Gramática libre de contexto(GLC)) en general **es un mecanismo formal para describir una estructura jerárquica a partir de reglas** que definen como se generan subestructuras. Esto sería una gramática libre del contexto. La estructura se **define recursivamente partiendo de un concepto raíz** (en este caso Pipeline) que se compone recursivamente de la **concatenación de otros conceptos**, que a su vez  pueden estar compuestos por más conceptos. Cuando un **concepto no se define en función de otros** se considera un **Terminal** de la gramática y **de lo contrario** un concepto **No Terminal**. 
 
 !Lo más interesante de las gramáticas es que nos permiten representar espacios infinitos de forma finita! Se representan de la siguiente forma:
 
