@@ -19,6 +19,6 @@ Para la evaluación de este bloque el estudiante deberá realizar las siguentes 
 - El cuaderno no debe tener errores de ejecución
 - Cada modificación/aporte de autor debe ser señalada con comentario. Por ejemplo ####Codigo de Alumno1 ....#####
 - Se deben comentar y describir los aportes realizados por el autor, y explicar los motivos
-- Se deben evaluar varias opciones de experimentación(i.e. preprocesamiento, configuraciones, tecnologías, modelos) y explicarlas. 
-- De deben describir discusiones y conclusiones del estudio.
+- Se deben evaluar varias opciones de experimentación (i.e. preprocesamiento, configuraciones, tecnologías, modelos) y explicarlas. 
+- Se deben describir discusiones y conclusiones del estudio.
 - Se tendrá en cuenta la complejidad de la propuesta.
