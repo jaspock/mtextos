@@ -45,6 +45,16 @@ Elige alguno de los siguientes datasets y conforma tu propio sistema de sentimen
 - [Product review][product] (recomendado)
 - [SA huggingface][huggingface]
 
+
+## Criterios a tener en cuenta para la práctica:
+
+- El cuaderno a entregar no debe tener errores de ejecución.
+- Cada modificación de autor incorporada en cuaderno debe ser señalada con comentario. Por ejemplo ####Codigo NOMBRE_DEL_AUTOR ....#####.
+- Se deben comentar y describir los aportes realizados por el autor, y explicar los motivos
+- Se deben evaluar varias opciones de experimentación (i.e. preprocesamiento, configuraciones, tecnologías, modelos) y explicarlas.
+- Se deben describir discusiones y conclusiones del estudio.
+
+
 [huggingface]: https://huggingface.co/datasets?search=sentiment
 [product]: https://www.kaggle.com/arbazkhan971/product-sentiment-analysis
 [kaggle]: https://www.kaggle.com/search?q=sentiment+analysis+in%3Adatasets
