@@ -48,7 +48,7 @@ Elige alguno de los siguientes datasets y conforma tu propio sistema de sentimen
 - [Product review][product] (recomendado)
 - [SA huggingface][huggingface]
 
-## Criterios a tener en cuenta para la práctica:
+### Criterios a tener en cuenta para la práctica:
 
 - El cuaderno a entregar no debe tener errores de ejecución.
 - Cada modificación de autor incorporada en cuaderno debe ser señalada con comentario. Por ejemplo ####Codigo NOMBRE_DEL_AUTOR ....#####.
