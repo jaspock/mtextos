@@ -17,19 +17,19 @@ Contenidos:
 - NLU: **Entendimiento** del Lenguaje Natural
 - NLG: **Generación** de Lenguaje Natural
 
-```{image} /images/bloque3/t1/areas.jpg
+```{image} /images/bloque3/t1/areasNLP.jpg
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 400px
 :align: center
 ```
-Figura 1. Areas. Tomado de [Understanding Natural Language Understanding por Bill MacCartney](https://nlp.stanford.edu/~wcmac/papers/20140716-UNLU.pdf)
+Figura 1. Areas. Tomado de [What are the Differences Between NLP, NLU, and NLG? por Jagreet Kaur Gill](https://www.xenonstack.com/blog/difference-between-nlp-nlu-nlg/)
 
 **Procesamiento del Lenguaje Natural** (PLN), también conocido como **Lingüística Computacional** (LC), involucra la **ingeniería de modelos** y **procesos computacionales** para **resolver problemas** prácticos en la **comprensión** de los **lenguajes humanos**.
 
 El PLN se puede **dividir** en dos amplias **subáreas**:
 
-- [áreas centrales](#areas-centrales) y 
+- [áreas centrales](#areas-centrales) y
 - [aplicaciones](#aplicaciones),
 
 aunque a veces es **difícil distinguir** claramente a qué **áreas** pertenecen los problemas.
